@@ -8,6 +8,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   public email = '';
   public password = '';
