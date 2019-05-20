@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {AngularFireAuth} from '@angular/fire/auth';
 
@@ -8,6 +8,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
   app_name = 'El Buen Sabor';
   public isLogged = false;
