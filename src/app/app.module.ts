@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +16,7 @@ import { HamburguesasComponent } from './components/food/hamburguesas/hamburgues
 import { EmpanadasComponent } from './components/food/empanadas/empanadas.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DataViewComponent } from './components/shared/data-view/data-view.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { LoginComponent } from './components/users/login/login.component';
 

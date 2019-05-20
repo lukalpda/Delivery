@@ -9,7 +9,7 @@
           <div class="card">
             <div class="card-body text-center">
               <form #formLogin="ngForm" (ngSubmit)="onLoginEmail()">
-                <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1>
+                <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Ingresar</h1>
                 <div class="alert alert-danger" role="alert" *ngIf="isError">
                   Something is wrong!
                 </div>
@@ -22,7 +22,7 @@
                     type="password" id="password" name="password" class="form-control" placeholder="Password"
                          required>
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button>
                 <div class="form-group">
                   <a routerLink="/users/register" class="form-control login-user">¿Eres nuevo? Regístrate</a>
                 </div>
