@@ -11,9 +11,9 @@ import { environment } from '../environments/environment';
 import {ButtonModule} from 'primeng/primeng';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/shared/search/search.component';
-import { PizzaComponent } from './components/food/pizzas/pizza.component';
-import { HamburguesasComponent } from './components/food/hamburguesas/hamburguesas.component';
-import { EmpanadasComponent } from './components/food/empanadas/empanadas.component';
+import { PizzaComponent } from './components/tienda/pizzas/pizza.component';
+import { HamburguesasComponent } from './components/tienda/hamburguesas/hamburguesas.component';
+import { EmpanadasComponent } from './components/tienda/empanadas/empanadas.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DataViewComponent } from './components/shared/data-view/data-view.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -24,6 +24,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { TiendaComponent } from './components/tienda/tienda.component';
+import { GerenteComponent } from './components/gerente/gerente.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import {MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule} from '@angular/material';
+import { BarrasComponent } from './components/graficas/barras/barras.component';
 
 
 @NgModule({
@@ -38,7 +44,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
     DataViewComponent,
     NavbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TiendaComponent,
+    GerenteComponent,
+    MenuComponent,
+    BarrasComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +58,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
     ButtonModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]
