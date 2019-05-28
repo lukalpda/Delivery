@@ -43,7 +43,10 @@
 .tituloGrande{
     font-size: 60px;
 }
-.navbar{
-    font-size: 30px;
-    padding: 10px;
+
+body{
+  background: url(assets/fondologo.png);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
