@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
-import {ButtonModule} from 'primeng/primeng';
+import {ButtonModule, OrderList} from 'primeng/primeng';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/shared/search/search.component';
 import { PizzaComponent } from './components/tienda/pizzas/pizza.component';
@@ -29,7 +29,12 @@ import { GerenteComponent } from './components/gerente/gerente.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule} from '@angular/material';
+
+//graficas chart.js
+import {ChartsModule} from 'ng2-charts';
 import { BarrasComponent } from './components/graficas/barras/barras.component';
+import {ManufacturadoService} from './services/manufacturado.service';
+
 
 
 @NgModule({
@@ -65,9 +70,13 @@ import { BarrasComponent } from './components/graficas/barras/barras.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    ChartsModule
   ],
-  providers: [AngularFireAuth],
+  providers: [
+    AngularFireAuth,
+    ManufacturadoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
