@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ManufacturadoInterface } from '../components/interfaces/manufacturado.interface';
+import { Manufacturado } from '../interfaces/manufacturado.interface';
 
 @Injectable({
   providedIn: 'root'
