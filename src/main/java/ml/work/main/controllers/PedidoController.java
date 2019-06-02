@@ -20,6 +20,7 @@ import ml.work.main.service.PedidoService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/pedidos")
+@CrossOrigin("*")
 public class PedidoController implements ObjectController<PedidoDTO> {
 
 	private PedidoService pedidoService;
@@ -29,7 +30,6 @@ public class PedidoController implements ObjectController<PedidoDTO> {
 	}
 	
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<PedidoDTO> getAll() {
 

@@ -22,6 +22,7 @@ import ml.work.main.service.ClienteService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/clientes")
+@CrossOrigin("*")
 public class ClienteController extends Persona implements ObjectController<ClienteDTO>{
 
 	private ClienteService clienteService;
@@ -31,7 +32,6 @@ public class ClienteController extends Persona implements ObjectController<Clien
 	}
 
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path ="/")
 	public List<ClienteDTO> getAll() {
 		

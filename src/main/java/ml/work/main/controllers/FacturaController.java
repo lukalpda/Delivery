@@ -20,6 +20,7 @@ import ml.work.main.service.FacturaService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/facturas")
+@CrossOrigin("*")
 public class FacturaController implements ObjectController<FacturaDTO> {
 
 	private FacturaService facturaService;
@@ -29,7 +30,6 @@ public class FacturaController implements ObjectController<FacturaDTO> {
 	}
 
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<FacturaDTO> getAll() {
 		return ResponseEntity.status(200).body(facturaService.getAll()).getBody();

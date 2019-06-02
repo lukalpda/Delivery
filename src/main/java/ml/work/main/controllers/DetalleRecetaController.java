@@ -20,6 +20,7 @@ import ml.work.main.service.DetalleRecetaService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/recetas")
+@CrossOrigin("*")
 public class DetalleRecetaController implements ObjectController<DetalleRecetaDTO>{
 
 	private DetalleRecetaService detalleRecetaService;
@@ -29,7 +30,6 @@ public class DetalleRecetaController implements ObjectController<DetalleRecetaDT
 	}
 	
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<DetalleRecetaDTO> getAll() {
 		return ResponseEntity.status(200).body(detalleRecetaService.getAll()).getBody();

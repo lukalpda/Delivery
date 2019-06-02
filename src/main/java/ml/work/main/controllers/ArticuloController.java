@@ -20,6 +20,7 @@ import ml.work.main.service.ArticuloService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/articulos")
+@CrossOrigin("*")
 public class ArticuloController implements ObjectController<ArticuloDTO>{
 
 	private ArticuloService articuloService;
@@ -29,7 +30,6 @@ public class ArticuloController implements ObjectController<ArticuloDTO>{
 	}
 
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<ArticuloDTO> getAll() {
 		return ResponseEntity.status(200).body(articuloService.getAll()).getBody();

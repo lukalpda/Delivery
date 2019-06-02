@@ -20,6 +20,7 @@ import ml.work.main.service.CategoriaProductoService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/categorias")
+@CrossOrigin("*")
 public class CategoriaProductoController implements ObjectController<CategoriaProductoDTO>{
 	
 	private CategoriaProductoService categoriaProductoService;
@@ -29,7 +30,6 @@ public class CategoriaProductoController implements ObjectController<CategoriaPr
 	}
 
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<CategoriaProductoDTO> getAll() {
 		return ResponseEntity.status(200).body(categoriaProductoService.getAll()).getBody();

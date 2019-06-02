@@ -20,6 +20,7 @@ import ml.work.main.service.ComandaService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/comandas")
+@CrossOrigin("*")
 public class ComandaController implements ObjectController<ComandaDTO>{
 
 	private ComandaService comandaService;
@@ -29,7 +30,6 @@ public class ComandaController implements ObjectController<ComandaDTO>{
 	}
 	
 	@Override
-	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public List<ComandaDTO> getAll() {
 
