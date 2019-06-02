@@ -19,13 +19,14 @@ import ml.work.main.dtos.DomicilioDTO;
 import ml.work.main.service.DomicilioService;
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path = "api/v1/domicilios")
-@CrossOrigin("*")
 public class DomicilioController implements ObjectController<DomicilioDTO>{
 
 	private DomicilioService domicilioService;
 	
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path ="/")
 	public List<DomicilioDTO> getAll() {
 		

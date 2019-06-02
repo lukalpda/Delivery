@@ -7,65 +7,62 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ml.work.main.dtos.EmpleadoDTO;
-import ml.work.main.service.EmpleadoService;
+import ml.work.main.dtos.PreciosDTO;
+import ml.work.main.service.PreciosService;
 
 @Controller
 @RestController
 @CrossOrigin(origins = "*") 
-@RequestMapping(path = "api/v1/empleados")
-public class EmpleadoController implements ObjectController<EmpleadoDTO>{
+@RequestMapping(path = "api/v1/precios")
+public class PreciosController implements ObjectController<PreciosDTO>{
 
-	private EmpleadoService empleadoService;
-
-	public EmpleadoController(EmpleadoService empleadoService) {
-		this.empleadoService = empleadoService;
+	private PreciosService preciosService;	
+	
+	public PreciosController(PreciosService preciosService) {
+		this.preciosService = preciosService;
 	}
 	
+
 	@Override
 	@CrossOrigin("*")
 	@GetMapping(path = "/")
-	public List<EmpleadoDTO> getAll() {
-		return ResponseEntity.status(200).body(empleadoService.getAll()).getBody();
+	public List<PreciosDTO> getAll() {
+		return ResponseEntity.status(200).body(preciosService.getAll()).getBody();
 	}
-	
-	
+
 	@Override
 	@GetMapping(path = "/{id}")
-	public EmpleadoDTO getOne(@PathVariable int id) {
-		return ResponseEntity.status(200).body(empleadoService.getOne(id)).getBody();
+	public PreciosDTO getOne(int id) {
+		return ResponseEntity.status(200).body(preciosService.getOne(id)).getBody();
 	}
-	
-	
+
 	@Override
 	@PostMapping("/")
-	public ResponseEntity save(@RequestBody EmpleadoDTO body) {
-		EmpleadoDTO temp = empleadoService.save(body);
+	public ResponseEntity save(PreciosDTO body) {
+		PreciosDTO temp = preciosService.save(body);
 
-		if (temp.getId_empleado() != 0) {
+		if (temp.getId_precio() != 0) {
 			return ResponseEntity.status(201).body(temp);
 		} else {
 			return ResponseEntity.status(400).body("{'error' : 'bad request'}");
 		}
 	}
-	
+
 	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity updateEntity(@RequestBody EmpleadoDTO t, @PathVariable int id) {
-		return ResponseEntity.status(201).body(empleadoService.update(t, id));
+	public ResponseEntity updateEntity(PreciosDTO t, int id) {
+		return ResponseEntity.status(201).body(preciosService.update(t, id));
 	}
 
 	@Override
 	@DeleteMapping("/{id}")
-	public ResponseEntity deleteEntity(@PathVariable int id) {
-		boolean det = empleadoService.delete(id);
+	public ResponseEntity deleteEntity(int id) {
+		boolean det = preciosService.delete(id);
 
 		if (det) {
 			return ResponseEntity.status(204).body("'Message' : 'Successful Delete'");
@@ -73,6 +70,4 @@ public class EmpleadoController implements ObjectController<EmpleadoDTO>{
 			return ResponseEntity.status(400).body("'Message' . 'Unsuccessful delete'");
 		}
 	}
-
-	
 }

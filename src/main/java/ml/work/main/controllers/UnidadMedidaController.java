@@ -19,8 +19,8 @@ import ml.work.main.service.UnidadMedidaService;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path = "api/v1/medidas")
-@CrossOrigin("*")
 public class UnidadMedidaController implements ObjectController<UnidadMedidaDTO>{
 
 	private UnidadMedidaService unidadMedidaService;
@@ -30,6 +30,7 @@ public class UnidadMedidaController implements ObjectController<UnidadMedidaDTO>
 	}
 	
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<UnidadMedidaDTO> getAll() {
 		return ResponseEntity.status(200).body(unidadMedidaService.getAll()).getBody();

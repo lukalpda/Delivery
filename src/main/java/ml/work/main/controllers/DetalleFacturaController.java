@@ -19,8 +19,8 @@ import ml.work.main.service.DetalleFacturaService;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path="api/v1/detalles_factura")
-@CrossOrigin("*")
 public class DetalleFacturaController implements ObjectController<DetalleFacturaDTO>{
 
 	private DetalleFacturaService detalleFacturaService;
@@ -30,6 +30,7 @@ public class DetalleFacturaController implements ObjectController<DetalleFactura
 	}	
 	
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path="/")
 	public ArrayList<DetalleFacturaDTO> getAll() {
 		return ResponseEntity.status(200).body(detalleFacturaService.getAll()).getBody();

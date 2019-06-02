@@ -19,8 +19,8 @@ import ml.work.main.service.CargosService;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path = "api/v1/cargos")
-@CrossOrigin("*")
 public class CargosController implements ObjectController<CargosDTO>{
 	
 	private CargosService cargosService;
@@ -30,6 +30,7 @@ public class CargosController implements ObjectController<CargosDTO>{
 	}
 	
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public List<CargosDTO> getAll() {
 		return ResponseEntity.status(200).body(cargosService.getAll()).getBody();

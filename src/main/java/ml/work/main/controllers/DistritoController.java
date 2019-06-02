@@ -20,8 +20,8 @@ import ml.work.main.service.DistritoService;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path = "api/v1/Distritos")
-@CrossOrigin("*")
 public class DistritoController implements ObjectController<DistritoDTO>{
 
 	private DistritoService distritoService;
@@ -31,6 +31,7 @@ public class DistritoController implements ObjectController<DistritoDTO>{
 	}
 
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path ="/")
 	public List<DistritoDTO> getAll() {
 		

@@ -18,8 +18,8 @@ import ml.work.main.service.LocalidadService;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path = "api/v1/localidades")
-@CrossOrigin("*")
 public class LocalidadController implements ObjectController<LocalidadDTO>{
 
 	private LocalidadService localidadService;
@@ -29,6 +29,7 @@ public class LocalidadController implements ObjectController<LocalidadDTO>{
 	}
 
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path ="/")
 	public List<LocalidadDTO> getAll() {		
 		return ResponseEntity.status(200).body(localidadService.getAll()).getBody();

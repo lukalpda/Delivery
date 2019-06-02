@@ -19,8 +19,8 @@ import ml.work.main.service.ArticuloManufacturadoService;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping(path = "api/v1/manufacturados")
-@CrossOrigin("*")
 public class ArticuloManufacturadoController implements ObjectController<ArticuloManufacturadoDTO>{
 
 	private ArticuloManufacturadoService articuloManufacturadoService;
@@ -30,6 +30,7 @@ public class ArticuloManufacturadoController implements ObjectController<Articul
 	}
 	
 	@Override
+	@CrossOrigin("*")
 	@GetMapping(path = "/")
 	public ArrayList<ArticuloManufacturadoDTO> getAll() {
 		return ResponseEntity.status(200).body(articuloManufacturadoService.getAll()).getBody();
