@@ -53,6 +53,7 @@ import { LocalidadadService } from './services/localidad.service';
 import { PedidoService } from './services/pedido.service';
 import { UnidadMedidaService } from './services/unidad-medida.service';
 import { PreciosService } from './services/precios.service';
+import { CategoriaService } from './services/categoria.service';
 
 
 
@@ -94,16 +95,15 @@ import { PreciosService } from './services/precios.service';
   providers: [
     AngularFireAuth,
     ManufacturadoService,
-    DistritoService,
     DomicilioService,
+    CategoriaService,
     ArticuloService,
     CargosService,
     ClienteService,
-    ComandaService,
     DetalleRecetaService,
+    ComandaService,
     DetalleVentaService,
     DistritoService,
-    DomicilioService,
     EmpleadoService,
     FacturaService,
     LocalidadadService,
