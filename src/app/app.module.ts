@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -37,24 +38,23 @@ import {
 import { ChartsModule } from "ng2-charts";
 import { BarrasComponent } from "./components/graficas/barras/barras.component";
 import { ManufacturadoService } from "./services/manufacturado.service";
-import { ArticuloComponent } from './components/tienda/articulo/articulo.component';
+import { ArticuloComponent } from "./components/tienda/articulo/articulo.component";
 
-import {DistritoService} from './services/distrito.service';
-import {DomicilioService} from './services/domicilio.service';
-import { ArticuloService } from './services/articulo.service';
-import { CargosService } from './services/cargos.service';
-import { ClienteService } from './services/cliente.service';
-import { ComandaService } from './services/comanda.service';
-import { DetalleRecetaService } from './services/detalle-receta.service';
-import { DetalleVentaService } from './services/detalle-venta.service';
-import { EmpleadoService } from './services/empleado.service';
-import { FacturaService } from './services/factura.service';
-import { LocalidadadService } from './services/localidad.service';
-import { PedidoService } from './services/pedido.service';
-import { UnidadMedidaService } from './services/unidad-medida.service';
-import { PreciosService } from './services/precios.service';
-
-
+import { DistritoService } from "./services/distrito.service";
+import { DomicilioService } from "./services/domicilio.service";
+import { ArticuloService } from "./services/articulo.service";
+import { CargosService } from "./services/cargos.service";
+import { ClienteService } from "./services/cliente.service";
+import { ComandaService } from "./services/comanda.service";
+import { DetalleRecetaService } from "./services/detalle-receta.service";
+import { DetalleVentaService } from "./services/detalle-venta.service";
+import { EmpleadoService } from "./services/empleado.service";
+import { FacturaService } from "./services/factura.service";
+import { LocalidadadService } from "./services/localidad.service";
+import { PedidoService } from "./services/pedido.service";
+import { UnidadMedidaService } from "./services/unidad-medida.service";
+import { PreciosService } from "./services/precios.service";
+import { ArticulosManufacturadosComponent } from "./components/tienda/articulos-manufacturados/articulos-manufacturados.component";
 
 @NgModule({
   declarations: [
@@ -70,9 +70,11 @@ import { PreciosService } from './services/precios.service';
     GerenteComponent,
     MenuComponent,
     BarrasComponent,
-    ArticuloComponent
+    ArticuloComponent,
+    ArticulosManufacturadosComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

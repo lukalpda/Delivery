@@ -3,6 +3,7 @@ import { ArticuloService } from "src/app/services/articulo.service";
 import { Router } from "@angular/router";
 import { PreciosService } from "src/app/services/precios.service";
 import { Precio } from "src/app/interfaces/precios.interface";
+import { Articulo } from 'src/app/interfaces/articulo.interface';
 
 @Component({
   selector: "app-articulo",
@@ -10,7 +11,7 @@ import { Precio } from "src/app/interfaces/precios.interface";
   styleUrls: ["./articulo.component.css"]
 })
 export class ArticuloComponent implements OnInit {
-  articulos: ArticuloService[] = [];
+  articulos: Articulo[] = [];
   precios: Precio[] = [];
   constructor(
     private _articuloService: ArticuloService,
@@ -19,7 +20,7 @@ export class ArticuloComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._articuloService.listarManufacturados().subscribe(data => {
+    this._articuloService.listarArticulos().subscribe(data => {
       this.articulos = data;
     });
     this._preciosService.listarPrecios().subscribe(data => {

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { ManufacturadoService } from "src/app/services/manufacturado.service";
-import { Manufacturado } from 'src/app/interfaces/manufacturado.interface';
-import { PreciosService } from 'src/app/services/precios.service';
-import { Precio } from 'src/app/interfaces/precios.interface';
+import { ManufacturadoService } from "../../../services/manufacturado.service";
+import { PreciosService } from "../../../services/precios.service";
+import { Precio } from "../../../interfaces/precios.interface";
+import { Manufacturado } from "../../../interfaces/manufacturado.interface";
 
 @Component({
   selector: "app-articulos-manufacturados",
@@ -23,8 +23,14 @@ export class ArticulosManufacturadosComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit() {
-    this._articulosManufacturadosService.listarManufacturados().subscribe(data =>{this.articulosManufacturados=data});
-    this._preciosService.listarPrecios().subscribe(data => {this.precios=data});
+    this._articulosManufacturadosService
+      .listarManufacturados()
+      .subscribe(data => {
+        this.articulosManufacturados = data;
+      });
+    this._preciosService.listarPrecios().subscribe(data => {
+      this.precios = data;
+    });
     console.log(this.articulosManufacturados);
   }
 
