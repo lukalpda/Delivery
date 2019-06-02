@@ -1,23 +1,10 @@
 <div class="tienda">
   <nav aria-label="Tienda">
     <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" (click)="cambiarCategoria('pizza')">Pizzas</a></li>
-      <li class="page-item"><a class="page-link" (click)="cambiarCategoria('empanada')">Empanadas</a>
-      </li>
-      <li class="page-item"><a class="page-link" (click)='cambiarCategoria("hamburguesa")'>Hamburguesas</a></li>
-      <li class="page-item"><a class="page-link" (click)='cambiarCategoria("bebida")'>Bebidas</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
+      <li class="page-item "><a class="page-link button" (click)="cambiarCategoria('pizza')">Pizzas</a></li>
+      <li class="page-item "><a class="page-link button" (click)="cambiarCategoria('empanada')">Empanadas</a></li>
+      <li class="page-item "><a class="page-link button" (click)='cambiarCategoria("hamburguesa")'>Hamburguesas</a></li>
+      <li class="page-item "><a class="page-link button" (click)='cambiarCategoria("bebida")'>Bebidas</a></li>
     </ul>
   </nav>
   <div>

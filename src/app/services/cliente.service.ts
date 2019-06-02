@@ -9,7 +9,7 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
-  Url= "http://localhost:8000/api/v1/apirest_cliente/";
+  Url= "http://localhost:8000/api/v1/clientes/";
 
   listarClientes(){
     return this.http.get<Cliente[]>(this.Url)

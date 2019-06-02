@@ -9,7 +9,7 @@ export class FacturaService {
 
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8080/api/v1/apirest_factura/";
+  Url="http://localhost:8080/api/v1/facturas/";
   
 
   listarFacturas(){

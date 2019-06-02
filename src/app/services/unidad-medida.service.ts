@@ -9,7 +9,7 @@ export class UnidadMedidaService {
 
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8080/api/v1/apirest_unidad_medida/";
+  Url="http://localhost:8080/api/v1/medidas/";
   
 
   listarUnidadesMedida(){
