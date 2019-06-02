@@ -1,6 +1,6 @@
 <div class="card-columns">
   <ng-container *ngFor="let articuloManufacturadoAux of articulosManufacturados; let i = index">
-    <div class="card border-dark" *ngIf="articuloManufacturadoAux.id_categoria == childMessage">
+    <div class="card border-dark" *ngIf="articuloManufacturadoAux.articulo_manuf_id.categoria_nombre == childMessage">
       <img class="card-img-top" src="{{articuloManufacturadoAux.manuf_foto}}" [alt]="articuloManufacturadoAux">
       <div class="card-body">
         <h4 class="card-title">{{articuloManufacturadoAux.articulo_manuf_nombre}}</h4>
