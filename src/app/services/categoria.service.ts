@@ -9,7 +9,7 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
-  Url= "http://localhost:8000/api/v1/categorias/";
+  Url= "http://localhost:8080/api/v1/categorias/";
 
   listarCategorias(){
     return this.http.get<Categoria[]>(this.Url)
