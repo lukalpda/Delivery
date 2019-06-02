@@ -1,0 +1,17 @@
+a{
+    color: #ffffff;
+    text-decoration-color: white;
+}
+.btn-group-lg{
+    text-align: center;
+}
+.pagination{
+    font-size: 20px;
+    align-self: center;
+    padding: 10px;
+    color: #ffffff;
+}
+.page-link{
+    color: white;
+    background: #007bff;
+}
