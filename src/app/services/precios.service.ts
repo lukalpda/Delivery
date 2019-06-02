@@ -9,7 +9,7 @@ export class PreciosService {
 
   constructor(private http: HttpClient) {}
   
-  Url: "http://localhost:8000/api/v1/apirest_precios/";
+  Url= "http://localhost:8000/api/v1/apirest_precios/";
 
   listarPrecios() {
     return this.http.get<Precio[]>(this.Url);

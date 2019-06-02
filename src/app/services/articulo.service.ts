@@ -9,7 +9,7 @@ export class ArticuloService {
 
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_articulos/";
+  Url= "http://localhost:8000/api/v1/apirest_articulos/";
 
   listarArticulos(){
     return this.http.get<Articulo[]>(this.Url)

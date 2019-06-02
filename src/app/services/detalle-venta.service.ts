@@ -9,7 +9,7 @@ export class DetalleVentaService {
 
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_detalles_factura/";
+  Url= "http://localhost:8000/api/v1/apirest_detalles_factura/";
 
   listarDetalleVentas(){
     return this.http.get<DetalleVenta[]>(this.Url)

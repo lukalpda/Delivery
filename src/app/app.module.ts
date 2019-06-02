@@ -54,7 +54,9 @@ import { PedidoService } from './services/pedido.service';
 import { UnidadMedidaService } from './services/unidad-medida.service';
 import { PreciosService } from './services/precios.service';
 import { CategoriaService } from './services/categoria.service';
-
+import { StockComponent } from './components/stock/stock.component';
+import { ArticulosManufacturadosComponent } from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -71,10 +73,14 @@ import { CategoriaService } from './services/categoria.service';
     GerenteComponent,
     MenuComponent,
     BarrasComponent,
-    ArticuloComponent
+    ArticuloComponent,
+    StockComponent,
+    ArticulosManufacturadosComponent
+    
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
+    NgbModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
