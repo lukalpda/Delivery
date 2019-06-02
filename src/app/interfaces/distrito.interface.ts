@@ -1,5 +1,5 @@
 export interface Distrito{     
-    distrito_ud:number;
+    distrito_id:number;
     nombre_distrito:string;
     id_localidad:number;    
   } 
