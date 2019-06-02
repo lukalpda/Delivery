@@ -1,0 +1,29 @@
+h1 {
+    color: #2a2eb9;
+    font-weight: normal;
+    font-size: 100px;
+    font-family: Arial;
+    align-self: center;
+  }
+  
+  .card-columns {
+    width: auto;
+    align-self: center;
+    margin-left: 225px;
+    margin-right: 225px;
+    column-count: 1;
+    padding-left: 30px;
+  }
+  
+  div.card.border-dark {
+    position: -ms-page;
+    align-content: space-between;
+    align-self: center;
+    max-width: 25rem;
+    margin: 30px;
+  }
+  .carrito {
+    padding-top: 10px;
+    text-align: center;
+  }
+  
