@@ -9,7 +9,7 @@ export class DistritoService {
 
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8080/api/v1/apirest_distrito/";
+  Url="http://localhost:8080/api/v1/Distritos/";
   
 
   listarDistritos(){

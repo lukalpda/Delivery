@@ -9,7 +9,7 @@ export class ComandaService {
 
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_comanda/";
+  Url= "http://localhost:8000/api/v1/comandas/";
 
   listarComandas(){
     return this.http.get<Comanda[]>(this.Url)

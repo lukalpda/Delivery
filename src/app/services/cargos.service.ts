@@ -9,7 +9,7 @@ export class CargosService {
 
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_cargos/";
+  Url= "http://localhost:8000/api/v1/cargos/";
 
   listarCargos(){
     return this.http.get<Cargos[]>(this.Url)

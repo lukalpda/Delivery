@@ -10,7 +10,7 @@ export class ManufacturadoService {
 
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_art_manufacturado/";
+  Url= "http://localhost:8000/api/v1/manufacturados/";
 
   listarManufacturados(){
     return this.http.get<Manufacturado[]>(this.Url)
