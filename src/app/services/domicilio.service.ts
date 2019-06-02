@@ -12,7 +12,7 @@ export class DomicilioService {
   
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8080/api/v1/apirest_domicilio/";
+  Url="http://localhost:8080/api/v1/domicilios/";
   
 
   listarDomicilios(){
