@@ -9,12 +9,8 @@ import { Manufacturado } from '../interfaces/manufacturado.interface';
 export class ManufacturadoService {
 
   constructor(private http: HttpClient) { }
-
-<<<<<<< HEAD
-  Url= "http://localhost:8000/api/v1/apirest_art_manufacturado/";
-=======
+  
   Url= "http://localhost:8000/api/v1/manufacturados/";
->>>>>>> a9abda79a471484a3a1e2aa4d191f440825fa2de
 
   listarManufacturados(){
     return this.http.get<Manufacturado[]>(this.Url)
