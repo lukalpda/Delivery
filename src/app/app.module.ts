@@ -34,6 +34,8 @@ import {MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatL
 import {ChartsModule} from 'ng2-charts';
 import { BarrasComponent } from './components/graficas/barras/barras.component';
 import {ManufacturadoService} from './services/manufacturado.service';
+import {DistritoService} from './services/distrito.service';
+import {DomicilioService} from './services/domicilio.service';
 
 
 
@@ -75,7 +77,9 @@ import {ManufacturadoService} from './services/manufacturado.service';
   ],
   providers: [
     AngularFireAuth,
-    ManufacturadoService
+    ManufacturadoService,
+    DistritoService,
+    DomicilioService
   ],
   bootstrap: [AppComponent]
 })
