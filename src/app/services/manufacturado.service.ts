@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ManufacturadoInterface } from '../components/interfaces/manufacturado.interface';
+import { Manufacturado } from '../interfaces/manufacturado.interface';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ManufacturadoService {
 
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8000/api/v1/manufacturados/";
+  Url: "http://localhost:8000/api/v1/apirest_art_manufacturado/";
 
-  getManufacturados(){
-    return this.http.get<ManufacturadoInterface[]>(this.Url);
+  listarManufacturados(){
+    return this.http.get<Manufacturado[]>(this.Url)
+  }
+  crearManufacturado(item: Manufacturado){
+    return this.http.post<Manufacturado>(this.Url, item);
   }
 
-  createManufacturado(manufacturado: ManufacturadoInterface){
-    return this.http.post<ManufacturadoInterface>(this.Url, manufacturado);
+  buscarXIdManufacturado(id: number){
+    return this.http.get<Manufacturado>(this.Url+id);
   }
 
-  getManufacturado(id: number){
-    return this.http.get<ManufacturadoInterface>(this.Url+"/"+id);
+  modificarManufacturado(item:Manufacturado){
+    return this.http.put<Manufacturado>(this.Url+item.articulo_manuf_id, item);
   }
 
-  updateManufacturado(manufacturado:ManufacturadoInterface){
-    return this.http.put<ManufacturadoInterface>(this.Url+"/"+manufacturado.id, manufacturado);
-  }
-
-  deleteManufacturado(manufacturado:ManufacturadoInterface){
-    return this.http.delete<ManufacturadoInterface>(this.Url+"/"+manufacturado.id);
-  }
 }
