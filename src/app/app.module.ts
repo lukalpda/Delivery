@@ -39,6 +39,23 @@ import { BarrasComponent } from "./components/graficas/barras/barras.component";
 import { ManufacturadoService } from "./services/manufacturado.service";
 import { ArticuloComponent } from './components/tienda/articulo/articulo.component';
 
+import {DistritoService} from './services/distrito.service';
+import {DomicilioService} from './services/domicilio.service';
+import { ArticuloService } from './services/articulo.service';
+import { CargosService } from './services/cargos.service';
+import { ClienteService } from './services/cliente.service';
+import { ComandaService } from './services/comanda.service';
+import { DetalleRecetaService } from './services/detalle-receta.service';
+import { DetalleVentaService } from './services/detalle-venta.service';
+import { EmpleadoService } from './services/empleado.service';
+import { FacturaService } from './services/factura.service';
+import { LocalidadadService } from './services/localidad.service';
+import { PedidoService } from './services/pedido.service';
+import { UnidadMedidaService } from './services/unidad-medida.service';
+import { PreciosService } from './services/precios.service';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +90,27 @@ import { ArticuloComponent } from './components/tienda/articulo/articulo.compone
     MatMenuModule,
     ChartsModule
   ],
-  providers: [AngularFireAuth, ManufacturadoService],
+
+  providers: [
+    AngularFireAuth,
+    ManufacturadoService,
+    DistritoService,
+    DomicilioService,
+    ArticuloService,
+    CargosService,
+    ClienteService,
+    ComandaService,
+    DetalleRecetaService,
+    DetalleVentaService,
+    DistritoService,
+    DomicilioService,
+    EmpleadoService,
+    FacturaService,
+    LocalidadadService,
+    PedidoService,
+    PreciosService,
+    UnidadMedidaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
