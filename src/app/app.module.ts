@@ -88,7 +88,8 @@ import { PreciosService } from './services/precios.service';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    ChartsModule
+    ChartsModule,
+    NgbModule
   ],
 
   providers: [

@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/users/register/register.componen
 import { LoginComponent } from './components/users/login/login.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {TiendaComponent} from './components/tienda/tienda.component';
+import {CocinaComponent} from './components/cocina/cocina.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'users/login', component: LoginComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'tienda', component: TiendaComponent},
+  {path: 'cocina', component: CocinaComponent},
   {path: '**', component: HomeComponent}
 ];
 

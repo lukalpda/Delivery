@@ -1,0 +1,23 @@
+.Boton img{
+  height: 30px;
+  width: 30px;
+}
+
+select{
+  margin: auto;
+  width: 100%;
+}
+
+.Botonera{
+  justify-content: space-around;
+  display: flex;
+}
+
+[class*=col-]{
+  margin-top: 10px;
+  margin-right: 10px;
+  float: left;
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
