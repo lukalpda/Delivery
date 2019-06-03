@@ -9,8 +9,13 @@ export class DetalleRecetaService {
 
   constructor(private http: HttpClient) { }
 
+<<<<<<< HEAD
   Url= "http://localhost:8000/api/v1/recetas/";
   
+=======
+  Url= "http://localhost:8080/api/v1/recetas/";
+
+>>>>>>> 011e103f899b7f37a7b4b3b773d50ca1514883e4
   listarDetalleRecetas(){
     return this.http.get<DetalleReceta[]>(this.Url)
   }
