@@ -20,6 +20,12 @@
           <li class="nav-item" *ngIf="!isLogged">
             <button type="button" class="button" routerLink="/users/register">Registrarse</button>
           </li>
+          <li class="nav-item" routerLinkActive="active">
+            <button type="button" class="button" routerLink="/clientes">Clientes</button>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <button type="button" class="button" routerLink="/carro">Carro</button>
+          </li>
           <li class="nav-item" *ngIf="isLogged">
             <button type="button" class="button material-icons md-48" routerLink="/users/profile"><mat-icon>person</mat-icon></button>
           </li>

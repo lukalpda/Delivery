@@ -19,3 +19,4 @@ export class TiendaComponent implements OnInit {
     this.parentMessage=parentMessage;    
   }
 }
+ 

@@ -55,6 +55,10 @@ import { PedidoService } from "./services/pedido.service";
 import { UnidadMedidaService } from "./services/unidad-medida.service";
 import { PreciosService } from "./services/precios.service";
 import { ArticulosManufacturadosComponent } from "./components/tienda/articulos-manufacturados/articulos-manufacturados.component";
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { CarroComponent } from './components/carro/carro.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,11 @@ import { ArticulosManufacturadosComponent } from "./components/tienda/articulos-
     MenuComponent,
     BarrasComponent,
     ArticuloComponent,
-    ArticulosManufacturadosComponent
+    ArticulosManufacturadosComponent,
+    ClientesComponent,
+    AgregarClienteComponent,
+    EditarClienteComponent,
+    CarroComponent
   ],
   imports: [
     NgbModule,

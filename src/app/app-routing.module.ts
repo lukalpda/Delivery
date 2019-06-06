@@ -5,6 +5,10 @@ import { RegisterComponent } from './components/users/register/register.componen
 import { LoginComponent } from './components/users/login/login.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {TiendaComponent} from './components/tienda/tienda.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { CarroComponent } from './components/carro/carro.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +16,10 @@ const routes: Routes = [
   {path: 'users/login', component: LoginComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'tienda', component: TiendaComponent},
+  {path: 'clientes', component: ClientesComponent},
+  {path: 'agregarCliente', component: AgregarClienteComponent},
+  {path: 'editarCliente', component: EditarClienteComponent},
+  {path: 'carro', component: CarroComponent},
   {path: '**', component: HomeComponent}
 ];
 
