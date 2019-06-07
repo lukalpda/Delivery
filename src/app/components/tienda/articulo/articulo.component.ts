@@ -3,7 +3,7 @@ import { ArticuloService } from "src/app/services/articulo.service";
 import { Router } from "@angular/router";
 import { PreciosService } from "src/app/services/precios.service";
 import { Precio } from "src/app/interfaces/precios.interface";
-import { Articulo } from 'src/app/interfaces/articulo.interface';
+import {Articulo} from '../../../interfaces/articulo.interface';
 
 @Component({
   selector: "app-articulo",

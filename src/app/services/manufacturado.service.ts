@@ -9,7 +9,7 @@ import { Manufacturado } from '../interfaces/manufacturado.interface';
 export class ManufacturadoService {
 
   constructor(private http: HttpClient) { }
-  
+
   Url= "http://localhost:8080/api/v1/manufacturados/";
 
   listarManufacturados(){

@@ -33,5 +33,4 @@ export class AuthService {
     return this.afsAuth.authState.pipe(map(auth => auth));
   }
 
-  //crear metodo backup firebase
 }

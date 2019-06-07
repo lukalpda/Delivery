@@ -1,20 +1,13 @@
-
+import { BrowserModule } from "@angular/platform-browser";
 import { NgModule} from "@angular/core";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { environment } from "../environments/environment";
 
-
-//Bootstrap PrimeNg
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {ButtonModule, OrderList} from 'primeng/primeng';
-//Components
-import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
-import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
-import {OrdersComponent} from './components/orders/orders.component';
-import {MainMenuComponent} from './components/shared/main-menu/main-menu.component';
+import { ButtonModule} from "primeng/primeng";
 import { HomeComponent } from "./components/home/home.component";
 import { SearchComponent } from "./components/shared/search/search.component";
 import { ContactComponent } from "./components/contact/contact.component";
@@ -22,6 +15,7 @@ import { DataViewComponent } from "./components/shared/data-view/data-view.compo
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { RegisterComponent } from "./components/users/register/register.component";
 import { LoginComponent } from "./components/users/login/login.component";
+<<<<<<< HEAD
 import { TiendaComponent } from "./components/tienda/tienda.component";
 import { GerenteComponent } from "./components/gerente/gerente.component";
 import {HomeAdminComponent} from './components/home-admin/home-admin.component';
@@ -34,21 +28,31 @@ import { CarroComponent } from './components/carro/carro.component';
 //import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
 //import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
 //import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
+=======
+>>>>>>> parent of 6cf825d... Merge branch 'develop' into sergio
 
-//Firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { AngularFireAuth } from "@angular/fire/auth";
-import {AngularFirestoreModule} from '@angular/fire/firestore';
-//http
 import { HttpClientModule } from "@angular/common/http";
-import {environment} from '../environments/environment';
-//chart.js
+import { AngularFireAuth } from "@angular/fire/auth";
+import { TiendaComponent } from "./components/tienda/tienda.component";
+import { GerenteComponent } from "./components/gerente/gerente.component";
+import { MenuComponent } from "./components/shared/menu/menu.component";
+import { LayoutModule } from "@angular/cdk/layout";
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatMenuModule
+} from "@angular/material";
+
+//graficas chart.js
 import { ChartsModule } from "ng2-charts";
 import { BarrasComponent } from "./components/graficas/barras/barras.component";
-import { LineasComponent } from "./components/graficas/lineas/lineas.component";
-//Services
-import {OrdersService} from './services/orders.service';
+
+
 import { ManufacturadoService } from "./services/manufacturado.service";
 import { ArticuloComponent } from './components/tienda/articulo/articulo.component';
 import {DistritoService} from './services/distrito.service';
@@ -66,10 +70,17 @@ import { PedidoService } from './services/pedido.service';
 import { UnidadMedidaService } from './services/unidad-medida.service';
 import { PreciosService } from './services/precios.service';
 import { CategoriaService } from './services/categoria.service';
+<<<<<<< HEAD
 
 //Material
 import {CommonModule} from '@angular/common';
 import {MaterialModule} from './material.module';
+=======
+import { ArticulosManufacturadosComponent } from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
+import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
+import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
+import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
+>>>>>>> parent of 6cf825d... Merge branch 'develop' into sergio
 
 
 @NgModule({
@@ -84,15 +95,10 @@ import {MaterialModule} from './material.module';
     LoginComponent,
     TiendaComponent,
     GerenteComponent,
-    HomeAdminComponent,
-    OrdersComponent,
-    OrdersListComponent,
-    BarrasComponent,
-    LineasComponent,
-    MainMenuComponent,
     MenuComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,
+<<<<<<< HEAD
     //ListaStockComponent,
     //AgregarStockComponent,
     //EditarStockComponent,
@@ -106,41 +112,53 @@ import {MaterialModule} from './material.module';
     BrowserModule,
     NgbModule,
     MaterialModule,
+=======
+    ListaStockComponent,
+    AgregarStockComponent,
+    EditarStockComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgbModule,    
+>>>>>>> parent of 6cf825d... Merge branch 'develop' into sergio
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     ButtonModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFirestoreModule,
-    ChartsModule,
-    CommonModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    ChartsModule
   ],
 
   providers: [
     AngularFireAuth,
     ManufacturadoService,
-    DistritoService,
     DomicilioService,
+    CategoriaService,
     ArticuloService,
     CargosService,
     ClienteService,
-    ComandaService,
     DetalleRecetaService,
+    ComandaService,
     DetalleVentaService,
     DistritoService,
-    DomicilioService,
     EmpleadoService,
     FacturaService,
     LocalidadadService,
     PedidoService,
     PreciosService,
-    UnidadMedidaService,
-    OrdersService,
-    CategoriaService
+    UnidadMedidaService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {}
