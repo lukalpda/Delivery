@@ -1,13 +1,16 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule} from "@angular/core";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { environment } from "../environments/environment";
-
-import { ButtonModule} from "primeng/primeng";
+//PrimeNg
+import {ButtonModule, OrderList} from 'primeng/primeng';
+//Bootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//Components
+import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
+import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
+import {OrdersComponent} from './components/orders/orders.component';
+import {MainMenuComponent} from './components/shared/main-menu/main-menu.component';
 import { HomeComponent } from "./components/home/home.component";
 import { SearchComponent } from "./components/shared/search/search.component";
 import { ContactComponent } from "./components/contact/contact.component";
@@ -15,29 +18,25 @@ import { DataViewComponent } from "./components/shared/data-view/data-view.compo
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { RegisterComponent } from "./components/users/register/register.component";
 import { LoginComponent } from "./components/users/login/login.component";
-
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { HttpClientModule } from "@angular/common/http";
-import { AngularFireAuth } from "@angular/fire/auth";
 import { TiendaComponent } from "./components/tienda/tienda.component";
 import { GerenteComponent } from "./components/gerente/gerente.component";
+import {HomeAdminComponent} from './components/home-admin/home-admin.component';
 import { MenuComponent } from "./components/shared/menu/menu.component";
-import { LayoutModule } from "@angular/cdk/layout";
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
-  MatMenuModule
-} from "@angular/material";
-
-//graficas chart.js
+import { RecepcionComponent } from './components/recepcion/recepcion.component';
+//Firebase
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireAuth } from "@angular/fire/auth";
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+//http
+import { HttpClientModule } from "@angular/common/http";
+import {environment} from '../environments/environment';
+//chart.js
 import { ChartsModule } from "ng2-charts";
 import { BarrasComponent } from "./components/graficas/barras/barras.component";
-
-
+import { LineasComponent } from "./components/graficas/lineas/lineas.component";
+//Services
+import {OrdersService} from './services/orders.service';
 import { ManufacturadoService } from "./services/manufacturado.service";
 import { ArticuloComponent } from './components/tienda/articulo/articulo.component';
 import {DistritoService} from './services/distrito.service';
@@ -55,7 +54,10 @@ import { PedidoService } from './services/pedido.service';
 import { UnidadMedidaService } from './services/unidad-medida.service';
 import { PreciosService } from './services/precios.service';
 import { CategoriaService } from './services/categoria.service';
-import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
+//Material
+import {MaterialModule} from './material.module';
+import {CommonModule} from '@angular/common';
+
 
 
 @NgModule({
@@ -70,29 +72,31 @@ import {ArticulosManufacturadosComponent} from './components/tienda/articulos-ma
     LoginComponent,
     TiendaComponent,
     GerenteComponent,
+    HomeAdminComponent,
+    OrdersComponent,
+    OrdersListComponent,
+    BarrasComponent,
+    LineasComponent,
+    MainMenuComponent,
     MenuComponent,
     BarrasComponent,
     ArticuloComponent,
-    ArticulosManufacturadosComponent
+    ArticulosManufacturadosComponent,
+    RecepcionComponent
   ],
   imports: [
+    MaterialModule,
     NgbModule,
-    BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
     ButtonModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatMenuModule,
-    ChartsModule
+    AngularFirestoreModule,
+    ChartsModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
 
   providers: [
@@ -112,7 +116,8 @@ import {ArticulosManufacturadosComponent} from './components/tienda/articulos-ma
     LocalidadadService,
     PedidoService,
     PreciosService,
-    UnidadMedidaService
+    UnidadMedidaService,
+    OrdersService
   ],
   bootstrap: [
     AppComponent

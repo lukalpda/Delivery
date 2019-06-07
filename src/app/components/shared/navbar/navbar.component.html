@@ -21,7 +21,10 @@
             <button type="button" class="button" routerLink="/users/register">Registrarse</button>
           </li>
           <li class="nav-item" *ngIf="isLogged">
-            <button type="button" class="button material-icons md-48" routerLink="/users/profile"><mat-icon>person</mat-icon></button>
+            <button type="button" class="button material-icons md-48" routerLink="/gerente"><mat-icon>work_outline</mat-icon></button>
+          </li>
+          <li class="nav-item" *ngIf="isLogged">
+            <button type="button" class="button material-icons md-48" routerLink="/users/profile"><mat-icon>account_circle</mat-icon></button>
           </li>
           <li class="nav-item" *ngIf="isLogged">
             <button type="button" class="button material-icons md-48" routerLink="/admin/list-books"><mat-icon>history</mat-icon></button>

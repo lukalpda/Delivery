@@ -1,0 +1,24 @@
+.header-app{
+    text-align: center;
+}
+
+.btn-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product{
+    padding: 1rem 1rem;
+    margin: 1rem 1rem;
+    width: 150px;
+    height: 60px;
+    text-align: center;
+}
+
+li{
+    text-decoration: underline;
+    padding: 0.3rem 0;
+    list-style: none;
+}

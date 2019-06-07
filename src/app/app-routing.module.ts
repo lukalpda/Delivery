@@ -5,6 +5,10 @@ import { RegisterComponent } from './components/users/register/register.componen
 import { LoginComponent } from './components/users/login/login.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {TiendaComponent} from './components/tienda/tienda.component';
+import {GerenteComponent} from './components/gerente/gerente.component';
+import {RecepcionComponent} from './components/recepcion/recepcion.component';
+import {BarrasComponent} from './components/graficas/barras/barras.component';
+import {LineasComponent} from './components/graficas/lineas/lineas.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +16,10 @@ const routes: Routes = [
   {path: 'users/login', component: LoginComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'tienda', component: TiendaComponent},
+  {path: 'gerente', component: GerenteComponent},
+  {path: 'recepcion', component: RecepcionComponent},
+  {path: 'graficas/barras', component: BarrasComponent},
+  {path: 'graficas/lineas', component: LineasComponent},
   {path: '**', component: HomeComponent}
 ];
 
