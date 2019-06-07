@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'graficas/lineas', component: LineasComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'agregarCliente', component: AgregarClienteComponent},
-  {path: 'editarCliente', component: EditarClienteComponent},
+  {path: 'editarCliente/:id', component: EditarClienteComponent},
   {path: 'carro', component: CarroComponent},
   {path: '**', component: HomeComponent}
 ];
