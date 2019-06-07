@@ -16,10 +16,6 @@ const routes: Routes = [
   {path: 'users/login', component: LoginComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'tienda', component: TiendaComponent},
-  {path: 'clientes', component: ClientesComponent},
-  {path: 'agregarCliente', component: AgregarClienteComponent},
-  {path: 'editarCliente', component: EditarClienteComponent},
-  {path: 'carro', component: CarroComponent},
   {path: '**', component: HomeComponent}
 ];
 

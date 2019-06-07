@@ -13,7 +13,9 @@ export class AgregarClienteComponent implements OnInit {
   constructor(
     private router: Router,
     private _agregarClienteService: ClienteService
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit() {}
 
@@ -25,7 +27,7 @@ export class AgregarClienteComponent implements OnInit {
         this.router.navigate(["Listo"]);
       });
   }
-  Volver(){
+  Volver() {
     this.router.navigate(["clientes"]);
   }
 }
