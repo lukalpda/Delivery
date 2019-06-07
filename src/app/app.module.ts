@@ -96,16 +96,17 @@ import {CommonModule} from '@angular/common';
     ArticulosManufacturadosComponent,
     ListaStockComponent,
     AgregarStockComponent,
-    EditarStockComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgbModule,    
+    EditarStockComponent,
     RecepcionComponent,
     ClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    CarroComponent,
+    CarroComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgbModule,    
+    
     MaterialModule,
     AppRoutingModule,
     FormsModule,
