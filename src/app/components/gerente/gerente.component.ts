@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-recepcionista',
+  selector: 'app-gerente',
   templateUrl: './gerente.component.html',
   styleUrls: ['./gerente.component.css']
 })
