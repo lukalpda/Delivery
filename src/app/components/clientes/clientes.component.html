@@ -1,0 +1,46 @@
+<div class="container">
+  <br>
+  <div class="card bg-light mb-3">
+    <div class="class-header">
+      <br>
+      <h3 class="text-center">Clientes</h3>
+      <hr>
+    </div>
+    <div class="container">
+      <br>
+      <button (click)="nuevoCliente()" class="btn btn-info" style="margin-left: 10px; ">Nuevo</button>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            <th>DNI</th>
+            <th>E-mail</th>
+            <th>Contraseña</th>
+            <th>Telefono</th>
+            <th>Domicilio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clienteAux of clientes; let i = index" class="text-center">
+            <td>{{clienteAux.id_usuario}}</td>
+            <td>{{clienteAux.nombre_persona}}</td>
+            <td>{{clienteAux.nombre_usuario}}</td>
+            <td>{{clienteAux.dni}}</td>
+            <td>{{clienteAux.email}}</td>
+            <td>{{clienteAux.password}}</td>
+            <td>{{clienteAux.telefono}}</td>
+            <td>{{clienteAux.id_domicilio}}</td>
+            <td>
+              <button (click)="editarCliente(cliente)" class="btn btn-warning">Editar</button>
+              <button class="btn btn-danger">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

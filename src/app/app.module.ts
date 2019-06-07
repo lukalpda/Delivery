@@ -1,11 +1,15 @@
+
 import { NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-//PrimeNg
-import {ButtonModule, OrderList} from 'primeng/primeng';
-//Bootstrap
+
+
+//Bootstrap PrimeNg
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {ButtonModule, OrderList} from 'primeng/primeng';
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
 import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
@@ -23,6 +27,11 @@ import { GerenteComponent } from "./components/gerente/gerente.component";
 import {HomeAdminComponent} from './components/home-admin/home-admin.component';
 import { MenuComponent } from "./components/shared/menu/menu.component";
 import { RecepcionComponent } from './components/recepcion/recepcion.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { CarroComponent } from './components/carro/carro.component';
+
 //Firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -59,7 +68,6 @@ import {MaterialModule} from './material.module';
 import {CommonModule} from '@angular/common';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +90,11 @@ import {CommonModule} from '@angular/common';
     BarrasComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,
-    RecepcionComponent
+    RecepcionComponent,
+    ClientesComponent,
+    AgregarClienteComponent,
+    EditarClienteComponent,
+    CarroComponent
   ],
   imports: [
     MaterialModule,
@@ -96,31 +108,33 @@ import {CommonModule} from '@angular/common';
     AngularFirestoreModule,
     ChartsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
 
   providers: [
     AngularFireAuth,
     ManufacturadoService,
+    DistritoService,
     DomicilioService,
-    CategoriaService,
     ArticuloService,
     CargosService,
     ClienteService,
-    DetalleRecetaService,
     ComandaService,
+    DetalleRecetaService,
     DetalleVentaService,
     DistritoService,
+    DomicilioService,
     EmpleadoService,
     FacturaService,
     LocalidadadService,
     PedidoService,
     PreciosService,
     UnidadMedidaService,
-    OrdersService
+    OrdersService,
+    CategoriaService
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
