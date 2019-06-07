@@ -1,0 +1,47 @@
+<div class="container" col-md-6>
+  <br>
+  <div class="card">
+    <div class="class-header">
+      <br>
+      <h3 class="text-center">Agregar Cliente</h3>
+      <hr>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="">Nombre:</label>
+          <input type="text" class="form-control" name="nombre" [(ngModel)]="clientePost.nombre_persona">
+        </div>
+        <div class="form-group">
+          <label for="">Usuario:</label>
+          <input type="text" class="form-control" name="usuario" [(ngModel)]="clientePost.nombre_usuario">
+        </div>
+        <div class="form-group">
+          <label for="">DNI:</label>
+          <input type="text" class="form-control" name="dni" [(ngModel)]="clientePost.dni">
+        </div>
+        <div class="form-group">
+          <label for="">E-mail:</label>
+          <input type="text" class="form-control" name="email" [(ngModel)]="clientePost.email">
+        </div>
+        <div class="form-group">
+          <label for="">Contraseña:</label>
+          <input type="text" class="form-control" name="password" [(ngModel)]="clientePost.password">
+        </div>
+        <div class="form-group">
+          <label for="">Teléfono:</label>
+          <input type="text" class="form-control" name="telefono" [(ngModel)]="clientePost.telefono">
+        </div>
+        <div class="form-group">
+          <label for="">Domicilio:</label>
+          <input type="text" class="form-control" name="domicilio" [(ngModel)]="clientePost.direccion">
+        </div>
+        <div class="botones">
+          <button (click)="Guardar()" class="btn btn-success">Guardar</button>
+
+          <button (click)="Volver()" class="btn btn-danger">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
