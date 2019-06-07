@@ -1,0 +1,41 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputNombreArticulo">Denominación</label>
+      <input type="email" class="form-control" id="inputNombreArticulo" name="inputNombreArticulo"
+        [(ngModel)]="articulo.articulo_nombre" placeholder="Denominación">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCategoriaArticulo">Categoría</label>
+      <select id="inputCategoriaArticulo" name="categoria" [(ngModel)]="categoria.categoria_id" class="form-control">
+        <option [ngValue]="categoria.categoria_id" *ngFor="let categoria of categorias">
+          {{categoria.categoria_nombre}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputStockDisponible">Cantidad</label>
+      <input type="email" class="form-control" id="inputStockDisponible" name="inputStockDisponible"
+        [(ngModel)]="articulo.articulo_stock" placeholder="En disposición...">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputUnidMedida">Unid. de medida</label>
+      <select id="inputUnidMedida" name="medida" [(ngModel)]="medida.tipo_medida_id" class="form-control">
+        <option [ngValue]="medida.tipo_medida_id" *ngFor="let medida of medidas">
+          {{medida.unidad_medida_tipo}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputStockMinimo">Stock mínimo</label>
+      <input type="email" class="form-control" id="inputStockMinimo" name="inputStockMinimo"
+        [(ngModel)]="articulo.articulo_stock_minimo" placeholder="Stock mínimo">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCosto">Costo por unidad</label>
+      <input type="email" class="form-control" id="inputCosto" name="inputCosto" [(ngModel)]="articulo.articulo_costo"
+        placeholder="Costo">
+    </div>
+    <button (click)="Guardar()" type="submit" class="btn btn-primary">Guardar</button>
+  </div>
+</form>

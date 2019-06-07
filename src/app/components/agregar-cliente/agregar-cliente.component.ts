@@ -14,7 +14,8 @@ export class AgregarClienteComponent implements OnInit {
     private router: Router,
     private _agregarClienteService: ClienteService
   ) {
-    
+    //@ts-ignore
+    this.clientePost = {};
   }
 
   ngOnInit() {}
@@ -24,7 +25,7 @@ export class AgregarClienteComponent implements OnInit {
       .crearCliente(this.clientePost)
       .subscribe(data => {
         alert("Se guardó con éxito");
-        this.router.navigate(["Listo"]);
+        this.router.navigate(["clientes"]);
       });
   }
   Volver() {

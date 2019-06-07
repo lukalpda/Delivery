@@ -1,0 +1,64 @@
+<!--
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="order">Orden</th>
+    <th mat-sort-header="customerName">Cliente</th>
+    <th mat-sort-header="completed">Estado</th>
+    <th mat-sort-header="total">Total</th>
+  </tr>
+
+  <tr *ngFor="let order of order-list">
+    <td>{{order.order}}</td>
+    <td>{{order.customerName}}</td>
+    <td>{{order.completed}}</td>
+    <td>$ {{order.totalOrder}}</td>
+  </tr>
+</table>
+-->
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Order Column -->
+  <ng-container matColumnDef="orderNumber">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nro de Orden </th>
+    <td mat-cell *matCellDef="let element"> {{element.orderNumber}} </td>
+  </ng-container>
+
+  <!-- customerName Column -->
+  <ng-container matColumnDef="customerName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Cliente </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+  </ng-container>
+
+  <!-- order Column -->
+  <ng-container matColumnDef="order">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Orden </th>
+    <td mat-cell *matCellDef="let element"> {{element.order}} </td>
+  </ng-container>
+
+  <!-- completed Column -->
+  <ng-container matColumnDef="completed">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+    <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
+  </ng-container>
+
+  <!-- total Column -->
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+    <td mat-cell *matCellDef="let element">$ {{element.totalOrder}} </td>
+  </ng-container>
+
+  <!-- actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon (click)="onChangeStatus(element)">edit</mat-icon>
+      &nbsp;
+      <mat-icon (click)="onDelete(element.id)">delete</mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

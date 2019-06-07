@@ -14,6 +14,17 @@
 chrome-profiler-events.json
 speed-measure-plugin.json
 
+#vulnerabilidades
+package-look.json
+save_file.json
+package.json
+firebase.json
+database.rules.json
+environments/environment.prod.ts
+environments/environment.ts
+.firebaserc
+
+
 # IDEs and editors
 /.idea
 .project

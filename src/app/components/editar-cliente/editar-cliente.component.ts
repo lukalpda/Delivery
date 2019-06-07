@@ -9,17 +9,19 @@ import { Cliente } from "src/app/interfaces/cliente.interface";
   styleUrls: ["./editar-cliente.component.css"]
 })
 export class EditarClienteComponent implements OnInit {
+  cliente: Cliente;
   constructor(
     private router: Router,
     private _editarClienteService: ClienteService
-  ) {}
-  cliente: Cliente;
+  ) {  }
+
   ngOnInit() {
     this.editarCliente();
   }
 
   editarCliente() {
     let id = localStorage.getItem("id_usuario");
+    debugger;
     this._editarClienteService.buscarXIdCliente(+id).subscribe(data => {
       this.cliente = data;
     });

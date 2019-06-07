@@ -27,6 +27,6 @@ export class ClientesComponent implements OnInit {
 
   editarCliente(cliente: Cliente) {
     localStorage.setItem("id_usuario", cliente.id_usuario.toString());
-    this.router.navigate(["editarCliente"]);
+    this.router.navigate(["editarCliente/"+cliente.id_usuario]);
   }
 }
