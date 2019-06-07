@@ -1,13 +1,14 @@
 <div class="card-columns">
   <ng-container *ngFor="let articuloManufacturadoAux of articulosManufacturados; let i = index">
-    <div class="card border-dark" *ngIf="articuloManufacturadoAux.id_categoria == childMessage">
+    <div class="card border-dark" *ngIf="articuloManufacturadoAux.articulo_manuf_id.categoria_nombre == childMessage">
       <img class="card-img-top" src="{{articuloManufacturadoAux.manuf_foto}}" [alt]="articuloManufacturadoAux">
       <div class="card-body">
         <h4 class="card-title">{{articuloManufacturadoAux.articulo_manuf_nombre}}</h4>
         <h5 class="card-title">{{articuloManufacturadoAux.articulo_manuf_id.precio_monto}}</h5>
         <ng-template #popContent><b>{{articuloManufacturadoAux.articulo_manuf_detalle}}</b></ng-template>
         <ng-template #popTitle>Ingredientes</ng-template>
-        <button type="button" class="btn btn-outline-primary btn-block" placement="bottom" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+        <button type="button" class="btn btn-outline-primary btn-block" placement="bottom" [ngbPopover]="popContent"
+          [popoverTitle]="popTitle">
           Detalles
         </button>
         <div class="carrito">

@@ -60,4 +60,3 @@ export class BarrasComponent implements OnInit {
   }
 
 }
-
