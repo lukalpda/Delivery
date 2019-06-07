@@ -55,8 +55,10 @@ import { PedidoService } from './services/pedido.service';
 import { UnidadMedidaService } from './services/unidad-medida.service';
 import { PreciosService } from './services/precios.service';
 import { CategoriaService } from './services/categoria.service';
-import { StockComponent } from './components/stock/stock.component';
 import { ArticulosManufacturadosComponent } from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
+import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
+import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
+import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
 
 
 @NgModule({
@@ -75,7 +77,9 @@ import { ArticulosManufacturadosComponent } from './components/tienda/articulos-
     BarrasComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,
-    StockComponent
+    ListaStockComponent,
+    AgregarStockComponent,
+    EditarStockComponent
   ],
   imports: [
     BrowserModule,
