@@ -31,9 +31,9 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/carro/carro.component';
-import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
-import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
-import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
+//import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
+//import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
+//import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
 
 //Firebase
 import { AngularFireModule } from "@angular/fire";
@@ -68,8 +68,8 @@ import { PreciosService } from './services/precios.service';
 import { CategoriaService } from './services/categoria.service';
 
 //Material
-import {MaterialModule} from './material.module';
 import {CommonModule} from '@angular/common';
+import {MaterialModule} from './material.module';
 
 
 @NgModule({
@@ -91,17 +91,16 @@ import {CommonModule} from '@angular/common';
     LineasComponent,
     MainMenuComponent,
     MenuComponent,
-    BarrasComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,
-    ListaStockComponent,
-    AgregarStockComponent,
-    EditarStockComponent,
+    //ListaStockComponent,
+    //AgregarStockComponent,
+    //EditarStockComponent,
     RecepcionComponent,
     ClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    CarroComponent,
+    CarroComponent
   ],
   imports: [
     BrowserModule,
