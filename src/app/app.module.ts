@@ -14,7 +14,8 @@ import {ButtonModule, OrderList} from 'primeng/primeng';
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
 import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
 import {OrdersComponent} from './components/orders/orders.component';
-import {MainMenuComponent} from './components/shared/main-menu/main-menu.component';
+import {MenuGerenteComponent} from './components/shared/menu-gerente/menu-gerente.component';
+import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-recepcion.component';
 import { HomeComponent } from "./components/home/home.component";
 import { SearchComponent } from "./components/shared/search/search.component";
 import { ContactComponent } from "./components/contact/contact.component";
@@ -24,12 +25,12 @@ import { RegisterComponent } from "./components/users/register/register.componen
 import { LoginComponent } from "./components/users/login/login.component";
 import { TiendaComponent } from "./components/tienda/tienda.component";
 import { GerenteComponent } from "./components/gerente/gerente.component";
-import {HomeAdminComponent} from './components/home-admin/home-admin.component';
+import {HomeAdminComponent} from './components/recepcion/home-admin/home-admin.component';
 import { MenuComponent } from "./components/shared/menu/menu.component";
 import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
-import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/carro/carro.component';
 
 //Firebase
@@ -86,7 +87,8 @@ import {MaterialModule} from './material.module';
     OrdersListComponent,
     BarrasComponent,
     LineasComponent,
-    MainMenuComponent,
+    MenuGerenteComponent,
+    MenuRecepcionComponent,
     MenuComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,

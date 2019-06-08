@@ -10,9 +10,10 @@ import {RecepcionComponent} from './components/recepcion/recepcion.component';
 import {BarrasComponent} from './components/graficas/barras/barras.component';
 import {LineasComponent} from './components/graficas/lineas/lineas.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
-import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/carro/carro.component';
+import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'tienda', component: TiendaComponent},
   {path: 'gerente', component: GerenteComponent},
   {path: 'recepcion', component: RecepcionComponent},
+  {path: 'orders-list', component: OrdersListComponent},
   {path: 'graficas/barras', component: BarrasComponent},
   {path: 'graficas/lineas', component: LineasComponent},
   {path: 'clientes', component: ClientesComponent},
