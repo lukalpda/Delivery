@@ -15,6 +15,8 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.Url)
   }
   crearCliente(item: Cliente){
+    console.log(item);
+    console.log(item.direccion);
     return this.http.post<Cliente>(this.Url, item);
   }
 
