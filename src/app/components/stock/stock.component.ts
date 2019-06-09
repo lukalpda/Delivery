@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Cliente} from '../../interfaces/cliente.interface';
-import {ClienteService} from '../../services/cliente.service';
 import {Router} from '@angular/router';
 import {Articulo} from '../../interfaces/articulo.interface';
 import {ArticuloService} from '../../services/articulo.service';

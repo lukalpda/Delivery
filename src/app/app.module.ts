@@ -9,7 +9,7 @@ import { AppComponent } from "./app.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {ButtonModule, OrderList} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
 import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';

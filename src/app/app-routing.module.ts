@@ -16,6 +16,7 @@ import { CarroComponent } from './components/carro/carro.component';
 import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
 import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
 import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';
+import {StockComponent} from './components/stock/stock.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -31,8 +32,8 @@ const routes: Routes = [
   {path: 'clientes', component: ClientesComponent},
   {path: 'agregarCliente', component: AgregarClienteComponent},
   {path: 'editarCliente/:id', component: EditarClienteComponent},
-  {path: 'stock', component: ClientesComponent},
-  {path: 'agregarStock', component: AgregarStockComponent},
+  {path: 'stock', component: StockComponent},
+  {path: 'agregarArticulo', component: AgregarStockComponent},
   {path: 'editarStock/:id', component: EditarStockComponent},
   {path: 'carro', component: CarroComponent},
   {path: '**', component: HomeComponent}

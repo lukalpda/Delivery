@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {ArticuloService} from '../../../services/articulo.service';
+import {Articulo} from '../../../interfaces/articulo.interface';
 
 @Component({
   selector: 'app-agregar-stock',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarStockComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  articuloPost: Articulo;
+  constructor(
+    private router: Router,
+    private _agregarArticuloService: ArticuloService
+  ) {
+    //@ts-ignore
+    this.articuloPost = {};
   }
 
+  ngOnInit() {}
+
+  Guardar() {
+    this._agregarArticuloService
+      .crearArticulo(this.articuloPost)
+      .subscribe(data => {
+        alert("Se guardó con éxito");
+        this.router.navigate(["stock"]);
+      });
+  }
+  Volver(){
+    this.router.navigate(["stock"]);
+  }
 }
