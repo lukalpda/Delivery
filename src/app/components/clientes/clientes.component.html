@@ -1,46 +1,46 @@
-<div class="container">
-  <br>
-  <div class="card bg-light mb-3">
-    <div class="class-header">
-      <br>
-      <h3 class="text-center">Clientes</h3>
-      <hr>
-    </div>
-    <div class="container">
-      <br>
-      <button (click)="nuevoCliente()" class="btn btn-info" style="margin-left: 10px; ">Nuevo</button>
-    </div>
-    <div class="card-body">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Usuario</th>
-            <th>DNI</th>
-            <th>E-mail</th>
-            <th>Contraseña</th>
-            <th>Telefono</th>
-            <th>Domicilio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cliente of clientes; let i = index" class="text-center">
-            <th scope="row">{{i+1}}</th>
-            <td>{{cliente.nombre_persona}}</td>
-            <td>{{cliente.nombre_usuario}}</td>
-            <td>{{cliente.dni}}</td>
-            <td>{{cliente.email}}</td>
-            <td>{{cliente.password}}</td>
-            <td>{{cliente.telefono}}</td>
-            <td>{{cliente.direccion}}</td>
-            <td>
-              <button (click)="editarCliente(cliente)" class="btn btn-warning">Editar</button>
-              <button class="btn btn-danger">Borrar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<app-menu-gerente>
+  <div class="container">
+    <br>
+    <div class="card bg-light mb-3">
+      <div class="class-header">
+        <br>
+        <h3 class="text-center">Clientes</h3>
+        <hr>
+      </div>
+      <div class="container">
+        <br>
+        <button (click)="nuevoCliente()" class="btn btn-info" style="margin-left: 10px; ">Nuevo</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Usuario</th>
+              <th>DNI</th>
+              <th>E-mail</th>
+              <th>Contraseña</th>
+              <th>Telefono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of clientes; let i = index" class="text-center">
+              <th scope="row">{{i+1}}</th>
+              <td>{{cliente.nombre_persona}}</td>
+              <td>{{cliente.nombre_usuario}}</td>
+              <td>{{cliente.dni}}</td>
+              <td>{{cliente.email}}</td>
+              <td>{{cliente.password}}</td>
+              <td>{{cliente.telefono}}</td>
+              <td>
+                <button (click)="editarCliente(cliente)" class="btn btn-warning">Editar</button>
+                <button class="btn btn-danger">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+</app-menu-gerente>

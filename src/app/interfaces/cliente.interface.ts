@@ -6,8 +6,9 @@ export interface Cliente {
   password: string;
   telefono: number;
   nombre_usuario: string;
-  direccion: number;
+  direccion: any;
   alta: Date;
   baja: Date;
+
 }
  

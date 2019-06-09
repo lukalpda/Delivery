@@ -10,5 +10,6 @@ export interface Articulo{
   stockMinimo: number;
   categoriaProd: number;
   medidaProd: number;
+  //precioArticulo: number;
 }
 
