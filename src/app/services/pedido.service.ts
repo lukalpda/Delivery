@@ -25,6 +25,6 @@ export class PedidoService {
   }
 
   modificarPedido(item:Pedido){
-    return this.http.put<Pedido>(this.Url+item.pedido_id, item);
+    return this.http.put<Pedido>(this.Url+item.numPedido, item);
   }
 }

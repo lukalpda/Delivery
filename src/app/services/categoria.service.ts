@@ -23,6 +23,6 @@ export class CategoriaService {
   }
 
   modificarCategoria(item:Categoria){
-    return this.http.put<Categoria>(this.Url+item.categoria_id, item);
+    return this.http.put<Categoria>(this.Url+item.id_categoria, item);
   }
 }

@@ -1,15 +1,14 @@
 export interface Articulo{
   id_articulo: number;
-  costo: number;
-  detalle: string;
-  enLista: boolean;
-  esParaVenta: boolean;
-  foto: string;
   nombre_articulo: string;
+  costo: number;
+  esPrima: boolean;
   stock: number;
   stockMinimo: number;
-  categoriaProd: number;
-  medidaProd: number;
-  //precioArticulo: number;
+  enLista: boolean;
+  foto: string;
+  detalle: string;
+  categoriaProd: any;
+  medidaProd: any;
 }
 

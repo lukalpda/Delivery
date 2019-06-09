@@ -38,7 +38,7 @@
           <div class="form-group">
             <label for="">Distrito:</label>
 
-            <input type="number" class="form-control" name="distrito" [(ngModel)]="domicilioPost.id_distrito">
+            <input type="number" class="form-control" name="distrito" [(ngModel)]="domicilioPost.distrito">
           </div>
           <div class="form-group">
             <label for="">Calle:</label>
@@ -46,15 +46,15 @@
           </div>
           <div class="form-group">
             <label for="">Numeración:</label>
-            <input type="number" class="form-control" name="numeracion" [(ngModel)]="domicilioPost.numero_casa">
+            <input type="number" class="form-control" name="numeracion" [(ngModel)]="domicilioPost.numCasa">
           </div>
           <div class="form-group">
             <label for="">Nro Departamento:</label>
-            <input type="number" class="form-control" name="nroDepartamento" [(ngModel)]="domicilioPost.numero_departamento">
+            <input type="number" class="form-control" name="nroDepartamento" [(ngModel)]="domicilioPost.numDepartamento">
           </div>
           <div class="form-group">
             <label for="">Piso:</label>
-            <input type="number" class="form-control" placeholder="nro de piso" name="piso" [(ngModel)]="domicilioPost.numero_piso">
+            <input type="number" class="form-control" placeholder="nro de piso" name="piso" [(ngModel)]="domicilioPost.numPiso">
           </div>
           <div class="botones">
             <button (click)="Guardar()" class="btn btn-success">Guardar</button>

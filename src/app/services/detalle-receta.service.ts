@@ -22,6 +22,6 @@ export class DetalleRecetaService {
   }
 
   modificarDetalleReceta(item: DetalleReceta) {
-    return this.http.put<DetalleReceta>(this.Url + item.receta_id, item);
+    return this.http.put<DetalleReceta>(this.Url + item.id_receta, item);
   }
 }

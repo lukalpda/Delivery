@@ -24,6 +24,6 @@ export class ManufacturadoService {
   }
 
   modificarManufacturado(item:Manufacturado){
-    return this.http.put<Manufacturado>(this.Url+item.articulo_manuf_id, item);
+    return this.http.put<Manufacturado>(this.Url+item.id_artManuf, item);
   }
 }

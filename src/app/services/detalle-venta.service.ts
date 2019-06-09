@@ -23,6 +23,6 @@ export class DetalleVentaService {
   }
 
   modificarDetalleVenta(item:DetalleVenta){
-    return this.http.put<DetalleVenta>(this.Url+item.detallef_id, item);
+    return this.http.put<DetalleVenta>(this.Url+item.idDetalle, item);
   }
 }

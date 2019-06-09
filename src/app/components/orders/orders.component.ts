@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PlatformLocation } from '@angular/common';
 import {OrdersService} from '../../services/orders.service';
+import {Manufacturado} from '../../interfaces/manufacturado.interface';
+import {ManufacturadoService} from '../../services/manufacturado.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -11,9 +13,15 @@ export class OrdersComponent implements OnInit {
 
   appName: string = 'Sistema de Pedidos';
 
-  constructor(private orderService: OrdersService) { }
+  manufacturados: Manufacturado[] = [];
 
-  products = [
+  constructor(
+    private _orderService: OrdersService,
+    private _manufacturadoService: ManufacturadoService,
+    private router: Router
+  ) { }
+
+  articulosManufacturados = [
     {
       name: "Pollo",
       price: 4
@@ -45,14 +53,14 @@ export class OrdersComponent implements OnInit {
   }
 
   onSubmit(){
-    this.orderService.myForm.value.order = this.tempOrder;
-    let data = this.orderService.myForm.value;
+    this._orderService.myForm.value.order = this.tempOrder;
+    let data = this._orderService.myForm.value;
     data.totalOrder = this.totalOrder;
     //call service
-    this.orderService.createOrder(data);
+    this._orderService.createOrder(data);
     this.tempOrder = [];
     this.totalOrder = 0;
-    this.orderService.myForm.reset();
+    this._orderService.myForm.reset();
     console.log(data);
   }
 

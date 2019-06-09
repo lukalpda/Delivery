@@ -29,7 +29,7 @@ export class AgregarClienteComponent implements OnInit {
   Guardar() {
 
     this._agregarDomicilioService.crearDomicilio(this.domicilioPost).subscribe(data => {
-      this.clientePost.direccion = data.id_domicilio;
+      this.clientePost.direccion = JSON.stringify(data);
       console.log("domicilio cargado");
     });
 

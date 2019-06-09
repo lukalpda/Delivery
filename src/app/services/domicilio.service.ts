@@ -30,7 +30,7 @@ export class DomicilioService {
   buscarXTerminoDomicilio(numero: number, calle: string, distritoId:number, deptoId:number){
     this.listarDomicilios().subscribe(items => {
        for(let dom of items){
-         if(dom.calle==calle && dom.numero_casa==numero && dom.id_distrito==distritoId && dom.numero_departamento==deptoId){
+         if(dom.calle==calle && dom.numCasa==numero && dom.distrito==distritoId && dom.numDepartamento==deptoId){
            this.domicilios.push(dom);
          }
        }

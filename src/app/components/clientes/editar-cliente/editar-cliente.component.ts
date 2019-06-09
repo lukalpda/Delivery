@@ -34,4 +34,7 @@ export class EditarClienteComponent implements OnInit {
       this.router.navigate(["clientes"]);
     });
   }
+  Volver(){
+    this.router.navigate(["clientes"]);
+  }
 }

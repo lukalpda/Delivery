@@ -1,9 +1,8 @@
 export interface Manufacturado {
-  articulo_manuf_id: number;
-  articulo_manuf_detalle: string;
-  articulo_manuf_en_menu: boolean;
-  manuf_foto: string;
-  articulo_manuf_minutos: number;
-  articulo_manuf_nombre: string;
-  id_categoria: number;
+  id_artManuf: number;
+  nombre_articuloM: string;
+  minutosPrep: number;
+  foto: string;
+  detalle: string;
+  enMenu: boolean;
 }

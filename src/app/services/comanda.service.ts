@@ -23,6 +23,6 @@ export class ComandaService {
   }
 
   modificarComanda(item:Comanda){
-    return this.http.put<Comanda>(this.Url+item.comanda_id, item);
+    return this.http.put<Comanda>(this.Url+item.id_comanda, item);
   }
 }
