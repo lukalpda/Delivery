@@ -32,6 +32,9 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/carro/carro.component';
+import { StockComponent } from './components/stock/stock.component';
+import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
+import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
 
 //Firebase
 import { AngularFireModule } from "@angular/fire";
@@ -70,6 +73,7 @@ import {CommonModule} from '@angular/common';
 import {MaterialModule} from './material.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +100,10 @@ import {MaterialModule} from './material.module';
     ClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    CarroComponent
+    CarroComponent,
+    StockComponent,
+    AgregarStockComponent,
+    EditarStockComponent
   ],
   imports: [
     BrowserModule,
