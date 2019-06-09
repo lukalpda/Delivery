@@ -27,18 +27,19 @@ export class AgregarClienteComponent implements OnInit {
   ngOnInit() {}
 
   Guardar() {
+
+    this._agregarDomicilioService.crearDomicilio(this.domicilioPost).subscribe(data => {
+      this.clientePost.direccion = JSON.stringify(data);
+      console.log("domicilio cargado");
+    });
+
     this._agregarClienteService
       .crearCliente(this.clientePost)
       .subscribe(data => {
         alert("Se guardó con éxito");
-       // this.router.navigate(["clientes"]);
+      this.router.navigate(["clientes"]);
       });
-    this._agregarDomicilioService
-      .crearDomicilio(this.domicilioPost)
-      .subscribe(data => {
-        alert("Se guardó el domicilio con éxito");
-        this.router.navigate(["clientes"]);
-      });
+   
   }
   Volver() {
     this.router.navigate(["clientes"]);

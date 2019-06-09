@@ -3,11 +3,11 @@
 </div>
 
 <div class="btn-list">
-  <button mat-raised-button color="primary" class="product" *ngFor="let product of products" 
-  (click)="onAddProduct(product)">
-    {{product.name}}  / {{product.price|currency}}
+  <button mat-raised-button color="primary" class="product" *ngFor="let manufacturado of manufacturados"
+  (click)="onAddProduct(manufacturado)">
+    {{manufacturado.nombre_articuloM}}
   </button>
-  <form [formGroup]="this.orderService.myForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="this._orderService.myForm" (ngSubmit)="onSubmit()">
     <table cellspacing="0">
       <tr>
         <td>

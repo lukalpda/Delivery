@@ -1,8 +1,8 @@
 export interface Precio{
-    precio_id:number;
-    pecio_fecha_fin:Date;
-    precio_fecha_inicio:Date;
-    precio_monto:number;
-    id_articulo:number;
-    id_art_manuf:number;
+    id_precio:number;
+    fechaInicio:Date;
+    fechaFin:Date;
+    precio:number;
+    precioItem:any;
+    precioPlato:any;
 }

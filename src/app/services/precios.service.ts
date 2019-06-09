@@ -21,6 +21,6 @@ export class PreciosService {
     return this.http.get<Precio>(this.Url + id);
   }
   modificarPrecio(item: Precio) {
-    return this.http.put<Precio>(this.Url + item.precio_id, item);
+    return this.http.put<Precio>(this.Url + item.id_precio, item);
   }
 }

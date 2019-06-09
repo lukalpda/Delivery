@@ -1,4 +1,5 @@
 export interface Cargos{
-  cargo_id: number;
-  cargo_puesto: string;
+  id_cargo: number;
+  puesto: string;
+
 }

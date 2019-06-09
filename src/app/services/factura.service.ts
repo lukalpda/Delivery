@@ -25,6 +25,6 @@ export class FacturaService {
   }
 
   modificarFactura(item:Factura){
-    return this.http.put<Factura>(this.Url+item.factura_id, item);
+    return this.http.put<Factura>(this.Url+item.numFactura, item);
   }
 }

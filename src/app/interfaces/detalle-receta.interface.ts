@@ -1,7 +1,7 @@
 export interface DetalleReceta{
-    receta_id:number;
-    receta_cantidad:number;
-    receta_fecha_anulado:Date;
-    id_articulo:number;
-    id_art_manuf:number;
+    id_receta:number;
+    cantidad:number;
+    fechaAnulado:Date;
+    articulo:any;
+    articuloManuf:any;
 }

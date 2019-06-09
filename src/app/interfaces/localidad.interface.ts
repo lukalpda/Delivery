@@ -1,4 +1,4 @@
 export interface Localidad{
-    localidad_id:number;
-    localidad_nombre:string;
+    id_Localidad:number;
+    nombre_localidad:string;
 }

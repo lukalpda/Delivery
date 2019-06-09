@@ -25,6 +25,6 @@ export class LocalidadadService {
   }
 
   modificarLocalidad(item:Localidad){
-    return this.http.put<Localidad>(this.Url+item.localidad_id, item);
+    return this.http.put<Localidad>(this.Url+item.id_Localidad, item);
   }
 }

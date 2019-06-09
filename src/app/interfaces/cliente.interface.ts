@@ -1,14 +1,12 @@
 export interface Cliente {
-  id_usuario: number;
-  dni: number;
-  email: string;
   nombre_persona: string;
+  dni: number;
   password: string;
   telefono: number;
-  nombre_usuario: string;
-  direccion: any;
-  alta: Date;
+  email: string;
   baja: Date;
-
+  alta: Date;
+  direccion: any;
+  id_usuario: number;
+  nombre_usuario: string;
 }
- 

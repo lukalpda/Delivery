@@ -23,6 +23,6 @@ export class CargosService {
   }
 
   modificarCargo(item:Cargos){
-    return this.http.put<Cargos>(this.Url+item.cargo_id, item);
+    return this.http.put<Cargos>(this.Url+item.id_cargo, item);
   }
 }

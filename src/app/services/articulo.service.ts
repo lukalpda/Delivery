@@ -19,7 +19,7 @@ export class ArticuloService {
 
   listarArticulosDisponiblesEnLista(){
     this.listarArticulos().subscribe(data=>
-      this.articulos = data.filter(p=>p.esParaVenta == true));
+      this.articulos = data.filter(p=>p.esPrima == true));
   }
 
   crearArticulo(item: Articulo){
@@ -30,7 +30,7 @@ export class ArticuloService {
     return this.http.get<Articulo>(this.Url+id);
   }
 
-  // modificarArticulo(item:Articulo){
-  //   return this.http.put<Articulo>(this.Url+item.articulo_id, item);
-  // }
+  modificarArticulo(item:Articulo){
+     return this.http.put<Articulo>(this.Url+item.id_articulo, item);
+  }
 }
