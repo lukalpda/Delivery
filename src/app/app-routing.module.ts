@@ -5,15 +5,18 @@ import { RegisterComponent } from './components/users/register/register.componen
 import { LoginComponent } from './components/users/login/login.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {TiendaComponent} from './components/tienda/tienda.component';
-import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
 import {GerenteComponent} from './components/gerente/gerente.component';
 import {RecepcionComponent} from './components/recepcion/recepcion.component';
 import {BarrasComponent} from './components/graficas/barras/barras.component';
 import {LineasComponent} from './components/graficas/lineas/lineas.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
-import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/carro/carro.component';
+import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
+import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
+import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';
+import {StockComponent} from './components/stock/stock.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -21,14 +24,17 @@ const routes: Routes = [
   {path: 'users/login', component: LoginComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'tienda', component: TiendaComponent},
-  {path: 'stock', component: ListaStockComponent},
   {path: 'gerente', component: GerenteComponent},
   {path: 'recepcion', component: RecepcionComponent},
+  {path: 'orders-list', component: OrdersListComponent},
   {path: 'graficas/barras', component: BarrasComponent},
   {path: 'graficas/lineas', component: LineasComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'agregarCliente', component: AgregarClienteComponent},
   {path: 'editarCliente/:id', component: EditarClienteComponent},
+  {path: 'stock', component: StockComponent},
+  {path: 'agregarArticulo', component: AgregarStockComponent},
+  {path: 'editarStock/:id', component: EditarStockComponent},
   {path: 'carro', component: CarroComponent},
   {path: '**', component: HomeComponent}
 ];

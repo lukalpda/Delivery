@@ -9,12 +9,13 @@ import { AppComponent } from "./app.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {ButtonModule, OrderList} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
 import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
 import {OrdersComponent} from './components/orders/orders.component';
-import {MainMenuComponent} from './components/shared/main-menu/main-menu.component';
+import {MenuGerenteComponent} from './components/shared/menu-gerente/menu-gerente.component';
+import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-recepcion.component';
 import { HomeComponent } from "./components/home/home.component";
 import { SearchComponent } from "./components/shared/search/search.component";
 import { ContactComponent } from "./components/contact/contact.component";
@@ -24,14 +25,14 @@ import { RegisterComponent } from "./components/users/register/register.componen
 import { LoginComponent } from "./components/users/login/login.component";
 import { TiendaComponent } from "./components/tienda/tienda.component";
 import { GerenteComponent } from "./components/gerente/gerente.component";
-import {HomeAdminComponent} from './components/home-admin/home-admin.component';
+import {HomeAdminComponent} from './components/recepcion/home-admin/home-admin.component';
 import { MenuComponent } from "./components/shared/menu/menu.component";
 import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/agregar-cliente/agregar-cliente.component';
-import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/carro/carro.component';
-import { ListaStockComponent } from './components/stock/lista-stock/lista-stock.component';
+import { StockComponent } from './components/stock/stock.component';
 import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
 import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
 
@@ -68,8 +69,9 @@ import { PreciosService } from './services/precios.service';
 import { CategoriaService } from './services/categoria.service';
 
 //Material
-import {MaterialModule} from './material.module';
 import {CommonModule} from '@angular/common';
+import {MaterialModule} from './material.module';
+
 
 
 @NgModule({
@@ -89,25 +91,26 @@ import {CommonModule} from '@angular/common';
     OrdersListComponent,
     BarrasComponent,
     LineasComponent,
-    MainMenuComponent,
+    MenuGerenteComponent,
+    MenuRecepcionComponent,
     MenuComponent,
-    BarrasComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,
-    ListaStockComponent,
-    AgregarStockComponent,
-    EditarStockComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgbModule,    
     RecepcionComponent,
     ClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
     CarroComponent,
+    StockComponent,
+    AgregarStockComponent,
+    EditarStockComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgbModule,
     MaterialModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     ButtonModule,
     HttpClientModule,
@@ -116,8 +119,7 @@ import {CommonModule} from '@angular/common';
     AngularFirestoreModule,
     ChartsModule,
     CommonModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule
+    ReactiveFormsModule
   ],
 
   providers: [

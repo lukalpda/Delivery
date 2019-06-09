@@ -1,21 +1,8 @@
-<!--
-<table matSort (matSortChange)="sortData($event)">
-  <tr>
-    <th mat-sort-header="order">Orden</th>
-    <th mat-sort-header="customerName">Cliente</th>
-    <th mat-sort-header="completed">Estado</th>
-    <th mat-sort-header="total">Total</th>
-  </tr>
-
-  <tr *ngFor="let order of order-list">
-    <td>{{order.order}}</td>
-    <td>{{order.customerName}}</td>
-    <td>{{order.completed}}</td>
-    <td>$ {{order.totalOrder}}</td>
-  </tr>
-</table>
--->
-
+<div class="class-header">
+  <br>
+  <h3 class="text-center">Listado de pedidos</h3>
+  <hr>
+</div>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <!-- Order Column -->
@@ -61,4 +48,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-

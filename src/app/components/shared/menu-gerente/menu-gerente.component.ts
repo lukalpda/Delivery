@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-main-menu',
-  templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css']
+  selector: 'app-menu-gerente',
+  templateUrl: './menu-gerente.component.html',
+  styleUrls: ['./menu-gerente.component.css']
 })
-export class MainMenuComponent {
+export class MenuGerenteComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
