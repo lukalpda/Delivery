@@ -1,4 +1,5 @@
 import { Time } from '@angular/common';
+import { Cliente } from './cliente.interface';
 
 export interface Factura{
     fecha: Date;
@@ -8,5 +9,5 @@ export interface Factura{
     numFactura:number;
     esEfectivo:boolean;
     total:number;
-    cliente: any;
+    cliente: Cliente;
 }

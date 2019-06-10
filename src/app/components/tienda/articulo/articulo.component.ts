@@ -10,7 +10,7 @@ import { Articulo } from 'src/app/interfaces/articulo.interface';
   templateUrl: "./articulo.component.html",
   styleUrls: ["./articulo.component.css"]
 })
-
+ 
 export class ArticuloComponent implements OnInit {
   articulos: Articulo[] = [];
   precios: Precio[] = [];

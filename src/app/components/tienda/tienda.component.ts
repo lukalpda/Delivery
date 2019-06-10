@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./tienda.component.css"]
 })
 export class TiendaComponent implements OnInit {
-  parentMessage: string= "pizza";
+  parentMessage: string= "1";
   
   
   constructor() {

@@ -2,7 +2,7 @@
   <div class="card border-dark " *ngFor="let articuloAux of articulos; let i = index"> <img class="card-img-top"
       src="{{articuloAux.articulo_foto}}" [alt]="articuloAux">
     <div class="card-body">
-      <h4 class="card-title">{{articuloAux.articulo_nombre}}</h4>
+      <h4 class="card-title">{{articuloAux.articulo_nombre}}</h4> 
       <h5 class="card-title">{{articuloAux.articulo_id.precio_monto}}</h5>
       <ng-template #popContent><b>{{articuloAux.articulo_detalle}}</b></ng-template>
       <ng-template #popTitle>Ingredientes</ng-template>

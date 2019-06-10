@@ -1,12 +1,10 @@
-
-import { NgModule} from "@angular/core";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
-
 //Bootstrap PrimeNg
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {ButtonModule} from 'primeng/primeng';
@@ -31,7 +29,7 @@ import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
-import { CarroComponent } from './components/carro/carro.component';
+import { CarroComponent } from './components/tienda/carro/carro.component';
 import { StockComponent } from './components/stock/stock.component';
 import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
 import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
@@ -40,38 +38,37 @@ import { EditarStockComponent } from './components/stock/editar-stock/editar-sto
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuth } from "@angular/fire/auth";
-import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 //http
 import { HttpClientModule } from "@angular/common/http";
-import {environment} from '../environments/environment';
+import { environment } from "../environments/environment";
 //chart.js
 import { ChartsModule } from "ng2-charts";
 import { BarrasComponent } from "./components/graficas/barras/barras.component";
 import { LineasComponent } from "./components/graficas/lineas/lineas.component";
 //Services
-import {OrdersService} from './services/orders.service';
+import { OrdersService } from "./services/orders.service";
 import { ManufacturadoService } from "./services/manufacturado.service";
-import { ArticuloComponent } from './components/tienda/articulo/articulo.component';
-import {DistritoService} from './services/distrito.service';
-import {DomicilioService} from './services/domicilio.service';
-import { ArticuloService } from './services/articulo.service';
-import { CargosService } from './services/cargos.service';
-import { ClienteService } from './services/cliente.service';
-import { ComandaService } from './services/comanda.service';
-import { DetalleRecetaService } from './services/detalle-receta.service';
-import { DetalleVentaService } from './services/detalle-venta.service';
-import { EmpleadoService } from './services/empleado.service';
-import { FacturaService } from './services/factura.service';
-import { LocalidadadService } from './services/localidad.service';
-import { PedidoService } from './services/pedido.service';
-import { UnidadMedidaService } from './services/unidad-medida.service';
-import { PreciosService } from './services/precios.service';
-import { CategoriaService } from './services/categoria.service';
+import { ArticuloComponent } from "./components/tienda/articulo/articulo.component";
+import { DistritoService } from "./services/distrito.service";
+import { DomicilioService } from "./services/domicilio.service";
+import { ArticuloService } from "./services/articulo.service";
+import { CargosService } from "./services/cargos.service";
+import { ClienteService } from "./services/cliente.service";
+import { ComandaService } from "./services/comanda.service";
+import { DetalleRecetaService } from "./services/detalle-receta.service";
+import { DetalleVentaService } from "./services/detalle-venta.service";
+import { EmpleadoService } from "./services/empleado.service";
+import { FacturaService } from "./services/factura.service";
+import { LocalidadadService } from "./services/localidad.service";
+import { PedidoService } from "./services/pedido.service";
+import { UnidadMedidaService } from "./services/unidad-medida.service";
+import { PreciosService } from "./services/precios.service";
+import { CategoriaService } from "./services/categoria.service";
 
 //Material
-import {CommonModule} from '@angular/common';
-import {MaterialModule} from './material.module';
-
+import { CommonModule } from "@angular/common";
+import { MaterialModule } from "./material.module";
 
 
 @NgModule({
