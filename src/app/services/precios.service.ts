@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Precio } from "../interfaces/precios.interface";
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Injectable({
   providedIn: "root"
@@ -10,7 +11,12 @@ export class PreciosService {
   constructor(private http: HttpClient) {}
   
   Url= "http://localhost:8080/api/v1/precios/";
-
+  myForm = new FormGroup({
+    customerName: new FormControl(''),
+    orderNumber: new FormControl(''),
+    order: new FormControl(''),
+    completed: new FormControl(false)
+  });
   listarPrecios() {
     return this.http.get<Precio[]>(this.Url);
   }
