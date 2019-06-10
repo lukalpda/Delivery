@@ -9,7 +9,7 @@ import { DomicilioService } from "../../../services/domicilio.service";
   selector: "app-agregar-cliente",
   templateUrl: "./agregar-cliente.component.html",
   styleUrls: ["./agregar-cliente.component.css"]
-})
+}) 
 export class AgregarClienteComponent implements OnInit {
   clientePost: Cliente;
   domicilioPost: Domicilio;
@@ -21,25 +21,21 @@ export class AgregarClienteComponent implements OnInit {
     //@ts-ignore
     this.clientePost = {};
     //@ts-ignore
-    this.domicilioPost = {};
+    this.clientePost.direccion = {};
   }
 
   ngOnInit() {}
 
   Guardar() {
-
-    this._agregarDomicilioService.crearDomicilio(this.domicilioPost).subscribe(data => {
-      this.clientePost.direccion = JSON.stringify(data);
+    this._agregarDomicilioService.crearDomicilio(this.clientePost.direccion).subscribe(data => {
       console.log("domicilio cargado");
-    });
-
-    this._agregarClienteService
-      .crearCliente(this.clientePost)
-      .subscribe(data => {
+      this.clientePost.direccion=data;
+      this._agregarClienteService.crearCliente(this.clientePost).subscribe(data => {
         alert("Se guardó con éxito");
       this.router.navigate(["clientes"]);
       });
-   
+    });
+
   }
   Volver() {
     this.router.navigate(["clientes"]);

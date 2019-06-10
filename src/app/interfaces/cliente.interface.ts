@@ -1,3 +1,5 @@
+import {Domicilio} from './domicilio.interface';
+
 export interface Cliente {
   nombre_persona: string;
   dni: number;
@@ -6,7 +8,7 @@ export interface Cliente {
   email: string;
   baja: Date;
   alta: Date;
-  direccion: any;
+  direccion: Domicilio;
   id_usuario: number;
   nombre_usuario: string;
 }

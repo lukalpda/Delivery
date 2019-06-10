@@ -1,3 +1,6 @@
+import { Categoria } from './categoria.interface';
+import { UnidadMedida } from './unidad.medida.interface';
+
 export interface Articulo{
   id_articulo: number;
   nombre_articulo: string;
@@ -8,7 +11,7 @@ export interface Articulo{
   enLista: boolean;
   foto: string;
   detalle: string;
-  categoriaProd: any;
-  medidaProd: any;
+  categoriaProd: Categoria;
+  medidaProd: UnidadMedida;
 }
 
