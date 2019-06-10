@@ -13,7 +13,10 @@ export class EditarClienteComponent implements OnInit {
   constructor(
     private router: Router,
     private _editarClienteService: ClienteService
-  ) {  }
+  ) {
+    //@ts-ignore
+    this.cliente = {};
+  }
 
   ngOnInit() {
     this.editarCliente();

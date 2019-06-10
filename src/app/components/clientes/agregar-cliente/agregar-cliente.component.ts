@@ -30,9 +30,7 @@ export class AgregarClienteComponent implements OnInit {
     this._agregarDomicilioService.crearDomicilio(this.clientePost.direccion).subscribe(data => {
       console.log("domicilio cargado");
       this.clientePost.direccion=data;
-      console.log(this.clientePost.direccion.id_domicilio);
       this._agregarClienteService.crearCliente(this.clientePost).subscribe(data => {
-        this.clientePost.direccion.id_domicilio=data.direccion.id_domicilio;
         alert("Se guardó con éxito");
         this.router.navigate(["clientes"]);
       });
