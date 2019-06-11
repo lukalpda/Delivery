@@ -4,6 +4,7 @@ import java.util.Date;
 
 import ml.work.main.entities.Domicilio;
 
+
 public abstract class PersonaDTO {
 	protected String nombre_persona;
 	
@@ -15,23 +16,23 @@ public abstract class PersonaDTO {
 	
 	protected String email;
 	
-	protected Domicilio direccion;
-	
 	protected Date alta;
 	
 	protected Date baja;
+	
+	protected Domicilio direccion;
 
 	public PersonaDTO() {
 
 	}
 
-	public PersonaDTO(String nombre_persona, int dni, String password, int telefono, String email, Domicilio direccion, Date alta, Date baja) {
+	public PersonaDTO(String nombre_persona, int dni, String password, int telefono, String email, Date alta, Date baja) {
 		this.nombre_persona = nombre_persona;
 		this.dni = dni;
 		this.password = password;
 		this.telefono = telefono;
 		this.email = email;
-		this.direccion = direccion;
+		//this.direccion = direccion;
 		this.alta = alta;
 		this.baja = baja;
 	}

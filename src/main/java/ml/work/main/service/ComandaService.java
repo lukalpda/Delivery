@@ -31,7 +31,7 @@ public class ComandaService implements ObjectService<ComandaDTO>{
 			temp.setFecha(comanda.getFecha());
 			temp.setHora(comanda.getHora());
 			temp.setNombre_comprobante(comanda.getNombre_comprobante());
-			temp.setDetalleFactura(comanda.getDetalleFactura());
+//			temp.setDetalleFactura(comanda.getDetalleFactura());
 			temp.setFechaAnulado(comanda.getFechaAnulado());
 			
 			result.add(temp);
@@ -52,7 +52,7 @@ public class ComandaService implements ObjectService<ComandaDTO>{
 			result.setNombre_comprobante(resultBD.getNombre_comprobante());
 			result.setFecha(resultBD.getFecha());
 			result.setHora(resultBD.getHora());
-			result.setDetalleFactura(resultBD.getDetalleFactura());
+//			result.setDetalleFactura(resultBD.getDetalleFactura());
 			result.setFechaAnulado(resultBD.getFechaAnulado());
 			
 		} catch (Exception e) {
@@ -65,7 +65,7 @@ public class ComandaService implements ObjectService<ComandaDTO>{
 	public ComandaDTO save(ComandaDTO t) {
 		Comanda guardado = new Comanda();
 		
-		guardado.setDetalleFactura(t.getDetalleFactura());
+//		guardado.setDetalleFactura(t.getDetalleFactura());
 		guardado.setFecha(t.getFecha());
 		guardado.setHora(t.getHora());
 		guardado.setId_comanda(t.getId_comanda());
@@ -91,7 +91,7 @@ public class ComandaService implements ObjectService<ComandaDTO>{
 		try {
 			temp = pOptional.get();
 			
-			temp.setDetalleFactura(t.getDetalleFactura());
+//			temp.setDetalleFactura(t.getDetalleFactura());
 			temp.setFecha(t.getFecha());
 			temp.setHora(t.getHora());
 			temp.setId_comanda(t.getId_comanda());

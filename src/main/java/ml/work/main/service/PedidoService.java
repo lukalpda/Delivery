@@ -31,7 +31,7 @@ public class PedidoService implements ObjectService<PedidoDTO> {
 			temp.setFecha(pedido.getFecha());
 			temp.setHora(pedido.getHora());
 			temp.setNombre_comprobante(pedido.getNombre_comprobante());
-			temp.setDetallePedido(pedido.getDetallePedido());
+//			temp.setDetallePedido(pedido.getDetallePedido());
 			temp.setFechaAnulado(pedido.getFechaAnulado());
 
 			result.add(temp);
@@ -73,7 +73,7 @@ public class PedidoService implements ObjectService<PedidoDTO> {
 		guardado.setHora(body.getHora());
 		guardado.setNombre_comprobante(body.getNombre_comprobante());
 		guardado.setTotal(body.getTotal());
-		guardado.setDetallePedido(body.getDetallePedido());
+//		guardado.setDetallePedido(body.getDetallePedido());
 		guardado.setFechaAnulado(body.getFechaAnulado());
 
 		try {
@@ -94,7 +94,7 @@ public class PedidoService implements ObjectService<PedidoDTO> {
 		try {
 			temp = pOptional.get();
 
-			temp.setDetallePedido(t.getDetallePedido());
+//			temp.setDetallePedido(t.getDetallePedido());
 			temp.setFecha(t.getFecha());
 			temp.setHora(t.getHora());
 			temp.setNombre_comprobante(t.getNombre_comprobante());

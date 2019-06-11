@@ -2,6 +2,7 @@ package ml.work.main.entities;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -13,8 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name="apirest_detalles_factura")
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class DetalleFactura {
 	
 	@Id
@@ -28,27 +34,33 @@ public class DetalleFactura {
 	@Column(name="detalleFacSubtotal")
 	private float subtotal;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@Column(name="detalleAnulado")
+	private Date fechaAnulado;
+	
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "numFactura")	
+	@JsonBackReference
 	private Factura factura;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "numPedido")	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "numPedido")
+	@JsonBackReference
 	private Pedido pedido;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_pedido")	
-	private Comanda comanda;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	
+	
+	@ManyToOne
 	@JoinColumn(name = "id_articulo")
 	private Articulo item;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_artManuf")
 	private ArticuloManufacturado manufacturado;
 	
-	private Date fechaAnulado;
+	
 	
 	
 	
@@ -58,14 +70,15 @@ public class DetalleFactura {
 	
 	
 
-	public DetalleFactura(int idDetalle, int cantidad, float subtotal, Factura factura, Pedido pedido, Comanda comanda,
+	public DetalleFactura(int idDetalle, int cantidad, float subtotal, Factura factura, Pedido pedido, 
+//			Comanda comanda,
 			Articulo item, ArticuloManufacturado manufacturado, Date fechaAnulado) {
 		this.idDetalle = idDetalle;
 		this.cantidad = cantidad;
 		this.subtotal = subtotal;
 		this.factura = factura;
 		this.pedido = pedido;
-		this.comanda = comanda;
+//		this.comanda = comanda;
 		this.item = item;
 		this.manufacturado = manufacturado;
 		this.fechaAnulado = fechaAnulado;
@@ -131,15 +144,15 @@ public class DetalleFactura {
 
 
 
-	public Comanda getComanda() {
-		return comanda;
-	}
-
-
-
-	public void setComanda(Comanda comanda) {
-		this.comanda = comanda;
-	}
+//	public Comanda getComanda() {
+//		return comanda;
+//	}
+//
+//
+//
+//	public void setComanda(Comanda comanda) {
+//		this.comanda = comanda;
+//	}
 
 
 

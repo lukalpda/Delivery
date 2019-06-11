@@ -3,20 +3,21 @@ package ml.work.main.dtos;
 import java.io.Serializable; 
 import java.util.Date;
 import java.time.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import ml.work.main.entities.Cliente;
-import ml.work.main.entities.DetalleFactura;
 
 
 
 public class FacturaDTO extends ComprobanteDTO implements Serializable{
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int numFactura;
 	private boolean esEfectivo;			
 	private float total;
-	private List <DetalleFactura> detalleFactura= new ArrayList<DetalleFactura>(); 
+//	private List <DetalleFactura> detalleFactura= new ArrayList<DetalleFactura>(); 
 	private Cliente cliente;
 	
 
@@ -24,12 +25,14 @@ public class FacturaDTO extends ComprobanteDTO implements Serializable{
 		super();
 	}
 
-	public FacturaDTO(Date fecha, LocalTime hora, List<DetalleFactura> detalleFactura, Cliente cliente, String nombre_comprobante, int numFactura, boolean esEfectivo, float total, Date fechaAnulado) {
+	public FacturaDTO(Date fecha, LocalTime hora, 
+//			List<DetalleFactura> detalleFactura, 
+			Cliente cliente, String nombre_comprobante, int numFactura, boolean esEfectivo, float total, Date fechaAnulado) {
 		super(fecha, hora, nombre_comprobante, fechaAnulado);
 		this.numFactura = numFactura;
 		this.esEfectivo = esEfectivo;
 		this.total = total;
-		this.detalleFactura = detalleFactura;
+//		this.detalleFactura = detalleFactura;
 		this.cliente = cliente;
 	}	
 
@@ -81,13 +84,13 @@ public class FacturaDTO extends ComprobanteDTO implements Serializable{
 		super.setNombre_comprobante(nombre_comprobante);;
 	}
 
-	public List<DetalleFactura> getDetalleFactura() {
-		return detalleFactura;
-	}
-
-	public void setDetalleFactura(List<DetalleFactura> detalleFactura) {
-		this.detalleFactura = detalleFactura;
-	}
+//	public List<DetalleFactura> getDetalleFactura() {
+//		return detalleFactura;
+//	}
+//
+//	public void setDetalleFactura(List<DetalleFactura> detalleFactura) {
+//		this.detalleFactura = detalleFactura;
+//	}
 
 	public Cliente getCliente() {
 		return cliente;

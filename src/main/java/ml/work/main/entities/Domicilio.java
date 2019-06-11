@@ -1,7 +1,8 @@
 package ml.work.main.entities;
 
-import java.util.ArrayList;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,8 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "apirest_domicilio")
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class Domicilio {
 
 	@Id
@@ -33,12 +39,18 @@ public class Domicilio {
 	@Column(name = "numeroPiso")
 	private int numPiso;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_Distrito")
+	@JsonBackReference
 	private Distrito distrito;
 
-	//@OneToMany(mappedBy = "direccion")
-	//private List<Persona> personas = new ArrayList<Persona>();
+//	@OneToMany(mappedBy = "direccion", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JsonManagedReference
+//	private Set<Cliente> clientes;
+	
+//	@OneToMany(mappedBy = "direccionEmpleado", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JsonManagedReference
+//	private Set<Empleado> empleados;
 	
 	public Domicilio() {
 
@@ -46,15 +58,16 @@ public class Domicilio {
 
 	public Domicilio(int id_domicilio, String calle, int numCasa, int numDepartamento, int numPiso,
 			Distrito distrito, 
-			ArrayList<Persona> personas 
-			) {
+			//Set<Cliente> clientes, 
+			Set<Empleado> empleados) {
 		this.id_domicilio = id_domicilio;
 		this.calle = calle;
 		this.numCasa = numCasa;
 		this.numDepartamento = numDepartamento;
 		this.numPiso = numPiso;
 		this.distrito = distrito;
-		/* this.personas = personas; */
+		//this.clientes = clientes;
+		//this.empleados = empleados;
 	}
 
 	public String getCalle() {
@@ -105,12 +118,20 @@ public class Domicilio {
 		this.id_domicilio = id_domicilio;
 	}
 
-//	public List<Persona> getPersonas() {
-//		return personas;
+//	public Set<Cliente> getClientes() {
+//		return clientes;
 //	}
 //
-//	public void setPersonas (List<Persona> personas) {
-//		this.personas = personas;
+//	public void setClientes(Set<Cliente> clientes) {
+//		this.clientes = clientes;
+//	}
+
+//	public Set<Empleado> getEmpleados() {
+//		return empleados;
+//	}
+//
+//	public void setEmpleados(Set<Empleado> empleados) {
+//		this.empleados = empleados;
 //	}
 
 	

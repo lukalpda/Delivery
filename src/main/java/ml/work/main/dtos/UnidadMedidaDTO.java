@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class UnidadMedidaDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id_medida;	
 	private String tipo_medida;
 	

@@ -33,7 +33,7 @@ public class FacturaService implements ObjectService<FacturaDTO> {
 			temp.setFecha(factura.getFecha());
 			temp.setHora(factura.getHora());
 			temp.setNombre_comprobante(factura.getNombre_comprobante());
-			temp.setDetalleFactura(factura.getDetalleFactura());
+//			temp.setDetalleFactura(factura.getDetalleFactura());
 			temp.setCliente(factura.getCliente());
 			temp.setFechaAnulado(factura.getFechaAnulado());
 
@@ -79,7 +79,7 @@ public class FacturaService implements ObjectService<FacturaDTO> {
 		guardado.setEsEfectivo(body.isEsEfectivo());
 		guardado.setNombre_comprobante(body.getNombre_comprobante());
 		guardado.setTotal(body.getTotal());
-		guardado.setDetalleFactura(body.getDetalleFactura());
+//		guardado.setDetalleFactura(body.getDetalleFactura());
 		guardado.setCliente(body.getCliente());
 		guardado.setFechaAnulado(body.getFechaAnulado());
 
@@ -101,7 +101,7 @@ public class FacturaService implements ObjectService<FacturaDTO> {
 		try {
 			temp = pOptional.get();
 
-			temp.setDetalleFactura(t.getDetalleFactura());
+//			temp.setDetalleFactura(t.getDetalleFactura());
 			temp.setFecha(t.getFecha());
 			temp.setHora(t.getHora());
 			temp.setEsEfectivo(t.isEsEfectivo());

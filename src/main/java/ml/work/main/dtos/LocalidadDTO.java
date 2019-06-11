@@ -1,10 +1,6 @@
 package ml.work.main.dtos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import ml.work.main.entities.Distrito;
 
 public class LocalidadDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -12,17 +8,17 @@ public class LocalidadDTO implements Serializable{
 
 	private String nombre_localidad;
 	
-	private List<Distrito> distritos = new ArrayList<Distrito>();
+	//private List<Distrito> distritos = new ArrayList<Distrito>();
 	
 
 	public LocalidadDTO() {
 
 	}
 
-	public LocalidadDTO(int id_localidad, String nombre_localidad, List<Distrito> distritos) {
+	public LocalidadDTO(int id_localidad, String nombre_localidad) {
 		this.id_Localidad = id_localidad;
 		this.nombre_localidad = nombre_localidad;
-		this.distritos = distritos;
+		//this.distritos = distritos;
 	}
 
 	public int getId_Localidad() {
@@ -41,12 +37,16 @@ public class LocalidadDTO implements Serializable{
 		this.nombre_localidad = nombre_localidad;
 	}
 
-	public List<Distrito> getDistritos() {
-		return distritos;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public void setDistritos(List<Distrito> distritos) {
-		this.distritos = distritos;
-	}
-	
+//	public List<Distrito> getDistritos() {
+//		return distritos;
+//	}
+//
+//	public void setDistritos(List<Distrito> distritos) {
+//		this.distritos = distritos;
+//	}
+
 }

@@ -24,6 +24,7 @@ public class ClienteService implements ObjectService<ClienteDTO> {
 		List<ClienteDTO> result = new ArrayList<>();
 		for (Cliente cliente : clienteRepository.findAll()) {
 			ClienteDTO temp = new ClienteDTO();
+			temp.setId_usuario(cliente.getId_usuario());
 			temp.setNombre_usuario(cliente.getNombre_usuario());
 			temp.setDireccion(cliente.getDireccion());
 			temp.setDni(cliente.getDni());
@@ -31,7 +32,7 @@ public class ClienteService implements ObjectService<ClienteDTO> {
 			temp.setNombre_persona(cliente.getNombre_persona());
 			temp.setPassword(cliente.getPassword());
 			temp.setTelefono(cliente.getTelefono());
-			temp.setFacturas(cliente.getFacturas());
+			//temp.setFacturas(cliente.getFacturas());
 			temp.setAlta(cliente.getAlta());
 			temp.setBaja(cliente.getBaja());
 			
@@ -47,13 +48,14 @@ public class ClienteService implements ObjectService<ClienteDTO> {
 		try {
 			Cliente cliente = aOptional.get();
 			temp.setNombre_usuario(cliente.getNombre_usuario());
+			temp.setId_usuario(cliente.getId_usuario());
 			temp.setDireccion(cliente.getDireccion());
 			temp.setDni(cliente.getDni());
 			temp.setEmail(cliente.getEmail());
 			temp.setNombre_persona(cliente.getNombre_persona());
 			temp.setPassword(cliente.getPassword());
 			temp.setTelefono(cliente.getTelefono());
-			temp.setFacturas(cliente.getFacturas());
+			//temp.setFacturas(cliente.getFacturas());
 			temp.setAlta(cliente.getAlta());
 			temp.setBaja(cliente.getBaja());
 			
@@ -73,7 +75,7 @@ public class ClienteService implements ObjectService<ClienteDTO> {
 		cliente.setNombre_usuario(t.getNombre_usuario());
 		cliente.setPassword(t.getPassword());
 		cliente.setTelefono(t.getTelefono());	
-		cliente.setFacturas(t.getFacturas());
+		//cliente.setFacturas(t.getFacturas());
 		cliente.setAlta(t.getAlta());
 		cliente.setBaja(t.getBaja());
 		
@@ -96,7 +98,7 @@ public class ClienteService implements ObjectService<ClienteDTO> {
 			temp.setNombre_usuario(t.getNombre_usuario());
 			temp.setPassword(t.getPassword());
 			temp.setTelefono(t.getTelefono());	
-			temp.setFacturas(t.getFacturas());
+			//temp.setFacturas(t.getFacturas());
 			temp.setAlta(t.getAlta());
 			temp.setBaja(t.getBaja());
 			

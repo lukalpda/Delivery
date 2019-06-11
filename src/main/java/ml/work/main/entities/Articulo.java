@@ -1,20 +1,20 @@
 package ml.work.main.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "apirest_articulos")
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class Articulo {
 	
 	@Id
@@ -28,26 +28,12 @@ public class Articulo {
 	@Column(name = "articulo_costo")
 	private float costo;
 	
-	@Column(name = "articulo_vendible")
-	private boolean esParaVenta;
+	@Column(name = "articulo_esPrima")
+	private boolean esPrima;
 	
 	@Column(name = "articulo_stock")
-	private double stock;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_categoria")	
-	private CategoriaProducto categoriaProd;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_medida")	
-	private UnidadMedida medidaProd;
-	
-	@OneToMany(mappedBy = "item")
-	private List<DetalleFactura> detFactura;
-	
-	@OneToMany(mappedBy = "articuloManuf")
-	private List<DetalleReceta> detReceta;
-	
+	private double stock;	
+		
 	@Column(name = "stockMinimo")
 	private double stockMinimo;
 	
@@ -60,31 +46,44 @@ public class Articulo {
 	@Column(name = "articulo_detalle")
 	private String detalle;
 	
-	@OneToMany(mappedBy = "precioItem")
-	private List<Precios> precioArticulo;
+	@Column(name = "articulo_precio")
+	private float precio;
 	
+	
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "id_categoria")	
+	private CategoriaProducto categoriaProd;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_medida")	
+	private UnidadMedida medidaProd;
 	
 
 	public Articulo() {
 	}
 		
-	public Articulo(int id_articulo, String nombre_articulo, float costo, boolean esParaVenta, double stock,
-			CategoriaProducto categoriaProd, UnidadMedida medidaProd, List<DetalleFactura> detFactura,
-			List<DetalleReceta> detReceta, double stockMinimo, boolean enLista, String foto, String detalle, List<Precios> precioArticulo) {
+	public Articulo(int id_articulo, String nombre_articulo, float costo, boolean esPrima, 
+			double stock, CategoriaProducto categoriaProd, UnidadMedida medidaProd, 
+//			List<DetalleFactura> detFactura, List<DetalleReceta> detReceta, Set<Precios> precioArticulo
+			double stockMinimo, boolean enLista, String foto, String detalle, float precio) {
 		this.id_articulo = id_articulo;
 		this.nombre_articulo = nombre_articulo;
 		this.costo = costo;
-		this.esParaVenta = esParaVenta;
+		this.esPrima = esPrima;
 		this.stock = stock;
 		this.categoriaProd = categoriaProd;
 		this.medidaProd = medidaProd;
-		this.detFactura = detFactura;
-		this.detReceta = detReceta;
+//		this.detFactura = detFactura;
+//		this.detReceta = detReceta;
 		this.stockMinimo = stockMinimo;
 		this.enLista = enLista;
 		this.foto = foto;
 		this.detalle = detalle;
-		this.precioArticulo = precioArticulo;
+		this.precio = precio;
+//		this.precioArticulo = precioArticulo;
 	}
 
 	public int getId_articulo() {
@@ -109,15 +108,7 @@ public class Articulo {
 
 	public void setCosto(float costo) {
 		this.costo = costo;
-	}
-
-	public boolean isEsParaVenta() {
-		return esParaVenta;
-	}
-
-	public void setEsParaVenta(boolean esParaVenta) {
-		this.esParaVenta = esParaVenta;
-	}
+	}	
 
 	public double getStock() {
 		return stock;
@@ -143,21 +134,21 @@ public class Articulo {
 		this.medidaProd = medidaProd;
 	}
 
-	public List<DetalleReceta> getDetReceta() {
-		return detReceta;
-	}
-
-	public void setDetReceta(List<DetalleReceta> detReceta) {
-		this.detReceta = detReceta;
-	}
-
-	public List<DetalleFactura> getDetFactura() {
-		return detFactura;
-	}
-
-	public void setDetFactura(List<DetalleFactura> detFactura) {
-		this.detFactura = detFactura;
-	}
+//	public List<DetalleReceta> getDetReceta() {
+//		return detReceta;
+//	}
+//
+//	public void setDetReceta(List<DetalleReceta> detReceta) {
+//		this.detReceta = detReceta;
+//	}
+//
+//	public List<DetalleFactura> getDetFactura() {
+//		return detFactura;
+//	}
+//
+//	public void setDetFactura(List<DetalleFactura> detFactura) {
+//		this.detFactura = detFactura;
+//	}
 
 	public double getStockMinimo() {
 		return stockMinimo;
@@ -191,12 +182,30 @@ public class Articulo {
 		this.detalle = detalle;
 	}
 
-	public List<Precios> getPrecioArticulo() {
-		return precioArticulo;
+	public boolean isEsPrima() {
+		return esPrima;
 	}
 
-	public void setPrecioArticulo(List<Precios> precioArticulo) {
-		this.precioArticulo = precioArticulo;
+	public void setEsPrima(boolean esPrima) {
+		this.esPrima = esPrima;
 	}
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+	
+	
+
+//	public Set<Precios> getPrecioArticulo() {
+//		return precioArticulo;
+//	}
+//
+//	public void setPrecioArticulo(Set<Precios> precioArticulo) {
+//		this.precioArticulo = precioArticulo;
+//	}	
 	
 }

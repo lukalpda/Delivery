@@ -6,12 +6,15 @@ import java.sql.Date;
 
 import ml.work.main.entities.Articulo;
 import ml.work.main.entities.ArticuloManufacturado;
-import ml.work.main.entities.Comanda;
 import ml.work.main.entities.Factura;
 import ml.work.main.entities.Pedido;
 
 public class DetalleFacturaDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idDetalle;
 	private int cantidad;
 	private float subtotal;
@@ -19,7 +22,7 @@ public class DetalleFacturaDTO implements Serializable{
 	private Pedido pedido;
 	private Articulo item;
 	private ArticuloManufacturado manufacturado;
-	private Comanda comanda;
+//	private Comanda comanda;
 	private Date fechaAnulado;
 	
 	public DetalleFacturaDTO() {
@@ -28,7 +31,9 @@ public class DetalleFacturaDTO implements Serializable{
 	
 	
 	public DetalleFacturaDTO(int idDetalle, int cantidad, float subtotal, Factura factura, Pedido pedido, Articulo item,
-			ArticuloManufacturado manufacturado, Comanda comanda, Date fechaAnulado) {
+			ArticuloManufacturado manufacturado, 
+//			Comanda comanda, 
+			Date fechaAnulado) {
 		this.idDetalle = idDetalle;
 		this.cantidad = cantidad;
 		this.subtotal = subtotal;
@@ -36,7 +41,7 @@ public class DetalleFacturaDTO implements Serializable{
 		this.pedido = pedido;
 		this.item = item;
 		this.manufacturado = manufacturado;
-		this.comanda = comanda;
+//		this.comanda = comanda;
 		this.fechaAnulado = fechaAnulado;
 	}
 
@@ -97,14 +102,14 @@ public class DetalleFacturaDTO implements Serializable{
 	}
 
 
-	public Comanda getComanda() {
-		return comanda;
-	}
-
-
-	public void setComanda(Comanda comanda) {
-		this.comanda = comanda;
-	}
+//	public Comanda getComanda() {
+//		return comanda;
+//	}
+//
+//
+//	public void setComanda(Comanda comanda) {
+//		this.comanda = comanda;
+//	}
 
 
 	public Date getFechaAnulado() {

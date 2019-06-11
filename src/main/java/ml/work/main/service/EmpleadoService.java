@@ -30,7 +30,7 @@ public class EmpleadoService implements ObjectService<EmpleadoDTO>  {
 			temp.setAlta(empleado.getAlta());
 			temp.setBaja(empleado.getBaja());
 			temp.setCargo(empleado.getCargo());
-			temp.setCod_cargo(empleado.getCod_cargo());
+//			temp.setCod_cargo(empleado.getCod_cargo());
 			temp.setCodigo_ingreso(empleado.getCodigo_ingreso());
 			temp.setCuil(empleado.getCuil());
 			temp.setDireccion(empleado.getDireccion());
@@ -58,7 +58,7 @@ public class EmpleadoService implements ObjectService<EmpleadoDTO>  {
 			result.setAlta(resultBD.getAlta());
 			result.setBaja(resultBD.getBaja());
 			result.setCargo(resultBD.getCargo());
-			result.setCod_cargo(resultBD.getCod_cargo());
+//			result.setCod_cargo(resultBD.getCod_cargo());
 			result.setCodigo_ingreso(resultBD.getCodigo_ingreso());
 			result.setCuil(resultBD.getCuil());
 			result.setDireccion(resultBD.getDireccion());
@@ -83,7 +83,7 @@ public class EmpleadoService implements ObjectService<EmpleadoDTO>  {
 		guardado.setAlta(t.getAlta());
 		guardado.setBaja(t.getBaja());
 		guardado.setCargo(t.getCargo());
-		guardado.setCod_cargo(t.getCod_cargo());
+//		guardado.setCod_cargo(t.getCod_cargo());
 		guardado.setCodigo_ingreso(t.getCodigo_ingreso());
 		guardado.setCuil(t.getCuil());
 		guardado.setDireccion(t.getDireccion());
@@ -115,7 +115,7 @@ public class EmpleadoService implements ObjectService<EmpleadoDTO>  {
 			temp.setAlta(t.getAlta());
 			temp.setBaja(t.getBaja());
 			temp.setCargo(t.getCargo());
-			temp.setCod_cargo(t.getCod_cargo());
+//			temp.setCod_cargo(t.getCod_cargo());
 			temp.setCodigo_ingreso(t.getCodigo_ingreso());
 			temp.setCuil(t.getCuil());
 			temp.setDireccion(t.getDireccion());

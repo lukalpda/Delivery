@@ -1,24 +1,21 @@
 package ml.work.main.dtos;
 
 import java.io.Serializable;
-import java.util.List;
 
 import ml.work.main.entities.CategoriaProducto;
-import ml.work.main.entities.DetalleFactura;
-import ml.work.main.entities.DetalleReceta;
-import ml.work.main.entities.Precios;
 
 public class ArticuloManufacturadoDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int id_artManuf;
 	
 	private String nombre_articuloM;
 	
 	private int minutosPrep;
-	
-	private List<DetalleReceta> detalleRecetas;
-	
-	private List<DetalleFactura> dFactura;
 	
 	private boolean enMenu;
 	
@@ -28,7 +25,9 @@ public class ArticuloManufacturadoDTO implements Serializable{
 	
 	private String detalle;	
 	
-	private List<Precios> precioDePlato;
+	private float precio;
+	
+	
 	
 
 	public ArticuloManufacturadoDTO() {
@@ -36,18 +35,19 @@ public class ArticuloManufacturadoDTO implements Serializable{
 
 	
 	public ArticuloManufacturadoDTO(int id_artManuf, String nombre_articuloM, int minutosPrep, 
-			List<Precios> precioDePlato, List<DetalleReceta> detalleRecetas, List<DetalleFactura> dFactura, 
-			boolean enMenu, CategoriaProducto categoriaManuf, String foto, String detalle) {
+//			List<Precios> precioDePlato, List<DetalleReceta> detalleRecetas, List<DetalleFactura> dFactura, 
+			boolean enMenu, CategoriaProducto categoriaManuf, String foto, String detalle, float precio) {
 		this.id_artManuf = id_artManuf;
 		this.nombre_articuloM = nombre_articuloM;
 		this.minutosPrep = minutosPrep;
-		this.detalleRecetas = detalleRecetas;
-		this.dFactura = dFactura;
 		this.enMenu = enMenu;
 		this.categoriaManuf = categoriaManuf;
 		this.foto = foto;
 		this.detalle = detalle;
-		this.precioDePlato = precioDePlato;
+		this.precio = precio;
+//		this.precioDePlato = precioDePlato;
+//		this.detalleRecetas = detalleRecetas;
+//		this.dFactura = dFactura;		
 	}
 
 
@@ -74,25 +74,6 @@ public class ArticuloManufacturadoDTO implements Serializable{
 	public void setMinutosPrep(int minutosPrep) {
 		this.minutosPrep = minutosPrep;
 	}
-
-	public List<DetalleReceta> getDetalleRecetas() {
-		return detalleRecetas;
-	}
-
-	public void setDetalleRecetas(List<DetalleReceta> detalleRecetas) {
-		this.detalleRecetas = detalleRecetas;
-	}
-
-	
-	public List<DetalleFactura> getdFactura() {
-		return dFactura;
-	}
-
-
-	public void setdFactura(List<DetalleFactura> dFactura) {
-		this.dFactura = dFactura;
-	}
-
 
 	public boolean isEnMenu() {
 		return enMenu;
@@ -134,12 +115,13 @@ public class ArticuloManufacturadoDTO implements Serializable{
 	}
 
 
-	public List<Precios> getPrecioDePlato() {
-		return precioDePlato;
+	public float getPrecio() {
+		return precio;
 	}
 
 
-	public void setPrecioDePlato(List<Precios> precioDePlato) {
-		this.precioDePlato = precioDePlato;
+	public void setPrecio(float precio) {
+		this.precio = precio;
 	}	
+	
 }

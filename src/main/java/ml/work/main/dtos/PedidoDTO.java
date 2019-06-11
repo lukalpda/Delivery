@@ -3,26 +3,28 @@ package ml.work.main.dtos;
 import java.io.Serializable;
 import java.util.Date;
 import java.time.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import ml.work.main.entities.DetalleFactura;
 
 public class PedidoDTO extends ComprobanteDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int numPedido;
 	private float total;
-	private List <DetalleFactura> detallePedido= new ArrayList<DetalleFactura>();
+//	private List <DetalleFactura> detallePedido= new ArrayList<DetalleFactura>();
 	
 	public PedidoDTO() {
 		super();
 	}
 	
-	public PedidoDTO(Date fecha, LocalTime hora, String nombre_comprobante, int numPedido, float total, List<DetalleFactura> detallePedido, Date fechaAnulado) {
+	public PedidoDTO(Date fecha, LocalTime hora, String nombre_comprobante, int numPedido, float total, 
+//			List<DetalleFactura> detallePedido, 
+			Date fechaAnulado) {
 		super(fecha, hora, nombre_comprobante, fechaAnulado);
 		this.numPedido = numPedido;
 		this.total = total;
-		this.detallePedido = detallePedido;
+//		this.detallePedido = detallePedido;
 	}
 
 	public int getNumPedido() {
@@ -41,13 +43,13 @@ public class PedidoDTO extends ComprobanteDTO implements Serializable{
 		this.total = total;
 	}
 
-	public List<DetalleFactura> getDetallePedido() {
-		return detallePedido;
-	}
-
-	public void setDetallePedido(List<DetalleFactura> detallePedido) {
-		this.detallePedido = detallePedido;
-	} 
+//	public List<DetalleFactura> getDetallePedido() {
+//		return detallePedido;
+//	}
+//
+//	public void setDetallePedido(List<DetalleFactura> detallePedido) {
+//		this.detallePedido = detallePedido;
+//	} 
 	
 	public Date getFecha() {
 		return fecha;

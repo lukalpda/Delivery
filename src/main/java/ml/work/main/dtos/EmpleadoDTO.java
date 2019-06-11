@@ -7,27 +7,36 @@ import ml.work.main.entities.Cargos;
 import ml.work.main.entities.Domicilio;
 
 public class EmpleadoDTO extends PersonaDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int codigo_ingreso;
 	
 	private int cuil;
 	
 	private int id_empleado;
 	
-	private int cod_cargo;
+	//private int cod_cargo;
 	
-	private Cargos cargo = new Cargos();
+	private Cargos cargo;
+	
+	private Domicilio direccionEmpleado;
 
 	public EmpleadoDTO() {
 		super();
 	}
 
 	public EmpleadoDTO(String nombre_persona, int dni, String password, int telefono, String email,
-			int codigo_ingreso, int cuil, Domicilio direccion, int id_empleado, int cod_cargo, Date baja, Date alta) {
-		super(nombre_persona, dni, password, telefono, email, direccion, alta, baja);
+			int codigo_ingreso, int cuil, Domicilio direccionEmpleado, int id_empleado, 
+//			int cod_cargo, 
+			Date baja, Date alta) {
+		super(nombre_persona, dni, password, telefono, email, alta, baja);
 		this.codigo_ingreso = codigo_ingreso;
 		this.cuil = cuil;
-		this.direccion = direccion;
-		this.cod_cargo = cod_cargo;
+		this.direccionEmpleado = direccionEmpleado;
+//		this.cod_cargo = cod_cargo;
 		this.id_empleado = id_empleado;
 		this.alta = alta;
 		this.baja = baja;
@@ -57,13 +66,13 @@ public class EmpleadoDTO extends PersonaDTO implements Serializable{
 		this.id_empleado = id_empleado;
 	}
 
-	public int getCod_cargo() {
-		return cod_cargo;
-	}
-
-	public void setCod_cargo(int cod_cargo) {
-		this.cod_cargo = cod_cargo;
-	}
+//	public int getCod_cargo() {
+//		return cod_cargo;
+//	}
+//
+//	public void setCod_cargo(int cod_cargo) {
+//		this.cod_cargo = cod_cargo;
+//	}
 
 	public Date getAlta() {
 		return alta;
@@ -87,5 +96,15 @@ public class EmpleadoDTO extends PersonaDTO implements Serializable{
 
 	public void setCargo(Cargos cargo) {
 		this.cargo = cargo;
+	}
+
+	public Domicilio getDireccionEmpleado() {
+		return direccionEmpleado;
+	}
+
+	public void setDireccionEmpleado(Domicilio direccionEmpleado) {
+		this.direccionEmpleado = direccionEmpleado;
 	}		
+	
+	
 }

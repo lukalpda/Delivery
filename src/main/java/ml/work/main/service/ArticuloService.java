@@ -29,18 +29,19 @@ public class ArticuloService implements ObjectService<ArticuloDTO> {
 			temp.setId_articulo(articulo.getId_articulo());
 			temp.setNombre_articulo(articulo.getNombre_articulo());
 			temp.setCosto(articulo.getCosto());
-			temp.setEsParaVenta(articulo.isEsParaVenta());
+			temp.setEsPrima(articulo.isEsPrima());
 			temp.setStock(articulo.getStock());
 			temp.setCategoriaProd(articulo.getCategoriaProd());
 			temp.setMedidaProd(articulo.getMedidaProd());
-			temp.setDetFactura(articulo.getDetFactura());
-			temp.setDetReceta(articulo.getDetReceta());
 			temp.setStockMinimo(articulo.getStockMinimo());
 			temp.setEnLista(articulo.isEnLista());
 			temp.setDetalle(articulo.getDetalle());
 			temp.setFoto(articulo.getFoto());
-			temp.setPrecioArticulo(articulo.getPrecioArticulo());
-
+			temp.setPrecio(articulo.getPrecio());
+			//temp.setPrecioArticulo(articulo.getPrecioArticulo());
+			//temp.setDetFactura(articulo.getDetFactura());
+			//temp.setDetReceta(articulo.getDetReceta());
+			
 			result.add(temp);
 		}
 
@@ -62,16 +63,17 @@ public class ArticuloService implements ObjectService<ArticuloDTO> {
 			result.setCosto(resultBD.getCosto());
 			result.setNombre_articulo(resultBD.getNombre_articulo());
 			result.setStock(resultBD.getStock());
-			result.setEsParaVenta(resultBD.isEsParaVenta());
+			result.setEsPrima(resultBD.isEsPrima());
 			result.setMedidaProd(resultBD.getMedidaProd());
-			result.setCategoriaProd(resultBD.getCategoriaProd());
-			result.setDetFactura(resultBD.getDetFactura());;
-			result.setDetReceta(resultBD.getDetReceta());
+			result.setCategoriaProd(resultBD.getCategoriaProd());			
 			result.setStockMinimo(resultBD.getStockMinimo());
 			result.setEnLista(resultBD.isEnLista());
 			result.setDetalle(resultBD.getDetalle());
 			result.setFoto(resultBD.getFoto());
-			result.setPrecioArticulo(resultBD.getPrecioArticulo());
+			result.setPrecio(resultBD.getPrecio());
+			//result.setPrecioArticulo(resultBD.getPrecioArticulo());
+			//result.setDetFactura(resultBD.getDetFactura());;
+			//result.setDetReceta(resultBD.getDetReceta());
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -87,17 +89,19 @@ public class ArticuloService implements ObjectService<ArticuloDTO> {
 				guardado.setCosto(t.getCosto());
 				guardado.setStock(t.getStock());
 				guardado.setCategoriaProd(t.getCategoriaProd());
-				guardado.setEsParaVenta(t.isEsParaVenta());
+				guardado.setEsPrima(t.isEsPrima());
 				guardado.setMedidaProd(t.getMedidaProd());
 				guardado.setNombre_articulo(t.getNombre_articulo());
-				guardado.setDetFactura(t.getDetFactura());;
-				guardado.setDetReceta(t.getDetReceta());
 				guardado.setStockMinimo(t.getStockMinimo());
 				guardado.setEnLista(t.isEnLista());
 				guardado.setDetalle(t.getDetalle());
 				guardado.setDetalle(t.getDetalle());
 				guardado.setFoto(t.getFoto());	
-				guardado.setPrecioArticulo(t.getPrecioArticulo());
+				guardado.setPrecio(t.getPrecio());
+				//guardado.setPrecioArticulo(t.getPrecioArticulo());
+				//guardado.setDetFactura(t.getDetFactura());;
+				//guardado.setDetReceta(t.getDetReceta());
+				
 		try {
 			articuloRepository.save(guardado);
 			t.setId_articulo(guardado.getId_articulo());
@@ -118,17 +122,19 @@ public class ArticuloService implements ObjectService<ArticuloDTO> {
 
 			temp.setCategoriaProd(t.getCategoriaProd());
 			temp.setCosto(t.getCosto());
-			temp.setEsParaVenta(t.isEsParaVenta());
+			temp.setEsPrima(t.isEsPrima());
 			temp.setMedidaProd(t.getMedidaProd());
 			temp.setNombre_articulo(t.getNombre_articulo());
 			temp.setStock(t.getStock());
-			temp.setDetFactura(t.getDetFactura());;
-			temp.setDetReceta(t.getDetReceta());
 			temp.setStockMinimo(t.getStockMinimo());
 			temp.setEnLista(t.isEnLista());
 			temp.setFoto(t.getFoto());
 			temp.setDetalle(t.getDetalle());
-			temp.setPrecioArticulo(t.getPrecioArticulo());
+			temp.setPrecio(t.getPrecio());
+			//temp.setPrecioArticulo(t.getPrecioArticulo());
+			//temp.setDetFactura(t.getDetFactura());;
+			//temp.setDetReceta(t.getDetReceta());
+			
 		
 			articuloRepository.save(temp);
 			t.setId_articulo(temp.getId_articulo());

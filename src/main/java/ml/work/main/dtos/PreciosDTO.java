@@ -8,6 +8,11 @@ import ml.work.main.entities.ArticuloManufacturado;
 
 public class PreciosDTO implements Serializable{
 	
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 private int id_precio;
 	
 	private double precio;

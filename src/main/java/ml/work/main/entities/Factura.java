@@ -3,8 +3,7 @@ package ml.work.main.entities;
 import java.util.Date; 
 
 import java.time.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,12 +17,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "apirest_factura")
 public class Factura extends Comprobantes {
 	
-	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
-	private List<DetalleFactura> detalleFactura = new ArrayList<DetalleFactura>();
+	
 
 	@Id
 	@Column(name = "factura_id")
@@ -36,9 +36,16 @@ public class Factura extends Comprobantes {
 	@Column(name = "factura_total")
 	private float total;	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario")	
-	private Cliente cliente = new Cliente();
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "id_comprador")	
+	private Cliente cliente;
+	
+	
+	@OneToMany(mappedBy = "factura", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private Set<DetalleFactura> detalleFactura;
 	
 		
 	public Factura() {
@@ -46,7 +53,7 @@ public class Factura extends Comprobantes {
 	}
 
 	public Factura(Date fecha, LocalTime hora, String nombre_comprobante, int numFactura, boolean esEfectivo,
-			List<DetalleFactura> detalleFactura, float total, Cliente cliente, Date fechaAnulado) {
+			Set<DetalleFactura> detalleFactura, float total, Cliente cliente, Date fechaAnulado) {
 		super(fecha, hora, nombre_comprobante, fechaAnulado);
 		this.numFactura = numFactura;
 		this.esEfectivo = esEfectivo;		
@@ -69,14 +76,6 @@ public class Factura extends Comprobantes {
 
 	public void setEsEfectivo(boolean esEfectivo) {
 		this.esEfectivo = esEfectivo;
-	}
-
-	public List<DetalleFactura> getDetalleFactura() {
-		return detalleFactura;
-	}
-
-	public void setDetalleFactura(List<DetalleFactura> detalleFactura) {
-		this.detalleFactura = detalleFactura;
 	}
 
 	public float getTotal() {
@@ -118,4 +117,14 @@ public class Factura extends Comprobantes {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public Set<DetalleFactura> getDetalleFactura() {
+		return detalleFactura;
+	}
+
+	public void setDetalleFactura(Set<DetalleFactura> detalleFactura) {
+		this.detalleFactura = detalleFactura;
+	}
+	
+	
 }

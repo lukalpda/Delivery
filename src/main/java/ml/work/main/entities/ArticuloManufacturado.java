@@ -1,8 +1,8 @@
 package ml.work.main.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,8 +14,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "apirest_art_manufacturado")
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class ArticuloManufacturado {
 	
 	@Id
@@ -29,45 +34,48 @@ public class ArticuloManufacturado {
 	@Column(name = "articuloManuf_minutos")
 	private int minutosPrep;
 	
-	@OneToMany(mappedBy = "articuloManuf")
-	private List<DetalleReceta> detalleRecetas = new ArrayList<DetalleReceta>();
-	
-	@OneToMany(mappedBy = "manufacturado")
-	private List<DetalleFactura> dFactura;
-	
-	@Column(name = "articuloManuf_enMenu")
-	private boolean enMenu;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_categoria")	
-	private CategoriaProducto categoriaManuf;
-	
 	@Column(name = "manuf_foto")
 	private String foto;
 	
 	@Column(name = "articuloManuf_detalle")
 	private String detalle;	
 	
-	@OneToMany(mappedBy = "precioPlato")
-	private List<Precios> precioDePlato;
+	@Column(name = "articuloManuf_enMenu")
+	private boolean enMenu;
+	
+	@Column(name = "articuloManuf_precio")
+	private float precio;
+	
+	
+	@OneToMany(mappedBy = "articuloManuf", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private Set<DetalleReceta> detalleRecetas;	
+		
+	
+	@ManyToOne
+	@JoinColumn(name = "id_categoria")	
+	private CategoriaProducto categoriaManuf;
+	
 	
 	
 	public ArticuloManufacturado() {
 	}
 
 	public ArticuloManufacturado(int id_artManuf, String nombre_articuloM, int minutosPrep,
-			List<DetalleReceta> detalleRecetas, List<Precios> precioDePlato, List<DetalleFactura> dFactura, 
-			boolean enMenu, CategoriaProducto categoriaManuf, String foto, String detalle) {
+			Set<DetalleReceta> detalleRecetas, 
+//			Set<Precios> precioDePlato,
+			boolean enMenu, CategoriaProducto categoriaManuf, String foto, String detalle, float precio)  {
 		this.id_artManuf = id_artManuf;
 		this.nombre_articuloM = nombre_articuloM;
 		this.minutosPrep = minutosPrep;
 		this.detalleRecetas = detalleRecetas;
-		this.dFactura = dFactura;
+//		this.dFactura = dFactura;
 		this.enMenu = enMenu;
 		this.categoriaManuf = categoriaManuf;
 		this.foto = foto;
 		this.detalle = detalle;		
-		this.precioDePlato = precioDePlato;
+		this.precio = precio;
+//		this.precioDePlato = precioDePlato;
 	}
 
 	public int getId_artManuf() {
@@ -93,22 +101,14 @@ public class ArticuloManufacturado {
 	public void setMinutosPrep(int minutosPrep) {
 		this.minutosPrep = minutosPrep;
 	}
-
-	public List<DetalleReceta> getDetalleRecetas() {
-		return detalleRecetas;
-	}
-
-	public void setDetalleRecetas(List<DetalleReceta> detalleRecetas) {
-		this.detalleRecetas = detalleRecetas;
-	}	
-
-	public List<DetalleFactura> getdFactura() {
-		return dFactura;
-	}
-
-	public void setdFactura(List<DetalleFactura> dFactura) {
-		this.dFactura = dFactura;
-	}
+	
+//	public List<DetalleFactura> getdFactura() {
+//		return dFactura;
+//	}
+//
+//	public void setdFactura(List<DetalleFactura> dFactura) {
+//		this.dFactura = dFactura;
+//	}
 
 	public boolean isEnMenu() {
 		return enMenu;
@@ -142,11 +142,29 @@ public class ArticuloManufacturado {
 		this.detalle = detalle;
 	}
 
-	public List<Precios> getPrecioDePlato() {
-		return precioDePlato;
+	public Set<DetalleReceta> getDetalleRecetas() {
+		return detalleRecetas;
 	}
 
-	public void setPrecioDePlato(List<Precios> precioDePlato) {
-		this.precioDePlato = precioDePlato;
-	}	
+	public void setDetalleRecetas(Set<DetalleReceta> detalleRecetas) {
+		this.detalleRecetas = detalleRecetas;
+	}
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+
+//	public Set<Precios> getPrecioDePlato() {
+//		return precioDePlato;
+//	}
+//
+//	public void setPrecioDePlato(Set<Precios> precioDePlato) {
+//		this.precioDePlato = precioDePlato;
+//	}	
+	
+	
 }

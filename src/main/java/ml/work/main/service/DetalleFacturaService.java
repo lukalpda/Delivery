@@ -33,7 +33,7 @@ public class DetalleFacturaService implements ObjectService<DetalleFacturaDTO> {
 			temp.setPedido(detFactura.getPedido());
 			temp.setItem(detFactura.getItem());
 			temp.setManufacturado(detFactura.getManufacturado());
-			temp.setComanda(detFactura.getComanda());
+//			temp.setComanda(detFactura.getComanda());
 			temp.setFechaAnulado(detFactura.getFechaAnulado());
 
 			result.add(temp);
@@ -59,7 +59,7 @@ public class DetalleFacturaService implements ObjectService<DetalleFacturaDTO> {
 			result.setPedido(resultBD.getPedido());
 			result.setItem(resultBD.getItem());
 			result.setManufacturado(resultBD.getManufacturado());
-			result.setComanda(resultBD.getComanda());
+//			result.setComanda(resultBD.getComanda());
 			result.setFechaAnulado(resultBD.getFechaAnulado());
 
 		} catch (Exception e) {
@@ -79,7 +79,7 @@ public class DetalleFacturaService implements ObjectService<DetalleFacturaDTO> {
 		guardado.setPedido(body.getPedido());
 		guardado.setItem(body.getItem());
 		guardado.setManufacturado(body.getManufacturado());
-		guardado.setComanda(body.getComanda());
+//		guardado.setComanda(body.getComanda());
 		guardado.setFechaAnulado(body.getFechaAnulado());
 		
 		try {
@@ -106,7 +106,7 @@ public class DetalleFacturaService implements ObjectService<DetalleFacturaDTO> {
 			temp.setPedido(t.getPedido());
 			temp.setItem(t.getItem());
 			temp.setManufacturado(t.getManufacturado());
-			temp.setComanda(t.getComanda());
+//			temp.setComanda(t.getComanda());
 			temp.setFechaAnulado(t.getFechaAnulado());
 		
 			detalleFacturaRepository.save(temp);

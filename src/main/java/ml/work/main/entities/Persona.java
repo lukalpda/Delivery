@@ -5,8 +5,6 @@ package ml.work.main.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
-
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
@@ -33,7 +31,7 @@ public abstract class Persona {
 	@Column(name = "persona_alta")
 	protected Date alta;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name= "id_domicilio")
 	protected Domicilio direccion;
 
@@ -41,13 +39,13 @@ public abstract class Persona {
 
 	}
 
-	public Persona(String nombre_persona, int dni, String password, int telefono, String email, Domicilio direccion, Date baja, Date alta) {
+	public Persona(String nombre_persona, int dni, String password, int telefono, String email, Date baja, Date alta) {
 		this.nombre_persona = nombre_persona;
 		this.dni = dni;
 		this.password = password;
 		this.telefono = telefono;
 		this.email = email;
-		this.direccion = direccion;
+		//this.direccion = direccion;
 		this.alta = alta;
 		this.baja = baja;
 	}

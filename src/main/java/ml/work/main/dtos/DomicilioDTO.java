@@ -1,14 +1,12 @@
 package ml.work.main.dtos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import ml.work.main.entities.Distrito;
-import ml.work.main.entities.Persona;
-
 public class DomicilioDTO implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private int id_domicilio;
 	
 	private String calle;
@@ -19,23 +17,23 @@ public class DomicilioDTO implements Serializable{
 	
 	private int numPiso;
 	
-	private Distrito distrito = new Distrito();
+	private Distrito distrito;
 	
-	private List<Persona> personas = new ArrayList<Persona>();
+	//private List<Persona> personas = new ArrayList<Persona>();
 
 	public DomicilioDTO() {
 
 	}
 
 	public DomicilioDTO(int id_domicilio, String calle, int numCasa, int numDepartamento, int numPiso,
-			Distrito distrito, List<Persona> personas) {
+			Distrito distrito) {
 		this.id_domicilio = id_domicilio;
 		this.calle = calle;
 		this.numCasa = numCasa;
 		this.numDepartamento = numDepartamento;
 		this.numPiso = numPiso;
 		this.distrito = distrito;
-		this.personas = personas;
+		//this.personas = personas;
 	}
 
 	public String getCalle() {
@@ -86,12 +84,16 @@ public class DomicilioDTO implements Serializable{
 		this.id_domicilio = id_domicilio;
 	}
 
-	public List<Persona> getPersonas() {
-		return personas;
-	}
+//	public List<Persona> getPersonas() {
+//		return personas;
+//	}
+//
+//	public void setPersonas(List<Persona> personas) {
+//		this.personas = personas;
+//	}
 
-	public void setPersonas(List<Persona> personas) {
-		this.personas = personas;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 

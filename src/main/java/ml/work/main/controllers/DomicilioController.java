@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ml.work.main.dtos.ClienteDTO;
 import ml.work.main.dtos.DomicilioDTO;
 import ml.work.main.service.DomicilioService;
 @Controller
@@ -25,11 +24,15 @@ public class DomicilioController implements ObjectController<DomicilioDTO>{
 
 	private DomicilioService domicilioService;
 	
+	
+	public DomicilioController(DomicilioService domicilioService) {
+		this.domicilioService = domicilioService;
+	}
+
 	@Override
 	@CrossOrigin("*")
 	@GetMapping(path ="/")
-	public List<DomicilioDTO> getAll() {
-		
+	public List<DomicilioDTO> getAll() {		
 		return ResponseEntity.status(200).body(domicilioService.getAll()).getBody();
 	}
 

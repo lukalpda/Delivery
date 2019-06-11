@@ -1,17 +1,20 @@
 package ml.work.main.entities;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "apirest_cliente")
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class Cliente extends Persona {
 	@Id
 	@Column(name="id_usuario")
@@ -21,17 +24,29 @@ public class Cliente extends Persona {
 	@Column(name="nombre_usuario", unique = true)
 	private String nombre_usuario;
 	
-	@OneToMany(mappedBy = "cliente")
-	private List<Factura> facturas;
+//	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JsonManagedReference
+//	private List<Factura> facturas;
+	
+//	@ManyToOne
+//	@JoinColumn(name= "id_domicilio")
+//	private Domicilio direccion;
+	//@JsonBackReference
+	
 	
 	public Cliente() {
 		super();
 	}	
 	
-	public Cliente(String nombre_persona, int dni, String password, int telefono, String email, Domicilio direccion, String nombre_usuario, List<Factura> facturas, Date alta, Date baja) {
-		super(nombre_persona, dni, password, telefono, email, direccion, alta, baja);
+	public Cliente(String nombre_persona, int dni, String password, int telefono, String email, 
+			//Domicilio direccion, 
+			String nombre_usuario, 
+			//List<Factura> facturas, 
+			Date alta, Date baja) {
+		super(nombre_persona, dni, password, telefono, email, alta, baja);
 		this.nombre_usuario = nombre_usuario;
-		this.facturas = facturas;
+		//this.facturas = facturas;
+		//this.direccion = direccion;
 	}
 	
 	public String getNombre_usuario() {
@@ -50,13 +65,13 @@ public class Cliente extends Persona {
 		this.id_usuario = id_usuario;
 	}
 
-	public List<Factura> getFacturas() {
-		return facturas;
-	}
-
-	public void setFacturas(List<Factura> facturas) {
-		this.facturas = facturas;
-	}
+//	public List<Factura> getFacturas() {
+//		return facturas;
+//	}
+//
+//	public void setFacturas(List<Factura> facturas) {
+//		this.facturas = facturas;
+//	}
 
 	@Override
 	public String getNombre_persona() {
@@ -120,15 +135,11 @@ public class Cliente extends Persona {
 
 	@Override
 	public Domicilio getDireccion() {
-		// TODO Auto-generated method stub
-		return super.getDireccion();
+		return direccion;
 	}
 
 	@Override
 	public void setDireccion(Domicilio direccion) {
-		// TODO Auto-generated method stub
-		super.setDireccion(direccion);
+		this.direccion = direccion;
 	}	
-	
-	
 }

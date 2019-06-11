@@ -2,27 +2,27 @@ package ml.work.main.dtos;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
 
 import ml.work.main.entities.Domicilio;
-import ml.work.main.entities.Factura;
 
 public class ClienteDTO extends PersonaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int id_usuario;
-	private List<Factura> facturas;
 	
 	private String nombre_usuario;
+	
+	private Domicilio direccion;
 
 	public ClienteDTO() {
 		super();
 	}
 	
 	public ClienteDTO(String nombre_persona, int dni, String password, int telefono, String email,
-			Domicilio direccion, String nombre_usuario, List<Factura> facturas, Date alta, Date baja) {
-		super(nombre_persona, dni, password, telefono, email, direccion, alta, baja);
+			Domicilio direccion, String nombre_usuario, Date alta, Date baja, int id_usuario) {
+		super(nombre_persona, dni, password, telefono, email, alta, baja);
 		this.nombre_usuario = nombre_usuario;
-		this.facturas = facturas;
+		this.id_usuario = id_usuario;
+		this.direccion = direccion;
 	}
 
 	public String getNombre_usuario() {
@@ -41,13 +41,7 @@ public class ClienteDTO extends PersonaDTO implements Serializable{
 		this.id_usuario = id_usuario;
 	}
 
-	public List<Factura> getFacturas() {
-		return facturas;
-	}
-
-	public void setFacturas(List<Factura> facturas) {
-		this.facturas = facturas;
-	}
+	
 
 	@Override
 	public String getNombre_persona() {
@@ -109,15 +103,17 @@ public class ClienteDTO extends PersonaDTO implements Serializable{
 		super.setEmail(email);
 	}
 
-	@Override
 	public Domicilio getDireccion() {
-		// TODO Auto-generated method stub
-		return super.getDireccion();
+		return direccion;
 	}
 
-	@Override
 	public void setDireccion(Domicilio direccion) {
-		// TODO Auto-generated method stub
-		super.setDireccion(direccion);
-	}	
+		this.direccion = direccion;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 }

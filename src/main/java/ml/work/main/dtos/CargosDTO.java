@@ -7,6 +7,11 @@ import ml.work.main.entities.Empleado;
 
 public class CargosDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int id_cargo;
 	
 	private String puesto;

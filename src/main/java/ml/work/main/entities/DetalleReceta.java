@@ -2,6 +2,7 @@ package ml.work.main.entities;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,8 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "apirest_detalle_receta")
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class DetalleReceta {
 
 	@Id
@@ -24,17 +30,21 @@ public class DetalleReceta {
 	@Column(name = "receta_cantidad")
 	private float cantidad;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_articulo")
-	private Articulo articulo;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_artManuf")
-	private ArticuloManufacturado articuloManuf;
-	
 	@Column(name = "receta_fechaAnulado")
 	private Date fechaAnulado;
 		
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "id_articulo")
+	private Articulo articulo;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_artManuf")
+	@JsonBackReference
+	private ArticuloManufacturado articuloManuf;
+	
+	
 
 	
 	public DetalleReceta() {
