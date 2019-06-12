@@ -7,7 +7,7 @@ export interface Manufacturado {
   foto: string;
   detalle: string;
   enMenu: boolean;
-  categoriaManuf: Categoria;
   precio: number;
+  categoriaManuf: Categoria;
+
 }
- 
