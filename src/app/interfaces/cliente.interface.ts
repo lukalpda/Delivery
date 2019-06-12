@@ -1,6 +1,8 @@
 import {Domicilio} from './domicilio.interface';
 
 export interface Cliente {
+  id_usuario: number;
+  nombre_usuario: string;
   nombre_persona: string;
   dni: number;
   password: string;
@@ -9,6 +11,5 @@ export interface Cliente {
   baja: Date;
   alta: Date;
   direccion: Domicilio;
-  id_usuario: number;
-  nombre_usuario: string;
+
 }

@@ -6,11 +6,9 @@ export interface Factura{
   numFactura:number;
   esEfectivo:boolean;
   total:number;
-  cliente: Cliente;
   pedidoConfirmado: Pedido;
   fecha: Date;
   hora: Time;
-  nombre_comprobante: string;
   fechaAnulado: Date;
 
 }

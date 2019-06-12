@@ -9,6 +9,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 
 export class ManufacturadoService {
 
+  manufacturados: Manufacturado[];
+
   constructor(private http: HttpClient) { }
   
   Url= "http://localhost:8080/api/v1/manufacturados/";
@@ -16,6 +18,9 @@ export class ManufacturadoService {
 
   listarManufacturados(){
     return this.http.get<Manufacturado[]>(this.Url)
+  }
+  listarManufacturadosDisponibles(buscar: boolean){
+      return this.http.get<Manufacturado[]>(this.Url+"disponibles/"+buscar)
   }
 
   crearManufacturado(item: Manufacturado){
