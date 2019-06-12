@@ -8,11 +8,9 @@ export interface DetalleVenta {
   idDetalle: number;
   cantidad: number;
   subtotal: number;
+  fechaAnulado: Date; //no existis
   pedido: Pedido;
   item: Articulo;
   manufacturado: Manufacturado;
-  fecha: Date;
-  hora: Time;
-  nombre_comprobante: string;
-  fechaAnulado: Date;
+
 }

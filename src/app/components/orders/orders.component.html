@@ -5,7 +5,7 @@
 <div class="btn-list">
   <button mat-raised-button color="primary" class="product" *ngFor="let manufacturado of manufacturados"
           (click)="onAddProduct(manufacturado)">
-    {{manufacturado.nombre_articuloM}}  / {{manufacturado.precio|currency}}
+    {{manufacturado.nombre_articuloM}}  / {{manufacturado.precioM|currency}}
   </button>
   <form [formGroup]="this._pedidoService.myForm" (ngSubmit)="onSubmit()">
     <table cellspacing="0">
