@@ -4,6 +4,7 @@ import {ManufacturadoService} from '../../services/manufacturado.service';
 import {Manufacturado} from '../../interfaces/manufacturado.interface';
 import {PedidoService} from '../../services/pedido.service';
 import {Router} from '@angular/router';
+import {Pedido} from '../../interfaces/pedido.interface';
 
 @Component({
   selector: 'app-orders',
@@ -15,7 +16,7 @@ export class OrdersComponent implements OnInit {
   appName: string = 'Sistema de Pedidos';
 
   manufacturados: Manufacturado[] = [];
-
+  pedidos: Pedido[] = [];
 
   constructor(
     private _orderService: OrdersService,
@@ -33,11 +34,17 @@ export class OrdersComponent implements OnInit {
         this.manufacturados = data;
       });
     console.log(this.manufacturados);
+    this._pedidoService
+      .listarPedidos()
+      .subscribe(data => {
+        this.pedidos = data;
+      });
+    console.log(this.manufacturados);
   }
 
   onAddProduct(manufacturados){
     console.log(manufacturados);
-    this.totalPedido = (this.totalPedido + manufacturados.precio);
+    this.totalPedido = (this.totalPedido + manufacturados.precioM);
     this.pedidoTemp.push(manufacturados.nombre_articuloM);
   }
 
