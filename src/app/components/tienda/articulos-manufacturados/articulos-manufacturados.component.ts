@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { ManufacturadoService } from "../../../services/manufacturado.service";
-import { PreciosService } from "../../../services/precios.service";
-import { Precio } from "../../../interfaces/precios.interface";
 import { Manufacturado } from "../../../interfaces/manufacturado.interface";
+import { preProcessFile } from "typescript";
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: "app-articulos-manufacturados",
@@ -14,12 +14,11 @@ export class ArticulosManufacturadosComponent implements OnInit {
   @Input() childMessage: string;
 
   articulosManufacturados: Manufacturado[] = [];
-  precios: Precio[] = [];
+  precioXArticuloManuf: number[] = [];
   categoria: string;
   habilitar: boolean = true;
   constructor(
     private _articulosManufacturadosService: ManufacturadoService,
-    private _preciosService: PreciosService,
     private router: Router
   ) {}
   ngOnInit() {
@@ -28,9 +27,7 @@ export class ArticulosManufacturadosComponent implements OnInit {
       .subscribe(data => {
         this.articulosManufacturados = data;
       });
-    this._preciosService.listarPrecios().subscribe(data => {
-      this.precios = data;
-    });
+
     console.log(this.articulosManufacturados);
   }
 

@@ -13,7 +13,8 @@ export class EditarClienteComponent implements OnInit {
   constructor(
     private router: Router,
     private _editarClienteService: ClienteService
-  ) {
+  ) {  
+    
     //@ts-ignore
     this.cliente = {};
   }
@@ -24,7 +25,7 @@ export class EditarClienteComponent implements OnInit {
 
   editarCliente() {
     let id = localStorage.getItem("id_usuario");
-    debugger;
+ 
     this._editarClienteService.buscarXIdCliente(+id).subscribe(data => {
       this.cliente = data;
     });

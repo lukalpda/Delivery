@@ -12,7 +12,7 @@ import {LineasComponent} from './components/graficas/lineas/lineas.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
-import { CarroComponent } from './components/carro/carro.component';
+import { CarroComponent } from './components/tienda/carro/carro.component';
 import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
 import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
 import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';

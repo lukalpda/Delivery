@@ -1,3 +1,5 @@
+import { Cargos } from './cargos.interface';
+
 export interface Empleado{
   nombre_persona: string;
   dni: number;
@@ -10,7 +12,7 @@ export interface Empleado{
   id_empleado: number;
   codigo_ingreso: number;
   cuil: number;
-  cargo: any;
+  cargo: Cargos;
 
 
 
