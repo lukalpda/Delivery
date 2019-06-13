@@ -3,40 +3,54 @@
     <div class="card">
       <div class="class-header">
         <br>
-        <h3 class="text-center">Modificar Cliente</h3>
+        <h3 class="text-center">Modificar artículo</h3>
         <hr>
       </div>
       <div class="card-body">
         <form>
           <div class="form-group">
             <label for="">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" [(ngModel)]="cliente.nombre_persona">
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="art.nombre_articulo">
           </div>
           <div class="form-group">
-            <label for="">Usuario:</label>
-            <input type="text" class="form-control" name="usuario" [(ngModel)]="cliente.nombre_usuario">
+            <label for="">Costo:</label>
+            <input type="text" class="form-control" name="costo" [(ngModel)]="art.costo">
           </div>
           <div class="form-group">
-            <label for="">DNI:</label>
-            <input type="text" class="form-control" name="dni" [(ngModel)]="cliente.dni">
+            <label for="">¿Es materia prima/insumo?</label>
+            <input type="text" class="form-control" name="esPrima" [(ngModel)]="art.esPrima">
           </div>
           <div class="form-group">
-            <label for="">E-mail:</label>
-            <input type="text" class="form-control" name="email" [(ngModel)]="cliente.email">
+            <label for="">Stock:</label>
+            <input type="text" class="form-control" name="stock" [(ngModel)]="art.stock">
+          </div>
+          <label for="">Unidad de medida: (actual: {{art.medidaProd.tipo_medida}})</label>
+          <div class="form-group">
+            <select [(ngModel)]="art.medidaProd.id_medida">
+              <option *ngFor="let medida of medidas" [ngValue]="medida.id_medida">{{medida.tipo_medida}}</option>
+            </select>
           </div>
           <div class="form-group">
-            <label for="">Contraseña:</label>
-            <input type="text" class="form-control" name="password" [(ngModel)]="cliente.password">
+            <label for="">Stock Minimo:</label>
+            <input type="text" class="form-control" name="stockMinimo" [(ngModel)]="art.stockMinimo">
           </div>
           <div class="form-group">
-            <label for="">Teléfono:</label>
-            <input type="text" class="form-control" name="telefono" [(ngModel)]="cliente.telefono">
+            <label for="">Detalles:</label>
+            <input type="text" class="form-control" name="detalle" [(ngModel)]="art.detalle">
           </div>
           <div class="form-group">
-            <label for="">Domicilio:</label>
-            <input type="text" class="form-control" name="domicilio" [(ngModel)]="cliente.direccion">
+            <label for="">Precio de venta:</label>
+            <input type="text" class="form-control" name="precioA" [(ngModel)]="art.precioA">
           </div>
-          <button (click)="actualizarCliente(cliente)" class="btn btn-danger">Actualizar</button>
+          <label for="">Categoría / clasificación: (actual: {{art.categoriaProd.nombre_categoria}})</label>
+          <div class="form-group">
+            <select [(ngModel)]="art.categoriaProd.id_categoria">
+              <option *ngFor="let categoria of categorias" [ngValue]="categoria.id_categoria">
+                {{categoria.nombre_categoria}}</option>
+            </select>
+          </div>
+
+          <button (click)="actualizarArticulo(art)" class="btn btn-danger">Actualizar</button>
         </form>
       </div>
     </div>

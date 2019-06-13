@@ -16,27 +16,27 @@ export class OrdersListComponent implements OnInit {
 
   constructor(private _pedidoServices: PedidoService) { }
 
-  displayedColumns: string[] = ['numPedido', 'nombreCliente', 'detallePedido', 'estado', 'total', 'eliminar'];
+  // displayedColumns: string[] = ['numPedido', 'nombreCliente', 'detallePedido', 'estado', 'total', 'eliminar'];
 
-  dataSource = new MatTableDataSource();
+  // dataSource = new MatTableDataSource();
 
-  @ViewChild(MatSort) sort: MatSort;
+  // @ViewChild(MatSort) sort: MatSort;
   
   ngOnInit() {
-    this._pedidoServices.listarPedidos().subscribe(
-      res => {
-        this.dataSource.data = res;
-      });
+    // this._pedidoServices.listarPedidos().subscribe(
+    //   res => {
+    //     this.dataSource.data = res;
+    //   });
   }
 
-  eliminarPedido(pedido: Pedido){
-    // @ts-ignore
-    pedido.fechaAnulado = Date.now();//pedido.fechaAnulado = Date.now();
-    this._pedidoServices.modificarPedido(pedido);
-  }
+  // eliminarPedido(pedido: Pedido){
+  //   // @ts-ignore
+  //   pedido.fechaAnulado = Date.now();//pedido.fechaAnulado = Date.now();
+  //   this._pedidoServices.modificarPedido(pedido);
+  // }
 
-  estado(pedido: Pedido){
-    pedido.estado = true;
-    this._pedidoServices.modificarPedido(pedido);
-  }
+  // estado(pedido: Pedido){
+  //   pedido.estado = true;
+  //   this._pedidoServices.modificarPedido(pedido);
+  // }
 }

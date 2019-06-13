@@ -11,15 +11,21 @@ import {ArticuloService} from '../../services/articulo.service';
 export class StockComponent implements OnInit {
 
   articulos: Articulo[] = [];
+  mercancia: Articulo[] = [];
+
   constructor(
     private _articuloService: ArticuloService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this._articuloService.listarArticulos().subscribe(data => {
+    this._articuloService.listarArticulosDisponiblesPrima(true).subscribe(data => {
       this.articulos = data;
     });
+
+    this._articuloService.listarArticulosDisponiblesVenta(true).subscribe(data=>{
+      this.mercancia = data;
+    })
   }
 
   nuevoArticulo() {
@@ -28,7 +34,7 @@ export class StockComponent implements OnInit {
 
   editarArticulo(articulo: Articulo) {
     localStorage.setItem("id_articulo", articulo.id_articulo.toString());
-    this.router.navigate(["editarArticulo/"+articulo.id_articulo]);
+    this.router.navigate(["editarStock/"+articulo.id_articulo]);
   }
 
 }
