@@ -11,6 +11,7 @@ export interface Articulo{
   enLista: boolean;
   foto: string;
   detalle: string;
+  precioA: number;
   categoriaProd: Categoria;
   medidaProd: UnidadMedida;
 }

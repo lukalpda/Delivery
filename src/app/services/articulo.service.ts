@@ -17,9 +17,11 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(this.Url)
   }
 
-  listarArticulosDisponiblesEnLista(){
-    this.listarArticulos().subscribe(data=>
-      this.articulos = data.filter(p=>p.esPrima == true));
+  listarArticulosDisponiblesPrima(buscarArtPrima:boolean){
+    return this.http.get<Articulo[]>(this.Url+"primas/"+buscarArtPrima)
+  }
+  listarArticulosDisponiblesVenta(buscarArtVenta:boolean){
+    return this.http.get<Articulo[]>(this.Url+"vendibles/"+buscarArtVenta)
   }
 
   crearArticulo(item: Articulo){

@@ -12,7 +12,6 @@ import { DomicilioService } from "../../../services/domicilio.service";
 }) 
 export class AgregarClienteComponent implements OnInit {
   clientePost: Cliente;
-  domicilioPost: Domicilio;
   constructor(
     private router: Router,
     private _agregarClienteService: ClienteService,

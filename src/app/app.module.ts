@@ -55,7 +55,6 @@ import { DomicilioService } from "./services/domicilio.service";
 import { ArticuloService } from "./services/articulo.service";
 import { CargosService } from "./services/cargos.service";
 import { ClienteService } from "./services/cliente.service";
-import { ComandaService } from "./services/comanda.service";
 import { DetalleRecetaService } from "./services/detalle-receta.service";
 import { DetalleVentaService } from "./services/detalle-venta.service";
 import { EmpleadoService } from "./services/empleado.service";
@@ -63,7 +62,6 @@ import { FacturaService } from "./services/factura.service";
 import { LocalidadadService } from "./services/localidad.service";
 import { PedidoService } from "./services/pedido.service";
 import { UnidadMedidaService } from "./services/unidad-medida.service";
-import { PreciosService } from "./services/precios.service";
 import { CategoriaService } from "./services/categoria.service";
 
 //Material
@@ -127,7 +125,6 @@ import { MaterialModule } from "./material.module";
     ArticuloService,
     CargosService,
     ClienteService,
-    ComandaService,
     DetalleRecetaService,
     DetalleVentaService,
     DistritoService,
@@ -136,7 +133,6 @@ import { MaterialModule } from "./material.module";
     FacturaService,
     LocalidadadService,
     PedidoService,
-    PreciosService,
     UnidadMedidaService,
     OrdersService,
     CategoriaService
