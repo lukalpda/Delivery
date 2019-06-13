@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {DetalleVenta} from '../interfaces/detalle-venta.interface';
+import {Pedido} from '../interfaces/pedido.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetalleVentaService {
 
+  pedido: Pedido;
+  detalles: DetalleVenta[];
   constructor(private http: HttpClient) { }
 
   Url= "http://localhost:8080/api/v1/detalles_factura/";
@@ -28,4 +31,5 @@ export class DetalleVentaService {
   modificarDetalleVenta(item:DetalleVenta){
     return this.http.put<DetalleVenta>(this.Url+item.idDetalle, item);
   }
+
 }
