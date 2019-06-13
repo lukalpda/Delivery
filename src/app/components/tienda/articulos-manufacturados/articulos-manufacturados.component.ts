@@ -1,11 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { ManufacturadoService } from "../../../services/manufacturado.service";
-import { PreciosService } from "../../../services/precios.service";
-import { Precio } from "../../../interfaces/precios.interface";
 import { Manufacturado } from "../../../interfaces/manufacturado.interface";
-import { preProcessFile } from "typescript";
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: "app-articulos-manufacturados",
@@ -16,11 +12,8 @@ export class ArticulosManufacturadosComponent implements OnInit {
   @Input() childMessage: string;
 
   articulosManufacturados: Manufacturado[] = [];
-  precios: Precio[] = [];
-  precio: Precio;
-  precioXArticuloManuf: number[] = [];
+  carro: Manufacturado[] = [];
   categoria: string;
-  habilitar: boolean = true;
   constructor(
     private _articulosManufacturadosService: ManufacturadoService,
     private router: Router
@@ -41,7 +34,9 @@ export class ArticulosManufacturadosComponent implements OnInit {
   cambiarCategoria(categoria: string) {
     this.childMessage = categoria;
   }
-  setHabilitar(): void {
-    this.habilitar = this.habilitar == true ? false : true;
+  cargarAlCarrito(manufacturado: Manufacturado){
+    this.carro.push(manufacturado);
+    console.log(this.carro);
+    
   }
 }
