@@ -1,15 +1,20 @@
+import { Cargos } from './cargos.interface';
+
 export interface Empleado{
-    empleado_id:number;
-    persona_alta:Date;
-    persona_baja:Date;
-    persona_dni:number;
-    persona_email:string;
-    persona_nombre:string;
-    persona_password:string;
-    persona_telefono:number;
-    empleado_cargo:number;
-    empleado_cod_ingreso:number;
-    empleado_cuil:number;
-    id_domicilio:number;
-    id_cargo:number;
+  id_empleado: number;
+  codigo_ingreso: number;
+  cuil: number;
+  cargo: Cargos;
+  nombre_persona: string;
+  dni: number;
+  password: string;
+  telefono: number;
+  email: string;
+  baja: Date;
+  alta: Date;
+  direccion: any;
+
+
+
+
 }

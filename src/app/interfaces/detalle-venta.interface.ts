@@ -1,11 +1,16 @@
-export interface DetalleVenta{
-    detallef_id:number;
-    detalle_fac_cantidad:number;
-    fecha_anulado:Date;
-    detalle_fac_subtotal:number;
-    id_pedido:number;
-    num_factura:number;
-    id_articulo:number;
-    id_art_manuf:number;
-    num_pedido:number;
+import { Manufacturado } from "./manufacturado.interface";
+import { Factura } from "./factura.interface";
+import { Pedido } from './pedido.interface';
+import { Articulo } from './articulo.interface';
+import {Time} from '@angular/common';
+
+export interface DetalleVenta {
+  idDetalle: number;
+  cantidad: number;
+  subtotal: number;
+  fechaAnulado: Date; //no existis
+  pedido: Pedido;
+  item: Articulo;
+  manufacturado: Manufacturado;
+
 }

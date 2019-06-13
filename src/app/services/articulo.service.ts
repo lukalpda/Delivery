@@ -7,13 +7,23 @@ import {Articulo} from '../interfaces/articulo.interface';
 })
 export class ArticuloService {
 
+  articulos : Articulo[];
+
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_articulos/";
+  Url= "http://localhost:8080/api/v1/articulos/";
 
   listarArticulos(){
     return this.http.get<Articulo[]>(this.Url)
   }
+
+  listarArticulosDisponiblesPrima(buscarArtPrima:boolean){
+    return this.http.get<Articulo[]>(this.Url+"primas/"+buscarArtPrima)
+  }
+  listarArticulosDisponiblesVenta(buscarArtVenta:boolean){
+    return this.http.get<Articulo[]>(this.Url+"vendibles/"+buscarArtVenta)
+  }
+
   crearArticulo(item: Articulo){
     return this.http.post<Articulo>(this.Url, item);
   }
@@ -23,6 +33,6 @@ export class ArticuloService {
   }
 
   modificarArticulo(item:Articulo){
-    return this.http.put<Articulo>(this.Url+item.articulo_id, item);
+     return this.http.put<Articulo>(this.Url+item.id_articulo, item);
   }
 }

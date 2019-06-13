@@ -9,10 +9,13 @@ export class DetalleVentaService {
 
   constructor(private http: HttpClient) { }
 
-  Url: "http://localhost:8000/api/v1/apirest_detalles_factura/";
+  Url= "http://localhost:8080/api/v1/detalles_factura/";
 
   listarDetalleVentas(){
     return this.http.get<DetalleVenta[]>(this.Url)
+  }
+  listarXPedido(idPedido: number){
+    return this.http.get<DetalleVenta[]>(this.Url+"porPedido/"+idPedido)
   }
   crearDetalleVenta(item: DetalleVenta){
     return this.http.post<DetalleVenta>(this.Url, item);
@@ -23,6 +26,6 @@ export class DetalleVentaService {
   }
 
   modificarDetalleVenta(item:DetalleVenta){
-    return this.http.put<DetalleVenta>(this.Url+item.detallef_id, item);
+    return this.http.put<DetalleVenta>(this.Url+item.idDetalle, item);
   }
 }

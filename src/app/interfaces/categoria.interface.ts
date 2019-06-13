@@ -1,5 +1,5 @@
 export class Categoria{
-  categoria_id: number;
-  categoria_es_plato: boolean;
-  categoria_nombre: string;
+  id_categoria: number;
+  nombre_categoria: string;
+  esPlato: boolean;
 }

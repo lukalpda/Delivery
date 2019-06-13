@@ -1,12 +1,14 @@
 import { Time } from '@angular/common';
+import { Cliente } from './cliente.interface';
+import {Pedido} from './pedido.interface';
 
 export interface Factura{
-    factura_id:number;
-    comprobante_fecha:Date;
-    comprobante_fecha_anulado:Date;
-    comprobante_hora: Time;
-    comprobante_nombre: string;
-    factura_es_efectivo:boolean;
-    factura_total:number;
-    id_usuario:number;
+  numFactura:number;
+  esEfectivo:boolean;
+  total:number;
+  pedidoConfirmado: Pedido;
+  fecha: Date;
+  hora: Time;
+  fechaAnulado: Date;
+
 }

@@ -1,0 +1,67 @@
+<app-menu-gerente>
+  <div class="container" col-md-6>
+    <br>
+    <div class="card">
+      <div class="class-header">
+        <br>
+        <h3 class="text-center">Agregar Cliente</h3>
+        <hr>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="clientePost.nombre_persona">
+          </div>
+          <div class="form-group">
+            <label for="">Usuario:</label>
+            <input type="text" class="form-control" name="usuario" [(ngModel)]="clientePost.nombre_usuario">
+          </div>
+          <div class="form-group">
+            <label for="">DNI:</label>
+            <input type="number" class="form-control" name="dni" [(ngModel)]="clientePost.dni">
+          </div>
+          <div class="form-group">
+            <label for="">E-mail:</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="clientePost.email">
+          </div>
+          <div class="form-group">
+            <label for="">Contraseña:</label>
+            <input type="text" class="form-control" name="password" [(ngModel)]="clientePost.password">
+          </div>
+          <div class="form-group">
+            <label for="">Teléfono:</label>
+            <input type="number" class="form-control" name="telefono" [(ngModel)]="clientePost.telefono">
+          </div>
+          <hr>
+          <h3>Domicilio</h3>
+          <!--<div class="form-group">
+            <label for="">Distrito:</label>
+            <input type="number" class="form-control" name="distrito" [(ngModel)]="domicilioPost.distrito">
+          </div>-->
+          <div class="form-group">
+            <label for="">Calle:</label>
+            <input type="text" class="form-control" name="domicilio" [(ngModel)]="clientePost.direccion.calle">
+          </div>
+          <div class="form-group">
+            <label for="">Numeración:</label>
+            <input type="number" class="form-control" name="numeracion" [(ngModel)]="clientePost.direccion.numCasa">
+          </div>
+          <div class="form-group">
+            <label for="">Nro Departamento:</label>
+            <input type="number" class="form-control" name="nroDepartamento" [(ngModel)]="clientePost.direccion.numDepartamento">
+          </div>
+          <div class="form-group">
+            <label for="">Piso:</label>
+            <input type="number" class="form-control" placeholder="nro de piso" name="piso" [(ngModel)]="clientePost.direccion.numPiso">
+          </div>
+          <div class="botones">
+            <button (click)="Guardar()" class="btn btn-success">Guardar</button>
+
+            <button (click)="Volver()" class="btn btn-danger">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-menu-gerente>

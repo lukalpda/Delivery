@@ -10,11 +10,9 @@ h1 {
   }
   
   .card-columns {
-    width: auto;
+    width: 90%;
     align-self: center;
-    margin-left: 225px;
-    margin-right: 225px;
-    column-count: 1;
+    column-count: 3;
     padding-left: 30px;
   }
   

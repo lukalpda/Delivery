@@ -1,10 +1,16 @@
-import { Time } from '@angular/common';
+import {Time} from '@angular/common';
+import {Cliente} from './cliente.interface';
 
 export interface Pedido{
-    pedido_id:number;
-    compobante_fecha:Date;
-    comprobante_fecha_anulado:Date;
-    comprobante_hora:Time;
-    comprobante_nombre:string;
-    pedido_total:number;
+  numPedido: number;
+  total: number;
+  observaciones: string;
+  nombreTemporal: string;
+  estadoListo: boolean;
+  cliente: Cliente;
+  fecha: Date;
+  hora: Time;
+  fechaAnulado: Date;
+
+
 }

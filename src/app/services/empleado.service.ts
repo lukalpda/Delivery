@@ -9,7 +9,7 @@ export class EmpleadoService {
 
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8080/api/v1/apirest_empleado/";
+  Url="http://localhost:8080/api/v1/empleados/";
   
 
   listarEmpleados(){
@@ -25,6 +25,6 @@ export class EmpleadoService {
   }
 
   modificarEmpleado(item:Empleado){
-    return this.http.put<Empleado>(this.Url+item.empleado_id, item);
+    return this.http.put<Empleado>(this.Url+item.id_empleado, item);
   }
 }

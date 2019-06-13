@@ -9,7 +9,7 @@ export class LocalidadadService {
 
   constructor(private http: HttpClient) { }
 
-  Url="http://localhost:8080/api/v1/apirest_localidad/";
+  Url="http://localhost:8080/api/v1/localidades/";
   
 
   listarLocalidades(){
@@ -25,6 +25,6 @@ export class LocalidadadService {
   }
 
   modificarLocalidad(item:Localidad){
-    return this.http.put<Localidad>(this.Url+item.localidad_id, item);
+    return this.http.put<Localidad>(this.Url+item.id_Localidad, item);
   }
 }

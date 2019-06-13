@@ -1,0 +1,50 @@
+<app-menu-gerente>
+  <div class="container">
+    <br>
+    <div class="card bg-light mb-3">
+      <div class="class-header">
+        <br>
+        <h3 class="text-center">Stock</h3>
+        <hr>
+      </div>
+      <div class="container">
+        <br>
+        <button (click)="nuevoArticulo()" class="btn btn-info" style="margin-left: 10px; ">Nuevo</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>detalle</th>
+            <th>Stock</th>
+            <th>Stock Minimo</th>
+            <th>Categoria</th>
+            <th>Unidad de Medida</th>
+            <th>¿Es para venta?</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let articulo of articulos; let i = index" class="text-center">
+            <th scope="row">{{i+1}}</th>
+            <td>{{articulo.foto}}</td>
+            <td>{{articulo.nombre_articulo}}</td>
+            <td>{{articulo.detalle}}</td>
+            <td>{{articulo.stock}}</td>
+            <td>{{articulo.stockMinimo}}</td>
+            <td>{{articulo.categoriaProd}}</td>
+            <td>{{articulo.medidaProd}}</td>
+            <td>{{articulo.esParaVenta}}</td>
+            <td>
+              <button (click)="editarArticulo(articulo)" class="btn btn-warning">Editar</button>
+              <button class="btn btn-danger">Borrar</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</app-menu-gerente>

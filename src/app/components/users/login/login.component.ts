@@ -33,4 +33,6 @@ export class LoginComponent implements OnInit {
   onLogout() {
     this.authService.logoutUser();
   }
+
+  //firebase auth:export save_file.json --project <project-id>
 }
