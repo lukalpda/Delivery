@@ -5,21 +5,21 @@
 <div class="btn-list">
   <button mat-raised-button color="primary" class="product" *ngFor="let manufacturado of manufacturados"
           (click)="onAddProduct(manufacturado)">
-    {{manufacturado.nombre_articuloM}}  / {{manufacturado.precioM|currency}}
+    {{manufacturado.nombre_articuloM}} <br> {{manufacturado.precioM|currency}}
   </button>
   <form [formGroup]="this._pedidoService.myForm" (ngSubmit)="onSubmit()">
     <table cellspacing="0">
       <tr>
         <td>
           <mat-form-field>
-            <input type="number" matInput #orderNumber maxlength="3" placeholder="Nro de Orden" formControlName="orderNumber">
+            <input type="number" matInput #orderNumber maxlength="3" placeholder="Nro de Pedido" formControlName="nroPedido">
           </mat-form-field>
         </td>
       </tr>
       <tr>
         <td>
           <mat-form-field>
-            <input matInput #orderNumber maxlength="15" placeholder="Cliente" formControlName="customerName">
+            <input matInput #orderNumber maxlength="15" placeholder="Cliente" formControlName="nombreCliente">
           </mat-form-field>
         </td>
       </tr>
