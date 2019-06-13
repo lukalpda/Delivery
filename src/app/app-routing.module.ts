@@ -13,7 +13,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
-import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
+import {ListaPedidoComponent} from './components/pedidos/lista-pedido/lista-pedido.component';
 import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
 import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';
 import {StockComponent} from './components/stock/stock.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'tienda', component: TiendaComponent},
   {path: 'gerente', component: GerenteComponent},
   {path: 'recepcion', component: RecepcionComponent},
-  {path: 'orders-list', component: OrdersListComponent},
+  {path: 'lista-pedido', component: ListaPedidoComponent},
   {path: 'graficas/barras', component: BarrasComponent},
   {path: 'graficas/lineas', component: LineasComponent},
   {path: 'clientes', component: ClientesComponent},

@@ -2,8 +2,10 @@
     align-items: center;
     
   }
-
-table{
+.filtro{
+  max-width: 300px;
+}
+mat-table{
   width: 95%;
   padding: 50px;
   margin-top: 5%;
