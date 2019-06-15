@@ -36,7 +36,7 @@ export class OrdersListComponent implements OnInit {
   }
 
   estado(pedido: Pedido){
-    pedido.estado = true;
+    pedido.estadoListo = true;
     this._pedidoServices.modificarPedido(pedido);
   }
 }

@@ -13,7 +13,7 @@ export class ArticulosManufacturadosComponent implements OnInit {
 
   articulosManufacturados: Manufacturado[] = [];
   carro: Manufacturado[] = [];
-=======
+
   precioXArticuloManuf: number[] = [];
   categoria: string;
   constructor(
@@ -36,9 +36,8 @@ export class ArticulosManufacturadosComponent implements OnInit {
   cambiarCategoria(categoria: string) {
     this.childMessage = categoria;
   }
-  cargarAlCarrito(manufacturado: Manufacturado){
+  cargarAlCarrito(manufacturado: Manufacturado) {
     this.carro.push(manufacturado);
     console.log(this.carro);
-    
   }
 }
