@@ -10,6 +10,8 @@ import { Articulo } from 'src/app/interfaces/articulo.interface';
 })
  
 export class ArticuloComponent implements OnInit {
+
+  articulos: Articulo[]=[];
   constructor(
     private _articuloService: ArticuloService,
     private router: Router

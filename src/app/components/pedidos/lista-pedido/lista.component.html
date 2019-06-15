@@ -1,0 +1,40 @@
+<div class="container">
+  <br>
+  <div class="card bg-light mb-3">
+    <div class="class-header">
+      <br>
+      <h3 class="text-center">Lista de Pedidos</h3>
+      <hr>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Nro Pedido</th>
+          <th>Nombre Cliente</th>
+          <th>Telefono</th>
+          <th>Detalle Pedido</th>
+          <th>Estado</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pedido of pedidos; let i = index" class="text-center">
+          <th scope="row">{{i+1}}</th>
+          <td>{{pedido.numPedido}}</td>
+          <td>{{pedido.cliente.nombre_persona}}</td>
+          <td>{{pedido.cliente.telefono}}</td>
+          <td *ngFor="let detalle of detallesPedido">{{detalle.manufacturado.nombre_articuloM}}</td>
+          <td>{{pedido.estadoListo}}</td>
+          <td>{{pedido.total}}</td>
+          <td>
+            <button (click)="eliminarPedido(pedido)" class="btn btn-warning">Editar</button>
+            <button class="btn btn-danger">Borrar</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

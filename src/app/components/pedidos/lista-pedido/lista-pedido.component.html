@@ -18,35 +18,36 @@
       <mat-cell *matCellDef="let row"> {{row.numPedido}} </mat-cell>
     </ng-container>
 
-    <!-- Columna Apellido -->
+    <!-- Cliente -->
     <ng-container matColumnDef="nombreCliente">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente</mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.cliente.nombre_persona}} </mat-cell>
     </ng-container>
 
-    <!-- Columna Nombre-->
+    <!-- Telefono -->
     <ng-container matColumnDef="telefono">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.cliente.telefono}} </mat-cell>
     </ng-container>
 
-    <!-- Columna Nacionalidad -->
+    <!-- Detalle Pedido -->
     <ng-container matColumnDef="detallePedido">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Detalle</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.numPedido}} </mat-cell>
+      <!--<mat-cell *ngFor="let detallePedido of detallesPedido"> {{}} </mat-cell>-->
+      <mat-cell *matCellDef="let row">{{row.informe}}</mat-cell>
     </ng-container>
 
-    <!-- Columna Edad -->
+    <!-- Estado -->
     <ng-container matColumnDef="estado">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.estadoListo}} </mat-cell>
     </ng-container>
-    <!-- Columna Edad -->
+    <!-- Total -->
     <ng-container matColumnDef="total">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.total|currency}} </mat-cell>
     </ng-container>
-    <!-- Columna Edad -->
+    <!-- Acciones -->
     <ng-container matColumnDef="eliminar">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
       <mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.id)">delete</mat-icon></mat-cell>
