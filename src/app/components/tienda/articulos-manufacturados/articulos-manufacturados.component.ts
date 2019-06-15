@@ -12,11 +12,9 @@ export class ArticulosManufacturadosComponent implements OnInit {
   @Input() childMessage: string;
 
   articulosManufacturados: Manufacturado[] = [];
-<<<<<<< HEAD
   carro: Manufacturado[] = [];
 =======
   precioXArticuloManuf: number[] = [];
->>>>>>> 7a53dc37b5f3515fc0e2994e172282ebc380c926
   categoria: string;
   constructor(
     private _articulosManufacturadosService: ManufacturadoService,
