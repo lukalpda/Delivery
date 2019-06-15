@@ -32,6 +32,13 @@
       </tr>
       <tr>
         <td>
+          <mat-form-field>
+            <input matInput maxlength="15" placeholder="Observaciones" formControlName="observaciones">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <button mat-raised-button color="primary" class="btn-send">Enviar</button>
         </td>
       </tr>
@@ -42,8 +49,8 @@
 <ul class="collection">
   <li *ngFor="let pedido of pedidoTemp">
     <span>{{pedido}}</span>
-    <a href="#" (click)="removeItemTempOrder(pedido)">
-      <mat-icon>delete</mat-icon>
+    <a (click)="removeItemTempOrder(pedido)">
+      <button mat-button><mat-icon>delete</mat-icon></button>
     </a>
   </li>
 </ul>

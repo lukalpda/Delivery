@@ -4,7 +4,7 @@ import {Manufacturado} from '../../interfaces/manufacturado.interface';
 import {PedidoService} from '../../services/pedido.service';
 import {Router} from '@angular/router';
 import {Pedido} from '../../interfaces/pedido.interface';
-
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
@@ -16,6 +16,7 @@ export class PedidosComponent implements OnInit {
 
   manufacturados: Manufacturado[] = [];
   pedidos: Pedido[] = [];
+  pedido: Pedido;
 
   constructor(
     private _manufacturadoService: ManufacturadoService,

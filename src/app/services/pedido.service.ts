@@ -18,7 +18,7 @@ export class PedidoService {
     nombreCliente: new FormControl(''),
     nroPedido: new FormControl(''),
     telefono: new FormControl(''),
-    detallePedido: new FormControl('Sin observaciones'),
+    observaciones: new FormControl('Sin observaciones'),
     estado: new FormControl(false)
   });
 
