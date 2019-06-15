@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { ManufacturadoService } from "../../../services/manufacturado.service";
 import { Manufacturado } from "../../../interfaces/manufacturado.interface";
-import { preProcessFile } from "typescript";
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: "app-articulos-manufacturados",
@@ -14,7 +12,6 @@ export class ArticulosManufacturadosComponent implements OnInit {
   @Input() childMessage: string;
 
   articulosManufacturados: Manufacturado[] = [];
-  precioXArticuloManuf: number[] = [];
   categoria: string;
   habilitar: boolean = true;
   constructor(

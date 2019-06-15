@@ -17,28 +17,37 @@ export class ListaPedidoComponent implements OnInit {
   detallesPedido: DetalleVenta[] = [];
   pedido: Pedido;
   clientes: Cliente[] = [];
+  detalleVenta: DetalleVenta;
 
   constructor(private _pedidoServices: PedidoService, private _detalleServices: DetalleVentaService) {
     //@ts-ignore
-    this.pedido={}
+    this.pedido={};
+    //@ts-ignore
+    this.detallesPedido={};
   }
 
   displayedColumns = ['numPedido', 'nombreCliente','telefono', 'detallePedido', 'estado', 'total', 'eliminar'];
 
-  dataSource: any;
+  dataSource= new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
   
   ngOnInit() {
     this._pedidoServices.listarPedidos().subscribe(
-      res => {this.dataSource = res;});
+      res => {
+        console.log(this.listarDetalle());
+        this.dataSource.data = res;});
     //this._detalleServices.listarXPedido(1).subscribe( data => {this.dataSource = data;});
   }
-
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  listarDetalle(){
+    let id = localStorage.getItem("idDetalle");
+    this._detalleServices.buscarXIdDetalleVenta(+id).subscribe( data => {this.detalleVenta = data;});
   }
 
   eliminarPedido(pedido: Pedido){
@@ -51,4 +60,5 @@ export class ListaPedidoComponent implements OnInit {
     pedido.estadoListo = true;
     this._pedidoServices.estadoPedido(pedido);
   }
+
 }

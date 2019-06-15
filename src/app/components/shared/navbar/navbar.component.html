@@ -20,7 +20,7 @@
           <li class="nav-item" *ngIf="!isLogged">
             <button type="button" class="button" routerLink="/users/register">Registrarse</button>
           </li>
-          <li class="nav-item" routerLinkActive="active">
+          <li class="nav-item" routerLinkActive="active" *ngIf="isLogged">
             <button type="button" class="button" routerLink="/recepcion">Recepcion</button>
           </li>
           <li class="nav-item" routerLinkActive="active">
