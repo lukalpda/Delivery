@@ -10,8 +10,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {ButtonModule} from 'primeng/primeng';
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
-import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
-import {OrdersComponent} from './components/orders/orders.component';
+import {ListaPedidoComponent} from './components/pedidos/lista-pedido/lista-pedido.component';
+import {OrdersComponent} from './components/pedidos/orders.component';
 import {MenuGerenteComponent} from './components/shared/menu-gerente/menu-gerente.component';
 import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-recepcion.component';
 import { HomeComponent } from "./components/home/home.component";
@@ -55,7 +55,6 @@ import { DomicilioService } from "./services/domicilio.service";
 import { ArticuloService } from "./services/articulo.service";
 import { CargosService } from "./services/cargos.service";
 import { ClienteService } from "./services/cliente.service";
-import { ComandaService } from "./services/comanda.service";
 import { DetalleRecetaService } from "./services/detalle-receta.service";
 import { DetalleVentaService } from "./services/detalle-venta.service";
 import { EmpleadoService } from "./services/empleado.service";
@@ -84,7 +83,7 @@ import { MaterialModule } from "./material.module";
     GerenteComponent,
     HomeAdminComponent,
     OrdersComponent,
-    OrdersListComponent,
+    ListaPedidoComponent,
     BarrasComponent,
     LineasComponent,
     MenuGerenteComponent,

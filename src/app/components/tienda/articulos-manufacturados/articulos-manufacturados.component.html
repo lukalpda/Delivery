@@ -6,7 +6,7 @@
         <h4 class="card-title">{{articuloManufacturadoAux.nombre_articuloM}}</h4>
         <h4> {{articuloManufacturadoAux.precio|currency}}</h4>
         <!-- 
-    <h5 class="card-title">{{articuloManufacturadoAux.articulo_manuf_id.precio_monto}}</h5>-->
+    <h5 class="card-title">{{articuloManufacturadoAux.articulo_manuf_id.precio_monto}}</h5>-->S
         <ng-template #popContent><b>{{articuloManufacturadoAux.detalle}}</b></ng-template>
         <ng-template #popTitle>Ingredientes</ng-template>
         <button type="button" class="btn btn-outline-primary btn-block" placement="bottom" [ngbPopover]="popContent"
@@ -15,7 +15,7 @@
         </button>
         <div (click)="cargarAlCarrito(articuloManufacturadoAux)" class="carrito">
           Agregar al carrito
-          <i class="material-icons" >
+          <i class="material-icons">
             shopping_cart
           </i> 
         </div>
