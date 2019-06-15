@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'tienda', component: TiendaComponent},
   {path: 'gerente', component: GerenteComponent},
   {path: 'recepcion', component: RecepcionComponent},
-  {path: 'lista-pedido', component: ListaPedidoComponent},
+  {path: 'lista.component.html', component: ListaPedidoComponent},
   {path: 'graficas/barras', component: BarrasComponent},
   {path: 'graficas/lineas', component: LineasComponent},
   {path: 'clientes', component: ClientesComponent},

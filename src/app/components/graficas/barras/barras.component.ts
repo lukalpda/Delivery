@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
+import {Cliente} from '../../../interfaces/cliente.interface';
+import {Pedido} from '../../../interfaces/pedido.interface';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-barras',
