@@ -3,7 +3,10 @@
     
   }
 .filtro{
+  margin: 1px 30px;
   max-width: 300px;
+  padding: 10px;
+  text-align: center;
 }
 mat-table{
   width: 95%;
