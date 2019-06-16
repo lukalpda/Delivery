@@ -11,7 +11,6 @@ import {ButtonModule} from 'primeng/primeng';
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
 import {ListaPedidoComponent} from './components/pedidos/lista-pedido/lista-pedido.component';
-import {OrdersComponent} from './components/pedidos/orders.component';
 import {MenuGerenteComponent} from './components/shared/menu-gerente/menu-gerente.component';
 import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-recepcion.component';
 import { HomeComponent } from "./components/home/home.component";
@@ -67,6 +66,7 @@ import { CategoriaService } from "./services/categoria.service";
 //Material
 import { CommonModule } from "@angular/common";
 import { MaterialModule } from "./material.module";
+import {PedidosComponent} from './components/pedidos/pedidos.component';
 
 
 @NgModule({
@@ -82,7 +82,7 @@ import { MaterialModule } from "./material.module";
     TiendaComponent,
     GerenteComponent,
     HomeAdminComponent,
-    OrdersComponent,
+    PedidosComponent,
     ListaPedidoComponent,
     BarrasComponent,
     LineasComponent,

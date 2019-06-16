@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {OrdersService} from '../../services/orders.service';
 import {ManufacturadoService} from '../../services/manufacturado.service';
 import {Manufacturado} from '../../interfaces/manufacturado.interface';
 import {PedidoService} from '../../services/pedido.service';
 import {Router} from '@angular/router';
 import {Pedido} from '../../interfaces/pedido.interface';
-
+import {NgForm} from '@angular/forms';
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-pedidos',
+  templateUrl: './pedidos.component.html',
+  styleUrls: ['./pedidos.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class PedidosComponent implements OnInit {
 
   appName: string = 'Sistema de Pedidos';
 
   manufacturados: Manufacturado[] = [];
   pedidos: Pedido[] = [];
+  pedido: Pedido;
 
   constructor(
-    private _orderService: OrdersService,
     private _manufacturadoService: ManufacturadoService,
     private _pedidoService: PedidoService,
     private router: Router) {  }
@@ -51,7 +50,7 @@ export class OrdersComponent implements OnInit {
   onSubmit(){
     this._pedidoService.myForm.value.order = this.pedidoTemp;
     let data = this._pedidoService.myForm.value;
-    data.totalOrder = this.totalPedido;
+    data.totalPedido = this.totalPedido;
     //call service
     this._pedidoService.crearPedido(data);
     this.pedidoTemp = [];
@@ -63,8 +62,6 @@ export class OrdersComponent implements OnInit {
     let index = this.pedidoTemp.indexOf(pedido);
     if(index >-1) this.pedidoTemp.splice(index, 1);
   }
-
-
 
   /*  products = [
       {
