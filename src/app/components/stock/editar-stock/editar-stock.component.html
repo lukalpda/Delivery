@@ -7,7 +7,7 @@
         <hr>
       </div>
       <div class="card-body">
-        <form>
+        <form *ngIf="art && categorias && medidas">
           <div class="form-group">
             <label for="">Nombre:</label>
             <input type="text" class="form-control" name="nombre" [(ngModel)]="art.nombre_articulo">
@@ -16,41 +16,59 @@
             <label for="">Costo:</label>
             <input type="text" class="form-control" name="costo" [(ngModel)]="art.costo">
           </div>
+
+          <label for="">¿Es materia prima/insumo?</label>
           <div class="form-group">
-            <label for="">¿Es materia prima/insumo?</label>
-            <input type="text" class="form-control" name="esPrima" [(ngModel)]="art.esPrima">
+            <div class="custom-control custom-radio">
+              <input id="si" name="prima" type="radio" class="custom-control-input" [value]="true"
+                [(ngModel)]="art.esPrima">
+              <label class="custom-control-label" for="si">Si</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="no" name="prima" type="radio" class="custom-control-input" [value]="false"
+                [(ngModel)]="art.esPrima">
+              <label class="custom-control-label" for="no">No</label>
+            </div>
           </div>
+          
           <div class="form-group">
             <label for="">Stock:</label>
             <input type="text" class="form-control" name="stock" [(ngModel)]="art.stock">
           </div>
-          <label for="">Unidad de medida: (actual: {{art.medidaProd.tipo_medida}})</label>
+
+          <label for="">Unidad de medida:</label>
           <div class="form-group">
-            <select [(ngModel)]="art.medidaProd.id_medida">
-              <option *ngFor="let medida of medidas" [ngValue]="medida.id_medida">{{medida.tipo_medida}}</option>
+            <select [(ngModel)]="art.medidaProd.id_medida" name="medida">
+              <option *ngFor="let medida of medidas" [ngValue]="medida.id_medida">
+                {{medida.tipo_medida}}</option>
             </select>
           </div>
+
           <div class="form-group">
             <label for="">Stock Minimo:</label>
             <input type="text" class="form-control" name="stockMinimo" [(ngModel)]="art.stockMinimo">
           </div>
+
           <div class="form-group">
             <label for="">Detalles:</label>
             <input type="text" class="form-control" name="detalle" [(ngModel)]="art.detalle">
           </div>
+
           <div class="form-group">
             <label for="">Precio de venta:</label>
             <input type="text" class="form-control" name="precioA" [(ngModel)]="art.precioA">
           </div>
-          <label for="">Categoría / clasificación: (actual: {{art.categoriaProd.nombre_categoria}})</label>
+
+          <label for="">Categoría / clasificación:</label>          
           <div class="form-group">
-            <select [(ngModel)]="art.categoriaProd.id_categoria">
+            <select [(ngModel)]="art.categoriaProd.id_categoria" name="categoria">
               <option *ngFor="let categoria of categorias" [ngValue]="categoria.id_categoria">
                 {{categoria.nombre_categoria}}</option>
             </select>
           </div>
 
-          <button (click)="actualizarArticulo(art)" class="btn btn-danger">Actualizar</button>
+          <button (click)="actualizarArticulo(art)" class="btn btn-success btn-lg btn-block">Actualizar</button>
+          <button (click)="Volver()" class="btn btn-danger btn-lg btn-block">Volver</button>
         </form>
       </div>
     </div>

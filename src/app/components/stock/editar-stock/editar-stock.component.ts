@@ -14,20 +14,27 @@ import { Articulo } from 'src/app/interfaces/articulo.interface';
 })
 export class EditarStockComponent implements OnInit {
 
-  categorias : Categoria[] = [];
-  medidas : UnidadMedida[] = [];
-  art : Articulo;
+  public categorias : Categoria[] = [];
+  public medidas : UnidadMedida[] = [];
+  public art : Articulo;
 
   constructor(
-      private _categoriaService:CategoriaService,
-      private _medidaService:UnidadMedidaService,
-      private _articuloService:ArticuloService,
+      private _categoriaService : CategoriaService,
+      private _medidaService : UnidadMedidaService,
+      private _articuloService : ArticuloService,
       private router: Router
-  ) {}
+  ) {
+    // //@ts-ignore
+    // this.categorias={};
+    // //@ts-ignore
+    // this.medidas={};
+    // //@ts-ignore
+    // this.art={};
+   }
 
-  ngOnInit() {
-    this.llenarCombos();
+  ngOnInit() {    
     this.completarArt();
+    this.llenarCombos();
   }
 
   llenarCombos(){
@@ -43,10 +50,18 @@ export class EditarStockComponent implements OnInit {
   completarArt(){
     let id=localStorage.getItem("id_articulo");
     this._articuloService.buscarXIdArticulo(+id)
-    .subscribe(data=>{this.art=data});
+    .subscribe(data=>{this.art=data});    
   }
 
+  actualizarArticulo(art:Articulo){
+    this._articuloService.modificarArticulo(art)
+    .subscribe(data=>{art = data;
+      alert("Se actualizó exitosamente");
+      this.router.navigate(["stock"])
+    });
+  }
 
-
-
+  Volver(){
+    this.router.navigate(["stock"]);
+  }
 }

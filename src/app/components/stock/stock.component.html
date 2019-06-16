@@ -9,7 +9,7 @@
       </div>
       <div class="container">
         <br>
-        <button (click)="nuevoArticulo()" class="btn btn-info" style="margin-left: 10px; ">Nuevo</button>
+        <button (click)="nuevoArticulo()" class="btn btn-info" style="margin-left: 10px; ">Crear nuevo registro</button>
       </div>
       <div class="card-body">
         <table class="table table-hover">
@@ -18,11 +18,11 @@
               <th>#</th>
               <th>Foto</th>
               <th>Nombre</th>
-              <th>detalle</th>
-              <th>Categoria</th>
+              <th>Detalle</th>
+              <th>Categoría</th>
               <th>Stock</th>
               <th>Unidad de Medida</th>
-              <th>Stock Minimo</th>
+              <th>Stock Mínimo</th>
             </tr>
           </thead>
           <tbody>
@@ -37,7 +37,7 @@
               <td>{{item.stockMinimo}}</td>
               <td>
                 <button (click)="editarArticulo(item)" class="btn btn-warning">Editar</button>
-                <button class="btn btn-danger">Borrar</button>
+                <button (click)="bajaArticulo(item)" class="btn btn-danger">Baja</button>
               </td>
             </tr>
           </tbody>
@@ -54,10 +54,10 @@
             <tr>
               <th>#</th>
               <th>Nombre</th>
-              <th>detalle</th>
+              <th>Detalle</th>
               <th>Stock</th>
-              <th>Stock Minimo</th>
-              <th>Categoria</th>
+              <th>Stock Mínimo</th>
+              <th>Categoría</th>
               <th>Unidad de Medida</th>
             </tr>
           </thead>
@@ -72,7 +72,7 @@
               <td>{{articulo.medidaProd.tipo_medida}}</td>
               <td>
                 <button (click)="editarArticulo(articulo)" class="btn btn-warning">Editar</button>
-                <button class="btn btn-danger">Borrar</button>
+                <button (click)="bajaArticulo(articulo)" class="btn btn-danger">Baja</button>
               </td>
             </tr>
           </tbody>

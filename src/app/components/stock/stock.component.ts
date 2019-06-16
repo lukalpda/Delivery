@@ -18,14 +18,15 @@ export class StockComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit() {    
+    this._articuloService.listarArticulosDisponiblesVenta(true).subscribe(data=>{
+      this.mercancia = data;
+    });
+
     this._articuloService.listarArticulosDisponiblesPrima(true).subscribe(data => {
       this.articulos = data;
     });
 
-    this._articuloService.listarArticulosDisponiblesVenta(true).subscribe(data=>{
-      this.mercancia = data;
-    })
   }
 
   nuevoArticulo() {
@@ -37,4 +38,14 @@ export class StockComponent implements OnInit {
     this.router.navigate(["editarStock/"+articulo.id_articulo]);
   }
 
+  bajaArticulo(art:Articulo){
+    art.enLista = false;
+    this._articuloService.modificarArticulo(art)
+    .subscribe(()=>
+    {
+      alert("Se dió de baja exitosamente");
+      
+    });
+    this.router.navigate(["stock"]);
+  }  
 }
