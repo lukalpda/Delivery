@@ -12,7 +12,7 @@ import { CarroService } from "src/app/services/carro.service";
 export class ArticuloComponent implements OnInit {
   @Input() childMessage: string;
   articulos: Articulo[] = [];
-  carroA: Articulo[] = [];
+  carroA: any[] = [];
 
   constructor(
     private _articuloService: ArticuloService,
@@ -33,11 +33,13 @@ export class ArticuloComponent implements OnInit {
   public verArticulos(idx: string) {
     this.router.navigate(["/articulo", idx]);
   }
-  cargarAlCarrito(articulo: Articulo) {
+  cargarAlCarrito(item: any) {
    
-    this.carroA.push(articulo);
+    this.carroA.push(item);
     console.log(this.carroA);
-    this._carroService.enviarCompra(this.carroA);
+    this._carroService.enviarCompraA(this.carroA);
+    localStorage.setItem("carroA", JSON.stringify(this.carroA));
+
   }
   cambiarCategoria(categoria: string) {
     this.childMessage = categoria;

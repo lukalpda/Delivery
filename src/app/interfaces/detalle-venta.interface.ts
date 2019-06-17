@@ -10,5 +10,5 @@ export interface DetalleVenta {
   pedido: Pedido;
   item: Articulo;
   manufacturado: Manufacturado;
-
+  
 }

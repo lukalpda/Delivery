@@ -13,7 +13,7 @@ export class ArticulosManufacturadosComponent implements OnInit {
   @Input() childMessage: string;
 
   articulosManufacturados: Manufacturado[] = [];
-  carro: Manufacturado[] = [];
+  carroM: any[] = [];
 
   categoria: string;
   constructor(
@@ -32,7 +32,7 @@ export class ArticulosManufacturadosComponent implements OnInit {
     console.log(this.articulosManufacturados);
 
     this._carroService.enviarCompraObservable.subscribe(response => {
-      this.carro = response;
+      this.carroM = response;
     });
   }
 
@@ -43,11 +43,11 @@ export class ArticulosManufacturadosComponent implements OnInit {
     this.childMessage = categoria;
   }
 
-  cargarAlCarrito(manufacturado: Manufacturado) {
-   
-    this.carro.push(manufacturado);
-    console.log(this.carro);
-    this._carroService.enviarCompra(this.carro);
+  cargarAlCarrito(item: any) {
+    this.carroM.push(item);
+    console.log(this.carroM);
+    localStorage.setItem("carroM", JSON.stringify(this.carroM));
+    this._carroService.enviarCompraM(this.carroM);
   }
 
   enviarCarrito(){
