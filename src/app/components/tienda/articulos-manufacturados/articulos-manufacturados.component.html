@@ -13,13 +13,18 @@
           [popoverTitle]="popTitle">
           Detalles
         </button>
-        <div class="carrito">
+        <div (click)="cargarAlCarrito(articuloManufacturadoAux)" class="carrito">
           Agregar al carrito
-          <i class="material-icons">
-            shopping_cart
-          </i> 
+          <button mat-button>
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
         </div>
       </div>
     </div>
   </ng-container>
+</div>
+<div>
+  <button (click)="enviarCarrito(carrito)">
+    Finalizar Compra
+  </button>
 </div>
