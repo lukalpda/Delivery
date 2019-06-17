@@ -26,7 +26,7 @@ export class ListaPedidoComponent implements OnInit {
     this.detallesPedido={};
   }
 
-  displayedColumns = ['numPedido', 'nombreCliente','telefono', 'detallePedido', 'estado', 'total', 'eliminar'];
+  displayedColumns = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'estado', 'total', 'acciones'];
 
   dataSource= new MatTableDataSource();
 

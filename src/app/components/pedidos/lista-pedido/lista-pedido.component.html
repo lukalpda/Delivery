@@ -32,7 +32,6 @@
     <!-- Detalle Pedido -->
     <ng-container matColumnDef="detallePedido">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Detalle</mat-header-cell>
-      <!--<mat-cell *ngFor="let detallePedido of detallesPedido"> {{}} </mat-cell>-->
       <mat-cell *matCellDef="let row">{{row.informe}}</mat-cell>
     </ng-container>
 
@@ -47,7 +46,7 @@
       <mat-cell *matCellDef="let row"> {{row.total|currency}} </mat-cell>
     </ng-container>
     <!-- Acciones -->
-    <ng-container matColumnDef="eliminar">
+    <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
       <mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.id)">delete</mat-icon></mat-cell>
     </ng-container>
