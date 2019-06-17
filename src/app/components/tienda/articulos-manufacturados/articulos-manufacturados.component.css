@@ -8,12 +8,17 @@ h1 {
   text-align: center;
   background-color: rgb(18, 212, 187);
 }
-
+.card-columns img{
+  max-width: 98%;
+  max-height: 150px;
+  margin: 0 auto;
+}
 .card-columns {
   width: 90%;
   align-self: center;
   column-count: 3;
   padding-left: 30px;
+
 }
 
 div.card.border-dark {
