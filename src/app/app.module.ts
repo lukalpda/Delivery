@@ -30,8 +30,13 @@ import { AgregarClienteComponent } from './components/clientes/agregar-cliente/a
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
 import { StockComponent } from './components/stock/stock.component';
-import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
-import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
+import { AgregarStockComponent } from './components/stock/agregar-articulo/agregar-stock.component';
+import { EditarStockComponent } from './components/stock/editar-articulo/editar-stock.component';
+import {PedidosComponent} from './components/pedidos/pedidos.component';
+import { PlatoComponent } from './components/plato/plato.component';
+import { AgregarPlatoComponent } from './components/plato/agregar-plato/agregar-plato.component';
+import { EditarPlatoComponent } from './components/plato/editar-plato/editar-plato.component';
+import {CocinaComponent} from './components/cocina/cocina.component';
 
 //Firebase
 import { AngularFireModule } from "@angular/fire";
@@ -66,10 +71,6 @@ import { CategoriaService } from "./services/categoria.service";
 //Material
 import { CommonModule } from "@angular/common";
 import { MaterialModule } from "./material.module";
-import {PedidosComponent} from './components/pedidos/pedidos.component';
-import { PlatoComponent } from './components/plato/plato.component';
-import { AgregarPlatoComponent } from './components/plato/agregar-plato/agregar-plato.component';
-import { EditarPlatoComponent } from './components/plato/editar-plato/editar-plato.component';
 
 
 @NgModule({
@@ -104,7 +105,8 @@ import { EditarPlatoComponent } from './components/plato/editar-plato/editar-pla
     EditarStockComponent,
     PlatoComponent,
     AgregarPlatoComponent,
-    EditarPlatoComponent
+    EditarPlatoComponent,
+    CocinaComponent
   ],
   imports: [
     BrowserModule,
