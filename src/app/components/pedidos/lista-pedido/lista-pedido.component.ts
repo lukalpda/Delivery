@@ -39,9 +39,11 @@ export class ListaPedidoComponent implements OnInit {
         this.dataSource.data = res;});
     //this._detalleServices.listarXPedido(1).subscribe( data => {this.dataSource = data;});
   }
+  
+  //modificar para que busque por nombre del cliente
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    filterValue = filterValue.trim(); // Elimina espacios en blanco
+    filterValue = filterValue.toLowerCase(); // Datasource por defecto en minusculas
     this.dataSource.filter = filterValue;
   }
 

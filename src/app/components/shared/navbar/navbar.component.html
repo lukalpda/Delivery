@@ -12,6 +12,9 @@
             <h5>Tienda</h5>
           </button>
         </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <button type="button" class="button btn" routerLink="/cocina"><h5>Cocina</h5></button>
+        </li>
 
         </ul>
         <ul class="navbar-nav">
