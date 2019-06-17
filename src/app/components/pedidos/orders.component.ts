@@ -63,7 +63,7 @@ export class OrdersComponent implements OnInit {
     let index = this.pedidoTemp.indexOf(pedido);
     if(index >-1) this.pedidoTemp.splice(index, 1);
   }
-
+ 
 
 
   /*  products = [

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { ManufacturadoService } from "../../../services/manufacturado.service";
 import { Manufacturado } from "../../../interfaces/manufacturado.interface";
+import { CarroService } from "src/app/services/carro.service";
 
 @Component({
   selector: "app-articulos-manufacturados",
@@ -14,13 +15,14 @@ export class ArticulosManufacturadosComponent implements OnInit {
   articulosManufacturados: Manufacturado[] = [];
   carro: Manufacturado[] = [];
 
-  precioXArticuloManuf: number[] = [];
   categoria: string;
   constructor(
     private _articulosManufacturadosService: ManufacturadoService,
+    private _carroService: CarroService,
     private router: Router
   ) {}
   ngOnInit() {
+   
     this._articulosManufacturadosService
       .listarManufacturados()
       .subscribe(data => {
@@ -28,6 +30,10 @@ export class ArticulosManufacturadosComponent implements OnInit {
       });
 
     console.log(this.articulosManufacturados);
+
+    this._carroService.enviarCompraObservable.subscribe(response => {
+      this.carro = response;
+    });
   }
 
   public verArticulosManufacturados(idx: string) {
@@ -36,8 +42,16 @@ export class ArticulosManufacturadosComponent implements OnInit {
   cambiarCategoria(categoria: string) {
     this.childMessage = categoria;
   }
+
   cargarAlCarrito(manufacturado: Manufacturado) {
+   
     this.carro.push(manufacturado);
     console.log(this.carro);
+    this._carroService.enviarCompra(this.carro);
+  }
+
+
+  enviarCarrito(){
+    this.router.navigate(["/carro"]);
   }
 }

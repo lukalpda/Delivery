@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import { Manufacturado } from 'src/app/interfaces/manufacturado.interface';
 @Component({
   selector: "app-tienda",
   templateUrl: "./tienda.component.html",
@@ -17,5 +18,6 @@ export class TiendaComponent implements OnInit {
   cambiarCategoria(parentMessage: string){
     this.parentMessage=parentMessage;    
   }
+
 }
  
