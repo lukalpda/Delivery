@@ -16,6 +16,9 @@ import { CarroComponent } from './components/tienda/carro/carro.component';
 import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
 import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';
 import {StockComponent} from './components/stock/stock.component';
+import { PlatoComponent } from './components/plato/plato.component';
+import { AgregarPlatoComponent } from './components/plato/agregar-plato/agregar-plato.component';
+import { EditarPlatoComponent } from './components/plato/editar-plato/editar-plato.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -33,6 +36,9 @@ const routes: Routes = [
   {path: 'stock', component: StockComponent},
   {path: 'agregarArticulo', component: AgregarStockComponent},
   {path: 'editarStock/:id', component: EditarStockComponent},
+  {path: 'plato', component: PlatoComponent},
+  {path: 'agregarPlato', component: AgregarPlatoComponent},
+  {path: 'editarPlato/:id', component: EditarPlatoComponent},
   {path: 'carro', component: CarroComponent},
   {path: '**', component: HomeComponent}
 ];
