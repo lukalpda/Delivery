@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 export class TiendaComponent implements OnInit {
   parentMessage: string= "1";
   
-  
   constructor() {
     //this.parentMessage = "pizza";
   }

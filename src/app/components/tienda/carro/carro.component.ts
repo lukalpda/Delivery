@@ -10,8 +10,6 @@ import { PedidoService } from 'src/app/services/pedido.service';
 })
 export class CarroComponent implements OnInit {
 
-  constructor(private router:Router, private _manufacturadoservice: ManufacturadoService, private _pedidoService: PedidoService) { }
-
   ngOnInit() {
   }
 
