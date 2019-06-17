@@ -6,13 +6,13 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CarroService {
-  carro: Manufacturado[];
-  private enviarCompraSubject =  new Subject<Manufacturado[]>();
+  carro: any[];
+  private enviarCompraSubject =  new Subject<any[]>();
   enviarCompraObservable = this.enviarCompraSubject.asObservable();
   
   constructor() { }
 
-  enviarCompra(carro: Manufacturado[]){
+  enviarCompra(carro: any[]){
     this.carro = carro;
     this.enviarCompraSubject.next(carro);
   }

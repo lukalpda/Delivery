@@ -31,3 +31,8 @@ div.card.border-dark {
   margin: 3px;
   text-align: center;
 }
+.card-columns img{
+  max-width: 98%;
+  max-height: 150px;
+  margin: auto;
+}

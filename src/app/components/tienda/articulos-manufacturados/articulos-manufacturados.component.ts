@@ -27,7 +27,7 @@ export class ArticulosManufacturadosComponent implements OnInit {
       .listarManufacturados()
       .subscribe(data => {
         this.articulosManufacturados = data;
-      });
+      }); 
 
     console.log(this.articulosManufacturados);
 
@@ -49,7 +49,6 @@ export class ArticulosManufacturadosComponent implements OnInit {
     console.log(this.carro);
     this._carroService.enviarCompra(this.carro);
   }
-
 
   enviarCarrito(){
     this.router.navigate(["/carro"]);
