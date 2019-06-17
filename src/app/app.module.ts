@@ -67,6 +67,9 @@ import { CategoriaService } from "./services/categoria.service";
 import { CommonModule } from "@angular/common";
 import { MaterialModule } from "./material.module";
 import {PedidosComponent} from './components/pedidos/pedidos.component';
+import { PlatoComponent } from './components/plato/plato.component';
+import { AgregarPlatoComponent } from './components/plato/agregar-plato/agregar-plato.component';
+import { EditarPlatoComponent } from './components/plato/editar-plato/editar-plato.component';
 
 
 @NgModule({
@@ -98,7 +101,10 @@ import {PedidosComponent} from './components/pedidos/pedidos.component';
     CarroComponent,
     StockComponent,
     AgregarStockComponent,
-    EditarStockComponent
+    EditarStockComponent,
+    PlatoComponent,
+    AgregarPlatoComponent,
+    EditarPlatoComponent
   ],
   imports: [
     BrowserModule,
