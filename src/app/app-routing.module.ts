@@ -13,12 +13,13 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
-import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
-import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';
+import {EditarStockComponent} from './components/stock/editar-articulo/editar-stock.component';
+import {AgregarStockComponent} from './components/stock/agregar-articulo/agregar-stock.component';
 import {StockComponent} from './components/stock/stock.component';
 import { PlatoComponent } from './components/plato/plato.component';
 import { AgregarPlatoComponent } from './components/plato/agregar-plato/agregar-plato.component';
 import { EditarPlatoComponent } from './components/plato/editar-plato/editar-plato.component';
+import {CocinaComponent} from './components/cocina/cocina.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'agregarPlato', component: AgregarPlatoComponent},
   {path: 'editarPlato/:id', component: EditarPlatoComponent},
   {path: 'carro', component: CarroComponent},
+  {path: 'cocina', component: CocinaComponent},
   {path: '**', component: HomeComponent}
 ];
 
