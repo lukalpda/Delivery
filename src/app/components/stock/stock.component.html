@@ -4,44 +4,77 @@
     <div class="card bg-light mb-3">
       <div class="class-header">
         <br>
-        <h3 class="text-center">Stock</h3>
+        <h3 class="text-center">Stock mercadería para venta</h3>
         <hr>
       </div>
       <div class="container">
         <br>
-        <button (click)="nuevoArticulo()" class="btn btn-info" style="margin-left: 10px; ">Nuevo</button>
+        <button (click)="nuevoArticulo()" class="btn btn-info" style="margin-left: 10px; ">Crear nuevo registro</button>
       </div>
       <div class="card-body">
         <table class="table table-hover">
           <thead>
-          <tr>
-            <th>#</th>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>detalle</th>
-            <th>Stock</th>
-            <th>Stock Minimo</th>
-            <th>Categoria</th>
-            <th>Unidad de Medida</th>
-            <th>¿Es para venta?</th>
-          </tr>
+            <tr>
+              <th>#</th>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Detalle</th>
+              <th>Categoría</th>
+              <th>Stock</th>
+              <th>Unidad de Medida</th>
+              <th>Stock Mínimo</th>
+            </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let articulo of articulos; let i = index" class="text-center">
-            <th scope="row">{{i+1}}</th>
-            <td>{{articulo.foto}}</td>
-            <td>{{articulo.nombre_articulo}}</td>
-            <td>{{articulo.detalle}}</td>
-            <td>{{articulo.stock}}</td>
-            <td>{{articulo.stockMinimo}}</td>
-            <td>{{articulo.categoriaProd}}</td>
-            <td>{{articulo.medidaProd}}</td>
-            <td>{{articulo.esParaVenta}}</td>
-            <td>
-              <button (click)="editarArticulo(articulo)" class="btn btn-warning">Editar</button>
-              <button class="btn btn-danger">Borrar</button>
-            </td>
-          </tr>
+            <tr *ngFor="let item of mercancia; let i = index" class="text-center">
+              <th scope="row">{{i+1}}</th>
+              <td>Hardcode: acá va la foto</td>
+              <td>{{item.nombre_articulo}}</td>
+              <td>{{item.detalle}}</td>
+              <td>{{item.categoriaProd.nombre_categoria}}</td>              
+              <td>{{item.stock}}</td>              
+              <td>{{item.medidaProd.tipo_medida}}</td>
+              <td>{{item.stockMinimo}}</td>
+              <td>
+                <button (click)="editarArticulo(item)" class="btn btn-warning">Editar</button>
+                <button (click)="bajaArticulo(item)" class="btn btn-danger">Baja</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="class-header">
+        <br>
+        <h3 class="text-center">Stock ingredientes</h3>
+        <hr>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Detalle</th>
+              <th>Stock</th>
+              <th>Stock Mínimo</th>
+              <th>Categoría</th>
+              <th>Unidad de Medida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let articulo of articulos; let i = index" class="text-center">
+              <th scope="row">{{i+1}}</th>
+              <td>{{articulo.nombre_articulo}}</td>
+              <td>{{articulo.detalle}}</td>
+              <td>{{articulo.stock}}</td>
+              <td>{{articulo.stockMinimo}}</td>
+              <td>{{articulo.categoriaProd.nombre_categoria}}</td>
+              <td>{{articulo.medidaProd.tipo_medida}}</td>
+              <td>
+                <button (click)="editarArticulo(articulo)" class="btn btn-warning">Editar</button>
+                <button (click)="bajaArticulo(articulo)" class="btn btn-danger">Baja</button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -8,11 +8,12 @@
     justify-content: center;
 }
 .product{
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
     margin: 1rem 1rem;
-    width: 150px;
-    height: 60px;
+    width: 120px;
+    height: 70px;
     text-align: center;
+    line-height: 20px;
 }
 li{
     text-decoration: underline;

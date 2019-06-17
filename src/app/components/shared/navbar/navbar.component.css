@@ -1,14 +1,14 @@
-.navbar{
-  background: rgba(255,194,62,0.62);/*background: rgba(255,191,32,0.50);*/
+.navbar {
+  background: rgba(255, 194, 62, 0.62); /*background: rgba(255,191,32,0.50);*/
   font-size: 20px;
   padding: 10px;
 }
-.moto{
+.moto {
   padding: 5px 15px;
   width: 130px;
   height: 60px;
 }
-.logo{
+.logo {
   padding: 0px 10px;
   width: 200px;
   height: 50px;
@@ -22,7 +22,7 @@
   margin-top: 5px;
 }
 
-h2{
+h2 {
   font-family: "Copperplate Gothic Light";
   font-size: 40px;
   font-weight: bold;
@@ -31,20 +31,19 @@ h2{
 }
 
 .button {
-background-color: rgba(255,194,62,0.8);
-border-radius: 6px;
-border: none;
-color: black;
-cursor: pointer;
-font-size: 16px;
-padding: 10px 10px;
-text-align: center;
-text-transform: uppercase;
-width: auto;
+  background-color: rgba(255, 194, 62, 0.8);
+  border-radius: 6px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  width: auto;
   margin-left: 5px;
 }
 .button:hover {
-background-color: #FB7E29;
-color: #fff;
+  background-color: #fb7e29;
+  color: #fff;
 }
-
