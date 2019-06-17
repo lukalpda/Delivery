@@ -65,14 +65,6 @@ export class PedidosComponent implements OnInit {
 
   /*  products = [
       {
-        name: "Pollo",
-        price: 4
-      },
-      {
-        name: "Papas",
-        price: 3
-      },
-      {
         name: "Pescado",
         price: 4
       }
@@ -80,20 +72,15 @@ export class PedidosComponent implements OnInit {
     totalOrder = 0;
     tempOrder = [];
 
-    ngOnInit() {
-    }
-
     onAddProduct(product){
       console.log(product);
       this.totalOrder = (this.totalOrder + product.price);
       this.tempOrder.push(product.name);
     }
-
     removeItemTempOrder = (order) =>{
       let index = this.tempOrder.indexOf(order);
       if(index >-1) this.tempOrder.splice(index, 1);
     }
-
     onSubmit(){
       this.orderService.myForm.value.order = this.tempOrder;
       let data = this.orderService.myForm.value;
@@ -104,7 +91,6 @@ export class PedidosComponent implements OnInit {
       this.totalOrder = 0;
       this.orderService.myForm.reset();
       console.log(data);
-    }
-    */
+    }*/
 
 }

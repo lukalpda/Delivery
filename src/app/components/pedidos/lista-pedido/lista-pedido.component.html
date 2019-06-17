@@ -40,11 +40,13 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.estadoListo}} </mat-cell>
     </ng-container>
+
     <!-- Total -->
     <ng-container matColumnDef="total">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.total|currency}} </mat-cell>
     </ng-container>
+    
     <!-- Acciones -->
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
