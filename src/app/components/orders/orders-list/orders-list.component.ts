@@ -35,8 +35,15 @@ export class OrdersListComponent implements OnInit {
     this._pedidoServices.modificarPedido(pedido);
   }
 
+<<<<<<< Updated upstream
   estado(pedido: Pedido){
     pedido.estado = true;
     this._pedidoServices.modificarPedido(pedido);
   }
+=======
+/*  estado(pedido: Pedido){
+    pedido.estado = true;
+    this._pedidoServices.modificarPedido(pedido);
+  }*/
+>>>>>>> Stashed changes
 }

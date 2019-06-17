@@ -21,3 +21,11 @@ select{
   text-align: center;
   color: white;
 }
+
+.card{
+  background-color: green;
+}
+
+table{
+  background-color: white;
+}
