@@ -1,48 +1,25 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ArticuloService } from "src/app/services/articulo.service";
 import { Router } from "@angular/router";
-import { Articulo } from "src/app/interfaces/articulo.interface";
-import { CarroService } from "src/app/services/carro.service";
+import { Articulo } from 'src/app/interfaces/articulo.interface';
 
 @Component({
   selector: "app-articulo",
   templateUrl: "./articulo.component.html",
   styleUrls: ["./articulo.component.css"]
 })
+ 
 export class ArticuloComponent implements OnInit {
-  @Input() childMessage: string;
-  articulos: Articulo[] = [];
-  carroA: Articulo[] = [];
-
   constructor(
     private _articuloService: ArticuloService,
-    private _carroService: CarroService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this._articuloService.listarArticulos().subscribe(data => {
-      this.articulos = data;
-    });
 
-    this._carroService.enviarCompraObservable.subscribe(
-      response => (this.carroA = response)
-    );
   }
 
   public verArticulos(idx: string) {
     this.router.navigate(["/articulo", idx]);
-  }
-  cargarAlCarrito(articulo: Articulo) {
-   
-    this.carroA.push(articulo);
-    console.log(this.carroA);
-    this._carroService.enviarCompra(this.carroA);
-  }
-  cambiarCategoria(categoria: string) {
-    this.childMessage = categoria;
-  }
-  enviarCarrito(){
-    this.router.navigate(["/carro"]);
   }
 }

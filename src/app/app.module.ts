@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {ButtonModule} from 'primeng/primeng';
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
-import {ListaPedidoComponent} from './components/pedidos/lista-pedido/lista-pedido.component';
+import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
+import {OrdersComponent} from './components/orders/orders.component';
 import {MenuGerenteComponent} from './components/shared/menu-gerente/menu-gerente.component';
 import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-recepcion.component';
 import { HomeComponent } from "./components/home/home.component";
@@ -66,7 +67,6 @@ import { CategoriaService } from "./services/categoria.service";
 //Material
 import { CommonModule } from "@angular/common";
 import { MaterialModule } from "./material.module";
-import {PedidosComponent} from './components/pedidos/pedidos.component';
 
 
 @NgModule({
@@ -82,8 +82,8 @@ import {PedidosComponent} from './components/pedidos/pedidos.component';
     TiendaComponent,
     GerenteComponent,
     HomeAdminComponent,
-    PedidosComponent,
-    ListaPedidoComponent,
+    OrdersComponent,
+    OrdersListComponent,
     BarrasComponent,
     LineasComponent,
     MenuGerenteComponent,
@@ -114,7 +114,7 @@ import {PedidosComponent} from './components/pedidos/pedidos.component';
     AngularFirestoreModule,
     ChartsModule,
     CommonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
 
   providers: [

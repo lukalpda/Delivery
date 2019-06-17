@@ -1,37 +1,30 @@
 h1 {
-  color: floralwhite;
-  font-weight: normal;
-  font-family: fantasy;
-  font-size: 100px;
-  font-family: Arial;
-  align-self: center;
-  text-align: center;
-  background-color: rgb(18, 212, 187);
-}
-.card-columns {
-  width: 90%;
-  align-self: center;
-  column-count: 3;
-  padding-left: 30px;
-}
-.card-columns img{
-  max-width: 98%;
-  max-height: 150px;
-  margin: auto;
-}
-
-div.card.border-dark {
-  position: -ms-page;
-  align-content: space-between;
-  align-self: center;
-  max-width: 25rem;
-  margin: 30px;
-}
-.carrito {
-  padding-top: 10px;
-  text-align: center;
-}
-.material {
-  margin: 3px;
-  text-align: center;
-}
+    color: floralwhite;
+    font-weight: normal;
+    font-family: fantasy;
+    font-size: 100px;
+    font-family: Arial;
+    align-self: center;
+    text-align: center;
+    background-color:rgb(18, 212, 187);
+  }
+  
+  .card-columns {
+    width: 90%;
+    align-self: center;
+    column-count: 3;
+    padding-left: 30px;
+  }
+  
+  div.card.border-dark {
+    position: -ms-page;
+    align-content: space-between;
+    align-self: center;
+    max-width: 25rem;
+    margin: 30px;
+  }
+  .carrito {
+    padding-top: 10px;
+    text-align: center;
+  }
+  

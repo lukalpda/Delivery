@@ -7,10 +7,8 @@
       <li class="page-item "><a class="page-link button" (click)='cambiarCategoria("4")'>Bebidas</a></li>
     </ul>
   </nav>
-  <div *ngIf="parentMessage != '4'">
+  <div>
     <app-articulos-manufacturados [childMessage]="parentMessage"> </app-articulos-manufacturados>
-  </div>
-  <div *ngIf="parentMessage == '4'">
-    <app-articulo [childMessage]="parentMessage"> </app-articulo>
+    
   </div>
 </div>

@@ -1,25 +1,18 @@
-import { Component, OnInit } from "@angular/core";
-import { Manufacturado } from "src/app/interfaces/manufacturado.interface";
-import { CarroService } from "src/app/services/carro.service";
-import { DetalleVenta } from 'src/app/interfaces/detalle-venta.interface';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ManufacturadoService } from 'src/app/services/manufacturado.service';
+import { PedidoService } from 'src/app/services/pedido.service';
 
 @Component({
-  selector: "app-carro",
-  templateUrl: "./carro.component.html",
-  styleUrls: ["./carro.component.css"]
+  selector: 'app-carro',
+  templateUrl: './carro.component.html',
+  styleUrls: ['./carro.component.css']
 })
 export class CarroComponent implements OnInit {
-  carro: Manufacturado[];
-  constructor(
-    private _carroService: CarroService
-  ) {} 
+
+  constructor(private router:Router, private _manufacturadoservice: ManufacturadoService, private _pedidoService: PedidoService) { }
 
   ngOnInit() {
-    this.carro = this._carroService.carro;
-    console.log(this.carro);
-  }  
-
-  calcularSubtotal(cantidad: number, precio: number){
-    return cantidad*precio;
   }
-}
+
+} 

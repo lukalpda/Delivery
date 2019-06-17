@@ -11,5 +11,6 @@ export interface Pedido{
   fecha: Date;
   hora: Time;
   fechaAnulado: Date;
-  informe: string;
+
+
 }
