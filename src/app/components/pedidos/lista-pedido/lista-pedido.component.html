@@ -3,14 +3,17 @@
   <h3 class="text-center">Listado de pedidos</h3>
   <hr>
 </div>
+
 <div class="example-header mat-elevation-z8 filtro">
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)"
            placeholder="Buscar Pedido">
   </mat-form-field>
 </div>
+
 <div class="example-container mat-elevation-z8">
   <mat-table [dataSource]="dataSource" matSort>
+
     <!--  Columna ID-->
     <ng-container matColumnDef="numPedido">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Nro Pedido</mat-header-cell>

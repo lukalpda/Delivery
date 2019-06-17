@@ -51,7 +51,7 @@ export class PedidosComponent implements OnInit {
     this._pedidoService.myForm.value.order = this.pedidoTemp;
     let data = this._pedidoService.myForm.value;
     data.totalPedido = this.totalPedido;
-    //call service
+    //Llamada al servicio
     this._pedidoService.crearPedido(data);
     this.pedidoTemp = [];
     this.totalPedido = 0;
