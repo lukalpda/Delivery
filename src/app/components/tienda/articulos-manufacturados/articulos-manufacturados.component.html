@@ -4,7 +4,7 @@
       <img class="card-img-top" src="{{articuloManufacturadoAux.foto}}" [alt]="articuloManufacturadoAux">
       <div class="card-body">
         <h4 class="card-title">{{articuloManufacturadoAux.nombre_articuloM}}</h4>
-        <h4> {{articuloManufacturadoAux.precio|currency}}</h4>
+        <h4> {{articuloManufacturadoAux.precioM|currency}}</h4>
         <!-- 
     <h5 class="card-title">{{articuloManufacturadoAux.articulo_manuf_id.precio_monto}}</h5>-->
         <ng-template #popContent><b>{{articuloManufacturadoAux.detalle}}</b></ng-template>
@@ -13,13 +13,18 @@
           [popoverTitle]="popTitle">
           Detalles
         </button>
-        <div class="carrito">
+        <div (click)="cargarAlCarrito(articuloManufacturadoAux)" class="carrito">
           Agregar al carrito
-          <i class="material-icons">
-            shopping_cart
-          </i> 
+          <button mat-button>
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
         </div>
       </div>
     </div>
   </ng-container>
+</div>
+<div>
+  <button (click)="enviarCarrito(carrito)">
+    Finalizar Compra
+  </button>
 </div>

@@ -114,7 +114,7 @@ import {PedidosComponent} from './components/pedidos/pedidos.component';
     AngularFirestoreModule,
     ChartsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 
   providers: [
