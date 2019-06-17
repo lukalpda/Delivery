@@ -41,11 +41,11 @@ export class StockComponent implements OnInit {
   bajaArticulo(art:Articulo){
     art.enLista = false;
     this._articuloService.modificarArticulo(art)
-    .subscribe(()=>
-    {
-      alert("Se dió de baja exitosamente");
-      
-    });
-    this.router.navigate(["stock"]);
+    .subscribe(() => {
+      this.articulos = this.articulos.filter(p=>p!==art);
+      this.mercancia = this.mercancia.filter(p=>p!==art); 
+      }              
+    );      
+      alert("Se dió de baja exitosamente");   
   }  
 }
