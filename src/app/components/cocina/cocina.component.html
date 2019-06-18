@@ -30,7 +30,6 @@
               </option>
             </select>
           </div>
-
           <div class="card-footer Botonera">
             <button class="Boton" (click)=Ready(comanda.numPedido) id="Aceptar" ><img src="assets/Imagenes Cocina/Aceptar.jpeg"></button>
             <button class="Boton" (click)="open(content)"><img src="assets/Imagenes Cocina/Alerta.png"> ¡ALERTA! </button>
@@ -38,8 +37,6 @@
           </div>
         </div>
       </div>
-
-
       <ng-template #content let-modal>
         <div class="modal-header">
           <h4 class="modal-title" id="modal-basic-title">Alerta</h4>
@@ -56,15 +53,12 @@
                 <input type="radio" name="causa" value="acc"> Accidente - Emergencia Médica <br>
                 <input type="radio" name="causa" value="impr"> Imprevistos Técnicos/Equipamiento <br>
                 <input type="radio" name="causa" value="otro"> Otros
-
               </fieldset>
-
               <fieldset>
                 <legend>Comanda Afectada</legend>
                 Comanda N° <input type="number" name="numero" min="1" [disabled]="isDisabled"><br>
                 <input type="checkbox" name="comanda" (change)="triggerSomeEvent()"> Todas las Comandas
               </fieldset>
-
             </div>
           </form>
         </div>
@@ -73,7 +67,6 @@
           <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cancelar</button>
         </div>
       </ng-template>
-
     </ng-template>
   </ngb-tab>
 
@@ -82,7 +75,6 @@
       <app-stock></app-stock>
     </ng-template>
   </ngb-tab>
-
   <ngb-tab title="Historial">
     <ng-template ngbTabContent>
       <div>
@@ -99,13 +91,12 @@
           <tbody>
           <tr *ngFor="let comanda of comandas">
             <th scope="row">{{comanda.numPedido}}</th>
-            <td>{{comanda.nombreTemporal}}</td>
+            <td>{{comanda.cliente.nombre_persona}}</td>
             <td>{{comanda.estadoListo}}</td>
             <td>{{comanda.observaciones}}</td>
           </tr>
           </tbody>
         </table>
-
         <h4>Historial de Comandas Canceladas</h4>
         <table class="table table-striped">
           <thead>
@@ -116,7 +107,6 @@
             <th scope="col">Hora de Pedido</th>
           </tr>
           </thead>
-
           <tbody>
             <tr *ngFor="let comanda of comandas">
                 <td scope="row">{{comanda.cliente.nombre_persona}} ({{comanda.cliente.nombre_usuario}})</td>
@@ -127,7 +117,6 @@
           </tbody>
         </table>
       </div>
-
       <div>
         <h4>Historial de Platos Realizados</h4>
         <table>

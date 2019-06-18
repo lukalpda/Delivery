@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {ArticuloService} from '../../../services/articulo.service';
-import {Articulo} from '../../../interfaces/articulo.interface';
+import {ArticuloService} from '../../../../services/articulo.service';
+import {Articulo} from '../../../../interfaces/articulo.interface';
 import { UnidadMedida } from 'src/app/interfaces/unidad.medida.interface';
 import { Categoria } from 'src/app/interfaces/categoria.interface';
 import { UnidadMedidaService } from 'src/app/services/unidad-medida.service';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Articulo} from '../../interfaces/articulo.interface';
-import {ArticuloService} from '../../services/articulo.service';
+import {Articulo} from '../../../interfaces/articulo.interface';
+import {ArticuloService} from '../../../services/articulo.service';
 
 @Component({
   selector: 'app-stock',
