@@ -21,7 +21,7 @@
           <td>{{carroAux.detalle}}</td>
           <td>{{carroAux.precioM}}</td>
           <td>
-              <input id="cantidad" type="number" value="1" min="1" max="10" step="1"/>
+              <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"/>
           </td>
           <td>
             {{calcularSubtotal(1,carroAux.precioM)}}
@@ -33,7 +33,7 @@
             <td>{{carroAux.detalle}}</td>
             <td>{{carroAux.precioA}}</td>
             <td>
-                <input id="cantidad" type="number" value="1" min="1" max="10" step="1"/>
+                <input id="cantidadA" type="number" value="1" min="1" max="10" step="1"/>
             </td>
             <td>
               {{calcularSubtotal(1,carroAux.precioA)}}
@@ -60,7 +60,7 @@
     <hr>
     <fieldset id="group1" class="radio">
       <input class="btn1" type="radio" value="value1" name="group1">
-      Envío a Domicilio ($30)
+      Envío a Domicilio (colocar precio)
       <input class="btn2" type="radio" value="value2" name="group1">
       Retiro en Tienda
     </fieldset>
