@@ -17,7 +17,7 @@
       <tbody>
         <tr *ngFor="let carroAux of carroM; let i = index">
           <td>{{carroAux.nombre_articuloM}}</td>
-          <td><img class="card-img-top" src="{{carroAux.foto}}" [alt]="carroAux"></td>
+          <td><img class="card-img-top img" src="{{carroAux.foto}}" [alt]="carroAux"></td>
           <td>{{carroAux.detalle}}</td>
           <td>{{carroAux.precioM}}</td>
           <td>
@@ -29,7 +29,7 @@
         </tr>
         <tr *ngFor="let carroAux of carroA; let i = index">
             <td>{{carroAux.nombre_articulo}}</td>
-            <td><img class="card-img-top" src="{{carroAux.foto}}" [alt]="carroAux"></td>
+            <td><img class="card-img-top img" src="{{carroAux.foto}}" [alt]="carroAux"></td>
             <td>{{carroAux.detalle}}</td>
             <td>{{carroAux.precioA}}</td>
             <td>
