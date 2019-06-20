@@ -7,7 +7,10 @@ import { AppComponent } from "./app.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {ButtonModule} from 'primeng/primeng';
+import {ButtonModule, ChartModule} from 'primeng/primeng';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+//import {ChartModule} from 'primeng/chart';
+
 //Material
 import { CommonModule } from "@angular/common";
 import { MaterialModule } from "./material.module";
@@ -70,6 +73,8 @@ import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/ag
 import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
 import {CocinaComponent} from './components/cocina/cocina.component';
 import { DonaComponent } from './components/graficas/dona/dona.component';
+import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
+import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
 
 @NgModule({
   declarations: [
@@ -105,11 +110,14 @@ import { DonaComponent } from './components/graficas/dona/dona.component';
     AgregarPlatoComponent,
     EditarPlatoComponent,
     CocinaComponent,
-    DonaComponent
+    DonaComponent,
+    DonaPrimeNGComponent,
+    BarrasPrimeNgComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
+    AccordionModule,
     MaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -122,6 +130,7 @@ import { DonaComponent } from './components/graficas/dona/dona.component';
     ChartsModule,
     CommonModule,
     ReactiveFormsModule,
+    ChartModule
   ],
 
   providers: [

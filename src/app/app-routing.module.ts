@@ -18,6 +18,8 @@ import {AgregarStockComponent} from './components/stock/stock-articulo/agregar-a
 import {StockComponent} from './components/stock/stock-articulo/stock.component';
 import {CocinaComponent} from './components/cocina/cocina.component';
 import {DonaComponent} from './components/graficas/dona/dona.component';
+import {DonaPrimeNGComponent} from './components/graficas/dona-prime-ng/dona-prime-ng.component';
+import {BarrasPrimeNgComponent} from './components/graficas/barras-prime-ng/barras-prime-ng.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path: 'graficas/Platos+Vendidos', component: BarrasComponent},
   {path: 'graficas/PedidosPorPeriodo', component: LineasComponent},
   {path: 'graficas/dona', component: DonaComponent},
+  {path: 'graficas/dona-prime-ng', component: DonaPrimeNGComponent},
+  {path: 'graficas/barras-prime-ng', component: BarrasPrimeNgComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'agregarCliente', component: AgregarClienteComponent},
   {path: 'editarCliente/:id', component: EditarClienteComponent},
