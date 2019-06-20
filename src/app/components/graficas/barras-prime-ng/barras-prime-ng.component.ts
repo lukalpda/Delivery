@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Manufacturado} from '../../../interfaces/manufacturado.interface';
 import {ManufacturadoService} from '../../../services/manufacturado.service';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-barras-prime-ng',
@@ -19,8 +20,10 @@ export class BarrasPrimeNgComponent implements OnInit {
   };
 
   constructor(private _manufacturadoService: ManufacturadoService) {
+    //@ts-ignore
+    this.manufacturadosD={};
     this.data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: [],
       datasets: [
         {
           label: 'My First dataset',
@@ -52,5 +55,8 @@ export class BarrasPrimeNgComponent implements OnInit {
       this.manufacturadosD = resp;
     })
   }
+
+  public
+
 
 }

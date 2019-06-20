@@ -20,6 +20,7 @@ export class DonaPrimeNGComponent implements OnInit {
   manufacturados: Manufacturado[]=[];
 
 
+
   constructor(
     private _clienteService: ClienteService,
     private _pedidoService: PedidoService

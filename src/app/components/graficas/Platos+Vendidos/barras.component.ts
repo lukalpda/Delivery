@@ -56,14 +56,15 @@ export class BarrasComponent implements OnInit {
     { data: [ 19, 86, 27, 90], label: 'Hamburguesas' },
   ];
 
-  constructor(private _manufacturadoService: ManufacturadoService) { }
+  constructor(private _manufacturadoService: ManufacturadoService) {
+
+  }
 
   ngOnInit() {
     this._manufacturadoService
       .listarManufacturados()
       .subscribe(data => {
         this.manufBarra = data;
-
       });
 
   }

@@ -17,6 +17,7 @@ export class DetalleVentaService {
   listarDetalleVentas(){
     return this.http.get<DetalleVenta[]>(this.Url)
   }
+
   listarXPedido(idPedido: number){
     return this.http.get<DetalleVenta[]>(this.Url+"porPedido/"+idPedido)
   }

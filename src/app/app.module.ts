@@ -9,6 +9,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {ButtonModule, ChartModule} from 'primeng/primeng';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {ToastModule} from 'primeng/toast';
 //import {ChartModule} from 'primeng/chart';
 
 //Material
@@ -72,9 +73,10 @@ import { PlatoComponent } from './components/stock/stock-manufacturado/plato.com
 import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/agregar-manufacturado/agregar-plato.component';
 import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
 import {CocinaComponent} from './components/cocina/cocina.component';
-import { DonaComponent } from './components/graficas/dona/dona.component';
 import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
 import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
+import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
+
 
 @NgModule({
   declarations: [
@@ -110,9 +112,9 @@ import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/ba
     AgregarPlatoComponent,
     EditarPlatoComponent,
     CocinaComponent,
-    DonaComponent,
     DonaPrimeNGComponent,
-    BarrasPrimeNgComponent
+    BarrasPrimeNgComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +132,8 @@ import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/ba
     ChartsModule,
     CommonModule,
     ReactiveFormsModule,
-    ChartModule
+    ChartModule,
+    ToastModule
   ],
 
   providers: [
