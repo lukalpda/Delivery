@@ -28,9 +28,40 @@ export class PlatoComponent implements OnInit {
     });
   }
 
+
+  verReceta(){
+    
+  }
+
   nuevoPlato() {
     this.router.navigate(["agregarPlato"]);
   }
 
+  editarPlato(plato: Manufacturado) {
+    localStorage.setItem("id_plato", plato.id_artManuf.toString());
+    this.router.navigate(["editarPlato/"+plato.id_artManuf]);
+  }
+
+  ////////////////// REVISAR //////////////////////////
+  bajaPlato(art: Manufacturado){
+    art.enMenu = false;
+    this._platoService.modificarManufacturado(art)
+    .subscribe(() => {
+      this.platos = this.platos.filter(p=>p!==art);
+      }              
+    );      
+      alert("Se dió de baja exitosamente");   
+  }  
+
+  ////////////////// REVISAR //////////////////////////
+  altaPlato(art: Manufacturado){
+    art.enMenu = true;
+    this._platoService.modificarManufacturado(art)
+    .subscribe(() => {
+      this.platosViejos = this.platosViejos.filter(p=>p!==art);
+      }              
+    );      
+      alert("Se dió de alta exitosamente");   
+  }  
 
 }
