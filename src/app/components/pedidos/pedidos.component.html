@@ -1,0 +1,56 @@
+ <div class="header-app">
+  <h1>Bienvenido al {{appName}}</h1>
+</div>
+
+<div class="btn-list">
+  <button mat-raised-button color="primary" class="product" *ngFor="let manufacturado of manufacturados"
+          (click)="onAddProduct(manufacturado)">
+    {{manufacturado.nombre_articuloM}}<br>{{manufacturado.precioM|currency}}
+  </button>
+  <form [formGroup]="this._pedidoService.myForm" (ngSubmit)="onSubmit()">
+    <table cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field>
+            <input type="number" matInput maxlength="3" placeholder="Nro de Pedido" formControlName="nroPedido" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td> 
+          <mat-form-field>
+            <input matInput maxlength="15" placeholder="Cliente" formControlName="nombreCliente" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput maxlength="15" placeholder="Telefono" formControlName="telefono" required minlength="7">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput maxlength="15" placeholder="Observaciones" formControlName="observaciones">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button mat-raised-button color="primary" class="btn-send">Enviar</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<ul class="collection">
+  <li *ngFor="let pedido of pedidoTemp">
+    <span>{{pedido}}</span>
+    <a (click)="removeItemTempOrder(pedido)">
+      <button mat-button><mat-icon>delete</mat-icon></button>
+    </a>
+  </li>
+</ul> 

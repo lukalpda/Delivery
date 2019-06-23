@@ -5,7 +5,6 @@ import {DetalleVenta, Time} from '../../interfaces/detalle-venta.interface';
 import {PedidoService} from '../../services/pedido.service';
 import {DetalleVentaService} from '../../services/detalle-venta.service';
 import {Router} from '@angular/router';
-import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-cocina',

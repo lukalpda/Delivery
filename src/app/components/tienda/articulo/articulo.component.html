@@ -1,19 +1,28 @@
 <div class="card-columns">
-  <div class="card border-dark " *ngFor="let articuloAux of articulos; let i = index"> <img class="card-img-top"
-      src="{{articuloAux.articulo_foto}}" [alt]="articuloAux">
-    <div class="card-body">
-      <h4 class="card-title">{{articuloAux.articulo_nombre}}</h4> 
-      <h5 class="card-title">{{articuloAux.articulo_id.precio_monto}}</h5>
-      <ng-template #popContent><b>{{articuloAux.articulo_detalle}}</b></ng-template>
-      <ng-template #popTitle>Ingredientes</ng-template>
-      <button type="button" class="btn btn-outline-primary btn-block" placement="bottom" [ngbPopover]="popContent"
-        [popoverTitle]="popTitle">
-        Detalles
-      </button>
-      <div class="carrito">
-        Agregar al carrito
-        <img class="carro" src="../../assets/carrito.png">
+  <ng-container *ngFor="let articuloAux of articulos; let i = index">
+    <div class="card border-dark" *ngIf="articuloAux.categoriaProd.id_categoria == childMessage">
+      <img class="card-img-top" src="{{articuloAux.foto}}" [alt]="articuloAux">
+      <div class="card-body">
+        <h4 class="card-title">{{articuloAux.nombre_articulo}}</h4>
+        <h4> {{articuloAux.precioA|currency}}</h4>
+        <ng-template #popContent><b>{{articuloAux.detalle}}</b></ng-template>
+        <ng-template #popTitle>Ingredientes</ng-template>
+        <button type="button" class="btn btn-outline-primary btn-block" placement="bottom" [ngbPopover]="popContent"
+          [popoverTitle]="popTitle">
+          Detalles
+        </button>
+        <div (click)="cargarAlCarrito(articuloAux)" class="carrito">
+          Agregar al carrito
+          <button mat-button>
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+</div>
+<div>
+  <button class="button" (click)="enviarCarrito(carrito)">
+    Continuar
+  </button>
 </div>

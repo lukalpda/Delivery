@@ -1,0 +1,53 @@
+<app-menu-gerente>
+    <div class="container" col-md-6>
+      <br>
+      <div class="card">
+        <div class="class-header">
+          <br>
+          <h3 class="text-center">Agregar Plato al Menú</h3>
+          <hr>
+        </div>
+        <div class="card-body">
+          <form *ngIf="categorias">   
+
+            <div class="form-group">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control" name="nombre" [(ngModel)]="plato.nombre_articulo">
+            </div>
+            <div class="form-group">
+              <label for="">Detalle:</label>
+              <input type="text" class="form-control" name="detalle" [(ngModel)]="plato.detalle">
+            </div>
+               
+            <label for="">Categoría:</label>
+            <div class="form-group">
+              <select [(ngModel)]="cat" name="cat">
+                <option *ngFor="let categoria of categorias" [ngValue]="categoria">
+                  {{categoria.nombre_categoria}}
+                </option>
+              </select>
+            </div>
+          
+            <div class="form-group">
+              <label for="">Tiempo de elaboración:</label>
+              <input type="text" class="form-control" name="tiempo" [(ngModel)]="plato.minutosPrep">
+            </div>
+  
+            <div class="form-group">
+              <label for="">Precio de venta:</label>
+              <input type="text" class="form-control" name="precio" [(ngModel)]="plato.precioM">
+            </div>      
+            
+            
+            <!-- AGREGAR PARTE PARA AGREGAR RECETA -->
+
+  
+            <div class="botones">
+              <button (click)="Guardar(cat)" class="btn btn-success btn-lg btn-block">Guardar</button>
+              <button (click)="Volver()" class="btn btn-danger btn-lg btn-block">Volver</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </app-menu-gerente>

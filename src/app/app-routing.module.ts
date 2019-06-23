@@ -7,17 +7,22 @@ import {ContactComponent} from './components/contact/contact.component';
 import {TiendaComponent} from './components/tienda/tienda.component';
 import {GerenteComponent} from './components/gerente/gerente.component';
 import {RecepcionComponent} from './components/recepcion/recepcion.component';
-import {BarrasComponent} from './components/graficas/barras/barras.component';
-import {LineasComponent} from './components/graficas/lineas/lineas.component';
+import {BarrasComponent} from './components/graficas/Platos+Vendidos/barras.component';
+import {LineasComponent} from './components/graficas/PedidosPorPeriodo/lineas.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
-import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
-import {EditarStockComponent} from './components/stock/editar-stock/editar-stock.component';
-import {AgregarStockComponent} from './components/stock/agregar-stock/agregar-stock.component';
-import {StockComponent} from './components/stock/stock.component';
+import {EditarStockComponent} from './components/stock/stock-articulo/editar-articulo/editar-stock.component';
+import {AgregarStockComponent} from './components/stock/stock-articulo/agregar-articulo/agregar-stock.component';
+import {StockComponent} from './components/stock/stock-articulo/stock.component';
 import {CocinaComponent} from './components/cocina/cocina.component';
+import {DonaPrimeNGComponent} from './components/graficas/dona-prime-ng/dona-prime-ng.component';
+import {BarrasPrimeNgComponent} from './components/graficas/barras-prime-ng/barras-prime-ng.component';
+import {UsuariosComponent} from './components/graficas/usuarios/usuarios.component';
+import { PlatoComponent } from './components/stock/stock-manufacturado/plato.component';
+import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/agregar-manufacturado/agregar-plato.component';
+import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -27,15 +32,20 @@ const routes: Routes = [
   {path: 'tienda', component: TiendaComponent},
   {path: 'gerente', component: GerenteComponent},
   {path: 'recepcion', component: RecepcionComponent},
-  {path: 'orders-list', component: OrdersListComponent},
-  {path: 'graficas/barras', component: BarrasComponent},
-  {path: 'graficas/lineas', component: LineasComponent},
+  {path: 'graficas/Platos+Vendidos', component: BarrasComponent},
+  {path: 'graficas/PedidosPorPeriodo', component: LineasComponent},
+  {path: 'graficas/dona-prime-ng', component: DonaPrimeNGComponent},
+  {path: 'graficas/barras-prime-ng', component: BarrasPrimeNgComponent},
+  {path: 'graficas/usuarios', component: UsuariosComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'agregarCliente', component: AgregarClienteComponent},
   {path: 'editarCliente/:id', component: EditarClienteComponent},
   {path: 'stock', component: StockComponent},
   {path: 'agregarArticulo', component: AgregarStockComponent},
   {path: 'editarStock/:id', component: EditarStockComponent},
+  {path: 'plato', component: PlatoComponent},
+  {path: 'agregarPlato', component: AgregarPlatoComponent},
+  {path: 'editarPlato/:id', component: EditarPlatoComponent},
   {path: 'carro', component: CarroComponent},
   {path: 'cocina', component: CocinaComponent},
   {path: '**', component: HomeComponent}

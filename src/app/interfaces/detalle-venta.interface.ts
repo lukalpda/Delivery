@@ -1,13 +1,5 @@
-<<<<<<< Updated upstream
-import { Manufacturado } from "./manufacturado.interface";
-<<<<<<< Updated upstream
-import { Factura } from "./factura.interface";
-=======
-=======
 import { Manufacturado } from './manufacturado.interface';
 import { Factura } from './factura.interface';
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 import { Pedido } from './pedido.interface';
 import { Articulo } from './articulo.interface';
 import {Time} from '@angular/common';

@@ -7,11 +7,46 @@ import { AppComponent } from "./app.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {ButtonModule} from 'primeng/primeng';
+import {ButtonModule, ChartModule} from 'primeng/primeng';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {ToastModule} from 'primeng/toast';
+//import {ChartModule} from 'primeng/chart';
+
+//Material
+import { CommonModule } from "@angular/common";
+import { MaterialModule } from "./material.module";
+//Firebase
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+//http
+import { HttpClientModule } from "@angular/common/http";
+import { environment } from "../environments/environment";
+//chart.js
+import { ChartsModule } from "ng2-charts";
+import { BarrasComponent } from "./components/graficas/Platos+Vendidos/barras.component";
+import { LineasComponent } from "./components/graficas/PedidosPorPeriodo/lineas.component";
+//Services
+import { OrdersService } from "./services/orders.service";
+import { ManufacturadoService } from "./services/manufacturado.service";
+import { ArticuloComponent } from "./components/tienda/articulo/articulo.component";
+import { DistritoService } from "./services/distrito.service";
+import { DomicilioService } from "./services/domicilio.service";
+import { ArticuloService } from "./services/articulo.service";
+import { CargosService } from "./services/cargos.service";
+import { ClienteService } from "./services/cliente.service";
+import { DetalleRecetaService } from "./services/detalle-receta.service";
+import { DetalleVentaService } from "./services/detalle-venta.service";
+import { EmpleadoService } from "./services/empleado.service";
+import { FacturaService } from "./services/factura.service";
+import { LocalidadadService } from "./services/localidad.service";
+import { PedidoService } from "./services/pedido.service";
+import { UnidadMedidaService } from "./services/unidad-medida.service";
+import { CategoriaService } from "./services/categoria.service";
 //Components
 import {ArticulosManufacturadosComponent} from './components/tienda/articulos-manufacturados/articulos-manufacturados.component';
-import {OrdersListComponent} from './components/orders/orders-list/orders-list.component';
-import {OrdersComponent} from './components/orders/orders.component';
+import {ListaPedidoComponent} from './components/pedidos/lista-pedido/lista-pedido.component';
 import {MenuGerenteComponent} from './components/shared/menu-gerente/menu-gerente.component';
 import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-recepcion.component';
 import { HomeComponent } from "./components/home/home.component";
@@ -30,45 +65,17 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
-import { StockComponent } from './components/stock/stock.component';
-import { AgregarStockComponent } from './components/stock/agregar-stock/agregar-stock.component';
-import { EditarStockComponent } from './components/stock/editar-stock/editar-stock.component';
+import { StockComponent } from './components/stock/stock-articulo/stock.component';
+import { AgregarStockComponent } from './components/stock/stock-articulo/agregar-articulo/agregar-stock.component';
+import { EditarStockComponent } from './components/stock/stock-articulo/editar-articulo/editar-stock.component';
+import {PedidosComponent} from './components/pedidos/pedidos.component';
+import { PlatoComponent } from './components/stock/stock-manufacturado/plato.component';
+import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/agregar-manufacturado/agregar-plato.component';
+import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
 import {CocinaComponent} from './components/cocina/cocina.component';
-
-//Firebase
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
-//http
-import { HttpClientModule } from "@angular/common/http";
-import { environment } from "../environments/environment";
-//chart.js
-import { ChartsModule } from "ng2-charts";
-import { BarrasComponent } from "./components/graficas/barras/barras.component";
-import { LineasComponent } from "./components/graficas/lineas/lineas.component";
-//Services
-import { OrdersService } from "./services/orders.service";
-import { ManufacturadoService } from "./services/manufacturado.service";
-import { ArticuloComponent } from "./components/tienda/articulo/articulo.component";
-import { DistritoService } from "./services/distrito.service";
-import { DomicilioService } from "./services/domicilio.service";
-import { ArticuloService } from "./services/articulo.service";
-import { CargosService } from "./services/cargos.service";
-import { ClienteService } from "./services/cliente.service";
-import { DetalleRecetaService } from "./services/detalle-receta.service";
-import { DetalleVentaService } from "./services/detalle-venta.service";
-import { EmpleadoService } from "./services/empleado.service";
-import { FacturaService } from "./services/factura.service";
-import { LocalidadadService } from "./services/localidad.service";
-import { PedidoService } from "./services/pedido.service";
-import { UnidadMedidaService } from "./services/unidad-medida.service";
-import { CategoriaService } from "./services/categoria.service";
-
-//Material
-import { CommonModule } from "@angular/common";
-import { MaterialModule } from "./material.module";
-
+import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
+import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
+import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -84,8 +91,8 @@ import { MaterialModule } from "./material.module";
     TiendaComponent,
     GerenteComponent,
     HomeAdminComponent,
-    OrdersComponent,
-    OrdersListComponent,
+    PedidosComponent,
+    ListaPedidoComponent,
     BarrasComponent,
     LineasComponent,
     MenuGerenteComponent,
@@ -101,11 +108,18 @@ import { MaterialModule } from "./material.module";
     StockComponent,
     AgregarStockComponent,
     EditarStockComponent,
-    CocinaComponent
+    PlatoComponent,
+    AgregarPlatoComponent,
+    EditarPlatoComponent,
+    CocinaComponent,
+    DonaPrimeNGComponent,
+    BarrasPrimeNgComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
+    AccordionModule,
     MaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -117,7 +131,9 @@ import { MaterialModule } from "./material.module";
     AngularFirestoreModule,
     ChartsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartModule,
+    ToastModule
   ],
 
   providers: [

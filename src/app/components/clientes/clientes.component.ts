@@ -16,9 +16,8 @@ export class ClientesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._clienteService.listarClientes().subscribe(data => {
-      this.clientes = data;
-    });
+    this._clienteService.listarClientes().subscribe(
+      data => {this.clientes = data;});
   }
 
   nuevoCliente() {
