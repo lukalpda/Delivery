@@ -3,7 +3,7 @@
     <br>
     <div class="container">
       <app-search></app-search>
-      <button (click)="nuevoArticulo()" class="btn btn-info" >Crear nuevo registro</button>
+      <button (click)="nuevoArticulo()" class="btn btn-info" >Cargar Articulo</button>
       <br>
       <br>
     </div>
@@ -26,12 +26,13 @@
                 <th>Stock</th>
                 <th>Unidad de Medida</th>
                 <th>Stock Mínimo</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of mercancia; let i = index" class="text-center">
                 <th scope="row">{{i+1}}</th>
-                <td>Hardcode: acá va la foto</td>
+                <td>{{item.foto}}</td>
                 <td>{{item.nombre_articulo}}</td>
                 <td>{{item.detalle}}</td>
                 <td>{{item.categoriaProd.nombre_categoria}}</td>
@@ -39,10 +40,8 @@
                 <td>{{item.medidaProd.tipo_medida}}</td>
                 <td>{{item.stockMinimo}}</td>
                 <td>
-                  <button (click)="editarArticulo(item)" class="btn btn-warning">Editar</button>                  
-                </td>
-                <td>
-                    <button (click)="bajaArticulo(item)" class="btn btn-danger">Baja</button>
+                  <button mat-button (click)="editarArticulo(item)"><mat-icon>edit</mat-icon></button>
+                  <button mat-button (click)="bajaArticulo(item)"><mat-icon>delete</mat-icon></button>
                 </td>
               </tr>
             </tbody>
@@ -67,6 +66,7 @@
                 <th>Stock Mínimo</th>
                 <th>Categoría</th>
                 <th>Unidad de Medida</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody data-spy="scroll" data-offset="0" class="scrollspy-example">
@@ -79,10 +79,8 @@
                 <td>{{articulo.categoriaProd.nombre_categoria}}</td>
                 <td>{{articulo.medidaProd.tipo_medida}}</td>
                 <td>
-                  <button (click)="editarArticulo(articulo)" class="btn btn-warning">Editar</button>                  
-                </td>
-                <td>
-                    <button (click)="bajaArticulo(articulo)" class="btn btn-danger">Baja</button>
+                  <button mat-button (click)="editarArticulo(articulo)"><mat-icon>edit</mat-icon></button>
+                  <button mat-button (click)="bajaArticulo(articulo)"><mat-icon>delete</mat-icon></button>
                 </td>
               </tr>
             </tbody>

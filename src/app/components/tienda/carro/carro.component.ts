@@ -31,4 +31,8 @@ export class CarroComponent implements OnInit {
   unificarCarros(){
 
   }
+
+  finalizarCompra(){
+
+  }
 }

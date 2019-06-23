@@ -47,3 +47,6 @@ h2 {
   background-color: #fb7e29;
   color: #fff;
 }
+.logo{
+  cursor: pointer;
+}
