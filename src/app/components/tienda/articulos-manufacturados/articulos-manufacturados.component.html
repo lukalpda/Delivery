@@ -3,7 +3,7 @@
     <div class="card border-dark" *ngIf="articuloManufacturadoAux.categoriaManuf.id_categoria == childMessage">
       <img class="card-img-top grande" src="{{articuloManufacturadoAux.foto}}" [alt]="articuloManufacturadoAux">
       <div class="card-body">
-        <h4 class="card-title">{{articuloManufacturadoAux.nombre_articuloM}}</h4>
+        <h4 class="card-title">{{articuloManufacturadoAux.nombreManufacturado}}</h4>
         <h4> {{articuloManufacturadoAux.precioM|currency}}</h4>
         <ng-template #popContent><b>{{articuloManufacturadoAux.detalle}}</b></ng-template>
         <ng-template #popTitle>Ingredientes</ng-template>

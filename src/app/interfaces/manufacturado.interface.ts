@@ -2,7 +2,7 @@ import { Categoria } from './categoria.interface';
 
 export interface Manufacturado {
   id_artManuf: number;
-  nombre_articuloM: string;
+  nombreManufacturado: string;
   minutosPrep: number;
   foto: string;
   detalle: string;

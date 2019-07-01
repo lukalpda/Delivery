@@ -54,8 +54,8 @@ import { SearchComponent } from "./components/shared/search/search.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { DataViewComponent } from "./components/shared/data-view/data-view.component";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
-import { RegisterComponent } from "./components/users/register/register.component";
-import { LoginComponent } from "./components/users/login/login.component";
+import { RegisterComponent } from "./components/auth/register/register.component";
+import { LoginComponent } from "./components/auth/login/login.component";
 import { TiendaComponent } from "./components/tienda/tienda.component";
 import { GerenteComponent } from "./components/gerente/gerente.component";
 import {HomeAdminComponent} from './components/recepcion/home-admin/home-admin.component';
@@ -76,6 +76,9 @@ import {CocinaComponent} from './components/cocina/cocina.component';
 import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
 import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
 import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
+import {interceptorProvider} from './services/complementos/interceptor.service';
+import { UserComponent } from './components/users/user/user.component';
+import { AdminComponent } from './components/users/admin/admin.component';
 
 
 @NgModule({
@@ -114,7 +117,9 @@ import { UsuariosComponent } from './components/graficas/usuarios/usuarios.compo
     CocinaComponent,
     DonaPrimeNGComponent,
     BarrasPrimeNgComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UserComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -154,7 +159,8 @@ import { UsuariosComponent } from './components/graficas/usuarios/usuarios.compo
     PedidoService,
     UnidadMedidaService,
     OrdersService,
-    CategoriaService
+    CategoriaService,
+    interceptorProvider
   ],
   bootstrap: [AppComponent]
 })

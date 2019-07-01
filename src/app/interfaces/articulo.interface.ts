@@ -3,7 +3,7 @@ import { UnidadMedida } from './unidad.medida.interface';
 
 export interface Articulo{
   id_articulo: number;
-  nombre_articulo: string;
+  nombreArticulo: string;
   costo: number;
   esPrima: boolean;
   stock: number;

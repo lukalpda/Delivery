@@ -10,7 +10,7 @@
           <div class="card-body">
             <div *ngFor="let dCom of detComanda">
               <p *ngIf="dCom.pedido.numPedido===comanda.numPedido" class="card-text">
-                {{dCom.manufacturado.nombre_articuloM}} x{{dCom.cantidad}};
+                {{dCom.manufacturado.nombreManufacturado}} x{{dCom.cantidad}};
               </p>
             </div>
             <br>

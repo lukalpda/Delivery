@@ -3,7 +3,7 @@
     <div class="card border-dark" *ngIf="articuloAux.categoriaProd.id_categoria == childMessage">
       <img class="card-img-top" src="{{articuloAux.foto}}" [alt]="articuloAux">
       <div class="card-body">
-        <h4 class="card-title">{{articuloAux.nombre_articulo}}</h4>
+        <h4 class="card-title">{{articuloAux.nombreArticulo}}</h4>
         <h4> {{articuloAux.precioA|currency}}</h4>
         <ng-template #popContent><b>{{articuloAux.detalle}}</b></ng-template>
         <ng-template #popTitle>Ingredientes</ng-template>
