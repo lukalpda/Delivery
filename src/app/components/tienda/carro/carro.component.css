@@ -5,3 +5,8 @@
 .btn2 {
   margin-left: 50%;
 }
+.img{
+  max-width:110px;
+  max-height: 90px;
+  margin: auto;
+}

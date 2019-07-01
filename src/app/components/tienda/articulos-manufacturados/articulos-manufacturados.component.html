@@ -1,7 +1,7 @@
 <div class="card-columns">
   <ng-container *ngFor="let articuloManufacturadoAux of articulosManufacturados; let i = index">
     <div class="card border-dark" *ngIf="articuloManufacturadoAux.categoriaManuf.id_categoria == childMessage">
-      <img class="card-img-top" src="{{articuloManufacturadoAux.foto}}" [alt]="articuloManufacturadoAux">
+      <img class="card-img-top grande" src="{{articuloManufacturadoAux.foto}}" [alt]="articuloManufacturadoAux">
       <div class="card-body">
         <h4 class="card-title">{{articuloManufacturadoAux.nombre_articuloM}}</h4>
         <h4> {{articuloManufacturadoAux.precioM|currency}}</h4>
@@ -14,15 +14,15 @@
         <div (click)="cargarAlCarrito(articuloManufacturadoAux)" class="carrito">
           Agregar al carrito
           <button mat-button>
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
         </div>
       </div>
     </div>
   </ng-container>
 </div>
 <div>
-  <button (click)="enviarCarrito(carrito)">
-    Finalizar Compra
+  <button class="button" (click)="enviarCarrito(carrito)">
+    Continuar
   </button>
 </div>

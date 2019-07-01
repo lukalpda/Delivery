@@ -3,15 +3,17 @@
   <h3 class="text-center">Listado de pedidos</h3>
   <hr>
 </div>
+
 <div class="example-header mat-elevation-z8 filtro">
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)"
            placeholder="Buscar Pedido">
   </mat-form-field>
 </div>
-<br>
+
 <div class="example-container mat-elevation-z8">
   <mat-table [dataSource]="dataSource" matSort>
+
     <!--  Columna ID-->
     <ng-container matColumnDef="numPedido">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Nro Pedido</mat-header-cell>
@@ -33,7 +35,6 @@
     <!-- Detalle Pedido -->
     <ng-container matColumnDef="detallePedido">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Detalle</mat-header-cell>
-      <!--<mat-cell *ngFor="let detallePedido of detallesPedido"> {{}} </mat-cell>-->
       <mat-cell *matCellDef="let row">{{row.informe}}</mat-cell>
     </ng-container>
 
@@ -42,14 +43,16 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.estadoListo}} </mat-cell>
     </ng-container>
+
     <!-- Total -->
     <ng-container matColumnDef="total">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.total|currency}} </mat-cell>
     </ng-container>
+    
     <!-- Acciones -->
-    <ng-container matColumnDef="eliminar">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
       <mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.id)">delete</mat-icon></mat-cell>
     </ng-container>
 

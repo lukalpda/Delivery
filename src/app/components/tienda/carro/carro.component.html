@@ -8,46 +8,48 @@
         <tr>
           <th scope="col">Producto</th>
           <th scope="col">Imagen</th>
-          <th scope="col">Descripciòn</th>
+          <th scope="col">Descripción</th>
           <th scope="col">Precio</th>
           <th scope="col">Cantidad</th>
           <th scope="col">Subtotal</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let carroAux of carroM; let i = index">
-          <td>{{carroAux.nombre_articuloM}}</td>
-          <td><img class="card-img-top" src="{{carroAux.foto}}" [alt]="carroAux"></td>
-          <td>{{carroAux.detalle}}</td>
-          <td>{{carroAux.precioM}}</td>
-          <td>
-              <input id="cantidad" type="number" value="1" min="1" max="10" step="1"/>
-          </td>
-          <td>
-            {{calcularSubtotal(1,carroAux.precioM)}}
-          </td>
+        <tr *ngFor="let item of carroT; let i = index">   
+          <ng-container *ngIf="item.manufacturado">
+              <td>{{item.manufacturado.nombre_articuloM}}</td>
+              <td><img class="card-img-top img" src="{{item.manufacturado.foto}}" [alt]="item"></td>
+              <td>{{item.manufacturado.detalle}}</td>
+              <td>{{item.manufacturado.precioM}}</td>
+              <td>
+                <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
+                {{item.cantidad}}
+              </td>   
+              <td>{{item.subtotal}}</td>
+          </ng-container>
+          <ng-container *ngIf="item.item"> 
+              <td>{{item.item.nombre_articulo}}</td>
+              <td><img class="card-img-top img" src="{{item.item.foto}}" [alt]="item"></td>
+              <td>{{item.item.detalle}} </td>
+              <td>{{item.item.precioA}}</td>
+              <td>
+                <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
+                {{item.cantidad}}
+              </td> 
+              <td>{{item.subtotal}}</td>
+          </ng-container>
+             
+                 
         </tr>
-          <tr *ngFor="let carroAux of carroA; let i = index">
-              <td>{{carroAux.nombre_articulo}}</td>
-            <td><img class="card-img-top" src="{{carroAux.foto}}" [alt]="carroAux"></td>
-            <td>{{carroAux.detalle}}</td>
-            <td>{{carroAux.precioA}}</td>
-            <td>
-                <input id="cantidad" type="number" value="1" min="1" max="10" step="1"/>
-            </td>
-            <td>
-              {{calcularSubtotal(1,carroAux.precioA)}}
-            </td>
-          </tr>
         <tr>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <th>Total</th>
-          <td>$</td>
+          <td>{{ total | currency }}</td>
         </tr>
-        
+
       </tbody>
     </table>
   </div>
@@ -59,11 +61,14 @@
     <h5 class="text-center">Seleccione el tipo de envío</h5>
     <hr>
     <fieldset id="group1" class="radio">
-      <input class="btn1" type="radio" value="value1" name="group1">
-      Envío a Domicilio ($30)
-      <input class="btn2" type="radio" value="value2" name="group1">
+      <input class="btn1" type="radio" value="value1" name="group1" id="envio" (change)="sumarEnvio()">
+      Envío a Domicilio ($50)
+      <input class="btn2" type="radio" value="value2" name="group1" id="retiro" (change)="restarEnvio()" checked>
       Retiro en Tienda
     </fieldset>
     <br>
+    <div>
+      <button class="button alert-danger">Finalizar Compra</button>
+    </div>
   </div>
 </div>

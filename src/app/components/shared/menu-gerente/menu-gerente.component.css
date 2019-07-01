@@ -1,8 +1,9 @@
 html, body{
-  margin:0;
+  margin:10px;
 }
 .sidenav-container {
   height: 100%;
+  background: transparent;
 }
 
 .sidenav {

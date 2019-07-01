@@ -17,7 +17,8 @@ export class PedidoService {
   myForm = new FormGroup({
     nombreCliente: new FormControl(''),
     nroPedido: new FormControl(''),
-    detallePedido: new FormControl(''),
+    telefono: new FormControl(''),
+    observaciones: new FormControl('Sin observaciones'),
     estado: new FormControl(false)
   });
 
