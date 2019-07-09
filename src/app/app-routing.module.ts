@@ -33,12 +33,12 @@ const routes: Routes = [
   //CanActive
   //user
   {path: 'carro', component: CarroComponent,
-    canActivate: [guard], data: { expectedRol: ['admin','user']}},
+    canActivate: [guard], data: { expectedRol: ['admin','user','empleado']}},
   //admin
   {path: 'gerente', component: GerenteComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'recepcion', component: RecepcionComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'graficas/Platos+Vendidos', component: BarrasComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'graficas/PedidosPorPeriodo', component: LineasComponent,

@@ -27,7 +27,7 @@ export class ManufacturadoService {
   }
 
   buscarXIdManufacturado(id: number){
-    return this.http.get<Manufacturado>(this.Url+id);
+    return this.http.get<Manufacturado>(this.Url+"lista/"+id);
   }
 
   modificarManufacturado(item:Manufacturado){

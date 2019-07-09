@@ -29,7 +29,7 @@ export class ArticulosManufacturadosComponent implements OnInit {
         this.articulosManufacturados = data;
       }); 
 
-    console.log(this.articulosManufacturados);
+    //console.log(this.articulosManufacturados);
 
     this._carroService.enviarCompraObservable.subscribe(response => {
       this.carroM = response;
