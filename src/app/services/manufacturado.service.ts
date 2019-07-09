@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Manufacturado } from '../interfaces/manufacturado.interface';
-import {FormControl, FormGroup} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
