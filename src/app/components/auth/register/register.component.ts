@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
     this.authService.registro(this.usuario).subscribe(data => {
         this.isRegister = true;
         this.isRegisterFail = false;
+        window.location.assign("auth/login");
       },
       (error: any) => {
         console.log(error.error.mensaje);

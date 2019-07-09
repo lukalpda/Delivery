@@ -25,6 +25,6 @@ export class EmpleadoService {
   }
 
   modificarEmpleado(item:Empleado){
-    return this.http.put<Empleado>(this.Url+item.id_empleado, item);
+    return this.http.put<Empleado>(this.Url+item.idEmpleado, item);
   }
 }

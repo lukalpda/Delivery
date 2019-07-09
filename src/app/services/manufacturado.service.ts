@@ -17,7 +17,7 @@ export class ManufacturadoService {
 
 
   listarManufacturados(){
-    return this.http.get<Manufacturado[]>(this.Url+"lista")
+    return this.http.get<Manufacturado[]>(this.Url+"lista/")
   }
   listarManufacturadosDisponibles(buscarManuf: boolean){
       return this.http.get<Manufacturado[]>(this.Url+"disponibles/"+buscarManuf)

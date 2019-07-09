@@ -14,7 +14,7 @@ export class ArticuloService {
   Url= "http://localhost:8080/api/v1/articulos/";
 
   listarArticulos(){
-    return this.http.get<Articulo[]>(this.Url)
+    return this.http.get<Articulo[]>(this.Url+"lista/")
   }
 
   listarArticulosDisponiblesPrima(buscarArtPrima:boolean){

@@ -32,19 +32,17 @@ export class PedidosComponent implements OnInit {
       .subscribe(data => {
         this.manufacturados = data;
       });
-    console.log(this.manufacturados);
     this._pedidoService
       .listarPedidos()
       .subscribe(data => {
         this.pedidos = data;
       });
-    console.log(this.manufacturados);
   }
 
-  onAddProduct(manufacturados){
+  onAddProduct(manufacturados : Manufacturado){
     console.log(manufacturados);
     this.totalPedido = (this.totalPedido + manufacturados.precioM);
-    this.pedidoTemp.push(manufacturados.nombre_articuloM);
+    this.pedidoTemp.push(manufacturados.nombreManufacturado);
   }
 
   onSubmit(){

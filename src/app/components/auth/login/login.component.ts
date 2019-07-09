@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.isLogged = true;
         this.isLoginFail = false;
         this.roles = this._tokenService.getAuthorities();
-        window.location.reload();
+        window.location.assign("**");
       },
       (err: any) => {
         this.isLogged = false;

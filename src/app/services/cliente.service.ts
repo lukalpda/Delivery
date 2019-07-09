@@ -23,6 +23,6 @@ export class ClienteService {
   }
 
   modificarCliente(item:Cliente){
-    return this.http.put<Cliente>(this.Url+item.id_usuario, item);
+    return this.http.put<Cliente>(this.Url+item.idUsuario, item);
   }
 }

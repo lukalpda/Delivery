@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   app_name = 'El Buen Sabor';
 
   @Input() user : string;
-
+  info: any={};
   usuarios: UsuariosComponent[]=[];
 
   isLogin = false;
@@ -24,6 +24,9 @@ export class NavbarComponent implements OnInit {
   constructor(private _tokenService: TokenService, private router: Router) { }
 
   ngOnInit() {
+    this.info={
+      nombreUsuario: this._tokenService.getUserName()
+    };
     if (this._tokenService.getToken()) {
       this.isLogin = true;
       this.roles = [];
@@ -32,11 +35,16 @@ export class NavbarComponent implements OnInit {
         if (rol === 'ROLE_ADMIN') {
           this.authority = 'admin';
           return false;
+        }else if(rol === 'ROLE_EMPLEADO'){
+          this.authority = 'empleado';
+          return false;
+        }else{
+          this.authority = 'user';
+          return true;
         }
-        this.authority = 'user';
-        return true;
       });
     }
+
   }
 
   logOut(): void {

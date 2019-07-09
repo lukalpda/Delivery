@@ -66,8 +66,8 @@ export class CarroComponent implements OnInit {
           for (let j = 0; j < this.carroT.length; j++) {
             if (this.carroT[j].item == null) {
               if (
-                this.carroT[j].manufacturado.nombre_articuloM ==
-                objeto.manufacturado.nombre_articuloM
+                this.carroT[j].manufacturado.nombreManufacturado ==
+                objeto.manufacturado.nombreManufacturado
               ) {
                 this.carroT[j].cantidad += 1;
                 contador++;
@@ -104,8 +104,8 @@ export class CarroComponent implements OnInit {
           for (let j = 0; j < this.carroT.length; j++) {
             if (this.carroT[j].manufacturado == null) {
               if (
-                this.carroT[j].item.nombre_articulo ==
-                objeto.item.nombre_articulo
+                this.carroT[j].item.nombreArticulo ==
+                objeto.item.nombreArticulo
               ) {
                 this.carroT[j].cantidad += 1;
                 contador++;
