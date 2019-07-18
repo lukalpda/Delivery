@@ -38,7 +38,7 @@ export class ArticuloComponent implements OnInit {
     this.carroA.push(item);
     console.log(this.carroA);
     this._carroService.enviarCompraA(this.carroA);
-    localStorage.setItem("carroA", JSON.stringify(this.carroA));
+   // localStorage.setItem("carroA", JSON.stringify(this.carroA));
 
   }
   cambiarCategoria(categoria: string) {

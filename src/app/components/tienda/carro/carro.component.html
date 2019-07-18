@@ -22,7 +22,7 @@
               <td>{{item.manufacturado.detalle}}</td>
               <td>{{item.manufacturado.precioM}}</td>
               <td>
-                <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
+                <!-- <input id="cantidadM" type="number" value="{{item.canticd dad}}" min="1" max="10" step="1" (change)="calcularSubtotal()"/> -->
                 {{item.cantidad}}
               </td>   
               <td>{{item.subtotal}}</td>
@@ -68,7 +68,7 @@
     </fieldset>
     <br>
     <div>
-      <button class="button alert-danger">Finalizar Compra</button>
+      <button class="button alert-danger" id="finalizar" (click)="finalizarCompra()">Finalizar Compra</button>
     </div>
   </div>
 </div>

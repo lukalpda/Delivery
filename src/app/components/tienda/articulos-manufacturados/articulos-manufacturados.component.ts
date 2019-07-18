@@ -20,20 +20,21 @@ export class ArticulosManufacturadosComponent implements OnInit {
     private _articulosManufacturadosService: ManufacturadoService,
     private _carroService: CarroService,
     private router: Router
-  ) {}
+  ) {
+  }
   ngOnInit() {
    
     this._articulosManufacturadosService
       .listarManufacturados()
       .subscribe(data => {
         this.articulosManufacturados = data;
-      }); 
+      });
 
-    console.log(this.articulosManufacturados);
-
-    this._carroService.enviarCompraObservable.subscribe(response => {
-      this.carroM = response;
-    });
+    if (this.carroM.length < 1) {
+      this._carroService.enviarCompraObservable.subscribe(response => {
+        this.carroM = response;
+      });
+    }
   }
 
   public verArticulosManufacturados(idx: string) {
@@ -42,15 +43,26 @@ export class ArticulosManufacturadosComponent implements OnInit {
   cambiarCategoria(categoria: string) {
     this.childMessage = categoria;
   }
+  
 
   cargarAlCarrito(item: any) {
+    
     this.carroM.push(item);
     console.log(this.carroM);
-    localStorage.setItem("carroM", JSON.stringify(this.carroM));
+    console.log(localStorage);
+    
+   /* var old = localStorage.getItem("carroM");
+    if (old === null){
+      localStorage.setItem("carroM", JSON.stringify(this.carroM));
+    } else {
+      old = JSON.parse(old);      
+      localStorage.setItem("carroM", JSON.stringify(old.concat(JSON.stringify(this.carroM))));
+    }*/
+    
     this._carroService.enviarCompraM(this.carroM);
   }
 
-  enviarCarrito(){
+  enviarCarrito() {
     this.router.navigate(["/carro"]);
   }
 }
