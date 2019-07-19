@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Manufacturado } from 'src/app/interfaces/manufacturado.interface';
 import { ManufacturadoService } from 'src/app/services/manufacturado.service';
 import { Router } from '@angular/router';
+import { DetalleRecetaService } from 'src/app/services/detalle-receta.service';
+import { DetalleReceta } from 'src/app/interfaces/detalle-receta.interface';
 
 @Component({
   selector: 'app-plato',
@@ -13,10 +15,13 @@ export class PlatoComponent implements OnInit {
   platos : Manufacturado [] = [];
   platosViejos : Manufacturado [] = [];
 
+  ingredientes : DetalleReceta [] = [];
+
   constructor(
     private _platoService : ManufacturadoService,
+    private _recetaService : DetalleRecetaService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this._platoService.listarManufacturadosDisponibles(true).subscribe(data =>{
@@ -28,6 +33,11 @@ export class PlatoComponent implements OnInit {
     });
   }
 
+  armarDato(item : Manufacturado){
+    this._recetaService.listarRecetasXIdPlato(item.id_artManuf).subscribe(data=>{
+      this.ingredientes=data;
+    })
+  }
 
   verReceta(){
     
@@ -38,7 +48,7 @@ export class PlatoComponent implements OnInit {
   }
 
   editarPlato(plato: Manufacturado) {
-    localStorage.setItem("id_plato", plato.id_artManuf.toString());
+    localStorage.setItem("id", plato.id_artManuf.toString());
     this.router.navigate(["editarPlato/"+plato.id_artManuf]);
   }
 
@@ -49,9 +59,10 @@ export class PlatoComponent implements OnInit {
     .subscribe(() => {
       this.platos = this.platos.filter(p=>p!==art);
       }              
-    );      
+    );
       alert("Se dió de baja exitosamente");   
-  }  
+      location.reload();      
+    }  
 
   ////////////////// REVISAR //////////////////////////
   altaPlato(art: Manufacturado){
@@ -61,7 +72,8 @@ export class PlatoComponent implements OnInit {
       this.platosViejos = this.platosViejos.filter(p=>p!==art);
       }              
     );      
-      alert("Se dió de alta exitosamente");   
+      alert("Se dió de alta exitosamente");
+      location.reload();   
   }  
 
 }

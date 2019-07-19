@@ -6,7 +6,6 @@ import { UnidadMedida } from 'src/app/interfaces/unidad.medida.interface';
 import { Categoria } from 'src/app/interfaces/categoria.interface';
 import { UnidadMedidaService } from 'src/app/services/unidad-medida.service';
 import { CategoriaService } from 'src/app/services/categoria.service';
-import { FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-stock',

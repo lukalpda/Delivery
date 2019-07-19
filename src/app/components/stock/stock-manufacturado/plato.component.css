@@ -1,0 +1,16 @@
+.card-body{
+    font: 13px arial, sans-serif;
+}
+
+.table{
+    text-align: center;
+  }
+  
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }

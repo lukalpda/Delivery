@@ -23,6 +23,7 @@ import {UsuariosComponent} from './components/graficas/usuarios/usuarios.compone
 import { PlatoComponent } from './components/stock/stock-manufacturado/plato.component';
 import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/agregar-manufacturado/agregar-plato.component';
 import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
+import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -43,9 +44,10 @@ const routes: Routes = [
   {path: 'stock', component: StockComponent},
   {path: 'agregarArticulo', component: AgregarStockComponent},
   {path: 'editarStock/:id', component: EditarStockComponent},
-  {path: 'plato', component: PlatoComponent},
+  {path: 'platos', component: PlatoComponent},
   {path: 'agregarPlato', component: AgregarPlatoComponent},
   {path: 'editarPlato/:id', component: EditarPlatoComponent},
+  {path: 'categoria_medida', component: CategoriaMedidaComponent},
   {path: 'carro', component: CarroComponent},
   {path: 'cocina', component: CocinaComponent},
   {path: '**', component: HomeComponent}

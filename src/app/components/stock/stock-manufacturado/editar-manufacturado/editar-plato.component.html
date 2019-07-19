@@ -1,3 +1,92 @@
-<p>
-  editar-plato works!
-</p>
+<app-menu-gerente>
+  <div class="container" col-md-6>
+    <br>
+    <div class="card">
+      <div class="class-header">
+        <br>
+        <h3 class="text-center">Editar Plato</h3>
+        <hr>
+      </div>
+      <div class="card-body">
+        <form *ngIf="categorias">
+
+          <div class="form-group">
+            <label for="">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="man.nombre_articuloM">
+          </div>
+          <div class="form-group">
+            <label for="">Detalle:</label>
+            <input type="text" class="form-control" name="detalle" [(ngModel)]="man.detalle">
+          </div>
+
+          <label for="">Categoría:</label>
+          <div class="form-group">
+            <select [(ngModel)]="man.categoriaManuf" name="cat" class="selectIngr">
+              <option *ngFor="let categoria of categorias" [ngValue]="categoria">
+                {{categoria.nombre_categoria}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Tiempo de elaboración:</label>
+            <input type="text" class="form-control" name="tiempo" [(ngModel)]="man.minutosPrep">
+          </div>
+
+          <div class="form-group">
+            <label for="">Precio de venta:</label>
+            <input type="text" class="form-control" name="precio" [(ngModel)]="man.precioM">
+          </div>
+
+          <br>
+          <h3>Receta</h3>
+
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <div>
+                  <select [(ngModel)]="articulo" name="articulo" class="selectIngr">
+                    <option *ngFor="let articulo of articulos" [ngValue]="articulo">
+                      {{articulo.nombre_articulo}}
+                    </option>
+                  </select>
+                </div>
+              </td>
+
+              <td>
+                <div>
+                  <input type="text" placeholder="cantidad" class="form-control" name="cantidad" [(ngModel)]="cantidad">
+                </div>
+              </td>
+
+              <td>
+                <div>
+                  <button mat-raised-button color="primary" class="btn-send"
+                    (click)="agregarIngrediente(articulo)">Agregar</button>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+          <ul class="collection">
+            <li *ngFor="let ingrediente of ingredienteTemp">
+              <span>{{ingrediente.articulo.nombre_articulo}}  x 
+                {{ingrediente.cantidad}}  {{ingrediente.articulo.medidaProd.tipo_medida}}</span>
+              <a (click)="removeItemTempOrder(ingrediente)">
+                <button mat-button>
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </a>
+            </li>
+          </ul>
+
+          <div class="botones">
+            <button type="button" (click)="EditarPlato()" class="btn btn-success btn-lg">Guardar</button>
+            <button (click)="Volver()" class="btn btn-danger btn-lg">Volver</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-menu-gerente>

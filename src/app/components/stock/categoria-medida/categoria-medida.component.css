@@ -1,0 +1,23 @@
+#elemento_1 {
+    width: 300px;
+    float: left;
+}
+
+#elemento_2 {
+    width: 300px;
+    position:relative;
+    right:-5px;
+    top: -20px;
+}
+
+#elemento_3 {
+    width: 300px;
+    float: left;
+}
+
+#elemento_4 {
+    width: 300px;
+    position:relative;
+    right:-5px;
+    top: -20px;
+}

@@ -76,6 +76,7 @@ import {CocinaComponent} from './components/cocina/cocina.component';
 import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
 import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
 import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
+import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { UsuariosComponent } from './components/graficas/usuarios/usuarios.compo
     CocinaComponent,
     DonaPrimeNGComponent,
     BarrasPrimeNgComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    CategoriaMedidaComponent
   ],
   imports: [
     BrowserModule,
