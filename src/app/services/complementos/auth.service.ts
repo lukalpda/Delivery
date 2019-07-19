@@ -5,7 +5,11 @@ import { JwtInterface } from '../../interfaces/jwt.interface';
 import { NuevoUsuarioInterface } from '../../interfaces/nuevo-usuario.interface';
 import {LoginUsuarioInterface} from '../../interfaces/login-usuario.interface';
 
-const cabecera = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+const cabecera = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'

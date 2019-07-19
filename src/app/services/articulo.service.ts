@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Articulo} from '../interfaces/articulo.interface';
+import {Observable} from 'rxjs';
+
+const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +16,12 @@ export class ArticuloService {
 
   Url= "http://localhost:8080/api/v1/articulos/";
 
-  listarArticulos(){
-    return this.http.get<Articulo[]>(this.Url+"lista/")
+  /*listarArticulos(){
+    return this.http.get<Articulo[]>(this.Url+'lista');
+  }*/
+
+  public listarArticulos(): Observable<Articulo[]> {
+    return this.http.get<Articulo[]>(this.Url + 'lista', cabecera);
   }
 
   listarArticulosDisponiblesPrima(buscarArtPrima:boolean){
@@ -25,14 +32,14 @@ export class ArticuloService {
   }
 
   crearArticulo(item: Articulo){
-    return this.http.post<Articulo>(this.Url, item);
+    return this.http.post<Articulo>(this.Url+"nuevo", item);
   }
 
   buscarXIdArticulo(id: number){
-    return this.http.get<Articulo>(this.Url+id);
+    return this.http.get<Articulo>(this.Url+"detalle/"+id);
   }
 
   modificarArticulo(item:Articulo){
-     return this.http.put<Articulo>(this.Url+item.id_articulo, item);
+     return this.http.put<Articulo>(this.Url+"actualizar/"+item.id_articulo, item);
   }
 }

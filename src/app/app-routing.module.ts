@@ -30,6 +30,7 @@ const routes: Routes = [
   {path: 'auth/login', component: LoginComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'tienda', component: TiendaComponent},
+
   //CanActive
   //user
   {path: 'carro', component: CarroComponent,
@@ -62,7 +63,7 @@ const routes: Routes = [
   {path: 'editarStock/:id', component: EditarStockComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'cocina', component: CocinaComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   //Users
   {path: 'admin', component:AdminComponent,
     canActivate: [guard], data: {expectedRol: ['admin']}},

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import {interceptorProvider} from './services/complementos/interceptor.service';
 
 //Bootstrap PrimeNg
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -76,7 +77,6 @@ import {CocinaComponent} from './components/cocina/cocina.component';
 import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
 import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
 import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
-import {interceptorProvider} from './services/complementos/interceptor.service';
 import { UserComponent } from './components/users/user/user.component';
 import { AdminComponent } from './components/users/admin/admin.component';
 

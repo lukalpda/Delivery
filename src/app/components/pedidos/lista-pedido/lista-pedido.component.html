@@ -54,6 +54,7 @@
     <ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
       <mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.id)">delete</mat-icon></mat-cell>
+      <mat-cell *matCellDef="let row"><mat-icon (click)="modificarPedido(row.id)">update</mat-icon></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>

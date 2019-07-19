@@ -17,6 +17,8 @@ export class GuardService implements CanActivate {
     roles.forEach(rol => {
       if (rol === 'ROLE_ADMIN') {
         this.realRol = 'admin';
+      }else if (rol === 'ROLE_EMPLEADO') {
+        this.realRol = 'empleado';
       }
     });
     if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) {
