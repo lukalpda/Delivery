@@ -12,25 +12,25 @@ export class DetalleVentaService {
   detalles: DetalleVenta[];
   constructor(private http: HttpClient) { }
 
-  Url= "http://localhost:8080/api/v1/detalles_factura/";
+  Url = 'http://localhost:8080/api/v1/detalles_factura/';
 
-  listarDetalleVentas(){
-    return this.http.get<DetalleVenta[]>(this.Url)
+  listarDetalleVentas() {
+    return this.http.get<DetalleVenta[]>(this.Url);
   }
 
-  listarXPedido(idPedido: number){
-    return this.http.get<DetalleVenta[]>(this.Url+"porPedido/"+idPedido)
+  listarXPedido(idPedido: number) {
+    return this.http.get<DetalleVenta[]>(this.Url + 'porPedido/' + idPedido);
   }
-  crearDetalleVenta(item: DetalleVenta){
+  crearDetalleVenta(item: DetalleVenta) {
     return this.http.post<DetalleVenta>(this.Url, item);
   }
 
-  buscarXIdDetalleVenta(id: number){
-    return this.http.get<DetalleVenta>(this.Url+id);
+  buscarXIdDetalleVenta(id: number) {
+    return this.http.get<DetalleVenta>(this.Url + id);
   }
 
-  modificarDetalleVenta(item:DetalleVenta){
-    return this.http.put<DetalleVenta>(this.Url+item.idDetalle, item);
+  modificarDetalleVenta(item: DetalleVenta) {
+    return this.http.put<DetalleVenta>(this.Url + item.idDetalle, item);
   }
 
 }

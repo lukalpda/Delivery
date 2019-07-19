@@ -12,4 +12,5 @@ export interface Pedido {
   hora: Time;
   fechaAnulado: Date;
   informe: string;
+  demora: number;
 }

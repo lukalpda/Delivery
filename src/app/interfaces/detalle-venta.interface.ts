@@ -14,8 +14,3 @@ export interface DetalleVenta {
   manufacturado: Manufacturado;
 
 }
-
-export interface Time {
-  value: string;
-  viewValue: string;
-}

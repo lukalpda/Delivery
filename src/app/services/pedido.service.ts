@@ -13,7 +13,6 @@ export class PedidoService {
 
   Url = 'http://localhost:8080/api/v1/pedidos/';
 
-
   myForm = new FormGroup({
     nombreCliente: new FormControl(''),
     nroPedido: new FormControl(''),
@@ -22,10 +21,8 @@ export class PedidoService {
     estado: new FormControl(false)
   });
 
-  listarPedidos(){
-=======
+
   listarPedidos() {
->>>>>>> Stashed changes
     return this.http.get<Pedido[]>(this.Url);
   }
 
@@ -39,13 +36,6 @@ export class PedidoService {
 
   modificarPedido(item: Pedido) {
     return this.http.put<Pedido>(this.Url + item.numPedido, item);
-  }
-  estadoPedido(pedido:Pedido){
-    if(pedido.estadoListo==true) {
-      pedido.estadoListo = false;
-    }else{
-      pedido.estadoListo = true;
-    }
   }
 
   estadoPedido(pedido: Pedido) {
