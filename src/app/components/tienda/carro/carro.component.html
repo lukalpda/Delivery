@@ -15,29 +15,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of carroT; let i = index">   
+        <tr *ngFor="let item of carroT; let i = index">
           <ng-container *ngIf="item.manufacturado">
-              <td>{{item.manufacturado.nombre_articuloM}}</td>
-              <td><img class="card-img-top img" src="{{item.manufacturado.foto}}" [alt]="item"></td>
-              <td>{{item.manufacturado.detalle}}</td>
-              <td>{{item.manufacturado.precioM}}</td>
-              <td>
-                <!-- <input id="cantidadM" type="number" value="{{item.canticd dad}}" min="1" max="10" step="1" (change)="calcularSubtotal()"/> -->
-                {{item.cantidad}}
-              </td>   
-              <td>{{item.subtotal}}</td>
+            <td>{{item.manufacturado.nombre_articuloM}}</td>
+            <td><img class="card-img-top img" src="{{item.manufacturado.foto}}" [alt]="item"></td>
+            <td>{{item.manufacturado.detalle}}</td>
+            <td>{{item.manufacturado.precioM}}</td>
+            <td>
+              <!-- <input id="cantidadM" type="number" value="{{item.canticd dad}}" min="1" max="10" step="1" (change)="calcularSubtotal()"/> -->
+              {{item.cantidad}}
+            </td>
+            <td>{{item.subtotal}}</td>
           </ng-container>
-          <ng-container *ngIf="item.item"> 
-              <td>{{item.item.nombre_articulo}}</td>
-              <td><img class="card-img-top img" src="{{item.item.foto}}" [alt]="item"></td>
-              <td>{{item.item.detalle}} </td>
-              <td>{{item.item.precioA}}</td>
-              <td>
-                <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
-                {{item.cantidad}}
-              </td> 
-              <td>{{item.subtotal}}</td>
-          </ng-container>                
+          <ng-container *ngIf="item.item">
+            <td>{{item.item.nombre_articulo}}</td>
+            <td><img class="card-img-top img" src="{{item.item.foto}}" [alt]="item"></td>
+            <td>{{item.item.detalle}} </td>
+            <td>{{item.item.precioA}}</td>
+            <td>
+              <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
+              {{item.cantidad}}
+            </td>
+            <td>{{item.subtotal}}</td>
+          </ng-container>
         </tr>
         <tr>
           <td></td>
@@ -53,6 +53,25 @@
   </div>
 </div>
 <br>
+
+<div class="container">
+  <div class="card-columns">
+    <div class="card bg-light">
+        <br>
+        <h5 class="text-center">Observaciones</h5>
+        <hr>
+        <input [(ngModel)]="observaciones" class="left" name="observaciones" id="observaciones" #ctrl="ngModel" required>
+    </div>
+    <div class="card bg-light">
+        <br>
+        <h5 class="text-center">Retira/Recibe</h5>
+        <hr>
+        <input [(ngModel)]="nombreTemporal" class="rigth" name="nombreTemporal" id="nombreTemporal" #ctrl="ngModel" required>
+    </div>
+  </div>
+</div>
+
+<br>
 <div class="container">
   <div class="card bg-light mb-3">
     <br>
@@ -66,7 +85,7 @@
     </fieldset>
     <br>
     <div>
-      <button class="button alert-danger" id="finalizar" (click)="finalizarCompra()">Finalizar Compra</button>
+      <button class="button alert-success" id="finalizar" (click)="finalizarCompra()">Finalizar Compra</button>
     </div>
   </div>
 </div>

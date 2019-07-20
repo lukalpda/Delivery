@@ -20,6 +20,8 @@ export class CarroComponent implements OnInit {
   total: number = 0;
   pedido: Pedido;
   pedidos: Pedido[] = [];
+  nombreTemporal: string;
+  observaciones: string;
   constructor(
     private router: Router,
     private _carroService: CarroService,
@@ -149,6 +151,9 @@ export class CarroComponent implements OnInit {
     this.total -= 50;
   }
   finalizarCompra() {
+    this.pedido.observaciones = this.observaciones;
+    this.pedido.nombreTemporal = this.nombreTemporal;
+    this.pedido.total = this.total;
     this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
       this.pedido = pedirijillo;
       console.log("Pedido Creado");
