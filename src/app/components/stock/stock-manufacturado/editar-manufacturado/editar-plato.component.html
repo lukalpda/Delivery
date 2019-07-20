@@ -21,8 +21,8 @@
 
           <label for="">Categoría:</label>
           <div class="form-group">
-            <select [(ngModel)]="man.categoriaManuf" name="cat" class="selectIngr">
-              <option *ngFor="let categoria of categorias" [ngValue]="categoria">
+            <select [(ngModel)]="man.categoriaManuf.id_categoria" name="cat" class="selectIngr">
+              <option *ngFor="let categoria of categorias" [ngValue]="categoria.id_categoria">
                 {{categoria.nombre_categoria}}
               </option>
             </select>

@@ -44,7 +44,11 @@ export class AgregarPlatoComponent implements OnInit {
 
   public llenarCombos() {
     this._categoriaService.listarCategorias().subscribe(data => {
-      this.categorias = data;
+      for(let item of data){
+        if(item.esPlato){
+          this.categorias.push(item);
+        }
+      }
     });
     this._articuloService.listarArticulos().subscribe(data => {
       this.articulos = data;

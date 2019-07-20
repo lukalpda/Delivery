@@ -40,9 +40,9 @@ export class EditarPlatoComponent implements OnInit {
   public cantidad = 0;
   public ingredienteTemp : DetalleReceta[] = [];
 
-  ngOnInit() {
-    this.llenarCombos();
+  ngOnInit() {    
     this.completarPlato();  
+    this.llenarCombos();
     // this.mostrarIngredientes();  
   }
 
@@ -67,7 +67,11 @@ export class EditarPlatoComponent implements OnInit {
 
   public llenarCombos() {
     this._categoriaService.listarCategorias().subscribe(data => {
-      this.categorias = data;
+      for(let item of data){
+        if(item.esPlato){
+          this.categorias.push(item);
+        }
+      }
     });
     this._articuloService.listarArticulos().subscribe(data => {
       this.articulos = data;

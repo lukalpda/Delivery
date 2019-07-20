@@ -41,7 +41,11 @@ export class AgregarStockComponent implements OnInit {
 
   public llenarCombos(){
     this._categoriaService.listarCategorias().subscribe(data =>{
-      this.categorias = data;
+      for(let item of data){
+        if(!item.esPlato){
+          this.categorias.push(item);
+        }
+      }
     });
     this._medidaService.listarUnidadesMedida().subscribe(data =>{
       this.medidas = data;
