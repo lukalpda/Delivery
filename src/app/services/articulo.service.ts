@@ -32,7 +32,7 @@ export class ArticuloService {
   }
 
   crearArticulo(item: Articulo){
-    return this.http.post<Articulo>(this.Url+"nuevo", item);
+    return this.http.post<Articulo>(this.Url+'nuevo', item);
   }
 
   buscarXIdArticulo(id: number){
