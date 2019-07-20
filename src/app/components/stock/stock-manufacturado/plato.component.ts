@@ -58,10 +58,13 @@ export class PlatoComponent implements OnInit {
     this._platoService.modificarManufacturado(art)
     .subscribe(() => {
       this.platos = this.platos.filter(p=>p!==art);
+      this._platoService.listarManufacturadosDisponibles(false).subscribe(data =>{
+        this.platosViejos = data;
+      });
       }              
     );
       alert("Se dió de baja exitosamente");   
-      location.reload();      
+      // location.reload();      
     }  
 
   ////////////////// REVISAR //////////////////////////
@@ -70,10 +73,13 @@ export class PlatoComponent implements OnInit {
     this._platoService.modificarManufacturado(art)
     .subscribe(() => {
       this.platosViejos = this.platosViejos.filter(p=>p!==art);
+      this._platoService.listarManufacturadosDisponibles(true).subscribe(data =>{
+        this.platos = data;
+      });
       }              
     );      
       alert("Se dió de alta exitosamente");
-      location.reload();   
+      // location.reload();   
   }  
 
 }

@@ -2,8 +2,7 @@
   
   <div class="container">
     <div class="container">
-      <app-search></app-search>
-      <button (click)="nuevoPlato()" class="btn btn-info btn-block" style="margin-left: 0px; ">Crear nuevo
+      <button (click)="nuevoPlato()" class="btn btn-info" style="margin: 10px; ">Crear nuevo
         registro</button>
       <br>
     </div>
@@ -39,13 +38,13 @@
                 <td>{{item.categoriaManuf.nombre_categoria}}</td>
                 <td>{{item.precioM | currency}}</td>
                 <td>
-                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes" class="btn btn-info">Ingr.</button>
+                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes"><mat-icon >assignment</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="editarPlato(item)"><mat-icon>edit</mat-icon></button>
+                  <button (click)="editarPlato(item)"><mat-icon >edit</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="bajaPlato(item)"><mat-icon>delete</mat-icon></button>
+                  <button (click)="bajaPlato(item)"><mat-icon>thumb_down</mat-icon></button>
                 </td>
               </tr>
             </tbody>
@@ -78,13 +77,13 @@
                 <td>{{item.categoriaManuf.nombre_categoria}}</td>
                 <td>{{item.precioM | currency}}</td>
                 <td>
-                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes" class="btn btn-info">Ingr</button>
+                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes"><mat-icon>assignment</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="editarPlato(item)" class="btn btn-warning">Editar</button>
+                  <button (click)="editarPlato(item)"><mat-icon>edit</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="altaPlato(item)" class="btn btn-success">Incluir</button>
+                  <button (click)="altaPlato(item)"><mat-icon>add</mat-icon></button>
                 </td>
               </tr>
             </tbody>
