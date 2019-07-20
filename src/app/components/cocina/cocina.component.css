@@ -3,9 +3,8 @@
   width: 30px;
 }
 
-select{
-  margin: auto;
-  width: 100%;
+textarea{
+  resize: none;
 }
 
 .Botonera{
@@ -13,19 +12,26 @@ select{
   display: flex;
 }
 
-[class*=col-]{
-  margin-top: 10px;
-  margin-right: 10px;
-  float: left;
-  padding: 5px;
-  text-align: center;
-  color: white;
-}
-
 .card{
-  background-color: green;
+  margin-top: 10px;
+  margin-right: 2px;
+  width: 300px;
+  height: auto;
+  /*background-color: green;*/
+  text-align: center;
+  /*color: white;*/
 }
 
 table{
   background-color: white;
+}
+
+.demora{
+  justify-content: space-around;
+  display:flex;
+}
+
+.demora button{
+  padding-left: 40px;
+  padding-right: 40px;
 }

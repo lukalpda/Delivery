@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Pedido} from '../../interfaces/pedido.interface';
-import {DetalleVenta, Time} from '../../interfaces/detalle-venta.interface';
+import {DetalleVenta} from '../../interfaces/detalle-venta.interface';
 import {PedidoService} from '../../services/pedido.service';
 import {DetalleVentaService} from '../../services/detalle-venta.service';
 import {Router} from '@angular/router';
+import * as moment from 'moment';
+import {WebsocketService} from '../../services/websocket.service';
 
 @Component({
   selector: 'app-cocina',
@@ -12,16 +14,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./cocina.component.css']
 })
 export class CocinaComponent implements OnInit {
-  comandas: Pedido[] = [];
+  @Input() comandas: Pedido[] = [];
   detComanda: DetalleVenta[] = [];
-  Agregado: string;
-
-  times: Time[] = [
-    {value: '(+5)', viewValue: 'Retrasar 5 Min'},
-    {value: '(+10)', viewValue: 'Retrasar 10 Min'},
-    {value: '(+20)', viewValue: 'Retrasar 20 Min'},
-    {value: '(+30)', viewValue: 'Retrasar 30 Min'}
-  ];
+  DetVta: DetalleVenta;
 
   isDisabled = false;
   closeResult: string;
@@ -30,12 +25,17 @@ export class CocinaComponent implements OnInit {
     private modalService: NgbModal,
     private pedidoSer: PedidoService,
     private detSer: DetalleVentaService,
-    private router: Router) { }
+    private router: Router,
+    private wsService: WebsocketService) { }
 
     ngOnInit() {
      this.pedidoSer.listarPedidos().subscribe(data => {
        this.comandas = data;
      });
+/*
+      this.wsService._connect();
+
+      this.wsService.disconnect();*/
 
      this.detSer.listarDetalleVentas().subscribe( data => {
        this.detComanda = data;
@@ -43,11 +43,15 @@ export class CocinaComponent implements OnInit {
     }
 
   triggerSomeEvent() {
-    this.isDisabled = !this.isDisabled;
-    return;
+    return this.isDisabled = !this.isDisabled;
   }
 
   open(content) {
+    if (this.isDisabled === true) {
+      this.isDisabled = false;
+    }
+    // tslint:disable-next-line:max-line-length
+    /* Buscar una mejor solucion para esto (Coloca de vuelta el valor original si el select de comandas del alert esta desactivado cuando se abre el modal)*/
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -75,21 +79,29 @@ export class CocinaComponent implements OnInit {
     return max;
   }
 
-  Ready(id): void {
-    this.comandas[id - 1].estadoListo = true;
-    this.pedidoSer.modificarPedido(this.comandas[id - 1]).subscribe(data => {
+  Actions(id, tipo): void {
+    const bid: string = (tipo.target as Element).id;
+
+    switch (bid) {
+      case 'suma':
+        this.comandas[id - 1].demora += 5;
+        break;
+
+      case 'resta':
+        this.comandas[id - 1].demora -= 5;
+        break;
+
+      case 'aceptar':
+        this.comandas[id - 1].estadoListo = true;
+        break;
+
+      case 'cancelar':
+        this.comandas[id - 1].fechaAnulado = moment().utc(true).toDate();
+        break;
+    }
+    this.pedidoSer.modificarPedido((this.comandas[id - 1])).subscribe(data => {
       this.comandas[id - 1] = data;
       this.router.navigate(['cocina']);
     });
   }
-
-  Cancel(id): void {
-    // @ts-ignore
-    this.comandas[id - 1].fechaAnulado = Date.now();
-    this.pedidoSer.modificarPedido((this.comandas[id - 1])).subscribe( data => {
-      this.comandas[id - 1] = data;
-      this.router.navigate(['cocina']);
-    });
-  }
-
 }

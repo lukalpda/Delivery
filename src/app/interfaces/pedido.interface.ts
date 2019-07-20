@@ -1,7 +1,7 @@
 import {Time} from '@angular/common';
 import {Cliente} from './cliente.interface';
 
-export interface Pedido{
+export interface Pedido {
   numPedido: number;
   total: number;
   observaciones: string;
@@ -12,4 +12,5 @@ export interface Pedido{
   hora: Time;
   fechaAnulado: Date;
   informe: string;
+  demora: number;
 }
