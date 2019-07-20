@@ -14,7 +14,6 @@ export class PedidoService {
 
   Url="http://localhost:8080/api/v1/pedidos/";
 
-
   myForm = new FormGroup({
     nombreCliente: new FormControl(''),
     nroPedido: new FormControl(''),
