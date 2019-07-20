@@ -1,23 +1,33 @@
-#elemento_1 {
-    width: 300px;
-    float: left;
+.elementos {
+  float: left;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
 }
 
-#elemento_2 {
-    width: 300px;
-    position:relative;
-    right:-5px;
-    top: -20px;
+.listas {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 0px 50px;
+  box-sizing: border-box;
 }
 
-#elemento_3 {
-    width: 300px;
-    float: left;
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
 }
 
-#elemento_4 {
-    width: 300px;
-    position:relative;
-    right:-5px;
-    top: -20px;
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.wrapper {
+  position: relative;
+  display: table;
+}
+
+tr {
+  text-align: center;
 }
