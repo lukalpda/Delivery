@@ -20,7 +20,8 @@ export class CarroComponent implements OnInit {
   total: number = 0;
   pedido: Pedido;
   pedidos: Pedido[] = [];
-  ultimoPedido: number;
+  nombreTemporal: string;
+  observaciones: string;
   constructor(
     private router: Router,
     private _carroService: CarroService,
@@ -104,10 +105,6 @@ export class CarroComponent implements OnInit {
           this.carroT.push(objeto);
           this.carroT[i].cantidad = 1;
         }
-        // if (contador < 1) {
-        //   objeto.cantidad = 1;
-        //   this.carroT.push(objeto);
-        // }
       }
     }
     this.carroM = null;
@@ -154,18 +151,15 @@ export class CarroComponent implements OnInit {
     this.total -= 50;
   }
   finalizarCompra() {
+    this.pedido.observaciones = this.observaciones;
+    this.pedido.nombreTemporal = this.nombreTemporal;
+    this.pedido.total = this.total;
     this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
+      this.pedido = pedirijillo;
       console.log("Pedido Creado");
-    });
-    //this.traerPedidos();
-    this._pedidoService.listarPedidos().subscribe(respuesta => {
-      this.pedidos = respuesta;
-
-      this.ultimoPedido = this.pedidos.length;
       for (let item of this.carroT) {
-        item.pedido = this.pedidos[this.ultimoPedido - 1];
-        console.log(this.pedidos.length);
-        this._DetalleService.crearDetalleVenta(item).subscribe(data => {
+        item.pedido = this.pedido;
+        this._DetalleService.crearDetalleVenta(item).subscribe(() => {
           console.log("Se guardo");
         });
       }
@@ -174,5 +168,4 @@ export class CarroComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(["tienda"]);
   }
-  traerPedidos() {}
 }
