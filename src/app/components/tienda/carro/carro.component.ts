@@ -7,6 +7,7 @@ import { DetalleVentaService } from "src/app/services/detalle-venta.service";
 import { Router } from "@angular/router";
 import { PedidoService } from "src/app/services/pedido.service";
 import { Pedido } from "src/app/interfaces/pedido.interface";
+import {Cliente} from '../../../interfaces/cliente.interface';
 
 @Component({
   selector: "app-carro",
@@ -19,6 +20,7 @@ export class CarroComponent implements OnInit {
   carroT: DetalleVenta[] = [];
   total: number = 0;
   pedido: Pedido;
+  cliente: Cliente;
   pedidos: Pedido[] = [];
   nombreTemporal: string;
   observaciones: string;
@@ -154,6 +156,7 @@ export class CarroComponent implements OnInit {
     this.pedido.observaciones = this.observaciones;
     this.pedido.nombreTemporal = this.nombreTemporal;
     this.pedido.total = this.total;
+    this.pedido.cliente = this.cliente;
     this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
       this.pedido = pedirijillo;
       console.log("Pedido Creado");

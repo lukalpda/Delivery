@@ -9,7 +9,6 @@ export interface Pedido{
   estadoListo: boolean;
   cliente: Cliente;
   fecha: Date;
-  hora: Time;
   fechaAnulado: Date;
   informe: string;
 }
