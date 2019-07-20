@@ -23,7 +23,7 @@ export class PedidoService {
   });
 
   listarPedidos(){
-    return this.http.get<Pedido[]>(this.Url+'lista',cabecera);
+    return this.http.get<Pedido[]>(this.Url+'lista/',cabecera);
   }
 
   crearPedido(item: Pedido){    
@@ -44,6 +44,4 @@ export class PedidoService {
       pedido.estadoListo = true;
     }
   }
-
-
 }
