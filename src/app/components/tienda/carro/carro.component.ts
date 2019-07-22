@@ -145,6 +145,16 @@ export class CarroComponent implements OnInit {
       }
     }
   }
+  eliminarProducto(item: DetalleVenta) {
+    for (let i = 0; i < this.carroT.length; i++) {
+      if (this.carroT[i] == item) {
+        this.carroT.splice(i, 1);
+      }
+    }
+    this.calcularSubtotal();
+    this.mantenerCarro();
+    this._carroService.vaciarCarro();
+  }
 
   sumarEnvio() {
     this.total += 50;
@@ -153,22 +163,23 @@ export class CarroComponent implements OnInit {
     this.total -= 50;
   }
   finalizarCompra() {
-    this.pedido.observaciones = this.observaciones;
-    this.pedido.nombreTemporal = this.nombreTemporal;
-    this.pedido.total = this.total;
-    this.pedido.cliente = this.cliente;
-    this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
-      this.pedido = pedirijillo;
-      console.log("Pedido Creado");
-      for (let item of this.carroT) {
-        item.pedido = this.pedido;
-        this._DetalleService.crearDetalleVenta(item).subscribe(() => {
-          console.log("Se guardo");
-        });
-      }
-    });
+    if (this.carroT.length > 0) {
+      this.pedido.observaciones = this.observaciones;
+      this.pedido.nombreTemporal = this.nombreTemporal;
+      this.pedido.total = this.total;
+      this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
+        this.pedido = pedirijillo;
+        console.log("Pedido Creado");
+        for (let item of this.carroT) {
+          item.pedido = this.pedido;
+          this._DetalleService.crearDetalleVenta(item).subscribe(() => {
+            console.log("Se guardo");
+          });
+        }
+      });
 
-    localStorage.clear();
-    this.router.navigate(["tienda"]);
+      localStorage.clear();
+      this.router.navigate(["tienda"]);
+    }
   }
 }
