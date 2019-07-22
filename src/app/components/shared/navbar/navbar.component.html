@@ -24,7 +24,7 @@
             <button type="button" class="button" routerLink="/auth/register"><strong>Registrarse</strong></button>
           </li>
 
-          <li class="nav-item" routerLinkActive="active" *ngIf="authority === 'user'">
+          <li class="nav-item" routerLinkActive="active" *ngIf="authority === 'user' || authority === 'admin'">
             <button type="button" class="button" routerLink="/carro"><mat-icon>shopping_cart</mat-icon></button>
           </li>
         <li class="nav-item" *ngIf="authority === 'admin'">
