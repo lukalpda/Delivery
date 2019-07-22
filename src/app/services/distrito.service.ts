@@ -13,18 +13,18 @@ export class DistritoService {
   
 
   listarDistritos(){
-    return this.http.get<Distrito[]>(this.Url);
+    return this.http.get<Distrito[]>(this.Url+"lista");
   }
 
   crearDistrito(item: Distrito){    
-    return this.http.post<Distrito>(this.Url, item);
+    return this.http.post<Distrito>(this.Url+"nuevo", item);
   }
 
   buscarXIdDistrito(id: number){
-    return this.http.get<Distrito>(this.Url+id);
+    return this.http.get<Distrito>(this.Url+"detalle/"+id);
   }
 
   modificarDistrito(item:Distrito){
-    return this.http.put<Distrito>(this.Url+item.distrito_id, item);
+    return this.http.put<Distrito>(this.Url+"actualizar/"+item.distrito_id, item);
   }
 }

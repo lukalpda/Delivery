@@ -25,10 +25,10 @@ export class ArticuloService {
   }
 
   listarArticulosDisponiblesPrima(buscarArtPrima:boolean){
-    return this.http.get<Articulo[]>(this.Url+"primas/"+buscarArtPrima)
+    return this.http.get<Articulo[]>(this.Url+"lista/primas/"+buscarArtPrima)
   }
   listarArticulosDisponiblesVenta(buscarArtVenta:boolean){
-    return this.http.get<Articulo[]>(this.Url+"vendibles/"+buscarArtVenta)
+    return this.http.get<Articulo[]>(this.Url+"lista/vendibles/"+buscarArtVenta)
   }
 
   crearArticulo(item: Articulo){

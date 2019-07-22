@@ -15,11 +15,11 @@ export class DomicilioService {
   
 
   listarDomicilios(){
-    return this.http.get<Domicilio[]>(this.Url);
+    return this.http.get<Domicilio[]>(this.Url+"lista");
   }
 
   crearDomicilio(item: Domicilio){    
-    return this.http.post<Domicilio>(this.Url, item);
+    return this.http.post<Domicilio>(this.Url+"nuevo", item);
   }
 
   buscarXIdDomicilio(id: number){
@@ -38,6 +38,6 @@ export class DomicilioService {
   }
 
   modificarDomicilio(item:Domicilio){
-    return this.http.put<Domicilio>(this.Url+item.id_domicilio, item);
+    return this.http.put<Domicilio>(this.Url+"detalle/"+item.id_domicilio, item);
   }
 }

@@ -26,7 +26,7 @@ export class ListaPedidoComponent implements OnInit {
     this.detallesPedido={};
   }
 
-  displayedColumns = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'estado', 'total', 'acciones'];
+  displayedColumns = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'acciones'];
 
   dataSource= new MatTableDataSource();
 
@@ -58,9 +58,9 @@ export class ListaPedidoComponent implements OnInit {
     this._pedidoServices.modificarPedido(pedido);
   }
 
-  estado(pedido: Pedido){
-    pedido.estadoListo = true;
-    this._pedidoServices.estadoPedido(pedido);
-  }
 
+
+  modificarPedido(id: any) {
+
+  }
 }

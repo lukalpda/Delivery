@@ -31,17 +31,11 @@ export class PedidoService {
   }
 
   buscarXIdPedido(id: number){
-    return this.http.get<Pedido>(this.Url+id);
+    return this.http.get<Pedido>(this.Url+"detalle/"+id);
   }
 
   modificarPedido(item:Pedido){
     return this.http.put<Pedido>(this.Url+'actualizar/'+item.numPedido, item);
   }
-  estadoPedido(pedido:Pedido){
-    if(pedido.estadoListo==true) {
-      pedido.estadoListo = false;
-    }else{
-      pedido.estadoListo = true;
-    }
-  }
+
 }
