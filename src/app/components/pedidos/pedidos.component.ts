@@ -42,7 +42,7 @@ export class PedidosComponent implements OnInit {
   onAddProduct(manufacturados : Manufacturado){
     console.log(manufacturados);
     this.totalPedido = (this.totalPedido + manufacturados.precioM);
-    this.pedidoTemp.push(manufacturados.nombreManufacturado);
+    this.pedidoTemp.push(manufacturados.nombre_articuloM);
   }
 
   onSubmit(){

@@ -26,5 +26,6 @@ export class CarroService {
 
   vaciarCarroM(){
     this.carroM = null;
+    this.carroA = null;
   }
 }

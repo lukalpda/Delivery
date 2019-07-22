@@ -17,10 +17,10 @@
       <tbody>
         <tr *ngFor="let item of carroT; let i = index">
           <ng-container *ngIf="item.manufacturado">
-            <td>{{item.manufacturado.nombreManufacturado}}</td>
+            <td>{{item.manufacturado.nombre_articuloM}}</td>
             <td><img class="card-img-top img" src="{{item.manufacturado.foto}}" [alt]="item"></td>
             <td>{{item.manufacturado.detalle}}</td>
-            <td>{{item.manufacturado.precioM}}</td>
+            <td>{{item.manufacturado.precioM|currency}}</td>
             <td>
               <!-- <input id="cantidadM" type="number" value="{{item.canticd dad}}" min="1" max="10" step="1" (change)="calcularSubtotal()"/> -->
               {{item.cantidad}}
@@ -28,10 +28,10 @@
             <td>{{item.subtotal}}</td>
           </ng-container>
           <ng-container *ngIf="item.item">
-            <td>{{item.item.nombreArticulo}}</td>
+            <td>{{item.item.nombre_articulo}}</td>
             <td><img class="card-img-top img" src="{{item.item.foto}}" [alt]="item"></td>
             <td>{{item.item.detalle}} </td>
-            <td>{{item.item.precioA}}</td>
+            <td>{{item.item.precioA|currency}}</td>
             <td>
               <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
               {{item.cantidad}}
