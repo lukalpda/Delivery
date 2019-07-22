@@ -50,7 +50,7 @@ export class CarroComponent implements OnInit {
     this.unificarCarrosParte2();
     this.calcularSubtotal();
     this.mantenerCarro();
-    this._carroService.vaciarCarroM();
+    this._carroService.vaciarCarro();
   }
 
   mantenerCarro() {
