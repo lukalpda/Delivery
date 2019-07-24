@@ -53,3 +53,7 @@ div.card.border-dark {
   background-color: #fb7e29;
   color: #fff;
 }
+
+div.card-body{
+  background-color: rgba(255, 194, 62, 0.8);
+}

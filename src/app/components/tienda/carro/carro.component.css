@@ -44,3 +44,6 @@
 .card-columns{
   column-count: 2;
 }
+.bg-light {
+  background-color: #e7e7e9!important;
+}
