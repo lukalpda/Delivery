@@ -47,7 +47,7 @@
 }
 
 body{
-  background: url(assets/fondologo.png);
+    background: url(assets/fondologo.png);
 }
 
 html, body { height: 100%; }

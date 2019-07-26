@@ -28,6 +28,7 @@ div.card.border-dark {
   width: 300px;
   height: 350px;
   margin: 30px;
+  
 }
 .carrito {
   padding-top: 10px;
@@ -58,4 +59,7 @@ div.card.border-dark {
 .button:hover {
   background-color: #fb7e29;
   color: #fff;
+}
+div.card-body{
+  background-color: rgba(255, 194, 62, 0.8);
 }

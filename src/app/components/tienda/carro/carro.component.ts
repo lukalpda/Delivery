@@ -146,13 +146,19 @@ export class CarroComponent implements OnInit {
     }
   }
   eliminarProducto(item: DetalleVenta) {
-    for (let i = 0; i < this.carroT.length; i++) {
-      if (this.carroT[i] == item) {
-        this.carroT.splice(i, 1);
+    if (this.carroT.length == 1) {
+      this.carroT.splice(0,1);
+      localStorage.clear();
+    } else {
+      for (let i = 0; i < this.carroT.length; i++) {
+        if (this.carroT[i] == item) {
+          this.carroT.splice(i, 1);
+        }
       }
+      this.calcularSubtotal();
+      this.mantenerCarro();
     }
-    this.calcularSubtotal();
-    this.mantenerCarro();
+
     this._carroService.vaciarCarro();
   }
 
@@ -166,6 +172,7 @@ export class CarroComponent implements OnInit {
     if (this.carroT.length > 0) {
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
+      this.pedido.fecha = new Date();
       this.pedido.total = this.total;
       this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
         this.pedido = pedirijillo;
