@@ -23,6 +23,10 @@ import {UsuariosComponent} from './components/graficas/usuarios/usuarios.compone
 import { GuardService as guard} from './services/complementos/guard.service';
 import {AdminComponent} from './components/users/admin/admin.component';
 import {UserComponent} from './components/users/user/user.component';
+import { PlatoComponent } from './components/stock/stock-manufacturado/plato.component';
+import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/agregar-manufacturado/agregar-plato.component';
+import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
+import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -32,9 +36,10 @@ const routes: Routes = [
   {path: 'tienda', component: TiendaComponent},
 
   //CanActive
-  //user
+  //Cliente
   {path: 'carro', component: CarroComponent,
     canActivate: [guard], data: { expectedRol: ['admin','user','empleado']}},
+
   //admin
   {path: 'gerente', component: GerenteComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
@@ -62,8 +67,16 @@ const routes: Routes = [
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'editarStock/:id', component: EditarStockComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
+  {path: 'platos', component: PlatoComponent,
+    canActivate: [guard], data: { expectedRol: ['admin']}},
+  {path: 'agregarPlato', component: AgregarPlatoComponent,
+  canActivate: [guard], data: { expectedRol: ['admin']}},
+  {path: 'editarPlato/:id', component: EditarPlatoComponent,
+    canActivate: [guard], data: { expectedRol: ['admin']}},
+  {path: 'categoria_medida', component: CategoriaMedidaComponent,
+    canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'cocina', component: CocinaComponent,
-    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
+    canActivate: [guard], data: { expectedRol: ['admin']}},
   //Users
   {path: 'admin', component:AdminComponent,
     canActivate: [guard], data: {expectedRol: ['admin']}},
@@ -71,7 +84,6 @@ const routes: Routes = [
     canActivate: [guard], data: {expectedRol: ['user']}},
   //ruta por defecto
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
-  //{path: '**', component: HomeComponent}
 ];
 
 @NgModule({

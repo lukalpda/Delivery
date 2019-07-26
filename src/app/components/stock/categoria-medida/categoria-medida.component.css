@@ -1,0 +1,33 @@
+.elementos {
+  float: left;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.listas {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 0px 50px;
+  box-sizing: border-box;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.wrapper {
+  position: relative;
+  display: table;
+}
+
+tr {
+  text-align: center;
+}

@@ -79,6 +79,7 @@ import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/ba
 import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
 import { UserComponent } from './components/users/user/user.component';
 import { AdminComponent } from './components/users/admin/admin.component';
+import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
 
 
 @NgModule({
@@ -119,7 +120,8 @@ import { AdminComponent } from './components/users/admin/admin.component';
     BarrasPrimeNgComponent,
     UsuariosComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    CategoriaMedidaComponent
   ],
   imports: [
     BrowserModule,
