@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import {PedidoService} from '../../../services/pedido.service';
 import {Pedido} from '../../../interfaces/pedido.interface';
-import {Cliente} from '../../../interfaces/cliente.interface';
+import {NuevoUsuarioInterface} from '../../../interfaces/nuevo-usuario.interface';
 import {DetalleVenta} from '../../../interfaces/detalle-venta.interface';
 import {DetalleVentaService} from '../../../services/detalle-venta.service';
 
@@ -16,7 +16,7 @@ export class ListaPedidoComponent implements OnInit {
   pedidos: Pedido[] = [];
   detallesPedido: DetalleVenta[] = [];
   pedido: Pedido;
-  clientes: Cliente[] = [];
+  clientes: NuevoUsuarioInterface[] = [];
   detalleVenta: DetalleVenta;
 
   constructor(private _pedidoServices: PedidoService, private _detalleServices: DetalleVentaService) {

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Cliente} from '../interfaces/cliente.interface';
+
+const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class ClienteService {
   Url= "http://localhost:8080/api/v1/clientes/";
 
   listarClientes(){
-    return this.http.get<Cliente[]>(this.Url)
+    return this.http.get<Cliente[]>(this.Url+'lista',cabecera)
   }
   crearCliente(item: Cliente){
     return this.http.post<Cliente>(this.Url, item);
