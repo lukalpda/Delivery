@@ -26,7 +26,7 @@ export class ListaPedidoComponent implements OnInit {
     this.detallesPedido={};
   }
 
-  displayedColumns = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'acciones'];
+  displayedColumns = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'estado', 'eliminar'/*, 'acciones'*/];
 
   dataSource= new MatTableDataSource();
 
@@ -57,8 +57,6 @@ export class ListaPedidoComponent implements OnInit {
     pedido.fechaAnulado = Date.now();//pedido.fechaAnulado = Date.now();
     this._pedidoServices.modificarPedido(pedido);
   }
-
-
 
   modificarPedido(id: any) {
 

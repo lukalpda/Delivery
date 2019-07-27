@@ -4,12 +4,12 @@
   <hr>
 </div>
 
-<div class="example-header mat-elevation-z8 filtro">
+<!--<div class="example-header mat-elevation-z8 filtro">
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)"
            placeholder="Buscar Pedido">
   </mat-form-field>
-</div>
+</div>-->
 
 <div class="example-container mat-elevation-z8">
   <mat-table [dataSource]="dataSource" matSort>
@@ -38,24 +38,29 @@
       <mat-cell *matCellDef="let row">{{row.informe}}</mat-cell>
     </ng-container>
 
-    <!-- Estado
+    <!-- Estado -->
     <ng-container matColumnDef="estado">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.estadoListo}} </mat-cell>
-    </ng-container>-->
+    </ng-container>
 
     <!-- Total -->
     <ng-container matColumnDef="total">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.total|currency}} </mat-cell>
     </ng-container>
-    
+
+    <!--Eliminar pedido-->
+    <ng-container matColumnDef="eliminar">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </mat-header-cell>
+      <mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.id)">delete</mat-icon></mat-cell>
+    </ng-container>
     <!-- Acciones -->
-    <ng-container matColumnDef="acciones">
+    <!--<ng-container matColumnDef="acciones">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
       <mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.id)">delete</mat-icon></mat-cell>
       <mat-cell *matCellDef="let row"><mat-icon (click)="modificarPedido(row.id)">update</mat-icon></mat-cell>
-    </ng-container>
+    </ng-container>-->
 
     <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
