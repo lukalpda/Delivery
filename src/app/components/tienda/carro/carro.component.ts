@@ -9,6 +9,7 @@ import { PedidoService } from "src/app/services/pedido.service";
 import { Pedido } from "src/app/interfaces/pedido.interface";
 import { TokenService } from 'src/app/services/complementos/token.service';
 import {NuevoUsuarioInterface} from '../../../interfaces/nuevo-usuario.interface';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: "app-carro",
@@ -30,7 +31,8 @@ export class CarroComponent implements OnInit {
     private _carroService: CarroService,
     private _DetalleService: DetalleVentaService,
     private _pedidoService: PedidoService,
-    private _tokenService: TokenService
+    private _tokenService: TokenService,
+    private _clienteService: ClienteService
   ) {
     //@ts-ignore
     this.pedido = {};
@@ -179,6 +181,7 @@ export class CarroComponent implements OnInit {
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
       this.cliente.nombreUsuario = this._tokenService.getUserName();
+      this._clienteService.buscarXIdCliente;
       console.log(this.cliente.nombreUsuario);
       this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
         this.pedido = pedirijillo;

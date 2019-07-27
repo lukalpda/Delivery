@@ -1,4 +1,5 @@
 export class NuevoUsuarioInterface{
+  id: number;
   nombre: string;
   nombreUsuario: string;
   email: string;

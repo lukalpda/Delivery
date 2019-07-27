@@ -63,7 +63,7 @@ import {HomeAdminComponent} from './components/recepcion/home-admin/home-admin.c
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+//import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
 import { StockComponent } from './components/stock/stock-articulo/stock.component';
@@ -108,7 +108,7 @@ import {WebsocketService} from './services/websocket.service';
     ArticulosManufacturadosComponent,
     RecepcionComponent,
     ClientesComponent,
-    AgregarClienteComponent,
+    //AgregarClienteComponent,
     EditarClienteComponent,
     CarroComponent,
     StockComponent,

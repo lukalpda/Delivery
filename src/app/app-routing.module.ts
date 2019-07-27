@@ -10,7 +10,7 @@ import {RecepcionComponent} from './components/recepcion/recepcion.component';
 import {BarrasComponent} from './components/graficas/Platos+Vendidos/barras.component';
 import {LineasComponent} from './components/graficas/PedidosPorPeriodo/lineas.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+//import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
 import {EditarStockComponent} from './components/stock/stock-articulo/editar-articulo/editar-stock.component';
@@ -59,8 +59,8 @@ const routes: Routes = [
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'clientes', component: ClientesComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
-  {path: 'agregarCliente', component: AgregarClienteComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+  /*{path: 'agregarCliente', component: AgregarClienteComponent,
+    canActivate: [guard], data: { expectedRol: ['admin']}},*/
   {path: 'editarCliente/:id', component: EditarClienteComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'stock', component: StockComponent,
