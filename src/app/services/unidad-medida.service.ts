@@ -27,4 +27,8 @@ export class UnidadMedidaService {
   modificarUnidadMedida(item:UnidadMedida){
     return this.http.put<UnidadMedida>(this.Url+"actualizar/"+item.id_medida, item);
   }
+
+  borrarUMedida(id : number){
+    return this.http.delete(this.Url+'borrar/'+id);
+  }
 }
