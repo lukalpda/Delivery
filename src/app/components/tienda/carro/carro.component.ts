@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { PedidoService } from "src/app/services/pedido.service";
 import { Pedido } from "src/app/interfaces/pedido.interface";
 import {Cliente} from '../../../interfaces/cliente.interface';
+import { TokenService } from 'src/app/services/complementos/token.service';
 
 @Component({
   selector: "app-carro",
@@ -28,7 +29,8 @@ export class CarroComponent implements OnInit {
     private router: Router,
     private _carroService: CarroService,
     private _DetalleService: DetalleVentaService,
-    private _pedidoService: PedidoService
+    private _pedidoService: PedidoService,
+    private _tokenService: TokenService
   ) {
     //@ts-ignore
     this.pedido = {};
@@ -42,6 +44,7 @@ export class CarroComponent implements OnInit {
     this.carroM = this._carroService.carroM;
     this.carroA = this._carroService.carroA;
 
+    token: this._tokenService.getToken();
     if (localStorage.getItem("carroT") != null) {
       this.recuperarCarro();
     }
@@ -174,6 +177,8 @@ export class CarroComponent implements OnInit {
       this.pedido.nombreTemporal = this.nombreTemporal;
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
+      this.cliente.nombreUsuario = this._tokenService.getUserName();
+      console.log(this.cliente.nombreUsuario);
       this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
         this.pedido = pedirijillo;
         console.log("Pedido Creado");
