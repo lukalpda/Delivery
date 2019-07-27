@@ -23,7 +23,7 @@ export class DetalleRecetaService {
   }
 
   buscarXIdDetalleReceta(id: number) {
-    return this.http.get<DetalleReceta[]>(this.Url + id);
+    return this.http.get<DetalleReceta[]>(this.Url+'detalle/' + id);
   }
 
   modificarDetalleReceta(item: DetalleReceta, id: number) {

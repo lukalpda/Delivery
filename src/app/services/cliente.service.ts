@@ -17,7 +17,7 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.Url+'lista',cabecera)
   }
   crearCliente(item: Cliente){
-    return this.http.post<Cliente>(this.Url, item);
+    return this.http.post<Cliente>(this.Url+'nuevo', item);
   }
 
   buscarXIdCliente(id: number){
@@ -25,6 +25,6 @@ export class ClienteService {
   }
 
   modificarCliente(item:Cliente){
-    return this.http.put<Cliente>(this.Url+item.idUsuario, item);
+    return this.http.put<Cliente>(this.Url+item.idUsuario+'actualizar/', item);
   }
 }

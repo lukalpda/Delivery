@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DetalleVenta} from '../interfaces/detalle-venta.interface';
 import {Pedido} from '../interfaces/pedido.interface';
+
+const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +17,22 @@ export class DetalleVentaService {
   Url= "http://localhost:8080/api/v1/detalles_factura/";
 
   listarDetalleVentas(){
-    return this.http.get<DetalleVenta[]>(this.Url)
+    return this.http.get<DetalleVenta[]>(this.Url+'lista',cabecera)
   }
 
   listarXPedido(idPedido: number){
     return this.http.get<DetalleVenta[]>(this.Url+"porPedido/"+idPedido)
   }
   crearDetalleVenta(item: DetalleVenta){
-    return this.http.post<DetalleVenta>(this.Url, item);
+    return this.http.post<DetalleVenta>(this.Url+'nuevo', item);
   }
 
   buscarXIdDetalleVenta(id: number){
-    return this.http.get<DetalleVenta>(this.Url+id);
+    return this.http.get<DetalleVenta>(this.Url+'detalle/'+id);
   }
 
   modificarDetalleVenta(item:DetalleVenta){
-    return this.http.put<DetalleVenta>(this.Url+item.idDetalle, item);
+    return this.http.put<DetalleVenta>(this.Url+'actualizar/'+item.idDetalle, item);
   }
 
 }

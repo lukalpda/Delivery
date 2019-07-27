@@ -12,10 +12,10 @@ export class CategoriaService {
   Url= "http://localhost:8080/api/v1/categorias/";
 
   listarCategorias(){
-    return this.http.get<Categoria[]>(this.Url)
+    return this.http.get<Categoria[]>(this.Url+'lista')
   }
   crearCategoria(item: Categoria){
-    return this.http.post<Categoria>(this.Url, item);
+    return this.http.post<Categoria>(this.Url+'nuevo', item);
   }
 
   buscarXIdCategoria(id: number){
@@ -23,6 +23,6 @@ export class CategoriaService {
   }
 
   modificarCategoria(item:Categoria){
-    return this.http.put<Categoria>(this.Url+item.id_categoria, item);
+    return this.http.put<Categoria>(this.Url+item.id_categoria+'actualizar/', item);
   }
 }
