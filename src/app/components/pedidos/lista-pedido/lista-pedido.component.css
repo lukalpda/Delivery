@@ -1,19 +1,26 @@
 .mat-sort-header-container {
     align-items: center;
-    
-  }
-.filtro{
+    max-width: 50px;
+}
+.td-mat-cell{
+  max-width: 50px;
+  border: 1px solid;
+  padding: 10px 10px;
+}
+/*.filtro{
   margin: 1px 30px;
   max-width: 300px;
   padding: 10px;
   text-align: center;
-}
-mat-table{
+}*/
+
+.table{
   width: 95%;
-  padding: 50px;
-  margin-top: 5%;
+  padding: 20px 30px;
   margin-bottom: 20%;
-  margin-left: 20px;
+  margin-left: 50px;
+  /*position: relative;
+  float: top;*/
 }
 .mat-icon{
   cursor: pointer;

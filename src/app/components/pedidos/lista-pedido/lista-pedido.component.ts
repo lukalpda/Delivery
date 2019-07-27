@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, Sort } from '@angular/material';
 import {PedidoService} from '../../../services/pedido.service';
 import {Pedido} from '../../../interfaces/pedido.interface';
 import {NuevoUsuarioInterface} from '../../../interfaces/nuevo-usuario.interface';
 import {DetalleVenta} from '../../../interfaces/detalle-venta.interface';
 import {DetalleVentaService} from '../../../services/detalle-venta.service';
+
 
 @Component({
   selector: 'app-lista-pedido',
@@ -26,7 +27,7 @@ export class ListaPedidoComponent implements OnInit {
     this.detallesPedido={};
   }
 
-  displayedColumns = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'estado', 'eliminar'/*, 'acciones'*/];
+  displayedColumns: string[] = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'estado', 'con_envio', 'eliminar'/*, 'acciones'*/];
 
   dataSource= new MatTableDataSource();
 
@@ -38,6 +39,10 @@ export class ListaPedidoComponent implements OnInit {
         console.log(this.listarDetalle());
         this.dataSource.data = res;});
     //this._detalleServices.listarXPedido(1).subscribe( data => {this.dataSource = data;});
+  }
+
+  ngAfterViewInit(){
+    this.dataSource.sort = this.sort;
   }
   
   //modificar para que busque por nombre del cliente
@@ -52,13 +57,12 @@ export class ListaPedidoComponent implements OnInit {
     this._detalleServices.buscarXIdDetalleVenta(+id).subscribe( data => {this.detalleVenta = data;});
   }
 
-  eliminarPedido(pedido: Pedido){
-    // @ts-ignore
-    pedido.fechaAnulado = Date.now();//pedido.fechaAnulado = Date.now();
-    this._pedidoServices.modificarPedido(pedido);
-  }
-
-  modificarPedido(id: any) {
-
+  eliminarPedido(item: Pedido){
+    this.pedido.fechaAnulado = new Date();
+    //this.pedido[id - 1].fechaAnulado = moment().utc(true).toDate();
+    this._pedidoServices.modificarPedido(this.pedido).subscribe(data => {
+      this.pedido = data;
+      this.pedido.numPedido = data.numPedido
+    });
   }
 }

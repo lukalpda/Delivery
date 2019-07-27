@@ -11,4 +11,5 @@ export interface Pedido {
   fechaAnulado: Date;
   informe: string;
   demora: number;
+  con_envio: boolean;
 }

@@ -177,14 +177,13 @@ export class CarroComponent implements OnInit {
     if (this.carroT.length > 0) {
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
-
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
-      this.cliente.nombreUsuario = this._tokenService.getUserName();
-      this._clienteService.buscarXIdCliente;
-      console.log(this.cliente.nombreUsuario);
-      this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
-        this.pedido = pedirijillo;
+      //this.cliente.nombreUsuario = this._tokenService.getUserName();
+      //this._clienteService.buscarXIdCliente;
+      //console.log(this.cliente.nombreUsuario);
+      this._pedidoService.crearPedido(this.pedido).subscribe(data => {
+        this.pedido = data;
         console.log("Pedido Creado");
         for (let item of this.carroT) {
           item.pedido = this.pedido;
