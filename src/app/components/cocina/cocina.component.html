@@ -90,7 +90,7 @@
           <tr *ngFor="let comanda of comandas">
             <ng-container *ngIf="comanda.estadoListo === true">
               <th scope="row">{{comanda.numPedido}}</th>
-              <td>{{comanda.cliente.nombre_persona}}</td>
+              <td>{{comanda.cliente.nombreUsuario}}</td>
               <td [innerHTML]="comanda.informe | separador"></td>
             </ng-container>
           </tr>
@@ -109,7 +109,7 @@
           <tbody>
             <tr *ngFor="let comanda of comandas">
               <ng-container *ngIf="comanda.estadoListo === false && comanda.fechaAnulado !== null">
-                <td scope="row">{{comanda.cliente.nombre_persona}} ({{comanda.cliente.nombre_usuario}})</td>
+                <td scope="row">{{comanda.cliente.nombre}} ({{comanda.cliente.nombre}})</td>
                 <td>{{comanda.numPedido}}</td>
                 <td [innerHTML]="comanda.informe | separador"></td>
                 <td>{{comanda.fecha | date : "shortTime": 'GMT'}}</td>

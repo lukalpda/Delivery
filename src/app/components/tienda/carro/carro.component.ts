@@ -7,8 +7,8 @@ import { DetalleVentaService } from "src/app/services/detalle-venta.service";
 import { Router } from "@angular/router";
 import { PedidoService } from "src/app/services/pedido.service";
 import { Pedido } from "src/app/interfaces/pedido.interface";
-import {Cliente} from '../../../interfaces/cliente.interface';
 import { TokenService } from 'src/app/services/complementos/token.service';
+import {NuevoUsuarioInterface} from '../../../interfaces/nuevo-usuario.interface';
 
 @Component({
   selector: "app-carro",
@@ -21,7 +21,7 @@ export class CarroComponent implements OnInit {
   carroT: DetalleVenta[] = [];
   total: number = 0;
   pedido: Pedido;
-  cliente: Cliente;
+  cliente: NuevoUsuarioInterface;
   pedidos: Pedido[] = [];
   nombreTemporal: string;
   observaciones: string;
@@ -175,6 +175,7 @@ export class CarroComponent implements OnInit {
     if (this.carroT.length > 0) {
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
+
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
       this.cliente.nombreUsuario = this._tokenService.getUserName();

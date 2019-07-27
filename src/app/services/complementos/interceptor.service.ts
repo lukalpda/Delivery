@@ -15,7 +15,7 @@ export class InterceptorService implements HttpInterceptor{
       autReq = req.clone({
         headers: req.headers.set('Authorization', token)
       });
-      console.log("el token es: "+token);
+      //console.log("el token es: "+token);
     }
     return next.handle(autReq);
   }
