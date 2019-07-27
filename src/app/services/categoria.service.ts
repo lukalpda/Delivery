@@ -25,4 +25,8 @@ export class CategoriaService {
   modificarCategoria(item:Categoria){
     return this.http.put<Categoria>(this.Url+item.id_categoria+'actualizar/', item);
   }
+
+  eliminarCategoria(id: number){
+    return this.http.delete(this.Url+'borrar/'+id);
+  }
 }

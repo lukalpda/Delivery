@@ -19,7 +19,7 @@ export class CategoriaMedidaComponent implements OnInit {
 
   constructor(
     private _categoriaService: CategoriaService,
-    private _medidaServive: UnidadMedidaService
+    private _medidaService: UnidadMedidaService
   ) {
     //@ts-ignore
     this.categoria = {};
@@ -42,20 +42,53 @@ export class CategoriaMedidaComponent implements OnInit {
         }
       }
     });
-    this._medidaServive.listarUnidadesMedida().subscribe(data2 => {
+    this._medidaService.listarUnidadesMedida().subscribe(data2 => {
       this.medidas = data2;
     });
   }
 
   cargarMedida() {
-    this._medidaServive.crearUnidadMedida(this.medida).subscribe(() => {
-      location.reload();
+    this._medidaService.crearUnidadMedida(this.medida).subscribe(() => {
+      this._medidaService.listarUnidadesMedida().subscribe(data => {
+        this.medidas=data;
+      });      
+      // location.reload();
     });
   }
 
   cargarCategoria() {
-    this._categoriaService.crearCategoria(this.categoria).subscribe(() => {
-      location.reload();
+    this._categoriaService.crearCategoria(this.categoria).subscribe(data => {
+          if (data.esPlato) {
+            this.categoriasPlato.push(data);
+          } else {
+            this.categoriasArtic.push(data);
+          }
+      // location.reload();
     });
+  }
+
+  eliminarCategoria(item : Categoria){
+    this._categoriaService.eliminarCategoria(item.id_categoria).subscribe(()=>{      
+      this.categoriasPlato = this.categoriasPlato.filter(p=>p!==item);      
+      this.categoriasArtic = this.categoriasArtic.filter(p=>p!==item);
+      this._categoriaService.listarCategorias().subscribe(data => {
+        for (let item of data) {
+          if (item.esPlato) {
+            this.categoriasPlato.push(item);
+          } else {
+            this.categoriasArtic.push(item);
+          }
+        }
+      });
+    })
+  }
+
+  eliminarMedida(item : UnidadMedida){
+    this._medidaService.borrarUMedida(item.id_medida).subscribe(()=>{      
+      this.medidas = this.medidas.filter(p=>p!==item);
+      this._medidaService.listarUnidadesMedida().subscribe(data => {
+        this.medidas=data;
+      });
+    })
   }
 }
