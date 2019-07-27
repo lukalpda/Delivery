@@ -45,6 +45,8 @@ const routes: Routes = [
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'recepcion', component: RecepcionComponent,
     canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
+  {path: 'cocina', component: CocinaComponent,
+    canActivate: [guard], data: { expectedRol: ['admin', 'empleado']}},
   {path: 'graficas/Platos+Vendidos', component: BarrasComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'graficas/PedidosPorPeriodo', component: LineasComponent,
@@ -75,8 +77,7 @@ const routes: Routes = [
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'categoria_medida', component: CategoriaMedidaComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
-  {path: 'cocina', component: CocinaComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+
   //Users
   {path: 'admin', component:AdminComponent,
     canActivate: [guard], data: {expectedRol: ['admin']}},

@@ -1,5 +1,4 @@
-import {Time} from '@angular/common';
-import {Cliente} from './cliente.interface';
+import {NuevoUsuarioInterface} from './nuevo-usuario.interface';
 
 export interface Pedido {
   numPedido: number;
@@ -7,7 +6,7 @@ export interface Pedido {
   observaciones: string;
   nombreTemporal: string;
   estadoListo: boolean;
-  cliente: Cliente;
+  cliente: NuevoUsuarioInterface;
   fecha: Date;
   fechaAnulado: Date;
   informe: string;
