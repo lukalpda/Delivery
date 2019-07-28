@@ -204,7 +204,7 @@ export class CarroComponent implements OnInit {
         }
 
       });
-
+      alert("Su pedido fue realizado con éxito! Demora aproximada 45 minutos");
       localStorage.clear();
       this.router.navigate(["tienda"]);
     }
