@@ -2,6 +2,12 @@
     font: 13px arial, sans-serif;
 }
 
+.image{
+  max-height: 400px;
+  width: 60%;
+  margin: 5% auto;
+}
+
 .table{
     text-align: center;
   }
