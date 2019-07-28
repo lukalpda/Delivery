@@ -182,13 +182,11 @@ export class CarroComponent implements OnInit {
     }
   }
   finalizarCompra() {
-    
     if (this.carroT.length > 0) {
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
-      ;
       // this.cliente.nombreUsuario = this._tokenService.getUserName();
       // this._clienteService.buscarXIdCliente;
       //console.log(this.cliente.nombreUsuario); 
@@ -202,7 +200,6 @@ export class CarroComponent implements OnInit {
             console.log("Se guardo");
           });
         }
-
       });
       alert("Su pedido fue realizado con éxito! Demora aproximada 45 minutos");
       localStorage.clear();
