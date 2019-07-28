@@ -92,6 +92,7 @@ export class CocinaComponent implements OnInit {
         break;
 
       case 'aceptar':
+        console.log(id);
         this.comandas[id - 1].estadoListo = true;
         break;
 
