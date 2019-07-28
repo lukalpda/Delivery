@@ -11,4 +11,3 @@ export interface DetalleVenta {
   item: Articulo;
   manufacturado: Manufacturado;
 }
-
