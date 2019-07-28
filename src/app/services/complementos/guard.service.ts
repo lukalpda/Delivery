@@ -19,7 +19,7 @@ export class GuardService implements CanActivate {
         this.realRol = 'admin';
       }else if (rol === 'ROLE_EMPLEADO') {
         this.realRol = 'empleado';
-      }
+      }else this.realRol='user';
     });
     if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) {
       this.router.navigate(['']);

@@ -1,11 +1,14 @@
 .mat-sort-header-container {
-    align-items: center;
-    max-width: 50px;
+  align-items: center;
+  max-width: 50px;
+  text-align: center;
+
 }
 .td-mat-cell{
   max-width: 50px;
   border: 1px solid;
   padding: 10px 10px;
+  text-align: center;
 }
 /*.filtro{
   margin: 1px 30px;
@@ -15,10 +18,11 @@
 }*/
 
 .table{
-  width: 95%;
+  width: auto;
   padding: 20px 30px;
   margin-bottom: 20%;
   margin-left: 50px;
+  margin-right: 50px;
   /*position: relative;
   float: top;*/
 }

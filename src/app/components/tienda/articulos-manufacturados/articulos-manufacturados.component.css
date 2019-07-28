@@ -14,15 +14,13 @@ h1 {
   padding-left: 30px;
 }
 .card-columns img{
-   width: 95%;
+   width: 90%;
    height: 150px;
    margin: auto;
  }
 
-div.card.border-dark {
-  position: relative; /*-ms-page;
-   max-width: 25rem;
-  */
+.card.border-dark {
+  position: relative;
   align-content: center;
   align-self: center;
   text-align: center;
@@ -56,6 +54,6 @@ div.card.border-dark {
   color: #fff;
 }
 
-div.card-body{
+.card{
   background-color: rgba(255, 194, 62, 0.8);
 }
