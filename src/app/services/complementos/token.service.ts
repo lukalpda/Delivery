@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoginUsuarioInterface } from 'src/app/interfaces/login-usuario.interface';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUserName';
@@ -12,7 +13,7 @@ export class TokenService {
   roles: Array<string> = [];
 
   constructor() { }
-
+  
   public setToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);

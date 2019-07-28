@@ -168,22 +168,33 @@ export class CarroComponent implements OnInit {
   }
 
   sumarEnvio() {
+    this.pedido.con_envio = true;
     this.total += 50;
   }
   restarEnvio() {
+    this.pedido.con_envio = false;
     this.total -= 50;
   }
+
+  bajarStock(){
+    for (let item of this.carroT){
+   //   item.manufacturado.
+    }
+  }
   finalizarCompra() {
+    
     if (this.carroT.length > 0) {
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
-      //this.cliente.nombreUsuario = this._tokenService.getUserName();
-      //this._clienteService.buscarXIdCliente;
-      //console.log(this.cliente.nombreUsuario);
-      this._pedidoService.crearPedido(this.pedido).subscribe(data => {
-        this.pedido = data;
+      ;
+      // this.cliente.nombreUsuario = this._tokenService.getUserName();
+      // this._clienteService.buscarXIdCliente;
+      //console.log(this.cliente.nombreUsuario); 
+      this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
+        this.pedido = pedirijillo;
+        console.log("con envio: " +this.pedido.con_envio);
         console.log("Pedido Creado");
         for (let item of this.carroT) {
           item.pedido = this.pedido;
@@ -191,6 +202,7 @@ export class CarroComponent implements OnInit {
             console.log("Se guardo");
           });
         }
+
       });
 
       localStorage.clear();
