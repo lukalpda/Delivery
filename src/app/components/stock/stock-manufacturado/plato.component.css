@@ -3,20 +3,21 @@
 }
 
 .image{
-  max-height: 400px;
-  width: 60%;
+  max-height: 250px;
+  width: 100px;
   margin: 5% auto;
 }
 
 .table{
-    text-align: center;
-  }
+  text-align: center;
+}
   
 .my-custom-scrollbar {
-    position: relative;
-    height: 200px;
-    overflow: auto;
-    }
-    .table-wrapper-scroll-y {
-    display: block;
-    }
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+ display: block;
+}

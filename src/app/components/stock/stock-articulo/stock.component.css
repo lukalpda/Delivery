@@ -8,13 +8,18 @@
 
 .my-custom-scrollbar {
   position: relative;
-  height: 200px;
+  height: 300px;
   overflow: auto;
   }
   .table-wrapper-scroll-y {
   display: block;
   }
 
-  .card-body{
-    font: 13px arial, sans-serif;
+.card-body{
+  font: 13px arial, sans-serif;
+}
+.image{
+  max-height: 250px;
+  width: 80px;
+  margin: 5% auto;
 }
