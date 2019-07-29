@@ -17,6 +17,7 @@ export class ListaPedidoComponent implements OnInit {
   pedidos: Pedido[] = [];
   detallesPedido: DetalleVenta[] = [];
   pedido: Pedido;
+  aux: Pedido[]=[];
   clientes: NuevoUsuarioInterface[] = [];
   detalleVenta: DetalleVenta;
 
@@ -27,20 +28,28 @@ export class ListaPedidoComponent implements OnInit {
     this.detallesPedido={};
   }
 
-  displayedColumns: string[] = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'estado', 'con_envio', 'eliminar'/*, 'acciones'*/];
+  displayedColumns: string[] = ['numPedido', 'nombreCliente', 'telefono', 'detallePedido', 'total', 'estado', 'con_envio', 'eliminar'];
 
   dataSource= new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
+
   
   ngOnInit() {
-    this._pedidoServices.listarPedidos().subscribe(
-      res => {
-        console.log(this.listarDetalle());
-        this.dataSource.data = res;});
-    //this._detalleServices.listarXPedido(1).subscribe( data => {this.dataSource = data;});
+    this.listarPedidos();
   }
 
+  listarPedidos(){
+        this._pedidoServices.listarPedidos().subscribe(
+          res => {
+            for(let i=0; i< res.length; i++){
+              if(res[i].fechaAnulado==null){
+                this.aux.push(res[i]);
+              }
+          }
+            this.dataSource.data = this.aux;
+          });
+  }
   ngAfterViewInit(){
     this.dataSource.sort = this.sort;
   }
@@ -58,11 +67,15 @@ export class ListaPedidoComponent implements OnInit {
   }
 
   eliminarPedido(item: Pedido){
-    this.pedido.fechaAnulado = new Date();
-    //this.pedido[id - 1].fechaAnulado = moment().utc(true).toDate();
-    this._pedidoServices.modificarPedido(this.pedido).subscribe(data => {
-      this.pedido = data;
-      this.pedido.numPedido = data.numPedido
+    item.fechaAnulado = new Date();
+    this._pedidoServices.modificarPedido(item).subscribe(() => {
+      //this.pedidos = this.pedidos.filter(p=>p!==item);
+      location.reload();
+      //this.remove(item);
     });
   }
+  /*remove = (pedido: Pedido)=>{
+    let index = this.pedidos.indexOf(pedido);
+    if(index>-1) this.pedidos.splice(index,1);
+  };*/
 }

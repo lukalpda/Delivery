@@ -38,13 +38,13 @@
                 <td>{{item.categoriaManuf.nombre_categoria}}</td>
                 <td>{{item.precioM | currency}}</td>
                 <td>
-                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes"><mat-icon >assignment</mat-icon></button>
+                  <mat-icon (click)="armarDato(item)"  data-toggle="modal" data-target="#modalIngredientes">assignment</mat-icon>
                 </td>
                 <td>
-                  <button (click)="editarPlato(item)"><mat-icon >edit</mat-icon></button>
+                  <mat-icon (click)="editarPlato(item)">edit</mat-icon>
                 </td>
                 <td>
-                  <button (click)="bajaPlato(item)"><mat-icon>thumb_down</mat-icon></button>
+                  <mat-icon (click)="bajaPlato(item)">thumb_down</mat-icon>
                 </td>
               </tr>
             </tbody>

@@ -52,3 +52,10 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-toolbar.mat-primary {
+  background-color: #fb7e29;
+}
+.mat-icon{
+  cursor: pointer;
+}

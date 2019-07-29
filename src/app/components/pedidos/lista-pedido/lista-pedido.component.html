@@ -34,15 +34,16 @@
     <!-- Detalle Pedido -->
     <ng-container matColumnDef="detallePedido">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Detalle</th>
-      <td mat-cell *matCellDef="let row">{{row.informe}}</td>
+      <td mat-cell *matCellDef="let row" [innerHTML]="row.informe|separador"></td>
     </ng-container>
 
     <!-- Estado -->
     <ng-container matColumnDef="estado">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
       <td mat-cell *matCellDef="let row">
-        <p *ngIf="row.estadoListo==true">Listo</p>
-        <p *ngIf="row.estadoListo==false">En Preparación</p>
+        <p *ngIf="row.estadoListo==true && row.fechaAnulado==null">Listo</p>
+        <p *ngIf="row.estadoListo==false && row.fechaAnulado==null">En Preparación</p>
+        <p *ngIf="row.fechaAnulado!=null">Cancelado</p>
       </td>
     </ng-container>
 
@@ -64,7 +65,7 @@
     <!--Eliminar pedido-->
     <ng-container matColumnDef="eliminar">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </th>
-      <td mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row.numPedido)">delete</mat-icon></td>
+      <td mat-cell *matCellDef="let row"><mat-icon (click)="eliminarPedido(row)">delete</mat-icon></td>
     </ng-container>
     <!-- Acciones -->
     <!--<ng-container matColumnDef="acciones">

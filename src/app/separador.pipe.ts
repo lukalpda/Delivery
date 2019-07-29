@@ -8,7 +8,7 @@ export class SeparadorPipe implements PipeTransform {
   transform(value: any): any {
     const informe = value.toString();
 
-    const nuevo = informe.replace(/\./gi, '<br>');
+    const nuevo = informe.replace(/\-/gi, '<br>');
 
     return nuevo;
 
