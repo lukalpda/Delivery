@@ -15,8 +15,8 @@ import { DetalleReceta } from "src/app/interfaces/detalle-receta.interface";
 import { ArticuloService } from "src/app/services/articulo.service";
 import { element } from "@angular/core/src/render3";
 import { debug } from "util";
-import { LoginUsuarioInterface } from 'src/app/interfaces/login-usuario.interface';
-import { AuthService } from 'src/app/services/complementos/auth.service';
+import { LoginUsuarioInterface } from "src/app/interfaces/login-usuario.interface";
+import { AuthService } from "src/app/services/complementos/auth.service";
 
 @Component({
   selector: "app-carro",
@@ -35,9 +35,7 @@ export class CarroComponent implements OnInit {
   nombreTemporal: string;
   info: any;
   observaciones: string;
- // nombreUsuario: any;
 
- 
   constructor(
     private router: Router,
     private _carroService: CarroService,
@@ -57,14 +55,12 @@ export class CarroComponent implements OnInit {
     this.carroA = {};
     //@ts-ignore
     this.recetas = {};
-    //this.usuario = this._authService.usuario;
   }
 
   ngOnInit() {
     this.carroM = this._carroService.carroM;
     this.carroA = this._carroService.carroA;
 
-    //token: this._tokenService.getToken();
     if (localStorage.getItem("carroT") != null) {
       this.recuperarCarro();
     }
@@ -74,27 +70,20 @@ export class CarroComponent implements OnInit {
     this.calcularSubtotal();
     this.mantenerCarro();
     this._carroService.vaciarCarro();
-    
-    this.info= this._tokenService.getUserName();
-   // console.log(this.info);
 
-    this._clienteService.listarClientes().subscribe(usuarios=>{
-      for (let usuario of usuarios){
-       // console.log("Nombre Usuario: "+ usuario.nombreUsuario);
-        //console.log("info: " + this.info);
+    this.info = this._tokenService.getUserName();
+    this._clienteService.listarClientes().subscribe(usuarios => {
+      for (let usuario of usuarios) {
         let user: string = this.info;
-        
-        if(usuario.nombreUsuario.toString() == user){
+
+        if (usuario.nombreUsuario.toString() == user) {
           this.pedido.cliente = usuario;
-          console.log(this.pedido.cliente);
-        }else{
-          console.log("No entre");
+        } else {
+          console.log("Fallo al cargar el cliente");
         }
       }
-    })
-
+    });
   }
-
 
   mantenerCarro() {
     for (let item of this.carroT) {
@@ -216,29 +205,29 @@ export class CarroComponent implements OnInit {
   }
 
   bajarStock(mercaderia: DetalleVenta) {
-    var id = mercaderia.manufacturado.id_artManuf;
+    //var id = ;
     var cantidad = mercaderia.cantidad;
     if (mercaderia.item == null) {
-     // debugger;
-      this._recetaService.listarRecetasXIdPlato(id).subscribe(recetas => {
+      this._recetaService.listarRecetasXIdPlato(mercaderia.manufacturado.id_artManuf).subscribe(recetas => {
         this.recetas = recetas;
         for (let element of this.recetas) {
           var numero = element.cantidad * cantidad;
-         // debugger;
-         this.delay(200);
-       //   console.log("Estoy mostrando cada receta: " + element);
+
+          this.delay(200);
           this._articuloService
             .buscarXIdArticulo(element.articulo.id_articulo)
             .subscribe(data => {
               data.stock -= numero;
-              console.log("Stock de " + data.nombre_articulo + "= "+ data.stock);
+              console.log(
+                "Stock de " + data.nombre_articulo + "= " + data.stock
+              );
               this._articuloService.modificarArticulo(data).subscribe(() => {
                 console.log("stock descontado");
               });
             });
         }
       });
-    } else {
+    } else if (mercaderia.manufacturado == null){
       this._articuloService
         .buscarXIdArticulo(mercaderia.item.id_articulo)
         .subscribe(recetas => {
@@ -256,35 +245,28 @@ export class CarroComponent implements OnInit {
 
   finalizarCompra() {
     if (this.carroT.length > 0) {
-      for (let item of this.carroT){
+      for (let item of this.carroT) {
         this.bajarStock(item);
-        
-      this.delay(200);
+
+        this.delay(200);
       }
-      
-     // console.log("cliente: " + this.cliente);
-     // this.pedido.cliente = this.cliente;
+
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
 
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
-      
-      // this.cliente.nombreUsuario = this._tokenService.getUserName();
-      // this._clienteService.buscarXIdCliente;
-      //console.log(this.cliente.nombreUsuario);
-      debugger;
       this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
         this.pedido = pedirijillo;
-       // console.log("con envio: " + this.pedido.con_envio);
+
         console.log("Pedido Creado");
 
         for (let item of this.carroT) {
           item.pedido = this.pedido;
-          
+
           this.delay(300);
           this._DetalleService.crearDetalleVenta(item).subscribe(() => {
-            console.log("Se guardo");
+            console.log("Se guardo la venta");
           });
         }
       });
