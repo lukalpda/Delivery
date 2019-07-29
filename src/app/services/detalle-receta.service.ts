@@ -14,8 +14,8 @@ export class DetalleRecetaService {
     return this.http.get<DetalleReceta[]>(this.Url+"lista");
   }
 
-  listarRecetasXIdPlato(id : number){
-    return this.http.get<DetalleReceta[]>(this.Url+"porManufacturado/"+id);
+  listarRecetasXIdPlato(id: number){
+    return this.http.get<DetalleReceta[]>(this.Url+"porManufacturado/"+ id, {responseType: 'json'});
   }
 
   crearDetalleReceta(item: DetalleReceta) {
