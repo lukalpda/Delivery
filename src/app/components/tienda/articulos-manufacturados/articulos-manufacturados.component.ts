@@ -25,7 +25,9 @@ export class ArticulosManufacturadosComponent implements OnInit {
   ngOnInit() {
     this.cargarManufacturados();
     this._carroService.enviarCompraObservable.subscribe(
-      response => {this.carroM = response;}
+      response => {this.carroM = response;
+      for (let element of this.carroM){}
+      }
     );
   }
   cargarManufacturados(): void {
@@ -50,7 +52,6 @@ export class ArticulosManufacturadosComponent implements OnInit {
     this.childMessage = categoria;
   }
   
-
   cargarAlCarrito(item: any) {
     
     this.carroM.push(item);

@@ -78,9 +78,7 @@ export class CarroComponent implements OnInit {
 
         if (usuario.nombreUsuario.toString() == user) {
           this.pedido.cliente = usuario;
-        } else {
-          console.log("Fallo al cargar el cliente");
-        }
+        } 
       }
     });
   }
@@ -205,7 +203,6 @@ export class CarroComponent implements OnInit {
   }
 
   bajarStock(mercaderia: DetalleVenta) {
-    //var id = ;
     var cantidad = mercaderia.cantidad;
     if (mercaderia.item == null) {
       this._recetaService.listarRecetasXIdPlato(mercaderia.manufacturado.id_artManuf).subscribe(recetas => {
@@ -218,11 +215,9 @@ export class CarroComponent implements OnInit {
             .buscarXIdArticulo(element.articulo.id_articulo)
             .subscribe(data => {
               data.stock -= numero;
-              console.log(
-                "Stock de " + data.nombre_articulo + "= " + data.stock
-              );
+              //console.log("Stock de " + data.nombre_articulo + "= " + data.stock);
               this._articuloService.modificarArticulo(data).subscribe(() => {
-                console.log("stock descontado");
+                //console.log("stock descontado");
               });
             });
         }
@@ -233,7 +228,7 @@ export class CarroComponent implements OnInit {
         .subscribe(recetas => {
           recetas.stock -= cantidad;
           this._articuloService.modificarArticulo(recetas).subscribe(() => {
-            console.log("bebida descontada");
+           // console.log("bebida descontada");
           });
         });
     }
