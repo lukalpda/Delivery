@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       this.isLoginFail = false;
       this.roles = this._tokenService.getAuthorities();
     }
+    
   }
 
   onLogin(): void {
@@ -48,7 +49,9 @@ export class LoginComponent implements OnInit {
         this.errorMsg = err.error.message;
       }
     );
+    
   }
 
+  
   //firebase auth:export save_file.json --project <project-id>
 }

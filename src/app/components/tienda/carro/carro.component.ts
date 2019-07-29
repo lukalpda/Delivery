@@ -7,9 +7,16 @@ import { DetalleVentaService } from "src/app/services/detalle-venta.service";
 import { Router } from "@angular/router";
 import { PedidoService } from "src/app/services/pedido.service";
 import { Pedido } from "src/app/interfaces/pedido.interface";
-import { TokenService } from 'src/app/services/complementos/token.service';
-import {NuevoUsuarioInterface} from '../../../interfaces/nuevo-usuario.interface';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { TokenService } from "src/app/services/complementos/token.service";
+import { NuevoUsuarioInterface } from "../../../interfaces/nuevo-usuario.interface";
+import { ClienteService } from "src/app/services/cliente.service";
+import { DetalleRecetaService } from "src/app/services/detalle-receta.service";
+import { DetalleReceta } from "src/app/interfaces/detalle-receta.interface";
+import { ArticuloService } from "src/app/services/articulo.service";
+import { element } from "@angular/core/src/render3";
+import { debug } from "util";
+import { LoginUsuarioInterface } from 'src/app/interfaces/login-usuario.interface';
+import { AuthService } from 'src/app/services/complementos/auth.service';
 
 @Component({
   selector: "app-carro",
@@ -17,6 +24,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ["./carro.component.css"]
 })
 export class CarroComponent implements OnInit {
+  recetas: DetalleReceta[] = [];
   carroM: Manufacturado[] = [];
   carroA: Articulo[] = [];
   carroT: DetalleVenta[] = [];
@@ -25,14 +33,21 @@ export class CarroComponent implements OnInit {
   cliente: NuevoUsuarioInterface;
   pedidos: Pedido[] = [];
   nombreTemporal: string;
+  info: any;
   observaciones: string;
+ // nombreUsuario: any;
+
+ 
   constructor(
     private router: Router,
     private _carroService: CarroService,
     private _DetalleService: DetalleVentaService,
     private _pedidoService: PedidoService,
     private _tokenService: TokenService,
-    private _clienteService: ClienteService
+    private _clienteService: ClienteService,
+    private _recetaService: DetalleRecetaService,
+    private _articuloService: ArticuloService,
+    private _authService: AuthService
   ) {
     //@ts-ignore
     this.pedido = {};
@@ -40,13 +55,16 @@ export class CarroComponent implements OnInit {
     this.carroM = {};
     //@ts-ignore
     this.carroA = {};
+    //@ts-ignore
+    this.recetas = {};
+    //this.usuario = this._authService.usuario;
   }
 
   ngOnInit() {
     this.carroM = this._carroService.carroM;
     this.carroA = this._carroService.carroA;
 
-    token: this._tokenService.getToken();
+    //token: this._tokenService.getToken();
     if (localStorage.getItem("carroT") != null) {
       this.recuperarCarro();
     }
@@ -56,7 +74,27 @@ export class CarroComponent implements OnInit {
     this.calcularSubtotal();
     this.mantenerCarro();
     this._carroService.vaciarCarro();
+    
+    this.info= this._tokenService.getUserName();
+   // console.log(this.info);
+
+    this._clienteService.listarClientes().subscribe(usuarios=>{
+      for (let usuario of usuarios){
+       // console.log("Nombre Usuario: "+ usuario.nombreUsuario);
+        //console.log("info: " + this.info);
+        let user: string = this.info;
+        
+        if(usuario.nombreUsuario.toString() == user){
+          this.pedido.cliente = usuario;
+          console.log(this.pedido.cliente);
+        }else{
+          console.log("No entre");
+        }
+      }
+    })
+
   }
+
 
   mantenerCarro() {
     for (let item of this.carroT) {
@@ -152,7 +190,8 @@ export class CarroComponent implements OnInit {
   }
   eliminarProducto(item: DetalleVenta) {
     if (this.carroT.length == 1) {
-      this.carroT.splice(0,1);
+      this.carroT.splice(0, 1);
+      this.calcularSubtotal();
       localStorage.clear();
     } else {
       for (let i = 0; i < this.carroT.length; i++) {
@@ -176,34 +215,78 @@ export class CarroComponent implements OnInit {
     this.total -= 50;
   }
 
-  bajarStock(){
-    for (let item of this.carroT){
-   //   item.manufacturado.
+  bajarStock(mercaderia: DetalleVenta) {
+    var id = mercaderia.manufacturado.id_artManuf;
+    var cantidad = mercaderia.cantidad;
+    if (mercaderia.item == null) {
+     // debugger;
+      this._recetaService.listarRecetasXIdPlato(id).subscribe(recetas => {
+        this.recetas = recetas;
+        for (let element of this.recetas) {
+          var numero = element.cantidad * cantidad;
+         // debugger;
+         this.delay(200);
+       //   console.log("Estoy mostrando cada receta: " + element);
+          this._articuloService
+            .buscarXIdArticulo(element.articulo.id_articulo)
+            .subscribe(data => {
+              data.stock -= numero;
+              console.log("Stock de " + data.nombre_articulo + "= "+ data.stock);
+              this._articuloService.modificarArticulo(data).subscribe(() => {
+                console.log("stock descontado");
+              });
+            });
+        }
+      });
+    } else {
+      this._articuloService
+        .buscarXIdArticulo(mercaderia.item.id_articulo)
+        .subscribe(recetas => {
+          recetas.stock -= cantidad;
+          this._articuloService.modificarArticulo(recetas).subscribe(() => {
+            console.log("bebida descontada");
+          });
+        });
     }
   }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   finalizarCompra() {
-    
     if (this.carroT.length > 0) {
+      for (let item of this.carroT){
+        this.bajarStock(item);
+        
+      this.delay(200);
+      }
+      
+     // console.log("cliente: " + this.cliente);
+     // this.pedido.cliente = this.cliente;
       this.pedido.observaciones = this.observaciones;
       this.pedido.nombreTemporal = this.nombreTemporal;
 
       this.pedido.fecha = new Date();
       this.pedido.total = this.total;
-      ;
+      
       // this.cliente.nombreUsuario = this._tokenService.getUserName();
       // this._clienteService.buscarXIdCliente;
-      //console.log(this.cliente.nombreUsuario); 
+      //console.log(this.cliente.nombreUsuario);
+      debugger;
       this._pedidoService.crearPedido(this.pedido).subscribe(pedirijillo => {
         this.pedido = pedirijillo;
-        console.log("con envio: " +this.pedido.con_envio);
+       // console.log("con envio: " + this.pedido.con_envio);
         console.log("Pedido Creado");
+
         for (let item of this.carroT) {
           item.pedido = this.pedido;
+          
+          this.delay(300);
           this._DetalleService.crearDetalleVenta(item).subscribe(() => {
             console.log("Se guardo");
           });
         }
-
       });
 
       localStorage.clear();
