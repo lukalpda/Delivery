@@ -1,3 +1,27 @@
 .btn{
     margin: 2px;
 }
+.my-custom-scrollbar {
+  /*position: relative;*/
+  height: 400px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
+.button {
+  background-color: rgba(255, 194, 62, 0.8);
+  border-radius: 6px;
+  border: none;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  width: auto;
+  margin-bottom: 10px;
+}
+.button:hover {
+  background-color: #fb7e29;
+  color: #fff;
+}

@@ -1,46 +1,50 @@
 <app-menu-gerente>
 <div class="container">
   <h4>Pedidos Confirmados</h4>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">N° Pedido</th>
-      <th scope="col">Nombre Cliente</th>
-      <th scope="col">Detalle de Pedido</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let comanda of comandas">
-      <ng-container *ngIf="comanda.estadoListo === true">
-        <th scope="row">{{comanda.numPedido}}</th>
-        <td>{{comanda.cliente.nombreUsuario}}</td>
-        <td [innerHTML]="comanda.informe | separador"></td>
-      </ng-container>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-wrapper-scroll-y my-custom-scrollbar-1">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">N° Pedido</th>
+        <th scope="col">Nombre Cliente</th>
+        <th scope="col">Detalle de Pedido</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let comanda of comandas">
+        <ng-container *ngIf="comanda.estadoListo === true">
+          <th scope="row">{{comanda.numPedido}}</th>
+          <td>{{comanda.cliente.nombreUsuario}}</td>
+          <td [innerHTML]="comanda.informe | separador"></td>
+        </ng-container>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
   <h4>Comandas Canceladas</h4>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Nombre / Usuario</th>
-      <th scope="col">N° de Pedido</th>
-      <th scope="col">Detalle de Pedido</th>
-      <th scope="col">Hora de Pedido</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let comanda of comandas">
-      <ng-container *ngIf="comanda.estadoListo === false && comanda.fechaAnulado !== null">
-        <td scope="row">{{comanda.cliente.nombre}} ({{comanda.cliente.nombreUsuario}})</td>
-        <td>{{comanda.numPedido}}</td>
-        <td [innerHTML]="comanda.informe | separador"></td>
-        <td>{{comanda.fecha | date : "shortTime": 'GMT'}}</td>
-      </ng-container>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-wrapper-scroll-y my-custom-scrollbar-1">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Nombre / Usuario</th>
+        <th scope="col">N° de Pedido</th>
+        <th scope="col">Detalle de Pedido</th>
+        <th scope="col">Hora de Pedido</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let comanda of comandas">
+        <ng-container *ngIf="comanda.estadoListo === false && comanda.fechaAnulado !== null">
+          <td scope="row">{{comanda.cliente.nombre}} ({{comanda.cliente.nombreUsuario}})</td>
+          <td>{{comanda.numPedido}}</td>
+          <td [innerHTML]="comanda.informe | separador"></td>
+          <td>{{comanda.fecha | date : "shortTime": 'GMT'}}</td>
+        </ng-container>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
   <h4>Historial de Pedidos</h4>
   <div class="table-wrapper-scroll-y my-custom-scrollbar">

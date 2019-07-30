@@ -8,9 +8,16 @@ h4{
 table{
   background-color: #e7e7e9;
 }
+.my-custom-scrollbar-1 {
+  height: 200px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
 .my-custom-scrollbar {
-  position: relative;
-  height: 300px;
+  /*position: relative;*/
+  height: 500px;
   overflow: auto;
 }
 .table-wrapper-scroll-y {

@@ -12,3 +12,19 @@ mat-form-field {
 .table-wrapper-scroll-y {
   display: block;
 }
+.button {
+  background-color: rgba(255,194,62,0.8);
+  border-radius: 6px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 0px 2px;
+  text-align: center;
+  text-transform: uppercase;
+  width: auto;
+  margin-left: 5px;
+}
+.button:hover {
+  background-color: #FB7E29;
+  color: #ffffff;
+}
