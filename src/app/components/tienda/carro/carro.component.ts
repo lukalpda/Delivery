@@ -17,6 +17,7 @@ import { element } from "@angular/core/src/render3";
 import { debug } from "util";
 import { LoginUsuarioInterface } from "src/app/interfaces/login-usuario.interface";
 import { AuthService } from "src/app/services/complementos/auth.service";
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: "app-carro",
@@ -78,7 +79,7 @@ export class CarroComponent implements OnInit {
 
         if (usuario.nombreUsuario.toString() == user) {
           this.pedido.cliente = usuario;
-        } 
+        }
       }
     });
   }
@@ -203,23 +204,26 @@ export class CarroComponent implements OnInit {
   }
 
   bajarStock(mercaderia: DetalleVenta) {
-    var cantidad = mercaderia.cantidad;
+    let cantidad = 0;
+    cantidad = mercaderia.cantidad;
     if (mercaderia.item == null) {
       this._recetaService.listarRecetasXIdPlato(mercaderia.manufacturado.id_artManuf).subscribe(recetas => {
         this.recetas = recetas;
         for (let element of this.recetas) {
-          var numero = element.cantidad * cantidad;
+          //let numero = element.cantidad * cantidad;
 
-          this.delay(200);
-          this._articuloService
-            .buscarXIdArticulo(element.articulo.id_articulo)
-            .subscribe(data => {
+          delay(500);
+            this._articuloService.buscarXIdArticulo(element.articulo.id_articulo).subscribe(data => {
+              let numero = element.cantidad * cantidad;
               data.stock -= numero;
+              console.log(numero);
+              console.log(data.stock);
               //console.log("Stock de " + data.nombre_articulo + "= " + data.stock);
               this._articuloService.modificarArticulo(data).subscribe(() => {
                 //console.log("stock descontado");
               });
             });
+
         }
       });
     } else if (mercaderia.manufacturado == null){
