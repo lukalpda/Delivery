@@ -60,7 +60,6 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { TiendaComponent } from './components/tienda/tienda.component';
 import { GerenteComponent } from './components/gerente/gerente.component';
 import {HomeAdminComponent} from './components/recepcion/home-admin/home-admin.component';
-import { MenuComponent } from './components/shared/menu/menu.component';
 import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 //import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
@@ -82,6 +81,8 @@ import { AdminComponent } from './components/users/admin/admin.component';
 import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
 import { SeparadorPipe } from './separador.pipe';
 import {WebsocketService} from './services/websocket.service';
+import {ComandaComponent} from "./components/cocina/comanda/comanda.component";
+import {HistorialCocinaComponent} from "./components/cocina/historial-cocina/historial-cocina.component";
 
 
 @NgModule({
@@ -103,7 +104,6 @@ import {WebsocketService} from './services/websocket.service';
     LineasComponent,
     MenuGerenteComponent,
     MenuRecepcionComponent,
-    MenuComponent,
     ArticuloComponent,
     ArticulosManufacturadosComponent,
     RecepcionComponent,
@@ -124,7 +124,9 @@ import {WebsocketService} from './services/websocket.service';
     UserComponent,
     AdminComponent,
     CategoriaMedidaComponent,
-    SeparadorPipe
+    SeparadorPipe,
+    ComandaComponent,
+    HistorialCocinaComponent
   ],
   imports: [
     BrowserModule,

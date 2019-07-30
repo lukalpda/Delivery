@@ -5,15 +5,17 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/graficas/PedidosPorPeriodo">Reportes Lineas</a>
-      <a mat-list-item routerLink="/graficas/Platos+Vendidos">Reportes Barras</a>
-      <a mat-list-item routerLink="/graficas/dona-prime-ng">Dona PrimeNG</a>
-      <a mat-list-item routerLink="/graficas/barras-prime-ng">Barras PrimeNG</a>
-      <a mat-list-item routerLink="/graficas/usuarios">Registro de Usuarios</a>
-      <a mat-list-item routerLink="/gerente/">Listado de Pedidos</a>
-      <a mat-list-item routerLink="/clientes/">Listado de Clientes</a>
-      <a mat-list-item routerLink="/stock/">Stock de Productos</a>
-      <a mat-list-item routerLink="/platos/">Menú</a>
+      <a mat-list-item routerLink="/comanda/" *ngIf="authority === 'admin' || authority==='empleado'">Comandas</a>
+      <a mat-list-item routerLink="/historial-cocina/" *ngIf="authority === 'admin' || authority==='empleado'">Historial Cocina</a>
+      <a mat-list-item routerLink="/graficas/PedidosPorPeriodo" *ngIf="authority === 'admin'">Reportes Lineas</a>
+      <a mat-list-item routerLink="/graficas/Platos+Vendidos" *ngIf="authority === 'admin'">Reportes Barras</a>
+      <a mat-list-item routerLink="/graficas/dona-prime-ng" *ngIf="authority === 'admin'">Dona PrimeNG</a>
+      <a mat-list-item routerLink="/graficas/barras-prime-ng" *ngIf="authority === 'admin'">Barras PrimeNG</a>
+      <a mat-list-item routerLink="/graficas/usuarios" *ngIf="authority === 'admin'">Registro de Usuarios</a>
+      <a mat-list-item routerLink="/gerente/" *ngIf="authority === 'admin' || authority==='empleado'">Listado de Pedidos</a>
+      <a mat-list-item routerLink="/clientes/" *ngIf="authority === 'admin'">Listado de Clientes</a>
+      <a mat-list-item routerLink="/stock/" *ngIf="authority === 'admin' || authority==='empleado'">Stock de Productos</a>
+      <a mat-list-item routerLink="/platos/" *ngIf="authority === 'admin' || authority==='empleado'">Menú</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

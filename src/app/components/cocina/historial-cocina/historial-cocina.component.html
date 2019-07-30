@@ -1,0 +1,66 @@
+<app-menu-gerente>
+<div class="container">
+  <h4>Historial de Pedidos Realizados</h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">N° Pedido</th>
+      <th scope="col">Nombre Cliente</th>
+      <th scope="col">Detalle de Pedido</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let comanda of comandas">
+      <ng-container *ngIf="comanda.estadoListo === true">
+        <th scope="row">{{comanda.numPedido}}</th>
+        <td>{{comanda.cliente.nombreUsuario}}</td>
+        <td [innerHTML]="comanda.informe | separador"></td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+
+  <h4>Historial de Comandas Canceladas</h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Nombre / Usuario</th>
+      <th scope="col">N° de Pedido</th>
+      <th scope="col">Detalle de Pedido</th>
+      <th scope="col">Hora de Pedido</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let comanda of comandas">
+      <ng-container *ngIf="comanda.estadoListo === false && comanda.fechaAnulado !== null">
+        <td scope="row">{{comanda.cliente.nombre}} ({{comanda.cliente.nombreUsuario}})</td>
+        <td>{{comanda.numPedido}}</td>
+        <td [innerHTML]="comanda.informe | separador"></td>
+        <td>{{comanda.fecha | date : "shortTime": 'GMT'}}</td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+
+  <h4>Historial de Platos Realizados</h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Plato</th>
+      <th scope="col">Ingredientes</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let detalle of detComanda">
+      <ng-container >
+        <td scope="row">{{detalle.manufacturado.nombre_articuloM}}</td>
+        <td>{{detalle.manufacturado.detalle}}</td>
+        <td>{{detalle.cantidad}}</td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</app-menu-gerente>

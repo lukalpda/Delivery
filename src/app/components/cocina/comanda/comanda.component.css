@@ -1,0 +1,33 @@
+.Boton img{
+  height: 30px;
+  width: 30px;
+}
+
+textarea{
+  resize: none;
+}
+
+.Botonera{
+  justify-content: space-around;
+  display: flex;
+}
+
+.card{
+  margin-top: 10px;
+  margin-right: 2px;
+  width: 200px;
+  height: auto;
+  /*background-color: green;*/
+  text-align: center;
+  /*color: white;*/
+}
+
+.demora{
+  justify-content: space-around;
+  display:flex;
+}
+
+.demora button{
+  padding-left: 20px;
+  padding-right: 20px;
+}
