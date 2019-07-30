@@ -63,7 +63,11 @@ export class ListaPedidoComponent implements OnInit {
 
   listarDetalle(){
     let id = localStorage.getItem("idDetalle");
-    this._detalleServices.buscarXIdDetalleVenta(+id).subscribe( data => {this.detalleVenta = data;});
+    this._detalleServices.buscarXIdDetalleVenta(+id).subscribe( data => {
+      if(this.detalleVenta.manufacturado.nombre_articuloM!=null){
+        this.detalleVenta = data;
+      }
+    });
   }
 
   eliminarPedido(item: Pedido){

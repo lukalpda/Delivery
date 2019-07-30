@@ -22,7 +22,7 @@ export class BarrasComponent implements OnInit {
   model1: Date;
   model2: Date;
 
-  color = ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+  color = ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)'];
   bordercolor =  ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'];
 
   public barChartOptions: ChartOptions = {
@@ -58,7 +58,12 @@ export class BarrasComponent implements OnInit {
 
   llenarBarCharData(){
     for(let i=0; i<this.arreAux.length;i++){
-      var temp : ChartDataSets = { data: [this.arreAux[i].cantidad], label: this.arreAux[i].manufacturado.nombre_articuloM};
+      var temp : ChartDataSets = {
+        data: [this.arreAux[i].cantidad],
+        label: this.arreAux[i].manufacturado.nombre_articuloM,
+        backgroundColor:[this.color[i]],
+        borderColor:[this.bordercolor[i]]
+      };
       this.barChartData.push(temp);
 
     }

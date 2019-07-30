@@ -10,8 +10,6 @@ import {of} from 'rxjs';
 })
 export class BarrasPrimeNgComponent implements OnInit {
 
-  manufacturadoD: Manufacturado;
-  manufacturadosD: Manufacturado[]=[];
 
   data: any;
   public barCharOptions: any = {
@@ -20,8 +18,6 @@ export class BarrasPrimeNgComponent implements OnInit {
   };
 
   constructor(private _manufacturadoService: ManufacturadoService) {
-    //@ts-ignore
-    this.manufacturadosD={};
     this.data = {
       labels: [],
       datasets: [
@@ -35,28 +31,15 @@ export class BarrasPrimeNgComponent implements OnInit {
           label: 'My Second dataset',
           backgroundColor: '#9CCC65',
           borderColor: '#7CB342',
-          data: [15,25,14,85]/*(function(){
-            let data = [];
-            let cantPedidos =0;
-            for(let i = 0; i<=0;i++){
-              data.push({
-                cantPedidos = this.totalPedido + manufacturados.precioM;
-              });
-            }
-            return data;
-          }())*/
+          data: [15,25,14,85]
         }
       ]
     }
   }
 
   ngOnInit() {
-    this._manufacturadoService.listarManufacturados().subscribe(resp=>{
-      this.manufacturadosD = resp;
-    })
-  }
 
-  public
+  }
 
 
 }

@@ -4,6 +4,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
 import {PedidoService} from '../../../services/pedido.service';
 import {Pedido} from '../../../interfaces/pedido.interface';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-lineas',
