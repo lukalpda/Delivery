@@ -1,150 +1,189 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, BaseChartDirective, Label } from 'ng2-charts';
-import * as pluginAnnotations from 'chartjs-plugin-annotation';
-import {PedidoService} from '../../../services/pedido.service';
-import {Pedido} from '../../../interfaces/pedido.interface';
-import * as moment from 'moment';
+import { Component, OnInit } from "@angular/core";
+import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
+import * as pluginDataLabels from "chartjs-plugin-datalabels";
+import { Label } from "ng2-charts";
+import { ManufacturadoService } from "../../../services/manufacturado.service";
+import { Manufacturado } from "../../../interfaces/manufacturado.interface";
+import { Pedido } from "../../../interfaces/pedido.interface";
+import { DetalleVenta } from "src/app/interfaces/detalle-venta.interface";
+import { PedidoService } from "src/app/services/pedido.service";
+import { DetalleVentaService } from "src/app/services/detalle-venta.service";
+import * as moment from "moment";
 
 @Component({
-  selector: 'app-lineas',
-  templateUrl: './lineas.component.html',
-  styleUrls: ['./lineas.component.css']
+  selector: "app-lineas",
+  templateUrl: "./lineas.component.html",
+  styleUrls: ["./lineas.component.css"]
 })
 export class LineasComponent implements OnInit {
-
-  arreAux: Pedido[]=[];
+  manufBarra: Manufacturado[] = [];
+  pedidosBarra: Pedido[] = [];
+  arreAux: Pedido[] = [];
   model1: Date;
   model2: Date;
+  Total = 0;
 
-  public lineChartData: ChartDataSets[] = [
-    { data: [], label: '' }
+  color = [
+    "rgba(255, 99, 132, 0.2)",
+    "rgba(54, 162, 235, 0.2)",
+    "rgba(255, 206, 86, 0.2)",
+    "rgba(75, 192, 192, 0.2)",
+    "rgba(153, 102, 255, 0.2)",
+    "rgba(255, 159, 64, 0.2)"
+  ];
+  bordercolor = [
+    "rgba(255,99,132,1)",
+    "rgba(54, 162, 235, 1)",
+    "rgba(255, 206, 86, 1)",
+    "rgba(75, 192, 192, 1)",
+    "rgba(153, 102, 255, 1)",
+    "rgba(255, 159, 64, 1)"
   ];
 
-  llenarLineCharData(){
-    for(let i=0; i<this.arreAux.length;i++){
-      var temp : ChartDataSets = { data: [this.arreAux[i].total], label: this.arreAux[i].cliente.nombre};
-      this.lineChartData.push(temp);
-      this.lineChartLabels.push(this.arreAux[i].fecha.getMonth().toString());
-    }
-  }
-
-  public lineChartLabels: Label[] = ['Ventas por Periodo Seleccionado'];
-  public lineChartOptions: (ChartOptions & { annotation: any }) = {
+  public barChartOptions: ChartOptions = {
     responsive: true,
-    scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
-      xAxes: [{}],
-      yAxes: [
-        {
-          id: 'y-axis-0',
-          position: 'left',
-        },
-        {
-          id: 'y-axis-1',
-          position: 'right',
-          gridLines: {
-            color: 'rgba(255,0,0,0.3)',
-          },
-          ticks: {
-            fontColor: 'black',
-          }
-        }
-      ]
-    },
-    annotation: {
-      annotations: [
-        {
-          type: 'line',
-          mode: 'vertical',
-          scaleID: 'x-axis-0',
-          value: 'March',
-          borderColor: 'orange',
-          borderWidth: 2,
-          label: {
-            enabled: true,
-            fontColor: 'orange',
-            content: 'LineAnno'
-          }
-        },
-      ],
-    },
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+    plugins: {
+      datalabels: {
+        anchor: "end",
+        align: "end"
+      }
+    }
+  };
+  chartdata = {
+    labels: this.arreAux,
+    datasets: [
+      {
+        label: this.arreAux,
+        backgroundColor: this.color,
+        borderColor: this.color,
+        borderWidth: 2,
+        hoverBackgroundColor: this.color,
+        hoverBorderColor: this.bordercolor,
+        data: this.arreAux
+      }
+    ]
   };
 
-  public lineChartColors: Color[] = [  ];
+  public barChartLabels: Label[] = ["Ingresos por Periodo Seleccionado"];
+  public barChartType: ChartType = "bar";
+  public barChartLegend = true;
+  public barChartPlugins = [pluginDataLabels];
 
-  public lineChartLegend = true;
-  public lineChartType = 'line';
-  public lineChartPlugins = [pluginAnnotations];
+  llenarBarCharData() {
+     for (let i = 0; i < this.arreAux.length; i++) {
+    var temp: ChartDataSets = {
+      data: [this.arreAux[i].total],
+      label:  moment(this.arreAux[i].fecha).format('MMM'),
+      backgroundColor:this.color[i] 
+    };
+    this.barChartData.push(temp);
+      }
 
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+    // var temp: ChartDataSets = {
+    //   data: [this.Total],
+    //   label: "Ingresos"
+    // };
+    // this.barChartData.push(temp);
+  }
 
-  constructor(private _pedidoService: PedidoService) { }
+  public barChartData: ChartDataSets[] = [{ data: [], label: "" }];
+
+  constructor(
+    private _manufacturadoService: ManufacturadoService,
+    private _pedidoService: PedidoService,
+    private _detalleVentaService: DetalleVentaService
+  ) {}
 
   ngOnInit() {
+    this._manufacturadoService.listarManufacturados().subscribe(data => {
+      this.manufBarra = data;
+    });
   }
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({
+    event,
+    active
+  }: {
+    event: MouseEvent;
+    active: {}[];
+  }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartHovered({
+    event,
+    active
+  }: {
+    event: MouseEvent;
+    active: {}[];
+  }): void {
     console.log(event, active);
   }
-
-  public hideOne() {
-    const isHidden = this.chart.isDatasetHidden(1);
-    this.chart.hideDataset(1, !isHidden);
-  }
-
-  /*public pushOne() {
-    this.lineChartData.forEach((x, i) => {
-      const num = this.generateNumber(i);
-      const data: number[] = x.data as number[];
-      data.push(num);
-    });
-    this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
-  }*/
-
-  public changeColor() {
-    this.lineChartColors[2].borderColor = 'green';
-    this.lineChartColors[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
-  }
-
 
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   buscar() {
-    this.buscarXMes();
-    this.delay(1000).then(r => this.llenarLineCharData());
-
+    this.buscarXIngresos();
+    this.delay(1000).then(r => this.llenarBarCharData());
   }
-
-  buscarXMes(){
+  buscarXIngresos() {
+    this.barChartData = [];
+    this.arreAux = [];
+    //debugger;
     let fecha1 = this.model1.toISOString();
     let fecha2 = this.model2.toISOString();
-    this._pedidoService.listarPedidos().subscribe(data=>{
-      for(let i=0; i<data.length;i++){
-        if(data[i].fecha.toString()<fecha2 && data[i].fecha.toString()>fecha1 && data[i].fechaAnulado==null){
-          if(this.arreAux.length>0) {
-            let mesNoEsta=true;
-            for (let j = 0; j < this.arreAux.length; j++) {
-              if (this.arreAux[j].fecha.getMonth().toString() == data[i].fecha.getMonth().toString()) {
-                 this.arreAux[j].total += data[i].total;
-                 mesNoEsta=false;
+    this._pedidoService.listarPedidos().subscribe(data => {
+      //busco todos los pedidos
+      for (let item of data) {
+        if ( item.fecha.toString() < fecha2 && item.fecha.toString() > fecha1 && item.fechaAnulado == null ) {
+          debugger;
+          let mesNo=true;
+          if (this.arreAux.length > 0){
+            for(let i =0;i<this.arreAux.length;i++){
+              if( moment(this.arreAux[i].fecha).format('MMM') == moment(item.fecha).format('MMM')){
+                this.arreAux[i].total += item.total;
+                mesNo=false;
+//                console.log(moment(item.fecha).format('MMM'));
               }
             }
-            if(mesNoEsta){
-              this.arreAux.push(data[i]);
+            if(mesNo){
+              this.arreAux.push(item);
             }
+
           }else{
-            this.arreAux.push(data[i]);
+            this.arreAux.push(item);
+            console.log("primera carga");
           }
+          
         }
       }
-    })
+    });
   }
 
+  /*
+  buscarXIngresos() {
+    this.barChartData = [];
+    this.arreAux = [];
+    //debugger;
+    let fecha1 = this.model1.toISOString();
+    let fecha2 = this.model2.toISOString();
+    this._pedidoService.listarPedidos().subscribe(data => {
+      //busco todos los pedidos
+      for (let item of data) {
+        if (
+          item.fecha.toString() < fecha2 &&
+          item.fecha.toString() > fecha1 &&
+          item.fechaAnulado == null
+        ) {
+          this.Total += item.total;
+          console.log(this.Total);
+        }
+      }
+    });
+  }
+  */
 }
