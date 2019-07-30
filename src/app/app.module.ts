@@ -10,8 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ButtonModule, ChartModule} from 'primeng/primeng';
 import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
-import {ToastModule} from 'primeng/toast';
-// import {ChartModule} from 'primeng/chart';
+ //import {ChartModule} from 'primeng/chart';
 
 // Material
 import { CommonModule } from '@angular/common';
@@ -27,7 +26,7 @@ import { environment } from '../environments/environment';
 // chart.js
 import { ChartsModule } from 'ng2-charts';
 import { BarrasComponent } from './components/graficas/Platos+Vendidos/barras.component';
-import { LineasComponent } from './components/graficas/PedidosPorPeriodo/lineas.component';
+import { LineasComponent } from './components/graficas/Ingresos/lineas.component';
 // Services
 import { OrdersService } from './services/orders.service';
 import { ManufacturadoService } from './services/manufacturado.service';
@@ -142,8 +141,7 @@ import {WebsocketService} from './services/websocket.service';
     ChartsModule,
     CommonModule,
     ReactiveFormsModule,
-    ChartModule,
-    ToastModule
+    ChartModule
   ],
 
   providers: [

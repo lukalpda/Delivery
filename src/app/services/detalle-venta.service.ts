@@ -17,7 +17,7 @@ export class DetalleVentaService {
   Url= "http://localhost:8080/api/v1/detalles_factura/";
 
   listarDetalleVentas(){
-    return this.http.get<DetalleVenta[]>(this.Url+'lista',cabecera)
+    return this.http.get<DetalleVenta[]>(this.Url+'lista')
   }
 
   listarXPedido(idPedido: number){

@@ -8,7 +8,7 @@ import {TiendaComponent} from './components/tienda/tienda.component';
 import {GerenteComponent} from './components/gerente/gerente.component';
 import {RecepcionComponent} from './components/recepcion/recepcion.component';
 import {BarrasComponent} from './components/graficas/Platos+Vendidos/barras.component';
-import {LineasComponent} from './components/graficas/PedidosPorPeriodo/lineas.component';
+import {LineasComponent} from './components/graficas/Ingresos/lineas.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 //import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
@@ -44,12 +44,12 @@ const routes: Routes = [
   {path: 'gerente', component: GerenteComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'recepcion', component: RecepcionComponent,
-    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
+    canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'cocina', component: CocinaComponent,
-    canActivate: [guard], data: { expectedRol: ['admin', 'empleado']}},
+    canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'graficas/Platos+Vendidos', component: BarrasComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
-  {path: 'graficas/PedidosPorPeriodo', component: LineasComponent,
+  {path: 'graficas/Ingresos', component: LineasComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'graficas/dona-prime-ng', component: DonaPrimeNGComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},

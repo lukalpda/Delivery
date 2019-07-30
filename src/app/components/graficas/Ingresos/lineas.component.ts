@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
+import {PedidoService} from '../../../services/pedido.service';
+import {Pedido} from '../../../interfaces/pedido.interface';
 
 @Component({
   selector: 'app-lineas',
@@ -10,13 +12,23 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 })
 export class LineasComponent implements OnInit {
 
+  arreAux: Pedido[]=[];
+  model1: Date;
+  model2: Date;
+
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Pollo' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Papas' },
-    { data: [180, 480, 770, 90, 1000, 270, 400], label: 'Pescado', yAxisID: 'y-axis-1' }
+    { data: [], label: '' }
   ];
 
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  llenarLineCharData(){
+    for(let i=0; i<this.arreAux.length;i++){
+      var temp : ChartDataSets = { data: [this.arreAux[i].total], label: this.arreAux[i].cliente.nombre};
+      this.lineChartData.push(temp);
+      this.lineChartLabels.push(this.arreAux[i].fecha.getMonth().toString());
+    }
+  }
+
+  public lineChartLabels: Label[] = ['Ventas por Periodo Seleccionado'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {
@@ -66,22 +78,9 @@ export class LineasComponent implements OnInit {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
-  constructor() { }
+  constructor(private _pedidoService: PedidoService) { }
 
   ngOnInit() {
-  }
-
-  public randomize(): void {
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        this.lineChartData[i].data[j] = this.generateNumber(i);
-      }
-    }
-    this.chart.update();
-  }
-
-  private generateNumber(i: number) {
-    return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
   }
 
   // events
@@ -98,23 +97,53 @@ export class LineasComponent implements OnInit {
     this.chart.hideDataset(1, !isHidden);
   }
 
-  public pushOne() {
+  /*public pushOne() {
     this.lineChartData.forEach((x, i) => {
       const num = this.generateNumber(i);
       const data: number[] = x.data as number[];
       data.push(num);
     });
     this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
-  }
+  }*/
 
   public changeColor() {
     this.lineChartColors[2].borderColor = 'green';
     this.lineChartColors[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
   }
 
-  public changeLabel() {
-    this.lineChartLabels[2] = ['1st Line', '2nd Line'];
-    // this.chart.update();
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  buscar() {
+    this.buscarXMes();
+    this.delay(1000).then(r => this.llenarLineCharData());
+
+  }
+
+  buscarXMes(){
+    let fecha1 = this.model1.toISOString();
+    let fecha2 = this.model2.toISOString();
+    this._pedidoService.listarPedidos().subscribe(data=>{
+      for(let i=0; i<data.length;i++){
+        if(data[i].fecha.toString()<fecha2 && data[i].fecha.toString()>fecha1 && data[i].fechaAnulado==null){
+          if(this.arreAux.length>0) {
+            let mesNoEsta=true;
+            for (let j = 0; j < this.arreAux.length; j++) {
+              if (this.arreAux[j].fecha.getMonth().toString() == data[i].fecha.getMonth().toString()) {
+                 this.arreAux[j].total += data[i].total;
+                 mesNoEsta=false;
+              }
+            }
+            if(mesNoEsta){
+              this.arreAux.push(data[i]);
+            }
+          }else{
+            this.arreAux.push(data[i]);
+          }
+        }
+      }
+    })
   }
 
 }

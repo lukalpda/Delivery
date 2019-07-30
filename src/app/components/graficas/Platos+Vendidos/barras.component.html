@@ -4,6 +4,27 @@
     <h3 class="text-center">Platos Más Vendidos</h3>
     <hr>
   </div>
+<div>
+  <mat-form-field color="accent">
+    <mat-label>Fecha de inicio</mat-label>
+    <label>
+      <input matInput [matDatepicker]="picker1" name="dp" [(ngModel)]="model1">
+    </label>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>Fecha fin</mat-label>
+    <label>
+      <input matInput [matDatepicker]="picker2" name="dp" [(ngModel)]="model2">
+    </label>
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+  <button mat-button mat-raised-button color="primary" (click)="buscar()">Buscar</button>
+</div>
   <div>
     <div style="display: block">
       <canvas baseChart
@@ -15,7 +36,8 @@
         [chartType]="barChartType">
       </canvas>
     </div>
-    <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+<!--    <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>-->
+
   </div>
 </div>
 </app-menu-gerente>
