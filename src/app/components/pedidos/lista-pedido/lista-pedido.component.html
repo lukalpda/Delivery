@@ -10,9 +10,8 @@
            placeholder="Buscar Pedido">
   </mat-form-field>
 </div>-->
-
-<div class="table">
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<div class="table-wrapper-scroll-y my-custom-scrollbar table">
+  <table class="table table-hover" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <!--  Columna ID-->
     <ng-container matColumnDef="numPedido">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Nro Pedido</th>

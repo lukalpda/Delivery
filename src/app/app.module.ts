@@ -52,7 +52,6 @@ import {MenuRecepcionComponent} from './components/shared/menu-recepcion/menu-re
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/shared/search/search.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { DataViewComponent } from './components/shared/data-view/data-view.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -90,7 +89,6 @@ import {HistorialCocinaComponent} from "./components/cocina/historial-cocina/his
     HomeComponent,
     SearchComponent,
     ContactComponent,
-    DataViewComponent,
     NavbarComponent,
     RegisterComponent,
     LoginComponent,

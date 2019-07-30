@@ -27,8 +27,8 @@
         </div>
       </div>
       <div class="card-footer Botonera">
-        <button type="button" class="btn btn-success Boton" (click)="Actions(comanda.numPedido, $event)" id="aceptar" ><img src="assets/Imagenes Cocina/Aceptar.png"></button>
-        <button type="button" class="btn btn-danger Boton" (click)="Actions(comanda.numPedido, $event)" id="cancelar"><img src="assets/Imagenes Cocina/Cancelar.png"></button>
+        <button type="button" class="btn btn-success Boton" (click)="confirmarComanda(comanda)" id="aceptar" ><img src="assets/Imagenes Cocina/Aceptar.png"></button>
+        <button type="button" class="btn btn-danger Boton" (click)="eliminarComanda(comanda)" id="cancelar"><img src="assets/Imagenes Cocina/Cancelar.png"></button>
       </div>
     </div>
   </div>

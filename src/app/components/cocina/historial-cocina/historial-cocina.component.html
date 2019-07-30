@@ -1,6 +1,6 @@
 <app-menu-gerente>
 <div class="container">
-  <h4>Historial de Pedidos Realizados</h4>
+  <h4>Pedidos Confirmados</h4>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -20,7 +20,7 @@
     </tbody>
   </table>
 
-  <h4>Historial de Comandas Canceladas</h4>
+  <h4>Comandas Canceladas</h4>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -42,25 +42,27 @@
     </tbody>
   </table>
 
-  <h4>Historial de Platos Realizados</h4>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Plato</th>
-      <th scope="col">Ingredientes</th>
-      <th scope="col">Cantidad</th>
-    </tr>
-    </thead>
+  <h4>Historial de Pedidos</h4>
+  <div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Plato</th>
+        <th scope="col">Ingredientes</th>
+        <th scope="col">Cantidad</th>
+      </tr>
+      </thead>
 
-    <tbody>
-    <tr *ngFor="let detalle of detComanda">
-      <ng-container >
-        <td scope="row">{{detalle.manufacturado.nombre_articuloM}}</td>
-        <td>{{detalle.manufacturado.detalle}}</td>
-        <td>{{detalle.cantidad}}</td>
-      </ng-container>
-    </tr>
-    </tbody>
-  </table>
+      <tbody data-spy="scroll" data-offset="0" class="scrollspy-example">
+      <tr *ngFor="let detalle of detComanda">
+        <ng-container >
+          <td scope="row">{{detalle.manufacturado.nombre_articuloM}}</td>
+          <td>{{detalle.manufacturado.detalle}}</td>
+          <td>{{detalle.cantidad}}</td>
+        </ng-container>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 </app-menu-gerente>

@@ -79,27 +79,40 @@ export class ComandaComponent implements OnInit {
     }
     return max;
   }
+  eliminarComanda(item: Pedido){
+    item.fechaAnulado = new Date();
+    this.pedidoSer.modificarPedido(item).subscribe(() => {
+      //this.pedidos = this.pedidos.filter(p=>p!==item);
+      //location.reload();
+      //this.remove(item);
+    });
+  }
+  confirmarComanda(item: Pedido){
+    item.estadoListo = true;
+    this.pedidoSer.modificarPedido(item).subscribe(() => {
+      //this.pedidos = this.pedidos.filter(p=>p!==item);
+      //location.reload();
+      //this.remove(item);
+    });
+  }
 
   Actions(id, tipo): void {
     const bid: string = (tipo.target as Element).id;
-
     switch (bid) {
       case 'suma':
         this.comandas[id - 1].demora += 5;
         break;
-
       case 'resta':
         this.comandas[id - 1].demora -= 5;
         break;
-
-      case 'aceptar':
+      /*case 'aceptar':
         this.comandas[id - 1].estadoListo = true;
-        break;
-
-      case 'cancelar':
+        break;*/
+      /*case 'cancelar':
         this.comandas[id - 1].fechaAnulado = moment().utc(true).toDate();
-        break;
+        break;*/
     }
+
     this.pedidoSer.modificarPedido((this.comandas[id - 1])).subscribe(data => {
       this.comandas[id - 1] = data;
     });

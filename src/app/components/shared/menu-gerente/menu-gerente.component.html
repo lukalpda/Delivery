@@ -5,15 +5,15 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/graficas/Ingresos">Ingresos</a>
-      <a mat-list-item routerLink="/graficas/Platos+Vendidos">Platos Más Vendidos</a>
+      <a mat-list-item routerLink="/graficas/Ingresos" *ngIf="authority === 'admin'">Ingresos</a>
+      <a mat-list-item routerLink="/graficas/Platos+Vendidos" *ngIf="authority === 'admin'">Platos Más Vendidos</a>
 <!--      <a mat-list-item routerLink="/graficas/dona-prime-ng">Dona PrimeNG</a>-->
 <!--      <a mat-list-item routerLink="/graficas/barras-prime-ng">Barras PrimeNG</a>-->
 <!--      <a mat-list-item routerLink="/graficas/usuarios">Registro de Usuarios</a>-->
-      <a mat-list-item routerLink="/gerente/">Pedidos</a>
-      <a mat-list-item routerLink="/clientes/">Clientes</a>
-      <a mat-list-item routerLink="/stock/">Artículos</a>
-      <a mat-list-item routerLink="/platos/">Platos</a>
+      <a mat-list-item routerLink="/clientes/" *ngIf="authority === 'admin'">Clientes</a>
+      <a mat-list-item routerLink="/gerente/" *ngIf="authority === 'admin' || authority==='empleado'">Pedidos</a>
+      <a mat-list-item routerLink="/stock/" *ngIf="authority === 'admin' || authority==='empleado'">Artículos</a>
+      <a mat-list-item routerLink="/platos/" *ngIf="authority === 'admin' || authority==='empleado'">Platos</a>
       <a mat-list-item routerLink="/comanda/" *ngIf="authority === 'admin' || authority==='empleado'">Comandas</a>
       <a mat-list-item routerLink="/historial-cocina/" *ngIf="authority === 'admin' || authority==='empleado'">Historial Cocina</a>
     </mat-nav-list>

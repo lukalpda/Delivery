@@ -34,7 +34,7 @@ export class ListaPedidoComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  
+
   ngOnInit() {
     this.listarPedidos();
   }
@@ -53,7 +53,7 @@ export class ListaPedidoComponent implements OnInit {
   ngAfterViewInit(){
     this.dataSource.sort = this.sort;
   }
-  
+
   //modificar para que busque por nombre del cliente
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Elimina espacios en blanco
