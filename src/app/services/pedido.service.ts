@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Pedido } from '../interfaces/pedido.interface';
-import {DetalleVenta} from '../interfaces/detalle-venta.interface';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormControl, FormGroup} from '@angular/forms';
+
+const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PedidoService {
 
   constructor(private http: HttpClient) { }
 
-  Url = 'http://localhost:8080/api/v1/pedidos/';
+  Url="http://localhost:8080/api/v1/pedidos/";
 
   myForm = new FormGroup({
     nombreCliente: new FormControl(''),
@@ -21,28 +22,20 @@ export class PedidoService {
     estado: new FormControl(false)
   });
 
-
-  listarPedidos() {
-    return this.http.get<Pedido[]>(this.Url);
+  listarPedidos(){
+    return this.http.get<Pedido[]>(this.Url+'lista/',cabecera);
   }
 
-  crearPedido(item: Pedido) {
-    return this.http.post<Pedido>(this.Url, item);
+  crearPedido(item: Pedido){    
+    return this.http.post<Pedido>(this.Url+'nuevo', item);
   }
 
-  buscarXIdPedido(id: number) {
-    return this.http.get<Pedido>(this.Url + id);
+  buscarXIdPedido(id: number){
+    return this.http.get<Pedido>(this.Url+"detalle/"+id);
   }
 
-  modificarPedido(item: Pedido) {
-    return this.http.put<Pedido>(this.Url + item.numPedido, item);
+  modificarPedido(item:Pedido){
+    return this.http.put<Pedido>(this.Url+'actualizar/'+item.numPedido, item);
   }
 
-  estadoPedido(pedido: Pedido) {
-    if (pedido.estadoListo === true) {
-      pedido.estadoListo = false;
-    } else {
-      pedido.estadoListo = true;
-    }
-  }
 }

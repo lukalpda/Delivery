@@ -13,18 +13,18 @@ export class FacturaService {
   
 
   listarFacturas(){
-    return this.http.get<Factura[]>(this.Url);
+    return this.http.get<Factura[]>(this.Url+"lista");
   }
 
   crearFactura(item: Factura){    
-    return this.http.post<Factura>(this.Url, item);
+    return this.http.post<Factura>(this.Url+"nuevo", item);
   }
 
   buscarXIdFactura(id: number){
-    return this.http.get<Factura>(this.Url+id);
+    return this.http.get<Factura>(this.Url+"detalle/"+id);
   }
 
   modificarFactura(item:Factura){
-    return this.http.put<Factura>(this.Url+item.numFactura, item);
+    return this.http.put<Factura>(this.Url+"actualizar/"+item.numFactura, item);
   }
 }

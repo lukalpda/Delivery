@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import {interceptorProvider} from './services/complementos/interceptor.service';
 
 // Bootstrap PrimeNg
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -54,15 +55,15 @@ import { SearchComponent } from './components/shared/search/search.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DataViewComponent } from './components/shared/data-view/data-view.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { RegisterComponent } from './components/users/register/register.component';
-import { LoginComponent } from './components/users/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { TiendaComponent } from './components/tienda/tienda.component';
 import { GerenteComponent } from './components/gerente/gerente.component';
 import {HomeAdminComponent} from './components/recepcion/home-admin/home-admin.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
-import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
+//import { AgregarClienteComponent } from './components/clientes/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { CarroComponent } from './components/tienda/carro/carro.component';
 import { StockComponent } from './components/stock/stock-articulo/stock.component';
@@ -76,6 +77,9 @@ import {CocinaComponent} from './components/cocina/cocina.component';
 import { DonaPrimeNGComponent } from './components/graficas/dona-prime-ng/dona-prime-ng.component';
 import { BarrasPrimeNgComponent } from './components/graficas/barras-prime-ng/barras-prime-ng.component';
 import { UsuariosComponent } from './components/graficas/usuarios/usuarios.component';
+import { UserComponent } from './components/users/user/user.component';
+import { AdminComponent } from './components/users/admin/admin.component';
+import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
 import { SeparadorPipe } from './separador.pipe';
 import {WebsocketService} from './services/websocket.service';
 
@@ -104,7 +108,7 @@ import {WebsocketService} from './services/websocket.service';
     ArticulosManufacturadosComponent,
     RecepcionComponent,
     ClientesComponent,
-    AgregarClienteComponent,
+    //AgregarClienteComponent,
     EditarClienteComponent,
     CarroComponent,
     StockComponent,
@@ -117,6 +121,9 @@ import {WebsocketService} from './services/websocket.service';
     DonaPrimeNGComponent,
     BarrasPrimeNgComponent,
     UsuariosComponent,
+    UserComponent,
+    AdminComponent,
+    CategoriaMedidaComponent,
     SeparadorPipe
   ],
   imports: [
@@ -158,6 +165,7 @@ import {WebsocketService} from './services/websocket.service';
     UnidadMedidaService,
     OrdersService,
     CategoriaService,
+    interceptorProvider,
     WebsocketService
   ],
   bootstrap: [AppComponent]

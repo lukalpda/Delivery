@@ -8,9 +8,9 @@
     </ul>
   </nav>
   <div *ngIf="parentMessage != '4'">
-    <app-articulos-manufacturados [childMessage]="parentMessage"> </app-articulos-manufacturados>
+    <app-articulos-manufacturados [childMessage]="parentMessage"></app-articulos-manufacturados>
   </div>
   <div *ngIf="parentMessage == '4'">
-    <app-articulo [childMessage]="parentMessage"> </app-articulo>
+    <app-articulo [childMessage]="parentMessage"></app-articulo>
   </div>
 </div>

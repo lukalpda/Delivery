@@ -13,18 +13,18 @@ export class LocalidadadService {
   
 
   listarLocalidades(){
-    return this.http.get<Localidad[]>(this.Url);
+    return this.http.get<Localidad[]>(this.Url+"lista");
   }
 
   crearLocalidad(item: Localidad){    
-    return this.http.post<Localidad>(this.Url, item);
+    return this.http.post<Localidad>(this.Url+"nuevo", item);
   }
 
   buscarXIdLocalidad(id: number){
-    return this.http.get<Localidad>(this.Url+id);
+    return this.http.get<Localidad>(this.Url+"detalle/"+id);
   }
 
   modificarLocalidad(item:Localidad){
-    return this.http.put<Localidad>(this.Url+item.id_Localidad, item);
+    return this.http.put<Localidad>(this.Url+"actualizar/"+item.id_Localidad, item);
   }
 }

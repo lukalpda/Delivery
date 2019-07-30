@@ -1,20 +1,22 @@
 <app-menu-gerente>
+  
   <div class="container">
-    <br>
     <div class="container">
+      <button (click)="nuevoPlato()" class="btn btn-info" style="margin: 10px; ">Crear nuevo registro</button>
+      <button routerLink="/categoria_medida/" class="btn btn-info" >Categorías y unid. de medida</button>
       <br>
-      <app-search></app-search>
-      <button (click)="nuevoPlato()" class="btn btn-info btn-block" style="margin-left: 0px; ">Crear nuevo registro</button>
     </div>
+
     <div class="card bg-light mb-3">
       <div class="class-header">
         <br>
         <h3 class="text-center">Menú</h3>
-        <hr>
       </div>
       <div class="card-body">
+
+
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-          <table class="table table-hover">
+          <table class="table table-hover" id="tabla1">
             <thead>
               <tr>
                 <th>#</th>
@@ -29,20 +31,20 @@
             <tbody>
               <tr *ngFor="let item of platos; let i = index" class="text-center">
                 <th scope="row">{{i+1}}</th>
-                <td>Hardcode: acá va la foto</td>
+                <td><img class="d-block image" src='{{item.foto}}'></td>
                 <td>{{item.nombre_articuloM}}</td>
                 <td>{{item.detalle}}</td>
                 <td>{{item.minutosPrep}}</td>
                 <td>{{item.categoriaManuf.nombre_categoria}}</td>
                 <td>{{item.precioM | currency}}</td>
                 <td>
-                  <button (click)="verReceta(item)" class="btn btn-info">Ingr.</button>
+                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes"><mat-icon >assignment</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="editarPlato(item)" class="btn btn-warning">Editar</button>
+                  <button (click)="editarPlato(item)"><mat-icon >edit</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="bajaPlato(item)" class="btn btn-danger">Baja</button>
+                  <button (click)="bajaPlato(item)"><mat-icon>thumb_down</mat-icon></button>
                 </td>
               </tr>
             </tbody>
@@ -50,13 +52,12 @@
         </div>
       </div>
       <div class="class-header">
-        <br>
-        <h3 class="text-center">Platos fuera del menú</h3>
         <hr>
+        <h3 class="text-center">Platos fuera del menú</h3>
       </div>
       <div class="card-body">
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-          <table class="table table-hover">
+          <table class="table table-hover" id="tabla2">
             <thead>
               <tr>
                 <th>#</th>
@@ -76,13 +77,13 @@
                 <td>{{item.categoriaManuf.nombre_categoria}}</td>
                 <td>{{item.precioM | currency}}</td>
                 <td>
-                  <button (click)="verReceta(item)" class="btn btn-info">Ingr.</button>
+                  <button (click)="armarDato(item)" type="button" data-toggle="modal" data-target="#modalIngredientes"><mat-icon>assignment</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="editarPlato(item)" class="btn btn-warning">Editar</button>
+                  <button (click)="editarPlato(item)"><mat-icon>edit</mat-icon></button>
                 </td>
                 <td>
-                  <button (click)="altaPlato(item)" class="btn btn-success">Incluir</button>
+                  <button (click)="altaPlato(item)"><mat-icon>add</mat-icon></button>
                 </td>
               </tr>
             </tbody>
@@ -91,4 +92,35 @@
       </div>
     </div>
   </div>
+
 </app-menu-gerente>
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalIngredientes">
+    Launch demo modal
+  </button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalIngredientes" tabindex="-1" role="dialog"
+    aria-labelledby="modalIngredientesTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalIngredientesTitle">Ingredientes:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="collection">
+            <li *ngFor="let ingrediente of ingredientes">
+              <span>{{ingrediente.articulo.nombre_articulo}}  x 
+                {{ingrediente.cantidad}}  {{ingrediente.articulo.medidaProd.tipo_medida}}</span>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -14,3 +14,7 @@
   .table-wrapper-scroll-y {
   display: block;
   }
+
+  .card-body{
+    font: 13px arial, sans-serif;
+}

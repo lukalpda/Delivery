@@ -8,50 +8,78 @@
         <tr>
           <th scope="col">Producto</th>
           <th scope="col">Imagen</th>
-          <th scope="col">Descripciòn</th>
+          <th scope="col">Descripción</th>
           <th scope="col">Precio</th>
           <th scope="col">Cantidad</th>
           <th scope="col">Subtotal</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let carroAux of carroM; let i = index">
-          <td>{{carroAux.nombre_articuloM}}</td>
-          <td><img class="card-img-top img" src="{{carroAux.foto}}" [alt]="carroAux"></td>
-          <td>{{carroAux.detalle}}</td>
-          <td>{{carroAux.precioM}}</td>
-          <td>
-              <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"/>
-          </td>
-          <td>
-            {{calcularSubtotal(1,carroAux.precioM)}}
-          </td>
+        <tr *ngFor="let item of carroT; let i = index">
+          <ng-container *ngIf="item.manufacturado">
+            <td>{{item.manufacturado.nombre_articuloM}}</td>
+            <td><img class="card-img-top img" src="{{item.manufacturado.foto}}" [alt]="item"></td>
+            <td>{{item.manufacturado.detalle}}</td>
+            <td>{{item.manufacturado.precioM|currency}}</td>
+            <td>
+              <!-- <input id="cantidadM" type="number" value="{{item.canticd dad}}" min="1" max="10" step="1" (change)="calcularSubtotal()"/> -->
+              {{item.cantidad}}
+            </td>
+            <td>{{item.subtotal}}</td>
+            <td><button mat-button (click)="eliminarProducto(item)">
+                <mat-icon>delete</mat-icon>
+              </button></td>
+          </ng-container>
+          <ng-container *ngIf="item.item">
+            <td>{{item.item.nombre_articulo}}</td>
+            <td><img class="card-img-top img" src="{{item.item.foto}}" [alt]="item"></td>
+            <td>{{item.item.detalle}} </td>
+            <td>{{item.item.precioA|currency}}</td>
+            <td>
+              <!-- <input id="cantidadM" type="number" value="1" min="1" max="10" step="1"  /> -->
+              {{item.cantidad}}
+            </td>
+            <td>{{item.subtotal}}</td>
+            <td><button mat-button (click)="eliminarProducto(item)">
+                <mat-icon>delete</mat-icon>
+              </button></td>
+          </ng-container>
         </tr>
-        <tr *ngFor="let carroAux of carroA; let i = index">
-            <td>{{carroAux.nombre_articulo}}</td>
-            <td><img class="card-img-top img" src="{{carroAux.foto}}" [alt]="carroAux"></td>
-            <td>{{carroAux.detalle}}</td>
-            <td>{{carroAux.precioA}}</td>
-            <td>
-                <input id="cantidadA" type="number" value="1" min="1" max="10" step="1"/>
-            </td>
-            <td>
-              {{calcularSubtotal(1,carroAux.precioA)}}
-            </td>
-          </tr>
         <tr>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
+
           <th>Total</th>
-          <td>$</td>
+          <td>{{ total | currency }}</td>
+          <td></td>
         </tr>
-        
+
       </tbody>
     </table>
   </div>
 </div>
+<br>
+<div class="container">
+  <div class="card-columns">
+    <div class="card bg-light">
+      <br>
+      <h5 class="text-center">Observaciones</h5>
+      <hr>
+      <input [(ngModel)]="observaciones" class="left" name="observaciones" id="observaciones" #ctrl="ngModel" required>
+    </div>
+    <div class="card bg-light">
+      <br>
+      <h5 class="text-center">Retira/Recibe</h5>
+      <hr>
+      <input [(ngModel)]="nombreTemporal" class="rigth" name="nombreTemporal" id="nombreTemporal" #ctrl="ngModel"
+        required>
+    </div>
+  </div>
+</div>
+
 <br>
 <div class="container">
   <div class="card bg-light mb-3">
@@ -59,14 +87,14 @@
     <h5 class="text-center">Seleccione el tipo de envío</h5>
     <hr>
     <fieldset id="group1" class="radio">
-      <input class="btn1" type="radio" value="value1" name="group1">
+      <input class="btn1" type="radio" value="value1" name="group1" id="envio" (change)="sumarEnvio()">
       Envío a Domicilio ($50)
-      <input class="btn2" type="radio" value="value2" name="group1">
+      <input class="btn2" type="radio" value="value2" name="group1" id="retiro" (change)="restarEnvio()" checked>
       Retiro en Tienda
     </fieldset>
     <br>
     <div>
-    <button class="button alert-danger">Finalizar Compra</button>
+      <button class="button alert-success" id="finalizar" (click)="finalizarCompra()">Finalizar Compra</button>
     </div>
   </div>
 </div>

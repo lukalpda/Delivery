@@ -13,18 +13,22 @@ export class UnidadMedidaService {
   
 
   listarUnidadesMedida(){
-    return this.http.get<UnidadMedida[]>(this.Url);
+    return this.http.get<UnidadMedida[]>(this.Url+"lista");
   }
 
   crearUnidadMedida(item: UnidadMedida){    
-    return this.http.post<UnidadMedida>(this.Url, item);
+    return this.http.post<UnidadMedida>(this.Url+"nuevo", item);
   }
 
   buscarXIdUnidadMedida(id: number){
-    return this.http.get<UnidadMedida>(this.Url+id);
+    return this.http.get<UnidadMedida>(this.Url+"detalle/"+id);
   }
 
   modificarUnidadMedida(item:UnidadMedida){
-    return this.http.put<UnidadMedida>(this.Url+item.id_medida, item);
+    return this.http.put<UnidadMedida>(this.Url+"actualizar/"+item.id_medida, item);
+  }
+
+  borrarUMedida(id : number){
+    return this.http.delete(this.Url+'borrar/'+id);
   }
 }

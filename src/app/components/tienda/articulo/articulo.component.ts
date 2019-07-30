@@ -10,6 +10,7 @@ import { CarroService } from "src/app/services/carro.service";
   styleUrls: ["./articulo.component.css"]
 })
 export class ArticuloComponent implements OnInit {
+
   @Input() childMessage: string;
   articulos: Articulo[] = [];
   carroA: any[] = [];
@@ -21,29 +22,40 @@ export class ArticuloComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._articuloService.listarArticulos().subscribe(data => {
-      this.articulos = data;
-    });
-
+    this.cargarArticulos();
     this._carroService.enviarCompraObservable.subscribe(
-      response => (this.carroA = response)
+      response => {this.carroA = response;}
+    );
+  }
+
+  cargarArticulos(): void {
+    this._articuloService
+      .listarArticulos().subscribe(
+      data => {
+        this.articulos = data;
+      },
+      (err: any) =>{
+        console.log(err);
+      }
     );
   }
 
   public verArticulos(idx: string) {
-    this.router.navigate(["/articulo", idx]);
+    this.router.navigate(["/articulos", idx]);
   }
+
+
   cargarAlCarrito(item: any) {
-   
     this.carroA.push(item);
     console.log(this.carroA);
     this._carroService.enviarCompraA(this.carroA);
-    localStorage.setItem("carroA", JSON.stringify(this.carroA));
+   // localStorage.setItem("carroA", JSON.stringify(this.carroA));
 
   }
   cambiarCategoria(categoria: string) {
     this.childMessage = categoria;
   }
+
   enviarCarrito(){
     this.router.navigate(["/carro"]);
   }

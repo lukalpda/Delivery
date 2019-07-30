@@ -1,0 +1,142 @@
+<app-menu-gerente>
+  <div class="container">
+
+    <div class="card wrapper">
+
+      <div class="class-header">
+        <h3 class="text-center">Categorías y medidas</h3>
+        <hr>
+      </div>
+
+      <div class="listas">
+
+        <mat-tab-group mat-align-tabs="center">
+          <mat-tab label="Categoría de Platos">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+              <table class="table table-hover" id="tabla1">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre de categoría</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of categoriasPlato; let i = index" class="text-center">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.nombre_categoria}}</td>
+                    <button (click)="eliminarCategoria(item)"><mat-icon>delete</mat-icon></button>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-tab>
+          <mat-tab label="Categoría de Insumos">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+              <table class="table table-hover" id="tabla2">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre de categoría</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of categoriasArtic; let i = index" class="text-center">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.nombre_categoria}}</td>
+                    <button (click)="eliminarCategoria(item)"><mat-icon>delete</mat-icon></button>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-tab>
+          <mat-tab label="Unidades de medida">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+              <table class="table table-hover" id="tabla2">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>U. de Medida</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of medidas; let i = index" class="text-center">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.tipo_medida}}</td>
+                    <td>
+                      <button (click)="eliminarMedida(item)"><mat-icon>delete</mat-icon></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+
+
+      </div>
+
+      <div class="card-body elementos">
+
+
+        <div class="class-header">
+          <h5 class="text-center">Agregar Categoría</h5>
+          <hr>
+        </div>
+
+        <form>
+
+          <div class="form-group">
+            <label for="">Nombre de categoría nueva:</label>
+            <input type="text" class="form-control" name="stock" [(ngModel)]="categoria.nombre_categoria">
+          </div>
+
+          <label for="">¿Es categoría de plato o de artículo?</label>
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input id="si" name="esPlato" type="radio" class="custom-control-input" [value]="true"
+                [(ngModel)]="categoria.esPlato">
+              <label class="custom-control-label" for="si">De plato</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="no" name="esPlato" type="radio" class="custom-control-input" [value]="false"
+                [(ngModel)]="categoria.esPlato">
+              <label class="custom-control-label" for="no">De artículo</label>
+            </div>
+          </div>
+
+          <div class="botones">
+            <button type="button" (click)="cargarCategoria()" class="btn btn-success btn-lg">Guardar</button>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="card-body elementos">
+
+
+        <div class="class-header">
+          <h5 class="text-center">Agregar unidad de medida</h5>
+          <hr>
+        </div>
+
+        <form>
+
+          <div class="form-group">
+            <label for="">Nombre de unidad de medida nueva:</label>
+            <input type="text" class="form-control" name="stock" [(ngModel)]="medida.tipo_medida">
+          </div>
+
+          <div class="botones">
+            <button type="button" (click)="cargarMedida()" class="btn btn-success btn-lg">Guardar</button>
+          </div>
+
+        </form>
+
+      </div>
+
+      
+
+    </div>
+  </div>
+</app-menu-gerente>

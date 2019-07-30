@@ -23,4 +23,9 @@ export class CarroService {
     this.carroA = carro;
     this.enviarCompraSubject.next(carro);
   }
+
+  vaciarCarro(){
+    this.carroM = null;
+    this.carroA = null;
+  }
 }

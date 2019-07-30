@@ -13,18 +13,18 @@ export class EmpleadoService {
   
 
   listarEmpleados(){
-    return this.http.get<Empleado[]>(this.Url);
+    return this.http.get<Empleado[]>(this.Url+"lista");
   }
 
   crearEmpleado(item: Empleado){    
-    return this.http.post<Empleado>(this.Url, item);
+    return this.http.post<Empleado>(this.Url+"nuevo", item);
   }
 
   buscarXIdEmpleado(id: number){
-    return this.http.get<Empleado>(this.Url+id);
+    return this.http.get<Empleado>(this.Url+"detalle/"+id);
   }
 
   modificarEmpleado(item:Empleado){
-    return this.http.put<Empleado>(this.Url+item.id_empleado, item);
+    return this.http.put<Empleado>(this.Url+"actualizar/"+item.idEmpleado, item);
   }
 }

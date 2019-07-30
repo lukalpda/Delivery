@@ -1,11 +1,11 @@
 import { Cargos } from './cargos.interface';
 
 export interface Empleado{
-  id_empleado: number;
-  codigo_ingreso: number;
+  idEmpleado: number;
+  codigoIngreso: number;
   cuil: number;
   cargo: Cargos;
-  nombre_persona: string;
+  nombre: string;
   dni: number;
   password: string;
   telefono: number;

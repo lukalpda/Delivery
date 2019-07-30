@@ -11,17 +11,22 @@ export class DetalleRecetaService {
   Url = "http://localhost:8080/api/v1/recetas/";
 
   listarDetalleRecetas() {
-    return this.http.get<DetalleReceta[]>(this.Url);
+    return this.http.get<DetalleReceta[]>(this.Url+"lista");
   }
+
+  listarRecetasXIdPlato(id : number){
+    return this.http.get<DetalleReceta[]>(this.Url+"porManufacturado/"+id);
+  }
+
   crearDetalleReceta(item: DetalleReceta) {
-    return this.http.post<DetalleReceta>(this.Url, item);
+    return this.http.post<DetalleReceta>(this.Url+"nuevo", item);
   }
 
   buscarXIdDetalleReceta(id: number) {
-    return this.http.get<DetalleReceta>(this.Url + id);
+    return this.http.get<DetalleReceta[]>(this.Url+'detalle/' + id);
   }
 
-  modificarDetalleReceta(item: DetalleReceta) {
-    return this.http.put<DetalleReceta>(this.Url + item.id_receta, item);
+  modificarDetalleReceta(item: DetalleReceta, id: number) {
+    return this.http.put<DetalleReceta>(this.Url +"actualizar/"+ id, item);
   }
 }

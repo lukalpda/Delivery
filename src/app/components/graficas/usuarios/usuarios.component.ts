@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import {ClienteService} from '../../../services/cliente.service';
 import {Cliente} from '../../../interfaces/cliente.interface';
+import { NuevoUsuarioInterface } from 'src/app/interfaces/nuevo-usuario.interface';
 
 @Component({
   selector: 'app-usuarios',
@@ -11,7 +12,7 @@ import {Cliente} from '../../../interfaces/cliente.interface';
 export class UsuariosComponent implements OnInit {
 
   data: any;
-  clientes: Cliente[]=[];
+  clientes: NuevoUsuarioInterface[]=[];
 
   constructor(private _clientesService: ClienteService) {
     this.data = {
