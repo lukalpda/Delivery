@@ -27,6 +27,8 @@ import { PlatoComponent } from './components/stock/stock-manufacturado/plato.com
 import { AgregarPlatoComponent } from './components/stock/stock-manufacturado/agregar-manufacturado/agregar-plato.component';
 import { EditarPlatoComponent } from './components/stock/stock-manufacturado/editar-manufacturado/editar-plato.component';
 import { CategoriaMedidaComponent } from './components/stock/categoria-medida/categoria-medida.component';
+import {ComandaComponent} from "./components/cocina/comanda/comanda.component";
+import {HistorialCocinaComponent} from "./components/cocina/historial-cocina/historial-cocina.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -42,11 +44,15 @@ const routes: Routes = [
 
   //admin
   {path: 'gerente', component: GerenteComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'recepcion', component: RecepcionComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'cocina', component: CocinaComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin', 'empleado']}},
+  {path: 'comanda', component: ComandaComponent,
+    canActivate: [guard], data: {expectedRol: ['admin', 'empleado']}},
+  {path: 'historial-cocina', component: HistorialCocinaComponent,
+    canActivate: [guard], data: {expectedRol: ['admin', 'empleado']}},
   {path: 'graficas/Platos+Vendidos', component: BarrasComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'graficas/Ingresos', component: LineasComponent,
@@ -64,19 +70,19 @@ const routes: Routes = [
   {path: 'editarCliente/:id', component: EditarClienteComponent,
     canActivate: [guard], data: { expectedRol: ['admin']}},
   {path: 'stock', component: StockComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'agregarArticulo', component: AgregarStockComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'editarStock/:id', component: EditarStockComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'platos', component: PlatoComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'agregarPlato', component: AgregarPlatoComponent,
-  canActivate: [guard], data: { expectedRol: ['admin']}},
+  canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'editarPlato/:id', component: EditarPlatoComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
   {path: 'categoria_medida', component: CategoriaMedidaComponent,
-    canActivate: [guard], data: { expectedRol: ['admin']}},
+    canActivate: [guard], data: { expectedRol: ['admin','empleado']}},
 
   //Users
   {path: 'admin', component:AdminComponent,

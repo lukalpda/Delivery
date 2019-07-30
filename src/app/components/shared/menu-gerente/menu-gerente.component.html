@@ -14,6 +14,8 @@
       <a mat-list-item routerLink="/clientes/">Clientes</a>
       <a mat-list-item routerLink="/stock/">Artículos</a>
       <a mat-list-item routerLink="/platos/">Platos</a>
+      <a mat-list-item routerLink="/comanda/" *ngIf="authority === 'admin' || authority==='empleado'">Comandas</a>
+      <a mat-list-item routerLink="/historial-cocina/" *ngIf="authority === 'admin' || authority==='empleado'">Historial Cocina</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
