@@ -11,10 +11,10 @@
         <li class="nav-item" routerLinkActive="active">
           <button type="button" class="button btn" routerLink="/tienda"><strong>Tienda</strong></button>
         </li>
-        <li class="nav-item" *ngIf="authority==='admin'">
+        <li class="nav-item">
           <button type="button" class="button btn" routerLink="/cocina"><strong>Cocina</strong></button>
         </li>
-        <li class="nav-item" routerLinkActive="active" *ngIf="authority === 'admin'">
+        <li class="nav-item" routerLinkActive="active">
           <button type="button" class="button btn" routerLink="/recepcion"><strong>Recepción</strong></button>
         </li>
         </ul>
@@ -24,15 +24,15 @@
             <button type="button" class="button" routerLink="/auth/register"><strong>Registrarse</strong></button>
           </li>
 
-          <li class="nav-item" routerLinkActive="active" *ngIf="authority === 'user' || authority==='admin'">
+          <li class="nav-item" routerLinkActive="active">
             <button type="button" class="button" routerLink="/carro"><mat-icon>shopping_cart</mat-icon></button>
           </li>
-        <li class="nav-item" *ngIf="authority === 'admin'">
+        <li class="nav-item">
           <button type="button" class="button material-icons md-48" routerLink="/gerente">
             <mat-icon>work_outline</mat-icon>
           </button>
         </li>
-        <li class="nav-item" *ngIf="user === 'user' || authority==='empleado' || authority==='admin'">
+        <li class="nav-item">
           <button type="button" class="button material-icons md-48" routerLink="/auth/profile">
             <mat-icon>account_circle</mat-icon>
           </button>
